@@ -17,6 +17,12 @@ win:
   target:
     - nsis
     - msi
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  include: resources/installer.nsh
+  displayLanguageSelector: true
 mac:
   icon: resources/icon.png
   target:

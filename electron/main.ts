@@ -27,6 +27,12 @@ if (!isDev && hasDebugFlag()) {
   app.exit(1)
 }
 
+// A packaged build must never run in development mode.
+if (app.isPackaged && process.env.NODE_ENV === 'development') {
+  console.error('[SECURITY] Production build must not run with NODE_ENV=development. Refusing to start.')
+  app.exit(1)
+}
+
 // Sandbox every renderer process and never use the GPU.
 app.enableSandbox()
 app.disableHardwareAcceleration()
