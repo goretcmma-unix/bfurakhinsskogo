@@ -1,0 +1,28 @@
+appId: org.charity.finance
+productName: Charity Finance
+directories:
+  buildResources: resources
+  output: dist
+asar: true
+compression: maximum
+removePackageScripts: true
+files:
+  - out/**
+  - package.json
+extraResources:
+  - from: resources/icon.png
+    to: icon.png
+win:
+  icon: resources/icon.png
+  target:
+    - nsis
+    - msi
+mac:
+  icon: resources/icon.png
+  target:
+    - dmg
+linux:
+  icon: resources/icon.png
+  target:
+    - AppImage
+    - deb

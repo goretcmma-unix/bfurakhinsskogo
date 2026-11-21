@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #0b0d0d;
+  color: #f2f5f4;
+  font-family: Inter, 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #252d2b transparent;
+}
+
+@supports (scrollbar-gutter: stable) {
+  .overflow-y-auto,
+  .overflow-auto {
+    scrollbar-gutter: stable;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #252d2b;
+  border-radius: 999px;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+/* Keep date/number controls aligned with dark theme on Chromium */
+input[type='date'],
+input[type='number'] {
+  color-scheme: dark;
+}
+
+/* Hide system spin buttons */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  display: none;
+}
+
+/* Smooth cursor interaction on amount input */
+input[type='number'] {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  caret-color: #40E0D0;
+}
+input[type='number']:hover {
+  border-color: #40E0D0;
+}
+input[type='number']:focus {
+  outline: none;
+  border-color: #40E0D0;
+  box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.nav-center a.active,
+nav button.active {
+  border-color: #40E0D0;
+  color: #ffffff;
+  opacity: 1;
+}
