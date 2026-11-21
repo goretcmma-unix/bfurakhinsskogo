@@ -2562,7 +2562,90 @@
          onScroll();
        }
 
-       initPageData();
-     </script>
-  </body>
+         initPageData();
+      </script>
+
+      <!-- JSON-LD Organization -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Благотворительный фонд",
+        "alternateName": "фонд сергокалы",
+        "url": "https://ваш-домен.vercel.app/",
+        "logo": "https://ваш-домен.vercel.app/fondlogotip.svg",
+        "image": "https://ваш-домен.vercel.app/hero-image.png",
+        "description": "Благотворительный фонд — прозрачная статистика пожертвований и расходов",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "RU"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "info@fund.example"
+        },
+        "sameAs": []
+      }
+      </script>
+
+      <!-- JSON-LD FAQPage -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Что делает этот фонд?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Благотворительный фонд собирает и распределяет пожертвования, ведёт прозрачную статистику всех доходов и расходов."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Как помочь фонду?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Вы можете сделать пожертвование на реквизиты, указанные на сайте, или связаться с нами через раздел помощи."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Где посмотреть отчёты?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Все отчёты о сборах и расходах публикуются в разделе отчётов на этом сайте. Данные обновляются регулярно."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Кто управляет фондом?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Фонд управляется уполномоченными лицами. Полная информация о руководстве и отчётность доступны на сайте."
+            }
+          }
+        ]
+      }
+      </script>
+
+      <!-- JSON-LD WebSite -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Благотворительный фонд",
+        "url": "https://ваш-домен.vercel.app/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://ваш-домен.vercel.app/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "inLanguage": "ru-RU"
+      }
+      </script>
+
+   </body>
 </html>
