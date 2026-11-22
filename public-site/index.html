@@ -2330,6 +2330,12 @@
         const next = document.getElementById('pagination-next');
         const total = typeof totalItems === 'number' ? totalItems : getFilteredTransactions().length;
         const totalPages = Math.max(1, Math.ceil(total / pageSize));
+        const scrollToTable = () => {
+          const el = document.querySelector('.table-wrap');
+          if (!el) return;
+          const top = el.getBoundingClientRect().top + window.scrollY - 90;
+          if (Math.abs(window.scrollY - top) > 10) window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+        };
         if (container) {
           const pages = [];
           const max = window.innerWidth < 640 ? 4 : 7;
@@ -2341,10 +2347,10 @@
             pages.push(`<button type="button" class="pagination-num ${p === currentPage ? 'pagination-btn-active' : ''}" data-page="${p}">${p}</button>`);
           }
           container.innerHTML = pages.join('');
-          container.querySelectorAll('[data-page]').forEach(btn => btn.addEventListener('click', () => { currentPage = Number(btn.dataset.page) || 1; renderTable(); }));
+          container.querySelectorAll('[data-page]').forEach(btn => btn.addEventListener('click', () => { currentPage = Number(btn.dataset.page) || 1; renderTable(); scrollToTable(); }));
         }
-        if (prev) { prev.disabled = currentPage <= 1; prev.onclick = () => { if (currentPage > 1) { currentPage--; renderTable(); } }; }
-        if (next) { next.disabled = currentPage >= totalPages; next.onclick = () => { if (currentPage < totalPages) { currentPage++; renderTable(); } }; }
+        if (prev) { prev.disabled = currentPage <= 1; prev.onclick = () => { if (currentPage > 1) { currentPage--; renderTable(); scrollToTable(); } }; }
+        if (next) { next.disabled = currentPage >= totalPages; next.onclick = () => { if (currentPage < totalPages) { currentPage++; renderTable(); scrollToTable(); } }; }
         const pag = document.getElementById('pagination-container');
         if (pag) pag.style.display = total > pageSize ? 'flex' : 'none';
       }
