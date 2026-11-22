@@ -24,26 +24,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Inject Supabase public config
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-        run: |
-          python - <<'PY'
-          import os, sys
-          from pathlib import Path
-          url = os.environ.get('SUPABASE_URL', '').strip()
-          key = os.environ.get('SUPABASE_ANON_KEY', '').strip()
-          if not url or not key:
-            print('Missing SUPABASE_URL or SUPABASE_ANON_KEY GitHub Secrets', file=sys.stderr)
-            sys.exit(1)
-          p = Path('public-site/index.html')
-          s = p.read_text(encoding='utf-8')
-          s = s.replace('__SUPABASE_URL__', url)
-          s = s.replace('__SUPABASE_ANON_KEY__', key)
-          p.write_text(s, encoding='utf-8')
-          PY
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

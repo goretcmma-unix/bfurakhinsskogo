@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://db.fond-urakhinskogo.ru 'unsafe-inline'; connect-src 'self' https://db.fond-urakhinskogo.ru wss://db.fond-urakhinskogo.ru https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://*.supabase.co 'unsafe-inline'; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:;">
     <meta name="description" content="Благотворительный фонд — прозрачная статистика пожертвований и расходов" />
     <meta name="keywords" content="Благотворительный фонд, фонд сергокалы, сергокала фонд, помощь, благотворительность, прозрачность пожертвований, статистика расходов">
     <title>Благотворительный фонд | Прозрачность и отчёты</title>
@@ -1550,8 +1550,9 @@
         }, { once: true });
       }
 
-      const SUPABASE_URL = '__SUPABASE_URL__';
-      const SUPABASE_ANON_KEY = '__SUPABASE_ANON_KEY__';
+      const SUPABASE_URL = 'https://ybgxfewbhjvtgdklzihr.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InliZ3hmZXdiaGp2dGdka2x6aWhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQyMzQxNDMsImV4cCI6MjEwOTgxMDE0M30.TNtI-728-qIjKxBGhVi0Ckrfug1ogL-t0hHtODTtfAA';
+      const PUBLIC_CACHE_KEY = 'public-site-transactions-v1';
       let supabaseClient = null;
       let supabaseReady = null;
       function getSupabaseClient() {
@@ -1590,62 +1591,98 @@
       const pageSize = 25;
       let allTransactions = [];
 
-      async function loadPublicData() {
+      function normalizeTransactions(txns) {
+        return (Array.isArray(txns) ? txns : []).map(t => ({
+          date: t?.date || '',
+          time: t?.time || '',
+          type: t?.type === 'expense' ? 'expense' : 'income',
+          category: t?.category || '—',
+          description: t?.description || '',
+          donor: t?.donor || '—',
+          amount: Number(t?.amount) || 0,
+          doc: t?.doc || '—'
+        })).sort((a, b) => {
+          const da = new Date(`${a.date}T${a.time || '00:00'}`);
+          const db = new Date(`${b.date}T${b.time || '00:00'}`);
+          return db - da;
+        });
+      }
+
+      function applyTransactions(txns) {
+        allTransactions = normalizeTransactions(txns);
+        demoData.transactions = allTransactions.slice();
+
+        const categoriesSelect = document.querySelector('#repCategory-trigger')?.closest('.custom-select');
+        if (categoriesSelect) {
+          const categoriesOptions = categoriesSelect.querySelector('.custom-select-options');
+          const uniqueCategories = [...new Set(allTransactions.map(t => t.category).filter(c => c && c !== '—'))].sort();
+          categoriesOptions.innerHTML = `<div class="custom-select-option selected" role="option" data-value="all">Все категории</div>` +
+            uniqueCategories.map(cat => `<div class="custom-select-option" role="option" data-value="${String(cat).replace(/"/g,'&quot;')}">${cat}</div>`).join('');
+          categoriesSelect.dataset.value = 'all';
+          const trig = categoriesSelect.querySelector('.custom-select-trigger');
+          if (trig) trig.textContent = 'Все категории';
+        }
+
+        currentSearch = '';
+        const income = demoData.transactions.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
+        const expense = demoData.transactions.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
+        demoData.donations = income;
+        demoData.expenses = expense;
+        demoData.balance = income - expense;
+        try { if (typeof updateChartData === 'function') updateChartData(currentPeriod); } catch (e) { console.warn('[public-site] updateChartData error:', e); }
+      }
+
+      function readCachedPublicData() {
+        try {
+          const raw = localStorage.getItem(PUBLIC_CACHE_KEY);
+          if (!raw) return null;
+          const parsed = JSON.parse(raw);
+          const txns = Array.isArray(parsed) ? parsed : parsed?.transactions;
+          if (!Array.isArray(txns) || txns.length === 0) return null;
+          return txns;
+        } catch (e) {
+          console.warn('[public-site] cache read failed:', e);
+          return null;
+        }
+      }
+
+      function writeCachedPublicData(txns) {
+        try {
+          localStorage.setItem(PUBLIC_CACHE_KEY, JSON.stringify({
+            updatedAt: Date.now(),
+            transactions: normalizeTransactions(txns)
+          }));
+        } catch (e) {
+          console.warn('[public-site] cache write failed:', e);
+        }
+      }
+
+      async function loadPublicData({ background = false } = {}) {
         try {
           const client = await getSupabaseClient();
           if (!client) throw new Error('Supabase unavailable');
           const { data: txns, error } = await client
             .from('public_transactions')
-            .select('*')
+            .select('date,time,type,category,description,donor,amount,doc')
             .order('date', { ascending: false })
-            .limit(500);
+            .limit(300);
 
           if (error) throw error;
 
           if (txns && txns.length > 0) {
-            allTransactions = txns.map(t => ({
-              date: t.date,
-              time: t.time || '',
-              type: t.type,
-              category: t.category || '—',
-              description: t.description || '',
-              donor: t.donor || '—',
-              amount: Number(t.amount),
-              doc: t.doc || '—'
-            }));
-            // Сортировка: самые свежие операции в начале (по дате и времени)
-            allTransactions.sort((a, b) => {
-              const da = new Date(`${a.date}T${a.time || '00:00'}`);
-              const db = new Date(`${b.date}T${b.time || '00:00'}`);
-              return db - da;
-            });
-            demoData.transactions = allTransactions.slice();
-
-            // Заполнение опций категории из уникальных значений транзакций
-            const categoriesSelect = document.querySelector('#repCategory-trigger')?.closest('.custom-select');
-            if (categoriesSelect) {
-              const categoriesOptions = categoriesSelect.querySelector('.custom-select-options');
-              const uniqueCategories = [...new Set(allTransactions.map(t => t.category).filter(c => c && c !== '—'))].sort();
-              categoriesOptions.innerHTML = `<div class="custom-select-option selected" role="option" data-value="all">Все категории</div>` +
-                uniqueCategories.map(cat => `<div class="custom-select-option" role="option" data-value="${String(cat).replace(/"/g,'&quot;')}">${cat}</div>`).join('');
-              categoriesSelect.dataset.value = 'all';
-              const trig = categoriesSelect.querySelector('.custom-select-trigger');
-              if (trig) trig.textContent = 'Все категории';
-            }
-
-            currentSearch = '';
-
-            const income = demoData.transactions.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
-            const expense = demoData.transactions.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
-            demoData.donations = income;
-            demoData.expenses = expense;
-            demoData.balance = income - expense;
-
-            updateChartData(currentPeriod);
+            applyTransactions(txns);
+            writeCachedPublicData(txns);
+            return true;
           }
+          return false;
         } catch (e) {
-          console.error('[public-site] load failed:', e);
-          console.warn('[public-site] Using demo data:', e.message);
+          if (!background) {
+            console.error('[public-site] load failed:', e);
+            console.warn('[public-site] Using cached/demo data:', e.message);
+          } else {
+            console.warn('[public-site] background refresh failed:', e?.message || e);
+          }
+          return false;
         }
       }
 
@@ -1688,23 +1725,32 @@
       window.currentPeriod = currentPeriod;
 
       async function initPageData() {
-        // Load real data first so chart/stats render with actual data (no flicker)
-        try { await loadPublicData(); } catch (e) { console.warn('[public-site] load failed, keeping demo data:', e); }
-        try { if (typeof renderStats === 'function') renderStats(); } catch (e) { console.error(e); }
-        try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
+        // 1) Сразу поднимаем UI, чтобы меню/кнопки работали без ожидания сети
         try { if (typeof initCustomSelects === 'function') initCustomSelects(); } catch (e) { console.error(e); }
         try { if (typeof initDonate === 'function') initDonate(); } catch (e) { console.error(e); }
         try { initMobileMenuAndTableControls(); } catch (e) { console.error(e); }
 
-        // Render chart directly (Chart.js global not required — uses canvas 2d context)
-        try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.warn('[public-site] render error:', e); }
+        // 2) Мгновенно показываем кэш (если есть), потом обновляем из Supabase в фоне
+        const cached = readCachedPublicData();
+        if (cached) {
+          try { applyTransactions(cached); } catch (e) { console.warn('[public-site] cache apply failed:', e); }
+        }
+        try { if (typeof renderStats === 'function') renderStats(); } catch (e) { console.error(e); }
+        try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
+
+        // 3) Фоновое обновление из Supabase — не блокирует интерфейс
+        void loadPublicData({ background: true }).then((ok) => {
+          if (!ok) return;
+          try { if (typeof renderStats === 'function') renderStats(); } catch (e) { console.error(e); }
+          try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
+        }).catch((e) => console.warn('[public-site] background load failed:', e));
+
         window.addEventListener('load', () => {
           try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
         });
 
-        subscribeRealtime().catch((e) => console.warn('[public-site] realtime subscribe failed:', e));
-
-        // Периодическое автообновление (если realtime недоступен) + при возврате на вкладку
+        // 4) Realtime/периодическое обновление — только как фоновые задачи
+        try { subscribeRealtime().catch((e) => console.warn('[public-site] realtime subscribe failed:', e)); } catch (e) { console.warn('[public-site] realtime init failed:', e); }
         setInterval(() => { void refreshPublicData(true); }, 20000);
         document.addEventListener('visibilitychange', () => {
           if (document.visibilityState === 'visible') void refreshPublicData(true);
