@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://*.supabase.co 'unsafe-inline'; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://db.fond-urakhinskogo.ru 'unsafe-inline'; connect-src 'self' https://db.fond-urakhinskogo.ru wss://db.fond-urakhinskogo.ru https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:;">
     <meta name="description" content="Благотворительный фонд — прозрачная статистика пожертвований и расходов" />
     <meta name="keywords" content="Благотворительный фонд, фонд сергокалы, сергокала фонд, помощь, благотворительность, прозрачность пожертвований, статистика расходов">
     <title>Благотворительный фонд | Прозрачность и отчёты</title>
-    <link rel="canonical" href="https://ваш-домен.vercel.app/">
+    <link rel="canonical" href="https://fond-urakhinskogo.ru/">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Благотворительный фонд | Прозрачность и отчёты">
     <meta property="og:description" content="Благотворительный фонд — прозрачная статистика пожертвований и расходов">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ваш-домен.vercel.app/">
-    <meta property="og:image" content="https://ваш-домен.vercel.app/hero-image.png">
+    <meta property="og:url" content="https://fond-urakhinskogo.ru/">
+    <meta property="og:image" content="https://fond-urakhinskogo.ru/hero-image.png">
     <meta property="og:site_name" content="Благотворительный фонд">
     <meta property="og:locale" content="ru_RU">
 
@@ -22,7 +22,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Благотворительный фонд | Прозрачность и отчёты">
     <meta name="twitter:description" content="Благотворительный фонд — прозрачная статистика пожертвований и расходов">
-    <meta name="twitter:image" content="https://ваш-домен.vercel.app/hero-image.png">
+    <meta name="twitter:image" content="https://fond-urakhinskogo.ru/hero-image.png">
     <meta name="twitter:site" content="@fundcharity">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
@@ -1581,7 +1581,7 @@
         }, { once: true });
       }
 
-      const SUPABASE_URL = 'https://ybgxfewbhjvtgdklzihr.supabase.co';
+      const SUPABASE_URL = 'https://db.fond-urakhinskogo.ru';
       const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InliZ3hmZXdiaGp2dGdka2x6aWhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQyMzQxNDMsImV4cCI6MjEwOTgxMDE0M30.TNtI-728-qIjKxBGhVi0Ckrfug1ogL-t0hHtODTtfAA';
       let supabaseClient = null;
       let supabaseReady = null;
@@ -1629,7 +1629,7 @@
             .from('public_transactions')
             .select('*')
             .order('date', { ascending: false })
-            .limit(5000);
+            .limit(500);
 
           if (error) throw error;
 
@@ -2609,9 +2609,9 @@
         "@type": "Organization",
         "name": "Благотворительный фонд",
         "alternateName": "фонд сергокалы",
-        "url": "https://ваш-домен.vercel.app/",
-        "logo": "https://ваш-домен.vercel.app/fondlogotip.svg",
-        "image": "https://ваш-домен.vercel.app/hero-image.png",
+        "url": "https://fond-urakhinskogo.ru/",
+        "logo": "https://fond-urakhinskogo.ru/fondlogotip.svg",
+        "image": "https://fond-urakhinskogo.ru/hero-image.png",
         "description": "Благотворительный фонд — прозрачная статистика пожертвований и расходов",
         "address": {
           "@type": "PostalAddress",
@@ -2674,10 +2674,10 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Благотворительный фонд",
-        "url": "https://ваш-домен.vercel.app/",
+        "url": "https://fond-urakhinskogo.ru/",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://ваш-домен.vercel.app/?q={search_term_string}",
+          "target": "https://fond-urakhinskogo.ru/?q={search_term_string}",
           "query-input": "required name=search_term_string"
         },
         "inLanguage": "ru-RU"
