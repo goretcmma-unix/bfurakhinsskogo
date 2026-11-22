@@ -25,6 +25,8 @@ ${inner}
 const sizes = [
   { name: 'favicon-16x16.png', width: 16, height: 16 },
   { name: 'favicon-32x32.png', width: 32, height: 32 },
+  { name: 'favicon-48x48.png', width: 48, height: 48 },
+  { name: 'favicon-96x96.png', width: 96, height: 96 },
   { name: 'android-chrome-192x192.png', width: 192, height: 192 },
   { name: 'android-chrome-512x512.png', width: 512, height: 512 },
   { name: 'apple-touch-icon-180x180.png', width: 180, height: 180 },
@@ -40,15 +42,14 @@ for (const { name, width, height } of sizes) {
 
 await sharp(Buffer.from(squareSvg))
   .resize(48, 48, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
-  .png()
-  .toFile(path.join(outDir, 'favicon-48x48.png'));
-console.log('created favicon-48x48.png');
-
-// favicon.ico: biryuzyovyi lotoip, razmer 48x48 (browser priimayet PNG-vnutri .ico)
-await sharp(Buffer.from(squareSvg))
-  .resize(48, 48, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
   .toFile(path.join(outDir, 'favicon.ico'));
 console.log('created favicon.ico');
+
+// favicon.svg: biryuzyovyi lotoip (original #40E0D0 color)
+const coloredSvg = `<?xml version="1.0" encoding="UTF-8"?>
+${svg}`;
+fs.writeFileSync(path.join(outDir, 'favicon.svg'), coloredSvg);
+console.log('created favicon.svg');
 
 // safari-pinned-tab.svg: black silhouette mask
 const maskSvg = `<?xml version="1.0" encoding="UTF-8"?>
