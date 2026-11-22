@@ -1718,21 +1718,15 @@
       window.filterAndRender = filterAndRender;
       window.currentPeriod = currentPeriod;
 
-      async function initPageData() {
-        // Load real data first so chart/stats render with actual data (no flicker)
-        try { await loadPublicData(); } catch (e) { console.warn('[public-site] load failed, keeping demo data:', e); }
-        try { if (typeof renderStats === 'function') renderStats(); } catch (e) { console.error(e); }
-        try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
+      // Мгновенная инициализация интерфейса — не ждём Supabase
+      function initUI() {
         try { if (typeof initCustomSelects === 'function') initCustomSelects(); } catch (e) { console.error(e); }
         try { if (typeof initDonate === 'function') initDonate(); } catch (e) { console.error(e); }
         try { initMobileMenuAndTableControls(); } catch (e) { console.error(e); }
-
-        // Render chart directly (Chart.js global not required — uses canvas 2d context)
-        try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.warn('[public-site] render error:', e); }
+        try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.warn('[public-site] initial render error:', e); }
         window.addEventListener('load', () => {
           try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
         });
-
         subscribeRealtime().catch((e) => console.warn('[public-site] realtime subscribe failed:', e));
 
         // Периодическое автообновление (если realtime недоступен) + при возврате на вкладку
@@ -1740,6 +1734,13 @@
         document.addEventListener('visibilitychange', () => {
           if (document.visibilityState === 'visible') void refreshPublicData(true);
         });
+      }
+
+      // Загрузка данных в фоне
+      async function initData() {
+        try { await loadPublicData(); } catch (e) { console.warn('[public-site] load failed, keeping demo data:', e); }
+        try { if (typeof renderStats === 'function') renderStats(); } catch (e) { console.error(e); }
+        try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
       }
 
       window.urgentCollection = {
@@ -2599,7 +2600,8 @@
          onScroll();
        }
 
-         initPageData();
+          initUI();
+          initData();
       </script>
 
       <!-- JSON-LD Organization -->
