@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ваш-домен.vercel.app/sitemap.xml
+Sitemap: https://fond-urakhinskogo.ru/sitemap.xml
