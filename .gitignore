@@ -20,7 +20,3 @@ resources/*.pem
 resources/*.pfx
 resources/*.key
 supabase/
-electron/sber-api/
-src/lib/supabase.ts
-src/lib/dataService.ts
-electron/sber-api/supabaseWriter.ts
