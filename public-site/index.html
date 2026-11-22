@@ -928,6 +928,8 @@
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-md);
         overflow: hidden;
+        min-height: 420px;
+        scroll-margin-top: 92px;
       }
       .rep-table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; font-size: 13px; }
        .rep-table th {
@@ -979,7 +981,7 @@
       .reports-collapsible { display: block; }
       .rep-table .date-short { display: none; }
       @media (max-width: 768px) {
-        .table-wrap { background: transparent; border: none; box-shadow: none; border-radius: 0; overflow: visible; padding: 0; }
+        .table-wrap { background: transparent; border: none; box-shadow: none; border-radius: 0; overflow: visible; padding: 0; min-height: 300px; }
         .rep-table, .rep-table tbody, .rep-table tr, .rep-table td { display: block; width: 100%; }
         .rep-table thead { display: none; }
         .rep-table { border-collapse: separate; border-spacing: 0; table-layout: auto; font-size: 13px; }
@@ -2285,6 +2287,8 @@
         const showExpense = filtered.some(t => t.type === 'expense');
         const colVis = { category: showCategory, sender: showSender, income: showIncome, expense: showExpense };
         const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        const tableWrap = document.querySelector('.table-wrap');
+        if (tableWrap) tableWrap.style.minHeight = tableWrap.offsetHeight + 'px';
 
         tbody.innerHTML = page.map(t => {
           const d = new Date(t.date);
@@ -2322,6 +2326,7 @@
           });
         }
         renderPagination(filtered.length);
+        if (tableWrap) requestAnimationFrame(() => { tableWrap.style.minHeight = ''; });
       }
 
       function renderPagination(totalItems) {
@@ -2333,8 +2338,9 @@
         const scrollToTable = () => {
           const el = document.querySelector('.table-wrap');
           if (!el) return;
-          const top = el.getBoundingClientRect().top + window.scrollY - 90;
-          if (Math.abs(window.scrollY - top) > 10) window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+          const rect = el.getBoundingClientRect();
+          const inView = rect.top >= 80 && rect.top <= window.innerHeight * 0.4;
+          if (!inView) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         };
         if (container) {
           const pages = [];
@@ -2347,10 +2353,10 @@
             pages.push(`<button type="button" class="pagination-num ${p === currentPage ? 'pagination-btn-active' : ''}" data-page="${p}">${p}</button>`);
           }
           container.innerHTML = pages.join('');
-          container.querySelectorAll('[data-page]').forEach(btn => btn.addEventListener('click', () => { currentPage = Number(btn.dataset.page) || 1; renderTable(); scrollToTable(); }));
+          container.querySelectorAll('[data-page]').forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); currentPage = Number(btn.dataset.page) || 1; renderTable(); scrollToTable(); }));
         }
-        if (prev) { prev.disabled = currentPage <= 1; prev.onclick = () => { if (currentPage > 1) { currentPage--; renderTable(); scrollToTable(); } }; }
-        if (next) { next.disabled = currentPage >= totalPages; next.onclick = () => { if (currentPage < totalPages) { currentPage++; renderTable(); scrollToTable(); } }; }
+        if (prev) { prev.disabled = currentPage <= 1; prev.onclick = (e) => { e.preventDefault(); if (currentPage > 1) { currentPage--; renderTable(); scrollToTable(); } }; }
+        if (next) { next.disabled = currentPage >= totalPages; next.onclick = (e) => { e.preventDefault(); if (currentPage < totalPages) { currentPage++; renderTable(); scrollToTable(); } }; }
         const pag = document.getElementById('pagination-container');
         if (pag) pag.style.display = total > pageSize ? 'flex' : 'none';
       }
