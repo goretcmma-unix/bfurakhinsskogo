@@ -1084,6 +1084,13 @@
       .pagination-numbers { display:flex; gap:6px; }
 
       .pagination { margin-top:24px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap; opacity:0.9; }
+      @media (max-width: 640px) {
+        .pagination { gap: 4px; flex-wrap: nowrap; }
+        .pagination-btn { padding: 6px 8px; font-size: 12px; white-space: nowrap; }
+        .pagination-num { padding: 6px 7px; font-size: 12px; min-width: 30px; }
+        .pagination-numbers { gap: 2px; }
+        .pagination .pag-text { display: none; }
+      }
 
       /* ===== SEARCH ===== */
       .search-input {
@@ -1427,10 +1434,10 @@
               <tbody id="repBody"></tbody>
             </table>
           </div>
-          <div id="pagination-container" class="pagination" style="margin-top:24px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap;">
-            <button type="button" id="pagination-prev" class="pagination-btn">‹ Назад</button>
+          <div id="pagination-container" class="pagination">
+            <button type="button" id="pagination-prev" class="pagination-btn">‹ <span class="pag-text">Назад</span></button>
             <div id="pagination-numbers" class="pagination-numbers"></div>
-            <button type="button" id="pagination-next" class="pagination-btn">Следующая ›</button>
+            <button type="button" id="pagination-next" class="pagination-btn"><span class="pag-text">Следующая</span> ›</button>
           </div>
         </div>
       </div>
@@ -2325,8 +2332,9 @@
         const totalPages = Math.max(1, Math.ceil(total / pageSize));
         if (container) {
           const pages = [];
-          const max = 7;
-          let startP = Math.max(1, currentPage - 3);
+          const max = window.innerWidth < 640 ? 4 : 7;
+          const half = Math.floor(max / 2);
+          let startP = Math.max(1, currentPage - half);
           let endP = Math.min(totalPages, startP + max - 1);
           startP = Math.max(1, endP - max + 1);
           for (let p = startP; p <= endP; p++) {
