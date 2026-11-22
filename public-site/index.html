@@ -2268,6 +2268,7 @@
         });
       }
 
+      let stableTableHeight = 0;
       function renderTable() {
         const tbody = document.getElementById('repBody');
         const table = document.querySelector('.rep-table');
@@ -2326,7 +2327,12 @@
           });
         }
         renderPagination(filtered.length);
-        if (tableWrap) requestAnimationFrame(() => { tableWrap.style.minHeight = ''; });
+        if (tableWrap) requestAnimationFrame(() => {
+          const isFullPage = page.length === pageSize;
+          if (isFullPage) stableTableHeight = Math.max(stableTableHeight, tableWrap.offsetHeight);
+          const shouldStabilize = filtered.length > pageSize && stableTableHeight > 0;
+          tableWrap.style.minHeight = shouldStabilize ? stableTableHeight + 'px' : '';
+        });
       }
 
       function renderPagination(totalItems) {
