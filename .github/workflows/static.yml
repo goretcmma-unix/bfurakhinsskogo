@@ -24,6 +24,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Inject Supabase Config
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          cat <<EOF > ./public-site/env-config.js
+          window.__ENV__ = {
+            VITE_SUPABASE_URL: "$VITE_SUPABASE_URL",
+            VITE_SUPABASE_ANON_KEY: "$VITE_SUPABASE_ANON_KEY"
+          };
+          EOF
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
