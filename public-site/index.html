@@ -2335,13 +2335,6 @@
         const next = document.getElementById('pagination-next');
         const total = typeof totalItems === 'number' ? totalItems : getFilteredTransactions().length;
         const totalPages = Math.max(1, Math.ceil(total / pageSize));
-        const scrollToTable = () => {
-          const el = document.querySelector('.table-wrap');
-          if (!el) return;
-          const rect = el.getBoundingClientRect();
-          const inView = rect.top >= 80 && rect.top <= window.innerHeight * 0.4;
-          if (!inView) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        };
         if (container) {
           const pages = [];
           const max = window.innerWidth < 640 ? 4 : 7;
@@ -2353,10 +2346,10 @@
             pages.push(`<button type="button" class="pagination-num ${p === currentPage ? 'pagination-btn-active' : ''}" data-page="${p}">${p}</button>`);
           }
           container.innerHTML = pages.join('');
-          container.querySelectorAll('[data-page]').forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); currentPage = Number(btn.dataset.page) || 1; renderTable(); scrollToTable(); }));
+          container.querySelectorAll('[data-page]').forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); currentPage = Number(btn.dataset.page) || 1; renderTable(); }));
         }
-        if (prev) { prev.disabled = currentPage <= 1; prev.onclick = (e) => { e.preventDefault(); if (currentPage > 1) { currentPage--; renderTable(); scrollToTable(); } }; }
-        if (next) { next.disabled = currentPage >= totalPages; next.onclick = (e) => { e.preventDefault(); if (currentPage < totalPages) { currentPage++; renderTable(); scrollToTable(); } }; }
+        if (prev) { prev.disabled = currentPage <= 1; prev.onclick = (e) => { e.preventDefault(); if (currentPage > 1) { currentPage--; renderTable(); } }; }
+        if (next) { next.disabled = currentPage >= totalPages; next.onclick = (e) => { e.preventDefault(); if (currentPage < totalPages) { currentPage++; renderTable(); } }; }
         const pag = document.getElementById('pagination-container');
         if (pag) pag.style.display = total > pageSize ? 'flex' : 'none';
       }
