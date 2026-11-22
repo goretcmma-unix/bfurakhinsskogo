@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://db.fond-urakhinskogo.ru 'unsafe-inline'; connect-src 'self' https://db.fond-urakhinskogo.ru wss://db.fond-urakhinskogo.ru https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; connect-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:;">
     <meta name="description" content="Благотворительный фонд — прозрачная статистика пожертвований и расходов" />
     <meta name="keywords" content="Благотворительный фонд, фонд сергокалы, сергокала фонд, помощь, благотворительность, прозрачность пожертвований, статистика расходов">
     <title>Благотворительный фонд | Прозрачность и отчёты</title>
@@ -1581,27 +1581,6 @@
         }, { once: true });
       }
 
-      const SUPABASE_URL = 'https://db.fond-urakhinskogo.ru';
-      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InliZ3hmZXdiaGp2dGdka2x6aWhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQyMzQxNDMsImV4cCI6MjEwOTgxMDE0M30.TNtI-728-qIjKxBGhVi0Ckrfug1ogL-t0hHtODTtfAA';
-      let supabaseClient = null;
-      let supabaseReady = null;
-      function getSupabaseClient() {
-        if (supabaseClient) return Promise.resolve(supabaseClient);
-        if (!supabaseReady) {
-          supabaseReady = import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm')
-            .then(({ createClient }) => {
-              supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-              return supabaseClient;
-            })
-            .catch((e) => {
-              console.warn('[public-site] Supabase module load failed:', e);
-              supabaseReady = null;
-              return null;
-            });
-        }
-        return supabaseReady;
-      }
-
       const demoData = {
         balance: 210000,
         donations: 750000,
@@ -1623,57 +1602,36 @@
 
       async function loadPublicData() {
         try {
-          const client = await getSupabaseClient();
-          if (!client) throw new Error('Supabase unavailable');
-          const { data: txns, error } = await client
-            .from('public_transactions')
-            .select('*')
-            .order('date', { ascending: false })
-            .limit(500);
+          const res = await fetch('./data.json', { cache: 'no-store' });
+          if (!res.ok) throw new Error('data.json not found');
+          const snapshot = await res.json();
 
-          if (error) throw error;
+          if (snapshot.balance !== undefined) demoData.balance = snapshot.balance;
+          if (snapshot.donations !== undefined) demoData.donations = snapshot.donations;
+          if (snapshot.expenses !== undefined) demoData.expenses = snapshot.expenses;
 
-          if (txns && txns.length > 0) {
-            allTransactions = txns.map(t => ({
-              date: t.date,
-              time: t.time || '',
-              type: t.type,
-              category: t.category || '—',
-              description: t.description || '',
-              donor: t.donor || '—',
-              amount: Number(t.amount),
-              doc: t.doc || '—'
-            }));
-            // Сортировка: самые свежие операции в начале (по дате и времени)
-            allTransactions.sort((a, b) => {
-              const da = new Date(`${a.date}T${a.time || '00:00'}`);
-              const db = new Date(`${b.date}T${b.time || '00:00'}`);
-              return db - da;
-            });
-            demoData.transactions = allTransactions.slice();
+          const transactions = snapshot.transactions || [];
+          allTransactions = transactions.slice().sort((a, b) => {
+            const da = new Date(`${a.date}T${a.time || '00:00'}`);
+            const db = new Date(`${b.date}T${b.time || '00:00'}`);
+            return db - da;
+          });
+          demoData.transactions = allTransactions.slice();
 
-            // Заполнение опций категории из уникальных значений транзакций
-            const categoriesSelect = document.querySelector('#repCategory-trigger')?.closest('.custom-select');
-            if (categoriesSelect) {
-              const categoriesOptions = categoriesSelect.querySelector('.custom-select-options');
-              const uniqueCategories = [...new Set(allTransactions.map(t => t.category).filter(c => c && c !== '—'))].sort();
-              categoriesOptions.innerHTML = `<div class="custom-select-option selected" role="option" data-value="all">Все категории</div>` +
-                uniqueCategories.map(cat => `<div class="custom-select-option" role="option" data-value="${String(cat).replace(/"/g,'&quot;')}">${cat}</div>`).join('');
-              categoriesSelect.dataset.value = 'all';
-              const trig = categoriesSelect.querySelector('.custom-select-trigger');
-              if (trig) trig.textContent = 'Все категории';
-            }
-
-            currentSearch = '';
-
-            const income = demoData.transactions.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
-            const expense = demoData.transactions.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
-            demoData.donations = income;
-            demoData.expenses = expense;
-            demoData.balance = income - expense;
-
-            updateChartData(currentPeriod);
+          const categoriesSelect = document.querySelector('#repCategory-trigger')?.closest('.custom-select');
+          if (categoriesSelect) {
+            const categoriesOptions = categoriesSelect.querySelector('.custom-select-options');
+            const uniqueCategories = [...new Set(allTransactions.map(t => t.category).filter(c => c && c !== '—'))].sort();
+            categoriesOptions.innerHTML = `<div class="custom-select-option selected" role="option" data-value="all">Все категории</div>` +
+              uniqueCategories.map(cat => `<div class="custom-select-option" role="option" data-value="${String(cat).replace(/"/g,'&quot;')}">${cat}</div>`).join('');
+            categoriesSelect.dataset.value = 'all';
+            const trig = categoriesSelect.querySelector('.custom-select-trigger');
+            if (trig) trig.textContent = 'Все категории';
           }
+
+          currentSearch = '';
+
+          updateChartData(currentPeriod);
         } catch (e) {
           console.error('[public-site] load failed:', e);
           console.warn('[public-site] Using demo data:', e.message);
@@ -1695,30 +1653,14 @@
         } catch (e) {
           console.warn('[public-site] refresh failed:', e);
         }
-      }
-
-      async function subscribeRealtime() {
-        const client = await getSupabaseClient();
-        if (!client) return;
-        try {
-          client
-            .channel('public_transactions_changes')
-            .on('postgres_changes', { event: '*', schema: 'public', table: 'transactions' }, () => {
-              console.log('[realtime] Transaction change detected, reloading...');
-              void refreshPublicData(true);
-            })
-            .subscribe();
-        } catch (e) {
-          console.warn('[public-site] realtime subscribe failed:', e);
         }
-      }
 
       window.initCustomSelects = initCustomSelects;
       window.initDonate = initDonate;
       window.filterAndRender = filterAndRender;
       window.currentPeriod = currentPeriod;
 
-      // Мгновенная инициализация интерфейса — не ждём Supabase
+      // Мгновенная инициализация интерфейса — не ждём данных
       function initUI() {
         try { if (typeof initCustomSelects === 'function') initCustomSelects(); } catch (e) { console.error(e); }
         try { if (typeof initDonate === 'function') initDonate(); } catch (e) { console.error(e); }
