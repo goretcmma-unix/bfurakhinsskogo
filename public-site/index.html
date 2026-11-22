@@ -1607,7 +1607,7 @@
         }
       }
 
-      // Realtime subscription — обновляет данные при изменении в дашборде
+      // Обновление данных без перезагрузки страницы
       async function refreshPublicData(silent) {
         try {
           await loadPublicData();
@@ -1638,9 +1638,7 @@
         window.addEventListener('load', () => {
           try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
         });
-        subscribeRealtime().catch((e) => console.warn('[public-site] realtime subscribe failed:', e));
-
-        // Периодическое автообновление (если realtime недоступен) + при возврате на вкладку
+        // Периодическое автообновление + при возврате на вкладку
         setInterval(() => { void refreshPublicData(true); }, 20000);
         document.addEventListener('visibilitychange', () => {
           if (document.visibilityState === 'visible') void refreshPublicData(true);
