@@ -74,7 +74,7 @@ const DEV_CSP =
   "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' http: https:; style-src 'self' 'unsafe-inline' http: https:; img-src 'self' data: blob: http: https:; font-src 'self' data: http: https:; connect-src 'self' ws: wss: http: https:; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
 
 const PROD_CSP =
-  "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://db.fond-urakhinskogo.ru wss:; media-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
+  "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://ybgxfewbhjvtgdklzihr.supabase.co wss:; media-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
 
 function setupSessionSecurity(): void {
   const sess = session.defaultSession
@@ -102,7 +102,7 @@ function setupSessionSecurity(): void {
       }
       const isDevServerRequest =
         isDev && ['http:', 'https:', 'ws:', 'wss:'].includes(protocol) && isLocalHost(hostname)
-      const isSupabaseRequest = hostname === 'db.fond-urakhinskogo.ru'
+      const isSupabaseRequest = hostname === 'ybgxfewbhjvtgdklzihr.supabase.co'
       callback({ cancel: !(isDevServerRequest || isSupabaseRequest) })
     } catch {
       callback({ cancel: true })
