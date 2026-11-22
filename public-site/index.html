@@ -1658,39 +1658,55 @@
         }
       }
 
+      const isTransientNetworkError = (e) => {
+        const msg = String(e?.message || e || '');
+        return /Failed to fetch|NetworkError|Load failed|fetch failed|ERR_CONNECTION_RESET|ERR_HTTP2/i.test(msg);
+      };
+
       async function loadPublicData({ background = false } = {}) {
-        try {
-          const client = await getSupabaseClient();
-          if (!client) throw new Error('Supabase unavailable');
-          const { data: txns, error } = await client
-            .from('public_transactions')
-            .select('date,time,type,category,description,donor,amount,doc')
-            .order('date', { ascending: false })
-            .limit(300);
+        const hasData = Array.isArray(allTransactions) && allTransactions.length > 0;
+        const attempts = 2;
+        for (let i = 0; i < attempts; i++) {
+          try {
+            const client = await getSupabaseClient();
+            if (!client) throw new Error('Supabase unavailable');
+            const { data: txns, error } = await client
+              .from('public_transactions')
+              .select('date,time,type,category,description,donor,amount,doc')
+              .order('date', { ascending: false })
+              .limit(300);
 
-          if (error) throw error;
+            if (error) throw error;
 
-          if (txns && txns.length > 0) {
-            applyTransactions(txns);
-            writeCachedPublicData(txns);
-            return true;
+            if (txns && txns.length > 0) {
+              applyTransactions(txns);
+              writeCachedPublicData(txns);
+              return true;
+            }
+            return false;
+          } catch (e) {
+            const transient = isTransientNetworkError(e);
+            if (transient && i < attempts - 1) {
+              await new Promise(r => setTimeout(r, 1200));
+              continue;
+            }
+            if (background || hasData) {
+              console.warn('[public-site] background refresh failed:', e?.message || e);
+            } else {
+              console.error('[public-site] load failed:', e);
+              console.warn('[public-site] Using cached/demo data:', e?.message || e);
+            }
+            return false;
           }
-          return false;
-        } catch (e) {
-          if (!background) {
-            console.error('[public-site] load failed:', e);
-            console.warn('[public-site] Using cached/demo data:', e.message);
-          } else {
-            console.warn('[public-site] background refresh failed:', e?.message || e);
-          }
-          return false;
         }
+        return false;
       }
 
       // Realtime subscription — обновляет данные при изменении в дашборде
       async function refreshPublicData(silent) {
         try {
-          await loadPublicData();
+          const ok = await loadPublicData({ background: !!silent });
+          if (!ok) return;
           if (typeof renderStats === 'function') renderStats();
           if (silent) {
             try { if (typeof updateChartData === 'function') updateChartData(currentPeriod); } catch (e) {}
@@ -1700,7 +1716,7 @@
             try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) {}
           }
         } catch (e) {
-          console.warn('[public-site] refresh failed:', e);
+          console.warn('[public-site] refresh failed:', e?.message || e);
         }
       }
 
