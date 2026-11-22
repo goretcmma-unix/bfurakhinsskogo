@@ -44,6 +44,12 @@ await sharp(Buffer.from(squareSvg))
   .toFile(path.join(outDir, 'favicon-48x48.png'));
 console.log('created favicon-48x48.png');
 
+// favicon.ico: biryuzyovyi lotoip, razmer 48x48 (browser priimayet PNG-vnutri .ico)
+await sharp(Buffer.from(squareSvg))
+  .resize(48, 48, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+  .toFile(path.join(outDir, 'favicon.ico'));
+console.log('created favicon.ico');
+
 // safari-pinned-tab.svg: black silhouette mask
 const maskSvg = `<?xml version="1.0" encoding="UTF-8"?>
 ${svg.replace(/fill:\s*#40E0D0;/g, 'fill:#000000;').replace(/class="cls-1"/g, '')}`;
