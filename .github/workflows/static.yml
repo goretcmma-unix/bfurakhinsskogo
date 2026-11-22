@@ -30,12 +30,17 @@ jobs:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
           python - <<'PY'
-          import os
+          import os, sys
           from pathlib import Path
+          url = os.environ.get('SUPABASE_URL', '').strip()
+          key = os.environ.get('SUPABASE_ANON_KEY', '').strip()
+          if not url or not key:
+            print('Missing SUPABASE_URL or SUPABASE_ANON_KEY GitHub Secrets', file=sys.stderr)
+            sys.exit(1)
           p = Path('public-site/index.html')
           s = p.read_text(encoding='utf-8')
-          s = s.replace('__SUPABASE_URL__', os.environ.get('SUPABASE_URL', ''))
-          s = s.replace('__SUPABASE_ANON_KEY__', os.environ.get('SUPABASE_ANON_KEY', ''))
+          s = s.replace('__SUPABASE_URL__', url)
+          s = s.replace('__SUPABASE_ANON_KEY__', key)
           p.write_text(s, encoding='utf-8')
           PY
 
