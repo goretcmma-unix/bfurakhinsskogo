@@ -214,6 +214,7 @@
       }
       .nav-link:hover { color: var(--text-soft); opacity: 1; }
       .nav-link.active { color: #fff !important; opacity: 1 !important; border: 2px solid #40E0D0 !important; border-radius: 22px !important; }
+      .nav-link.nav-no-transition { transition: none !important; }
       .btn-help {
         position: relative;
         display: inline-flex; align-items: center; gap: 8px;
@@ -2549,7 +2550,8 @@
           targetY: null,         // target scroll position
           isNavigating: false,   // true during programmatic scroll
           lastScrollY: window.scrollY,
-          settleCheck: null
+          settleCheck: null,
+          initializing: true     // блокирует смену активной ссылки при первичной инициализации
         };
 
         const sections = document.querySelectorAll('section[id]');
@@ -2650,7 +2652,7 @@
           scrollTicking = true;
           requestAnimationFrame(() => {
             scrollTicking = false;
-            if (navState.isNavigating) return;
+            if (navState.initializing || navState.isNavigating) return;
 
             const scrollY = window.scrollY + window.innerHeight * 0.35;
             let currentId = null;
@@ -2680,15 +2682,24 @@
 
          window.addEventListener('scroll', onScroll, { passive: true });
          onScroll();
-       }
+
+          // При любой перезагрузке страницы полный сброс: убираем якорь из URL, скролл в верх, активная ссылка «О фонде»
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+          window.scrollTo(0, 0);
+
+          // Отключаем CSS-анимацию при первичной инициализации, чтобы плюшка не «перебегала»
+          navLinks.forEach(link => link.classList.add('nav-no-transition'));
+          setActiveLink('#about');
+
+          // Через кадр возвращаем плавный переход и разрешаем onScroll менять активную ссылку
+          requestAnimationFrame(() => {
+            navLinks.forEach(link => link.classList.remove('nav-no-transition'));
+            navState.initializing = false;
+          });
+        }
 
          initPageData();
-
-      // При любой перезагрузке страницы полный сброс: хеш на #about и скролл в верх
-      window.location.hash = '#about';
-      window.scrollTo(0, 0);
-      onScroll();
-       </script>
+        </script>
 
       <!-- JSON-LD Organization -->
       <script type="application/ld+json">
