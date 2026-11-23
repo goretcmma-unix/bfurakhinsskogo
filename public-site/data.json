@@ -5,7 +5,7 @@
     "type": "income",
     "category": "",
     "description": "благодаря;21/11/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -15,38 +15,8 @@
     "type": "expense",
     "category": "",
     "description": "Плата за пакет услуг Легкий старт за период 22.11.2026-21.12.2026 дог. от 22.01.2025 №40703810860450000006 в размере 490.00 руб., в т.ч. НДС",
-    "donor": "",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
     "amount": 490,
-    "doc": null
-  },
-  {
-    "date": "2026-11-20",
-    "time": "17:09",
-    "type": "income",
-    "category": "",
-    "description": "Садака. НДС не облагается",
-    "donor": "РАБАДАНОВ О. Р.",
-    "amount": 18,
-    "doc": null
-  },
-  {
-    "date": "2026-11-20",
-    "time": "02:16",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность. НДС не облагается",
-    "donor": "РАБАДАНОВ О. Р.",
-    "amount": 15,
-    "doc": null
-  },
-  {
-    "date": "2026-11-20",
-    "time": "10:38",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;20/11/2026",
-    "donor": "МАГОМЕДОВ Э. М.",
-    "amount": 100,
     "doc": null
   },
   {
@@ -60,43 +30,13 @@
     "doc": null
   },
   {
-    "date": "2026-11-19",
-    "time": "16:36",
+    "date": "2026-11-20",
+    "time": "10:38",
     "type": "income",
     "category": "",
-    "description": "Благотворительность. НДС не облагается",
-    "donor": "РАБАДАНОВ О. Р.",
-    "amount": 20,
-    "doc": null
-  },
-  {
-    "date": "2026-11-19",
-    "time": "20:16",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность. НДС не облагается",
-    "donor": "РАБАДАНОВ О. Р.",
-    "amount": 13,
-    "doc": null
-  },
-  {
-    "date": "2026-11-19",
-    "time": "01:02",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность. НДС не облагается",
-    "donor": "РАБАДАНОВ О. Р.",
-    "amount": 10,
-    "doc": null
-  },
-  {
-    "date": "2026-11-19",
-    "time": "01:04",
-    "type": "income",
-    "category": "",
-    "description": "Тест1. НДС не облагается",
-    "donor": "РАБАДАНОВ О. Р.",
-    "amount": 1,
+    "description": "садакьа;20/11/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -105,7 +45,7 @@
     "type": "income",
     "category": "",
     "description": "благотворительность;18/11/2026",
-    "donor": "Частное лицо",
+    "donor": "РАБАДАНОВ Р. О.",
     "amount": 50,
     "doc": null
   },
@@ -115,7 +55,7 @@
     "type": "expense",
     "category": "",
     "description": "Единый налоговый платеж. НДС не облагается.",
-    "donor": "",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
     "amount": 4080,
     "doc": null
   },
@@ -150,16 +90,6 @@
     "doc": null
   },
   {
-    "date": "2026-11-12",
-    "time": "13:42",
-    "type": "income",
-    "category": "",
-    "description": "Тест на пожертвование. НДС не облагается",
-    "donor": "РАБАДАНОВ О. Р.",
-    "amount": 1,
-    "doc": null
-  },
-  {
     "date": "2026-11-09",
     "time": "01:05",
     "type": "income",
@@ -167,16 +97,6 @@
     "description": "благодаря;08/11/2026",
     "donor": "ОСМАНОВ М. М.",
     "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-11-06",
-    "time": "09:15",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;06/11/2026",
-    "donor": "РАШИДОВ Р. А.",
-    "amount": 300,
     "doc": null
   },
   {
@@ -191,12 +111,12 @@
   },
   {
     "date": "2026-11-06",
-    "time": "16:16",
+    "time": "09:15",
     "type": "income",
     "category": "",
-    "description": "А;06/11/2026",
-    "donor": "ГАЗИЕВА А. А.",
-    "amount": 100,
+    "description": "садакьа;06/11/2026",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 300,
     "doc": null
   },
   {
@@ -206,6 +126,16 @@
     "category": "",
     "description": "На благотворительность. НДС не облагается",
     "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-11-06",
+    "time": "16:16",
+    "type": "income",
+    "category": "",
+    "description": "А;06/11/2026",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 100,
     "doc": null
   },
@@ -221,22 +151,22 @@
   },
   {
     "date": "2026-10-30",
-    "time": "10:23",
-    "type": "income",
-    "category": "",
-    "description": "1;30/10/2026",
-    "donor": "ЗАЛКЕПРИЕВ А. М.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-10-30",
     "time": "11:18",
     "type": "income",
     "category": "",
     "description": "А;30/10/2026",
     "donor": "ГАЗИЕВА А. А.",
     "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-30",
+    "time": "10:23",
+    "type": "income",
+    "category": "",
+    "description": "1;30/10/2026",
+    "donor": "ЗАЛКЕПРИЕВ А. М.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -247,16 +177,6 @@
     "description": "благодаря;29/10/2026",
     "donor": "ОСМАНОВ М. М.",
     "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-10-23",
-    "time": "16:19",
-    "type": "income",
-    "category": "",
-    "description": "А;23/10/2026",
-    "donor": "ГАЗИЕВА А. А.",
-    "amount": 100,
     "doc": null
   },
   {
@@ -280,6 +200,26 @@
     "doc": null
   },
   {
+    "date": "2026-10-23",
+    "time": "16:19",
+    "type": "income",
+    "category": "",
+    "description": "А;23/10/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-19",
+    "time": "14:34",
+    "type": "expense",
+    "category": "",
+    "description": "Единый налоговый платеж. НДС не облагается.",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
+    "amount": 4080,
+    "doc": null
+  },
+  {
     "date": "2026-10-19",
     "time": "00:49",
     "type": "income",
@@ -290,32 +230,12 @@
     "doc": null
   },
   {
-    "date": "2026-10-19",
-    "time": "14:34",
-    "type": "expense",
-    "category": "",
-    "description": "Единый налоговый платеж. НДС не облагается.",
-    "donor": "",
-    "amount": 4080,
-    "doc": null
-  },
-  {
     "date": "2026-10-16",
-    "time": "13:46",
+    "time": "15:46",
     "type": "income",
     "category": "",
-    "description": "На благотворительность. НДС не облагается",
-    "donor": "ИДЗИЕВ Б. Н.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-10-16",
-    "time": "13:20",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;16/10/2026",
-    "donor": "МАГОМЕДОВ Э. М.",
+    "description": "А;16/10/2026",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 100,
     "doc": null
   },
@@ -331,11 +251,21 @@
   },
   {
     "date": "2026-10-16",
-    "time": "15:46",
+    "time": "13:20",
     "type": "income",
     "category": "",
-    "description": "А;16/10/2026",
-    "donor": "ГАЗИЕВА А. А.",
+    "description": "садакьа;16/10/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-16",
+    "time": "13:46",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
     "amount": 100,
     "doc": null
   },
@@ -351,21 +281,21 @@
   },
   {
     "date": "2026-10-09",
-    "time": "13:44",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;09/10/2026",
-    "donor": "МАГОМЕДОВ Э. М.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-10-09",
     "time": "16:26",
     "type": "income",
     "category": "",
     "description": "А;09/10/2026",
     "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-09",
+    "time": "13:44",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;09/10/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -415,28 +345,8 @@
     "type": "expense",
     "category": "",
     "description": "Единый налоговый платеж. НДС не облагается.",
-    "donor": "",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
     "amount": 4080,
-    "doc": null
-  },
-  {
-    "date": "2026-09-18",
-    "time": "10:23",
-    "type": "income",
-    "category": "",
-    "description": "П;18/09/2026",
-    "donor": "ОМАРОВ К. Х.",
-    "amount": 300,
-    "doc": null
-  },
-  {
-    "date": "2026-09-18",
-    "time": "12:37",
-    "type": "income",
-    "category": "",
-    "description": "На благотворительность. НДС не облагается",
-    "donor": "ИДЗИЕВ Б. Н.",
-    "amount": 100,
     "doc": null
   },
   {
@@ -451,11 +361,31 @@
   },
   {
     "date": "2026-09-18",
+    "time": "10:23",
+    "type": "income",
+    "category": "",
+    "description": "П;18/09/2026",
+    "donor": "ОМАРОВ К. Х.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-09-18",
     "time": "09:07",
     "type": "income",
     "category": "",
     "description": "Садака;18/09/2026",
     "donor": "КУБАЕВА М. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-09-18",
+    "time": "12:37",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
     "amount": 100,
     "doc": null
   },
@@ -481,16 +411,6 @@
   },
   {
     "date": "2026-09-11",
-    "time": "10:24",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;11/09/2026",
-    "donor": "МАГОМЕДОВ Э. М.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-09-11",
     "time": "16:15",
     "type": "income",
     "category": "",
@@ -500,13 +420,13 @@
     "doc": null
   },
   {
-    "date": "2026-09-04",
-    "time": "16:20",
+    "date": "2026-09-11",
+    "time": "10:24",
     "type": "income",
     "category": "",
-    "description": "А;04/09/2026",
-    "donor": "ГАЗИЕВА А. А.",
-    "amount": 150,
+    "description": "садакьа;11/09/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -521,21 +441,21 @@
   },
   {
     "date": "2026-09-04",
+    "time": "16:20",
+    "type": "income",
+    "category": "",
+    "description": "А;04/09/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 150,
+    "doc": null
+  },
+  {
+    "date": "2026-09-04",
     "time": "10:03",
     "type": "income",
     "category": "",
     "description": "помощь;04/09/2026",
     "donor": "ИСАЕВА Э. М.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-08-28",
-    "time": "10:16",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;28/08/2026",
-    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -560,6 +480,16 @@
     "doc": null
   },
   {
+    "date": "2026-08-28",
+    "time": "10:16",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;28/08/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
     "date": "2026-08-26",
     "time": "04:51",
     "type": "income",
@@ -575,18 +505,8 @@
     "type": "expense",
     "category": "",
     "description": "Единый налоговый платеж. НДС не облагается.",
-    "donor": "",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
     "amount": 4080,
-    "doc": null
-  },
-  {
-    "date": "2026-08-21",
-    "time": "13:42",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;21/08/2026",
-    "donor": "МАГОМЕДОВ Э. М.",
-    "amount": 100,
     "doc": null
   },
   {
@@ -600,12 +520,92 @@
     "doc": null
   },
   {
-    "date": "2026-08-17",
-    "time": "00:59",
+    "date": "2026-08-21",
+    "time": "13:42",
     "type": "income",
     "category": "",
-    "description": "100;16/08/2026",
-    "donor": "МАГОМЕДОВ Т. М.",
+    "description": "садакьа;21/08/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "01:00",
+    "type": "income",
+    "category": "",
+    "description": "на лечение;16/08/2026",
+    "donor": "АСАНАЕВА С. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "На лечение Абдулла Хаджи;15/08/2026",
+    "donor": "АЛИЕВА М. С.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "Лечение;15/08/2026",
+    "donor": "ЮСУПОВА А. М.",
+    "amount": 490,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;15/08/2026",
+    "donor": "МАСТАЕВА М. Х.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:54",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;15/08/2026",
+    "donor": "МИРЗАБЕЙКОВ А. Х.",
+    "amount": 1500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "01:00",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;16/08/2026",
+    "donor": "АМАТАЕВ А. А.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "АбдуллаХаджи;15/08/2026",
+    "donor": "КУРБАНОВА А. Г.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "02:33",
+    "type": "income",
+    "category": "",
+    "description": "ПЕРЕВОД СОБСТВЕННЫХ СРЕДСТВ",
+    "donor": "ЮСУФОВА Ф. Г.",
     "amount": 100,
     "doc": null
   },
@@ -621,82 +621,12 @@
   },
   {
     "date": "2026-08-17",
-    "time": "00:55",
+    "time": "00:59",
     "type": "income",
     "category": "",
-    "description": "АбдуллаХаджи;15/08/2026",
-    "donor": "КУРБАНОВА А. Г.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-17",
-    "time": "01:00",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;16/08/2026",
-    "donor": "АМАТАЕВ А. А.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-08-17",
-    "time": "02:33",
-    "type": "income",
-    "category": "",
-    "description": "ПЕРЕВОД СОБСТВЕННЫХ СРЕДСТВ",
-    "donor": "ЮСУФОВА Ф. Г.",
+    "description": "100;16/08/2026",
+    "donor": "МАГОМЕДОВ Т. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-08-17",
-    "time": "00:55",
-    "type": "income",
-    "category": "",
-    "description": "Лечение;15/08/2026",
-    "donor": "ЮСУПОВА А. М.",
-    "amount": 490,
-    "doc": null
-  },
-  {
-    "date": "2026-08-17",
-    "time": "01:00",
-    "type": "income",
-    "category": "",
-    "description": "на лечение;16/08/2026",
-    "donor": "АСАНАЕВА С. М.",
-    "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2026-08-17",
-    "time": "00:54",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;15/08/2026",
-    "donor": "МИРЗАБЕЙКОВ А. Х.",
-    "amount": 1500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-17",
-    "time": "00:55",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;15/08/2026",
-    "donor": "МАСТАЕВА М. Х.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-08-17",
-    "time": "00:53",
-    "type": "income",
-    "category": "",
-    "description": "На лечение Абдулла Хаджи;15/08/2026",
-    "donor": "АЛИЕВА М. С.",
-    "amount": 500,
     "doc": null
   },
   {
@@ -711,62 +641,32 @@
   },
   {
     "date": "2026-08-14",
-    "time": "16:14",
+    "time": "21:25",
     "type": "income",
     "category": "",
     "description": "Благотворительность;14/08/2026",
-    "donor": "АМИРАЛИЕВ А. Г.",
-    "amount": 400,
+    "donor": "АХМЕД Ф. М.",
+    "amount": 100,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "06:01",
+    "time": "09:47",
     "type": "income",
     "category": "",
-    "description": "для Абдуллахажи;14/08/2026",
-    "donor": "АЛИЕВА Н. А.",
+    "description": "Казиханова Патимат;14/08/2026",
+    "donor": "КАЗИХАНОВА П. М.",
     "amount": 500,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "15:44",
+    "time": "15:40",
     "type": "income",
     "category": "",
-    "description": "помощь для Абдулахаджи;14/08/2026",
-    "donor": "АЛИЕВА М. М.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "18:06",
-    "type": "income",
-    "category": "",
-    "description": "помош;14/08/2026",
-    "donor": "БАГАНДОВА П. М.",
-    "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "00:50",
-    "type": "income",
-    "category": "",
-    "description": "БисмиЛлагь(на лечение);14/08/2026",
-    "donor": "БАГАДЗИЕВ Ю. А.",
-    "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "15:24",
-    "type": "income",
-    "category": "",
-    "description": "Пожертвование. НДС не облагается",
-    "donor": "ИСМАИЛОВА А. Ш.",
-    "amount": 300,
+    "description": "сбор средств садакьа;14/08/2026",
+    "donor": "БАГАМЕДОВ М. А.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -781,82 +681,62 @@
   },
   {
     "date": "2026-08-14",
-    "time": "21:25",
+    "time": "21:15",
     "type": "income",
     "category": "",
-    "description": "Благотворительность;14/08/2026",
-    "donor": "АХМЕД Ф. М.",
+    "description": "благотворительность;14/08/2026",
+    "donor": "АБДУРАХМАНОВА А. М.",
     "amount": 100,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "13:05",
+    "time": "09:51",
     "type": "income",
     "category": "",
-    "description": "помощь;14/08/2026",
-    "donor": "ЗАКАРГАЕВА К. Г.",
-    "amount": 50,
+    "description": "Помощь;14/08/2026",
+    "donor": "МАГОМЕДОВА А. М.",
+    "amount": 200,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "09:48",
+    "time": "00:50",
     "type": "income",
     "category": "",
     "description": "помощь;14/08/2026",
-    "donor": "ЭДИЛЬСОЛТАНОВ Х. С.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "09:38",
-    "type": "income",
-    "category": "",
-    "description": ".;14/08/2026",
-    "donor": "МАГОМЕДОВА Р. И.",
+    "donor": "БАГОМЕДОВА М. А.",
     "amount": 300,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "14:18",
+    "time": "00:50",
     "type": "income",
     "category": "",
-    "description": "На лечение Абдуллахаджи;14/08/2026",
-    "donor": "ХАЛИМБЕКОВА З. А.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "05:06",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность. НДС не облагается",
-    "donor": "АБДУРАХМАНОВА У. М.",
+    "description": "БисмиЛлагь(на лечение);14/08/2026",
+    "donor": "БАГАДЗИЕВ Ю. А.",
     "amount": 1000,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "07:29",
+    "time": "14:01",
     "type": "income",
     "category": "",
-    "description": "Абдулла Хаджи харахинского;14/08/2026",
-    "donor": "МАГОМЕДОВА Х. М.",
+    "description": "Бисмиллях;14/08/2026",
+    "donor": "МАГОМЕДОВА Н. В.",
     "amount": 100,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "15:40",
+    "time": "18:59",
     "type": "income",
     "category": "",
-    "description": "На лечение Абдуллы. НДС не облагается",
-    "donor": "АЛИЕВА М. А.",
-    "amount": 100,
+    "description": "На реабилитацию Абдуллахаджи;14/08/2026",
+    "donor": "КАЗАЛИЕВА З. М.",
+    "amount": 1000,
     "doc": null
   },
   {
@@ -871,11 +751,81 @@
   },
   {
     "date": "2026-08-14",
-    "time": "21:15",
+    "time": "14:18",
+    "type": "income",
+    "category": "",
+    "description": "На лечение Абдуллахаджи;14/08/2026",
+    "donor": "ХАЛИМБЕКОВА З. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "13:05",
+    "type": "income",
+    "category": "",
+    "description": "помощь;14/08/2026",
+    "donor": "ЗАКАРГАЕВА К. Г.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "15:44",
+    "type": "income",
+    "category": "",
+    "description": "помощь для Абдулахаджи;14/08/2026",
+    "donor": "АЛИЕВА М. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "13:12",
+    "type": "income",
+    "category": "",
+    "description": "садакьа Аллагьасе гьоло;14/08/2026",
+    "donor": "ИДАКОВА П. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "06:01",
+    "type": "income",
+    "category": "",
+    "description": "для Абдуллахажи;14/08/2026",
+    "donor": "АЛИЕВА Н. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "15:24",
+    "type": "income",
+    "category": "",
+    "description": "Пожертвование. НДС не облагается",
+    "donor": "ИСМАИЛОВА А. Ш.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "09:38",
+    "type": "income",
+    "category": "",
+    "description": ".;14/08/2026",
+    "donor": "МАГОМЕДОВА Р. И.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "03:53",
     "type": "income",
     "category": "",
     "description": "благотворительность;14/08/2026",
-    "donor": "АБДУРАХМАНОВА А. М.",
+    "donor": "ГАСАНОВА А. Т.",
     "amount": 100,
     "doc": null
   },
@@ -891,52 +841,52 @@
   },
   {
     "date": "2026-08-14",
-    "time": "18:59",
+    "time": "12:06",
     "type": "income",
     "category": "",
-    "description": "На реабилитацию Абдуллахаджи;14/08/2026",
-    "donor": "КАЗАЛИЕВА З. М.",
+    "description": "Для Абдуллахаджи сгоревшего",
+    "donor": "БАГАНДАЛИЕВА Р. Г.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "12:53",
+    "type": "income",
+    "category": "",
+    "description": "Помощь человеку который получил ожог;14/08/2026",
+    "donor": "РАБАДАНОВА П. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "18:06",
+    "type": "income",
+    "category": "",
+    "description": "помош;14/08/2026",
+    "donor": "БАГАНДОВА П. М.",
     "amount": 1000,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "13:11",
+    "time": "09:48",
     "type": "income",
     "category": "",
-    "description": "Бисмиллягь;14/08/2026",
-    "donor": "АХМЕДОВА З. М.",
-    "amount": 130,
+    "description": "помощь;14/08/2026",
+    "donor": "ЭДИЛЬСОЛТАНОВ Х. С.",
+    "amount": 500,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "01:47",
+    "time": "17:42",
     "type": "income",
     "category": "",
-    "description": "ПЕРЕВОД СОБСТВЕННЫХ СРЕДСТВ",
-    "donor": "АЗИЗОВ М. А.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "19:21",
-    "type": "income",
-    "category": "",
-    "description": "Помощь;14/08/2026",
-    "donor": "РИЗАЕВА З. М.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "09:34",
-    "type": "income",
-    "category": "",
-    "description": "Ромощь",
-    "donor": "ТУКАНАЕВ Н. Х.",
-    "amount": 1000,
+    "description": "Для пострадавшего от взрыва;14/08/2026",
+    "donor": "ОСМАНОВА П. Х.",
+    "amount": 150,
     "doc": null
   },
   {
@@ -946,26 +896,6 @@
     "category": "",
     "description": "Тагиров Т.;14/08/2026",
     "donor": "МАГОМЕДОВА З. М.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "15:40",
-    "type": "income",
-    "category": "",
-    "description": "сбор средств садакьа;14/08/2026",
-    "donor": "БАГАМЕДОВ М. А.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "03:53",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;14/08/2026",
-    "donor": "ГАСАНОВА А. Т.",
     "amount": 100,
     "doc": null
   },
@@ -991,22 +921,52 @@
   },
   {
     "date": "2026-08-14",
-    "time": "00:50",
+    "time": "16:14",
     "type": "income",
     "category": "",
-    "description": "помощь;14/08/2026",
-    "donor": "БАГОМЕДОВА М. А.",
-    "amount": 300,
+    "description": "Благотворительность;14/08/2026",
+    "donor": "АМИРАЛИЕВ А. Г.",
+    "amount": 400,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "09:47",
+    "time": "09:34",
     "type": "income",
     "category": "",
-    "description": "Казиханова Патимат;14/08/2026",
-    "donor": "КАЗИХАНОВА П. М.",
-    "amount": 500,
+    "description": "Ромощь",
+    "donor": "ТУКАНАЕВ Н. Х.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "19:21",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;14/08/2026",
+    "donor": "РИЗАЕВА З. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "01:47",
+    "type": "income",
+    "category": "",
+    "description": "ПЕРЕВОД СОБСТВЕННЫХ СРЕДСТВ",
+    "donor": "АЗИЗОВ М. А.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "13:11",
+    "type": "income",
+    "category": "",
+    "description": "Бисмиллягь;14/08/2026",
+    "donor": "АХМЕДОВА З. М.",
+    "amount": 130,
     "doc": null
   },
   {
@@ -1031,6 +991,16 @@
   },
   {
     "date": "2026-08-14",
+    "time": "05:06",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность. НДС не облагается",
+    "donor": "АБДУРАХМАНОВА У. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
     "time": "18:56",
     "type": "income",
     "category": "",
@@ -1051,202 +1021,32 @@
   },
   {
     "date": "2026-08-14",
-    "time": "12:06",
+    "time": "07:29",
     "type": "income",
     "category": "",
-    "description": "Для Абдуллахаджи сгоревшего",
-    "donor": "БАГАНДАЛИЕВА Р. Г.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "17:42",
-    "type": "income",
-    "category": "",
-    "description": "Для пострадавшего от взрыва;14/08/2026",
-    "donor": "ОСМАНОВА П. Х.",
-    "amount": 150,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "09:51",
-    "type": "income",
-    "category": "",
-    "description": "Помощь;14/08/2026",
-    "donor": "МАГОМЕДОВА А. М.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "12:53",
-    "type": "income",
-    "category": "",
-    "description": "Помощь человеку который получил ожог;14/08/2026",
-    "donor": "РАБАДАНОВА П. М.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-14",
-    "time": "14:01",
-    "type": "income",
-    "category": "",
-    "description": "Бисмиллях;14/08/2026",
-    "donor": "МАГОМЕДОВА Н. В.",
+    "description": "Абдулла Хаджи харахинского;14/08/2026",
+    "donor": "МАГОМЕДОВА Х. М.",
     "amount": 100,
     "doc": null
   },
   {
     "date": "2026-08-14",
-    "time": "13:12",
+    "time": "15:40",
     "type": "income",
     "category": "",
-    "description": "садакьа Аллагьасе гьоло;14/08/2026",
-    "donor": "ИДАКОВА П. М.",
+    "description": "На лечение Абдуллы. НДС не облагается",
+    "donor": "АЛИЕВА М. А.",
     "amount": 100,
     "doc": null
   },
   {
     "date": "2026-08-13",
-    "time": "15:55",
+    "time": "21:39",
     "type": "income",
     "category": "",
-    "description": "пожертвования;13/08/2026",
-    "donor": "ГАПИЗОВА З. М.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "21:11",
-    "type": "income",
-    "category": "",
-    "description": "помош;13/08/2026",
-    "donor": "ТУКАНАЕВА А. М.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "15:04",
-    "type": "income",
-    "category": "",
-    "description": "Помощь. НДС не облагается",
-    "donor": "ГУСЕНОВА Л. М.",
+    "description": "Для Абдулла Хаджи биссмиЛлягь;13/08/2026",
+    "donor": "ОМАРОВА Р. О.",
     "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "20:40",
-    "type": "income",
-    "category": "",
-    "description": "Для Абдулахажи;13/08/2026",
-    "donor": "БАГОМЕДОВА З. З.",
-    "amount": 350,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "20:15",
-    "type": "income",
-    "category": "",
-    "description": "Садакъ;13/08/2026",
-    "donor": "МЕДЖИДОВА Х. С.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "13:01",
-    "type": "income",
-    "category": "",
-    "description": "Сбор. НДС не облагается",
-    "donor": "АЛИШЕЙХОВА Г. И.",
-    "amount": 700,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "14:49",
-    "type": "income",
-    "category": "",
-    "description": "Помощь;13/08/2026",
-    "donor": "БАГОМЕДОВА С. Р.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "11:30",
-    "type": "income",
-    "category": "",
-    "description": "На лечение;13/08/2026",
-    "donor": "КАДИРОВ Р. М.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "17:40",
-    "type": "income",
-    "category": "",
-    "description": "Для Абдулахаджи;13/08/2026",
-    "donor": "АБДУЛЛАЕВ Р. М.",
-    "amount": 1400,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "17:28",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительный;13/08/2026",
-    "donor": "ИСАЕВА Д. И.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "21:41",
-    "type": "income",
-    "category": "",
-    "description": "на лечение;13/08/2026",
-    "donor": "КАРААЛИЕВА Ш. Н.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "18:34",
-    "type": "income",
-    "category": "",
-    "description": "Помощь;13/08/2026",
-    "donor": "НАЗИРБЕКОВА Х. А.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "14:49",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность;13/08/2026",
-    "donor": "КАСУМГАДЖИЕВА А. К.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "23:18",
-    "type": "income",
-    "category": "",
-    "description": "Абдулагаджи Сергокалинский.Ожоги.;13/08/2026",
-    "donor": "ГУСЕЙНОВ Г. М.",
-    "amount": 2500,
     "doc": null
   },
   {
@@ -1281,32 +1081,12 @@
   },
   {
     "date": "2026-08-13",
-    "time": "23:45",
+    "time": "21:11",
     "type": "income",
     "category": "",
-    "description": "на лечение Абдуллахажи;13/08/2026",
-    "donor": "ГАПИЗОВА С. Х.",
-    "amount": 300,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "13:06",
-    "type": "income",
-    "category": "",
-    "description": "На лечение. НДС не облагается",
-    "donor": "ЗАКАРИГАЕВ М. А.",
+    "description": "помош;13/08/2026",
+    "donor": "ТУКАНАЕВА А. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "15:07",
-    "type": "income",
-    "category": "",
-    "description": "Помощь Абдуллахажи;13/08/2026",
-    "donor": "МАГОМЕДОВ М. М.",
-    "amount": 500,
     "doc": null
   },
   {
@@ -1316,56 +1096,6 @@
     "category": "",
     "description": "благотворительность,ожог парня;13/08/2026",
     "donor": "ЭСКЕРОВ А. М.",
-    "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "19:43",
-    "type": "income",
-    "category": "",
-    "description": "Бисмиллагь;13/08/2026",
-    "donor": "МУРТАЗАЛИЕВА Р. К.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "13:28",
-    "type": "income",
-    "category": "",
-    "description": "помощь;13/08/2026",
-    "donor": "ИСАЕВА Э. М.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "14:32",
-    "type": "income",
-    "category": "",
-    "description": "Помощь;13/08/2026",
-    "donor": "ГАДЖИЕВ Д. Х.",
-    "amount": 185,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "19:12",
-    "type": "income",
-    "category": "",
-    "description": "На лечение ребенку в, Дагестан. НДС не облагается",
-    "donor": "ТАНОВА Т. В.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "12:08",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;13/08/2026",
-    "donor": "МАГОМЕДОВ С. М.",
     "amount": 1000,
     "doc": null
   },
@@ -1381,6 +1111,126 @@
   },
   {
     "date": "2026-08-13",
+    "time": "15:07",
+    "type": "income",
+    "category": "",
+    "description": "Помощь Абдуллахажи;13/08/2026",
+    "donor": "МАГОМЕДОВ М. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "12:08",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;13/08/2026",
+    "donor": "МАГОМЕДОВ С. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "14:32",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;13/08/2026",
+    "donor": "ГАДЖИЕВ Д. Х.",
+    "amount": 185,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "19:43",
+    "type": "income",
+    "category": "",
+    "description": "Бисмиллагь;13/08/2026",
+    "donor": "МУРТАЗАЛИЕВА Р. К.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "13:01",
+    "type": "income",
+    "category": "",
+    "description": "QR5/Для Абдуллахаджи НДС не облагается",
+    "donor": "ГАДЖИЕВА И. К.",
+    "amount": 446,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "15:55",
+    "type": "income",
+    "category": "",
+    "description": "пожертвования;13/08/2026",
+    "donor": "ГАПИЗОВА З. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "14:49",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;13/08/2026",
+    "donor": "БАГОМЕДОВА С. Р.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "15:04",
+    "type": "income",
+    "category": "",
+    "description": "Помощь. НДС не облагается",
+    "donor": "ГУСЕНОВА Л. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "13:01",
+    "type": "income",
+    "category": "",
+    "description": "Сбор. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 700,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "11:30",
+    "type": "income",
+    "category": "",
+    "description": "На лечение;13/08/2026",
+    "donor": "КАДИРОВ Р. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "17:40",
+    "type": "income",
+    "category": "",
+    "description": "Для Абдулахаджи;13/08/2026",
+    "donor": "АБДУЛЛАЕВ Р. М.",
+    "amount": 1400,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "19:12",
+    "type": "income",
+    "category": "",
+    "description": "На лечение ребенку в, Дагестан. НДС не облагается",
+    "donor": "ТАНОВА Т. В.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
     "time": "16:03",
     "type": "income",
     "category": "",
@@ -1391,12 +1241,72 @@
   },
   {
     "date": "2026-08-13",
-    "time": "13:01",
+    "time": "17:28",
     "type": "income",
     "category": "",
-    "description": "QR5/Для Абдуллахаджи НДС не облагается",
-    "donor": "РОМАНТИКОВ Д. К.",
-    "amount": 446,
+    "description": "Благотворительный;13/08/2026",
+    "donor": "ИСАЕВА Д. И.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "20:15",
+    "type": "income",
+    "category": "",
+    "description": "Садакъ;13/08/2026",
+    "donor": "МЕДЖИДОВА Х. С.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "21:41",
+    "type": "income",
+    "category": "",
+    "description": "на лечение;13/08/2026",
+    "donor": "КАРААЛИЕВА Ш. Н.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "18:34",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;13/08/2026",
+    "donor": "НАЗИРБЕКОВА Х. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "13:28",
+    "type": "income",
+    "category": "",
+    "description": "помощь;13/08/2026",
+    "donor": "ИСАЕВА Э. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "13:06",
+    "type": "income",
+    "category": "",
+    "description": "На лечение. НДС не облагается",
+    "donor": "ЗАКАРИГАЕВ М. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "14:49",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;13/08/2026",
+    "donor": "КАСУМГАДЖИЕВА А. К.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -1411,22 +1321,42 @@
   },
   {
     "date": "2026-08-13",
+    "time": "23:45",
+    "type": "income",
+    "category": "",
+    "description": "на лечение Абдуллахажи;13/08/2026",
+    "donor": "ГАПИЗОВА С. Х.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "20:40",
+    "type": "income",
+    "category": "",
+    "description": "Для Абдулахажи;13/08/2026",
+    "donor": "БАГОМЕДОВА З. З.",
+    "amount": 350,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "23:18",
+    "type": "income",
+    "category": "",
+    "description": "Абдулагаджи Сергокалинский.Ожоги.;13/08/2026",
+    "donor": "ГУСЕЙНОВ Г. М.",
+    "amount": 2500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
     "time": "22:41",
     "type": "income",
     "category": "",
     "description": "садака;13/08/2026",
     "donor": "АДЗИЕВ Ш. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-08-13",
-    "time": "21:39",
-    "type": "income",
-    "category": "",
-    "description": "Для Абдулла Хаджи биссмиЛлягь;13/08/2026",
-    "donor": "ОМАРОВА Р. О.",
-    "amount": 1000,
     "doc": null
   },
   {
@@ -1461,12 +1391,12 @@
   },
   {
     "date": "2026-07-31",
-    "time": "12:37",
+    "time": "15:11",
     "type": "income",
     "category": "",
-    "description": "Благотворительность;31/07/2026",
-    "donor": "МОГОМЕДОВ А. М.",
-    "amount": 400,
+    "description": "А;31/07/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -1481,22 +1411,22 @@
   },
   {
     "date": "2026-07-31",
-    "time": "15:11",
-    "type": "income",
-    "category": "",
-    "description": "А;31/07/2026",
-    "donor": "ГАЗИЕВА А. А.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-07-31",
     "time": "10:01",
     "type": "income",
     "category": "",
     "description": "садакьа;31/07/2026",
     "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-31",
+    "time": "12:37",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;31/07/2026",
+    "donor": "МОГОМЕДОВ А. М.",
+    "amount": 400,
     "doc": null
   },
   {
@@ -1511,32 +1441,12 @@
   },
   {
     "date": "2026-07-24",
-    "time": "16:20",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;24/07/2026",
-    "donor": "РАБАДАНОВ Р. О.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-07-24",
     "time": "20:12",
     "type": "income",
     "category": "",
     "description": "садакьа;24/07/2026",
     "donor": "РАШИДОВ Р. А.",
     "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-07-24",
-    "time": "10:41",
-    "type": "income",
-    "category": "",
-    "description": "БИСМИЛЛАГЬ",
-    "donor": "ИДРИСОВА И. М.",
-    "amount": 200,
     "doc": null
   },
   {
@@ -1571,6 +1481,26 @@
   },
   {
     "date": "2026-07-24",
+    "time": "16:20",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;24/07/2026",
+    "donor": "РАБАДАНОВ Р. О.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-24",
+    "time": "10:41",
+    "type": "income",
+    "category": "",
+    "description": "БИСМИЛЛАГЬ",
+    "donor": "ИДРИСОВА И. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-07-24",
     "time": "12:44",
     "type": "income",
     "category": "",
@@ -1585,16 +1515,6 @@
     "type": "income",
     "category": "",
     "description": "садакьа;24/07/2026",
-    "donor": "МАГОМЕДОВ Э. М.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-07-17",
-    "time": "12:37",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;17/07/2026",
     "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
@@ -1620,23 +1540,23 @@
     "doc": null
   },
   {
+    "date": "2026-07-17",
+    "time": "12:37",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;17/07/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
     "date": "2026-07-15",
     "time": "14:50",
     "type": "expense",
     "category": "",
     "description": "Единый налоговый платеж. НДС не облагается.",
-    "donor": "",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
     "amount": 4080,
-    "doc": null
-  },
-  {
-    "date": "2026-07-10",
-    "time": "11:12",
-    "type": "income",
-    "category": "",
-    "description": "ПОГАШЕНИЕ ГРЕХОВ",
-    "donor": "ИДРИСОВА И. М.",
-    "amount": 200,
     "doc": null
   },
   {
@@ -1651,21 +1571,21 @@
   },
   {
     "date": "2026-07-10",
-    "time": "13:08",
+    "time": "11:12",
     "type": "income",
     "category": "",
-    "description": "садакьа;10/07/2026",
-    "donor": "МАГОМЕДОВ Э. М.",
-    "amount": 100,
+    "description": "ПОГАШЕНИЕ ГРЕХОВ",
+    "donor": "ИДРИСОВА И. М.",
+    "amount": 200,
     "doc": null
   },
   {
     "date": "2026-07-10",
-    "time": "10:20",
+    "time": "16:44",
     "type": "income",
     "category": "",
-    "description": "садакьа;10/07/2026",
-    "donor": "РАШИДОВ Р. А.",
+    "description": "Помощь малоимущим;10/07/2026",
+    "donor": "УМАЛАТОВ Р. У.",
     "amount": 500,
     "doc": null
   },
@@ -1681,12 +1601,22 @@
   },
   {
     "date": "2026-07-10",
-    "time": "16:44",
+    "time": "10:20",
     "type": "income",
     "category": "",
-    "description": "Помощь малоимущим;10/07/2026",
-    "donor": "УМАЛАТОВ Р. У.",
+    "description": "садакьа;10/07/2026",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-07-10",
+    "time": "13:08",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;10/07/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -1695,38 +1625,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа;05/07/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 400,
-    "doc": null
-  },
-  {
-    "date": "2026-07-03",
-    "time": "19:24",
-    "type": "income",
-    "category": "",
-    "description": "А;03/07/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-07-03",
-    "time": "15:14",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;03/07/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-07-03",
-    "time": "10:44",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;03/07/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
     "doc": null
   },
   {
@@ -1745,7 +1645,37 @@
     "type": "income",
     "category": "",
     "description": "благотворительность;03/07/2026",
-    "donor": "Частное лицо",
+    "donor": "ГАДЖИЕВА У. Г.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-07-03",
+    "time": "10:44",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;03/07/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-03",
+    "time": "19:24",
+    "type": "income",
+    "category": "",
+    "description": "А;03/07/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-07-03",
+    "time": "15:14",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;03/07/2026",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -1755,38 +1685,8 @@
     "type": "income",
     "category": "",
     "description": "благодаря;01/07/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-06-26",
-    "time": "15:00",
-    "type": "income",
-    "category": "",
-    "description": "Помощь малоимущим семьям;26/06/2026",
-    "donor": "МАЛОИМУЩИМ С.",
-    "amount": 400,
-    "doc": null
-  },
-  {
-    "date": "2026-06-26",
-    "time": "17:27",
-    "type": "income",
-    "category": "",
-    "description": "А;26/06/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-06-26",
-    "time": "17:27",
-    "type": "income",
-    "category": "",
-    "description": "А;26/06/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 50,
     "doc": null
   },
   {
@@ -1801,12 +1701,52 @@
   },
   {
     "date": "2026-06-26",
+    "time": "17:27",
+    "type": "income",
+    "category": "",
+    "description": "А;26/06/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
+    "time": "15:00",
+    "type": "income",
+    "category": "",
+    "description": "Помощь малоимущим семьям;26/06/2026",
+    "donor": "МОГОМЕДОВ А. М.",
+    "amount": 400,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
     "time": "10:31",
     "type": "income",
     "category": "",
     "description": "садакьа;26/06/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
+    "time": "17:27",
+    "type": "income",
+    "category": "",
+    "description": "А;26/06/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-06-19",
+    "time": "19:07",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;19/06/2026",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 300,
     "doc": null
   },
   {
@@ -1821,31 +1761,11 @@
   },
   {
     "date": "2026-06-19",
-    "time": "19:07",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;19/06/2026",
-    "donor": "КРАСНЫХ З. Д.",
-    "amount": 300,
-    "doc": null
-  },
-  {
-    "date": "2026-06-19",
-    "time": "10:25",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;19/06/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-06-19",
     "time": "10:08",
     "type": "income",
     "category": "",
     "description": "050001001;19/06/2026",
-    "donor": "Частное лицо",
+    "donor": "МИРЗАЕВ М. М.",
     "amount": 500,
     "doc": null
   },
@@ -1855,8 +1775,18 @@
     "type": "income",
     "category": "",
     "description": "А;19/06/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-06-19",
+    "time": "10:25",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;19/06/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -1865,7 +1795,7 @@
     "type": "income",
     "category": "",
     "description": "благодаря;18/06/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -1875,7 +1805,7 @@
     "type": "expense",
     "category": "",
     "description": "Единый налоговый платеж. НДС не облагается.",
-    "donor": "",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
     "amount": 4080,
     "doc": null
   },
@@ -1885,18 +1815,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа;12/06/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-06-15",
-    "time": "00:54",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность;12/06/2026",
-    "donor": "Частное лицо",
-    "amount": 50,
     "doc": null
   },
   {
@@ -1905,8 +1825,18 @@
     "type": "income",
     "category": "",
     "description": "благодаря;12/06/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-06-15",
+    "time": "00:54",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;12/06/2026",
+    "donor": "РАБАДАНОВА Н. И.",
+    "amount": 50,
     "doc": null
   },
   {
@@ -1915,7 +1845,7 @@
     "type": "income",
     "category": "",
     "description": "А;12/06/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
     "doc": null
   },
@@ -1935,7 +1865,7 @@
     "type": "income",
     "category": "",
     "description": "благодаря;09/06/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -1944,18 +1874,8 @@
     "time": "12:09",
     "type": "income",
     "category": "",
-    "description": "Благотворительность;05/06/2026",
-    "donor": "Частное лицо",
-    "amount": 300,
-    "doc": null
-  },
-  {
-    "date": "2026-06-05",
-    "time": "12:09",
-    "type": "income",
-    "category": "",
     "description": "садакьа;05/06/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -1965,8 +1885,18 @@
     "type": "income",
     "category": "",
     "description": "Садакъа;05/06/2026",
-    "donor": "Частное лицо",
+    "donor": "КУБАЕВА М. М.",
     "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-06-05",
+    "time": "12:09",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;05/06/2026",
+    "donor": "МОГОМЕДОВ А. М.",
+    "amount": 300,
     "doc": null
   },
   {
@@ -1975,7 +1905,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;29/05/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -1985,18 +1915,8 @@
     "type": "income",
     "category": "",
     "description": "благотворительность;29/05/2026",
-    "donor": "Частное лицо",
+    "donor": "БАХМУДОВА Х. С.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-05-29",
-    "time": "13:54",
-    "type": "income",
-    "category": "",
-    "description": "Помощь малоимущим;29/05/2026",
-    "donor": "Частное лицо",
-    "amount": 500,
     "doc": null
   },
   {
@@ -2005,18 +1925,18 @@
     "type": "income",
     "category": "",
     "description": "Бисмиллагь;29/05/2026",
-    "donor": "Частное лицо",
+    "donor": "ИДРИСОВ З. М.",
     "amount": 500,
     "doc": null
   },
   {
-    "date": "2026-05-22",
-    "time": "20:57",
+    "date": "2026-05-29",
+    "time": "13:54",
     "type": "income",
     "category": "",
-    "description": "садака;22/05/2026",
-    "donor": "Частное лицо",
-    "amount": 1000,
+    "description": "Помощь малоимущим;29/05/2026",
+    "donor": "АЛИКАДИЕВА Ш. М.",
+    "amount": 500,
     "doc": null
   },
   {
@@ -2025,8 +1945,38 @@
     "type": "income",
     "category": "",
     "description": "садакьа;22/05/2026",
-    "donor": "Частное лицо",
+    "donor": "БАГОМЕДОВ З. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-05-22",
+    "time": "18:37",
+    "type": "income",
+    "category": "",
+    "description": "А;22/05/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-05-22",
+    "time": "20:57",
+    "type": "income",
+    "category": "",
+    "description": "садака;22/05/2026",
+    "donor": "ИБРАГИМОВА С. К.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-05-22",
+    "time": "18:37",
+    "type": "income",
+    "category": "",
+    "description": "А;22/05/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
     "doc": null
   },
   {
@@ -2035,28 +1985,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа;22/05/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-05-22",
-    "time": "18:37",
-    "type": "income",
-    "category": "",
-    "description": "А;22/05/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-05-22",
-    "time": "18:37",
-    "type": "income",
-    "category": "",
-    "description": "А;22/05/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 50,
     "doc": null
   },
   {
@@ -2065,7 +1995,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;21/05/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -2075,7 +2005,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;20/05/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -2085,17 +2015,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;19/05/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-05-15",
-    "time": "12:59",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;15/05/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -2105,8 +2025,18 @@
     "type": "income",
     "category": "",
     "description": "благодаря;15/05/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-05-15",
+    "time": "12:59",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;15/05/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -2115,8 +2045,18 @@
     "type": "expense",
     "category": "",
     "description": "Единый налоговый платеж. НДС не облагается.",
-    "donor": "",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
     "amount": 4080,
+    "doc": null
+  },
+  {
+    "date": "2026-05-08",
+    "time": "10:59",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;08/05/2026",
+    "donor": "АЛИХАНОВ А. М.",
+    "amount": 500,
     "doc": null
   },
   {
@@ -2125,7 +2065,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;08/05/2026",
-    "donor": "КРАСНЫХ З. Д.",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 300,
     "doc": null
   },
@@ -2135,7 +2075,7 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность;08/05/2026",
-    "donor": "Частное лицо",
+    "donor": "РАБАДАНОВ Р. О.",
     "amount": 100,
     "doc": null
   },
@@ -2145,17 +2085,7 @@
     "type": "income",
     "category": "",
     "description": "Благотварительность;08/05/2026",
-    "donor": "Частное лицо",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-05-08",
-    "time": "10:59",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность;08/05/2026",
-    "donor": "Частное лицо",
+    "donor": "ИДРИСОВ З. М.",
     "amount": 500,
     "doc": null
   },
@@ -2165,28 +2095,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа;08/05/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-05-04",
-    "time": "00:56",
-    "type": "income",
-    "category": "",
-    "description": "Пакет помощи для нуждающихся;01/05/2026",
-    "donor": "ПАКЕТ П. Н.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-05-04",
-    "time": "00:52",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность;01/05/2026",
-    "donor": "Частное лицо",
-    "amount": 50,
     "doc": null
   },
   {
@@ -2195,7 +2105,7 @@
     "type": "income",
     "category": "",
     "description": "А;01/05/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
     "doc": null
   },
@@ -2205,8 +2115,28 @@
     "type": "income",
     "category": "",
     "description": "садакьа;01/05/2026",
-    "donor": "КРАСНЫХ З. Д.",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-05-04",
+    "time": "00:52",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;01/05/2026",
+    "donor": "РАБАДАНОВА Н. И.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-05-04",
+    "time": "00:56",
+    "type": "income",
+    "category": "",
+    "description": "Пакет помощи для нуждающихся;01/05/2026",
+    "donor": "АЙСАЕВ Г. А.",
+    "amount": 500,
     "doc": null
   },
   {
@@ -2215,7 +2145,7 @@
     "type": "income",
     "category": "",
     "description": "садака;29/04/2026",
-    "donor": "Частное лицо",
+    "donor": "ИБРАГИМОВА С. К.",
     "amount": 3000,
     "doc": null
   },
@@ -2225,7 +2155,7 @@
     "type": "income",
     "category": "",
     "description": "благодаря;29/04/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -2235,7 +2165,7 @@
     "type": "income",
     "category": "",
     "description": "Оказание финансовой помощи для восстановления водопровода. НДС не облагается.",
-    "donor": "ОКАЗАНИЕ Ф. П.",
+    "donor": "ООО \"КРИСТАЛЛ-КАСПИЙ\"",
     "amount": 150000,
     "doc": null
   },
@@ -2255,8 +2185,18 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность НДС не облагается",
-    "donor": "БИБУЛАТОВ И. М.",
+    "donor": "ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ БИБУЛАТОВ ИСЛАМ МАГОМЕДОВИЧ",
     "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-17",
+    "time": "10:27",
+    "type": "income",
+    "category": "",
+    "description": "На поддержку малоимущих семей и фонда;17/04/2026",
+    "donor": "МОГОМЕДОВ А. М.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -2265,8 +2205,28 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность;17/04/2026",
-    "donor": "ПРКТ К. Д.",
+    "donor": "ГАЗОВА К. А.",
     "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-17",
+    "time": "10:20",
+    "type": "income",
+    "category": "",
+    "description": "А;17/04/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-04-17",
+    "time": "18:28",
+    "type": "income",
+    "category": "",
+    "description": "сбор на востоновление водопровода;17/04/2026",
+    "donor": "АЙСАЕВ Г. А.",
+    "amount": 750,
     "doc": null
   },
   {
@@ -2275,7 +2235,7 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность;17/04/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ К. М.",
     "amount": 100,
     "doc": null
   },
@@ -2285,38 +2245,8 @@
     "type": "income",
     "category": "",
     "description": "на благотворительность водопровод;17/04/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-04-17",
-    "time": "18:28",
-    "type": "income",
-    "category": "",
-    "description": "сбор на востоновление водопровода;17/04/2026",
-    "donor": "ВОСТОНОВЛЕНИЕ В.",
-    "amount": 750,
-    "doc": null
-  },
-  {
-    "date": "2026-04-17",
-    "time": "10:27",
-    "type": "income",
-    "category": "",
-    "description": "На поддержку малоимущих семей и фонда;17/04/2026",
-    "donor": "ПОДДЕРЖКУ М. С.",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-04-17",
-    "time": "10:20",
-    "type": "income",
-    "category": "",
-    "description": "А;17/04/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 50,
     "doc": null
   },
   {
@@ -2325,18 +2255,8 @@
     "type": "income",
     "category": "",
     "description": "В помощь после разрушений;16/04/2026",
-    "donor": "В П. Р.",
+    "donor": "МАГОМЕДОВ А. К.",
     "amount": 5000,
-    "doc": null
-  },
-  {
-    "date": "2026-04-16",
-    "time": "22:05",
-    "type": "income",
-    "category": "",
-    "description": "сбор на на востановление водоканала;16/04/2026",
-    "donor": "ВОСТАНОВЛЕНИЕ В.",
-    "amount": 500,
     "doc": null
   },
   {
@@ -2345,8 +2265,18 @@
     "type": "income",
     "category": "",
     "description": "На благотворительность;16/04/2026",
-    "donor": "Частное лицо",
+    "donor": "ГУСЕЙНОВ Г. М.",
     "amount": 9500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-16",
+    "time": "22:05",
+    "type": "income",
+    "category": "",
+    "description": "сбор на на востановление водоканала;16/04/2026",
+    "donor": "ЛУКМАНОВ С. М.",
+    "amount": 500,
     "doc": null
   },
   {
@@ -2355,7 +2285,7 @@
     "type": "income",
     "category": "",
     "description": "благодаря;15/04/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 1000,
     "doc": null
   },
@@ -2365,7 +2295,7 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность;15/04/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ А. Р.",
     "amount": 5000,
     "doc": null
   },
@@ -2375,7 +2305,7 @@
     "type": "income",
     "category": "",
     "description": "ОПЛАТА ПО СЧЕТУ НДС НЕ ОБЛАГАЕТСЯ",
-    "donor": "АСАДУЛА К.",
+    "donor": "АДИРОВ АСАДУЛА КАЛИМУЛАЕВИЧ",
     "amount": 50000,
     "doc": null
   },
@@ -2391,112 +2321,22 @@
   },
   {
     "date": "2026-04-14",
-    "time": "00:41",
-    "type": "income",
-    "category": "",
-    "description": "помощь;14/04/2026",
-    "donor": "Частное лицо",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-04-14",
     "time": "12:28",
     "type": "income",
     "category": "",
     "description": "На стр водовода;14/04/2026",
-    "donor": "Частное лицо",
+    "donor": "СУЛЕЙМАНОВ Б. Г.",
     "amount": 2000,
     "doc": null
   },
   {
-    "date": "2026-04-13",
-    "time": "00:54",
+    "date": "2026-04-14",
+    "time": "00:41",
     "type": "income",
     "category": "",
-    "description": "На благотворительность;11/04/2026",
-    "donor": "Частное лицо",
+    "description": "помощь;14/04/2026",
+    "donor": "МАЗГАРОВА М. Ш.",
     "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:55",
-    "type": "income",
-    "category": "",
-    "description": "Для воды;11/04/2026",
-    "donor": "Частное лицо",
-    "amount": 300,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:59",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;12/04/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:58",
-    "type": "income",
-    "category": "",
-    "description": "Помощь на восстановление водопровода с Сергокала;12/04/2026",
-    "donor": "ВОССТАНОВЛЕНИЕ В. С.",
-    "amount": 5000,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:56",
-    "type": "income",
-    "category": "",
-    "description": "Сбор;11/04/2026",
-    "donor": "НИЖНЕЕ М. Д.",
-    "amount": 300,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:51",
-    "type": "income",
-    "category": "",
-    "description": "На благотворительность;11/04/2026",
-    "donor": "ГГАМИДОВА Д. К.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "01:00",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;12/04/2026",
-    "donor": "Частное лицо",
-    "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:51",
-    "type": "income",
-    "category": "",
-    "description": "Помощь для водоснабжения.;11/04/2026",
-    "donor": "ДЗЕРЖИНСКОГО Д. А.",
-    "amount": 2500,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:53",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность;11/04/2026",
-    "donor": "Частное лицо",
-    "amount": 300,
     "doc": null
   },
   {
@@ -2505,98 +2345,8 @@
     "type": "income",
     "category": "",
     "description": "на благотвтрительность;11/04/2026",
-    "donor": "Частное лицо",
+    "donor": "ИБРАГИМОВА Н. А.",
     "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:53",
-    "type": "income",
-    "category": "",
-    "description": "на благотворительность;11/04/2026",
-    "donor": "Частное лицо",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:57",
-    "type": "income",
-    "category": "",
-    "description": "Помощь;11/04/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:53",
-    "type": "income",
-    "category": "",
-    "description": "На водопровод в селение Урахи;11/04/2026",
-    "donor": "ВОДОПРОВОД В. С.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:58",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность;12/04/2026",
-    "donor": "Частное лицо",
-    "amount": 5000,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:59",
-    "type": "income",
-    "category": "",
-    "description": "На благотворительность;12/04/2026",
-    "donor": "Частное лицо",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:51",
-    "type": "income",
-    "category": "",
-    "description": "На благотворительность.Восстановление водопровода;11/04/2026",
-    "donor": "ВОССТАНОВЛЕНИЕ В.",
-    "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "01:00",
-    "type": "income",
-    "category": "",
-    "description": "Помощь;12/04/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:56",
-    "type": "income",
-    "category": "",
-    "description": "помошь;11/04/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:54",
-    "type": "income",
-    "category": "",
-    "description": "на благотворительность;11/04/2026",
-    "donor": "Частное лицо",
-    "amount": 2000,
     "doc": null
   },
   {
@@ -2605,17 +2355,7 @@
     "type": "income",
     "category": "",
     "description": "благотворительность на водопровод;11/04/2026",
-    "donor": "Частное лицо",
-    "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2026-04-13",
-    "time": "00:50",
-    "type": "income",
-    "category": "",
-    "description": "на благотворительность водопровод;11/04/2026",
-    "donor": "Частное лицо",
+    "donor": "АБДУРАШИДОВА С. У.",
     "amount": 1000,
     "doc": null
   },
@@ -2625,38 +2365,158 @@
     "type": "income",
     "category": "",
     "description": "на благотворительность восстановление водопровода от Исакова М-Р.К;13/04/2026",
-    "donor": "ВОССТАНОВЛЕНИЕ В. И.",
+    "donor": "ИСАКОВ М. К.",
     "amount": 1000,
     "doc": null
   },
   {
     "date": "2026-04-13",
-    "time": "20:36",
+    "time": "01:00",
     "type": "income",
     "category": "",
-    "description": "Благотворительность НДС не облагается",
-    "donor": "БИБУЛАТОВ И. М.",
-    "amount": 50000,
+    "description": "Помощь;12/04/2026",
+    "donor": "ГАСАНГУСЕЙНОВА З. М.",
+    "amount": 200,
     "doc": null
   },
   {
     "date": "2026-04-13",
-    "time": "01:02",
+    "time": "00:53",
     "type": "income",
     "category": "",
-    "description": "помощь в восстановлении;12/04/2026",
-    "donor": "САМУРСКОГО Д. А.",
+    "description": "на благотворительность;11/04/2026",
+    "donor": "РАБАДАНОВА А. А.",
     "amount": 500,
     "doc": null
   },
   {
     "date": "2026-04-13",
-    "time": "12:01",
+    "time": "00:54",
     "type": "income",
     "category": "",
-    "description": "Благотворительность;13/04/2026",
-    "donor": "АМИРЧУПАНОВА У. А.",
+    "description": "На благотворительность;11/04/2026",
+    "donor": "РАШИДОВА М. М.",
     "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:58",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;12/04/2026",
+    "donor": "АЛИБЕКОВ М. А.",
+    "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:59",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;12/04/2026",
+    "donor": "МАГОМЕДОВА Д. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "01:00",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;12/04/2026",
+    "donor": "АМИРХАНОВА С. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "На водопровод в селение Урахи;11/04/2026",
+    "donor": "МАГОМЕДОВ Р. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:51",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность.Восстановление водопровода;11/04/2026",
+    "donor": "МАГОМЕДОВА М. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:57",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;11/04/2026",
+    "donor": "ИСАХАНОВА А. А.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "Для воды;11/04/2026",
+    "donor": "БАГОМЕДОВА К. Н.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;11/04/2026",
+    "donor": "БАГОМЕДОВА С. Р.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:54",
+    "type": "income",
+    "category": "",
+    "description": "на благотворительность;11/04/2026",
+    "donor": "ХИЗРИЕВА М. М.",
+    "amount": 2000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:56",
+    "type": "income",
+    "category": "",
+    "description": "помошь;11/04/2026",
+    "donor": "РАДЖАБОВА М. К.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:59",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность;12/04/2026",
+    "donor": "МАГОМЕДОВА П. Г.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:58",
+    "type": "income",
+    "category": "",
+    "description": "Помощь на восстановление водопровода с Сергокала;12/04/2026",
+    "donor": "АХМЕДОВ Ш. Х.",
+    "amount": 5000,
     "doc": null
   },
   {
@@ -2665,8 +2525,78 @@
     "type": "income",
     "category": "",
     "description": "Пожертвование;12/04/2026",
-    "donor": "АЛИЕВА М. Д.",
+    "donor": "АЛИСУЛТАНОВА С. Б.",
     "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "12:01",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;13/04/2026",
+    "donor": "КУРБАНГАДЖИЕВА Д. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "01:02",
+    "type": "income",
+    "category": "",
+    "description": "помощь в восстановлении;12/04/2026",
+    "donor": "РАБАДАНОВА М. Р.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:56",
+    "type": "income",
+    "category": "",
+    "description": "Сбор;11/04/2026",
+    "donor": "МАГОМЕДОВА Р. И.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:50",
+    "type": "income",
+    "category": "",
+    "description": "на благотворительность водопровод;11/04/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:51",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность;11/04/2026",
+    "donor": "СУЛЕЙМАНОВ С. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "20:36",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность НДС не облагается",
+    "donor": "ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ БИБУЛАТОВ ИСЛАМ МАГОМЕДОВИЧ",
+    "amount": 50000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:51",
+    "type": "income",
+    "category": "",
+    "description": "Помощь для водоснабжения.;11/04/2026",
+    "donor": "ГАЙДАРОВ З. Г.",
+    "amount": 2500,
     "doc": null
   },
   {
@@ -2675,7 +2605,7 @@
     "type": "income",
     "category": "",
     "description": "На благотворительность;11/04/2026",
-    "donor": "Частное лицо",
+    "donor": "ГУСЕЙНОВ Г. М.",
     "amount": 8000,
     "doc": null
   },
@@ -2701,16 +2631,6 @@
   },
   {
     "date": "2026-04-11",
-    "time": "18:59",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность. НДС не облагается",
-    "donor": "КАДИЕВ М. М.",
-    "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2026-04-11",
     "time": "12:53",
     "type": "income",
     "category": "",
@@ -2720,12 +2640,32 @@
     "doc": null
   },
   {
+    "date": "2026-04-11",
+    "time": "18:59",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность. НДС не облагается",
+    "donor": "КАДИЕВ М. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-10",
+    "time": "13:21",
+    "type": "income",
+    "category": "",
+    "description": "пятничный сбор;10/04/2026",
+    "donor": "ЗАКАРЬЯЕВА А. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
     "date": "2026-04-10",
     "time": "10:29",
     "type": "income",
     "category": "",
     "description": "садакьа;10/04/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -2735,18 +2675,8 @@
     "type": "income",
     "category": "",
     "description": "благодаря;10/04/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-04-10",
-    "time": "17:44",
-    "type": "income",
-    "category": "",
-    "description": "А;10/04/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 50,
     "doc": null
   },
   {
@@ -2755,7 +2685,17 @@
     "type": "income",
     "category": "",
     "description": "А;10/04/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-04-10",
+    "time": "17:44",
+    "type": "income",
+    "category": "",
+    "description": "А;10/04/2026",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
     "doc": null
   },
@@ -2765,18 +2705,8 @@
     "type": "income",
     "category": "",
     "description": "помощь;10/04/2026",
-    "donor": "Частное лицо",
+    "donor": "ИСАЕВА Э. М.",
     "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-04-10",
-    "time": "13:21",
-    "type": "income",
-    "category": "",
-    "description": "пятничный сбор;10/04/2026",
-    "donor": "Частное лицо",
-    "amount": 500,
     "doc": null
   },
   {
@@ -2785,7 +2715,7 @@
     "type": "expense",
     "category": "",
     "description": "Единый налоговый платеж. НДС не облагается.",
-    "donor": "",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
     "amount": 12240,
     "doc": null
   },
@@ -2795,17 +2725,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;05/04/2026",
-    "donor": "Частное лицо",
-    "amount": 300,
-    "doc": null
-  },
-  {
-    "date": "2026-04-03",
-    "time": "12:10",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;03/04/2026",
-    "donor": "КРАСНЫХ З. Д.",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 300,
     "doc": null
   },
@@ -2815,17 +2735,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;03/04/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-04-03",
-    "time": "10:28",
-    "type": "income",
-    "category": "",
-    "description": "Пожертвования,благотворительность;03/04/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -2835,7 +2745,27 @@
     "type": "income",
     "category": "",
     "description": "садака;03/04/2026",
-    "donor": "ПРИМОРСКИЙ Д. К.",
+    "donor": "ГАЗИЕВ А. А.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-04-03",
+    "time": "23:38",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;03/04/2026",
+    "donor": "ШАМХАЛОВ А. Г.",
+    "amount": 350,
+    "doc": null
+  },
+  {
+    "date": "2026-04-03",
+    "time": "12:10",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;03/04/2026",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 300,
     "doc": null
   },
@@ -2845,7 +2775,17 @@
     "type": "income",
     "category": "",
     "description": "благотворительность;03/04/2026",
-    "donor": "Частное лицо",
+    "donor": "СУРХАЕВ Р. Г.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-03",
+    "time": "10:28",
+    "type": "income",
+    "category": "",
+    "description": "Пожертвования,благотворительность;03/04/2026",
+    "donor": "РАДЖАБОВ Х. А.",
     "amount": 100,
     "doc": null
   },
@@ -2855,18 +2795,8 @@
     "type": "income",
     "category": "",
     "description": "благодаря;03/04/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-04-03",
-    "time": "23:38",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;03/04/2026",
-    "donor": "Частное лицо",
-    "amount": 350,
     "doc": null
   },
   {
@@ -2875,7 +2805,7 @@
     "type": "income",
     "category": "",
     "description": "Помощь пострадавшим от наводнения, НДС не облагается.",
-    "donor": "ПОСТРАДАВШИМ Н.",
+    "donor": "ООО \"РАНДА\"",
     "amount": 250000,
     "doc": null
   },
@@ -2885,7 +2815,17 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность;27/03/2026",
-    "donor": "Частное лицо",
+    "donor": "РАБАДАНОВА Н. И.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-27",
+    "time": "11:51",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность;27/03/2026",
+    "donor": "МОГОМЕДОВ А. М.",
     "amount": 100,
     "doc": null
   },
@@ -2901,22 +2841,22 @@
   },
   {
     "date": "2026-03-27",
-    "time": "11:51",
-    "type": "income",
-    "category": "",
-    "description": "На благотворительность;27/03/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-03-27",
     "time": "13:18",
     "type": "income",
     "category": "",
     "description": "1;27/03/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ С. М.",
     "amount": 150,
+    "doc": null
+  },
+  {
+    "date": "2026-03-27",
+    "time": "12:16",
+    "type": "income",
+    "category": "",
+    "description": "садака;27/03/2026",
+    "donor": "ГАЗИЕВ А. А.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -2925,7 +2865,7 @@
     "type": "income",
     "category": "",
     "description": "А;27/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
     "doc": null
   },
@@ -2935,17 +2875,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;27/03/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-03-27",
-    "time": "12:16",
-    "type": "income",
-    "category": "",
-    "description": "садака;27/03/2026",
-    "donor": "ПРИМОРСКИЙ Д. К.",
+    "donor": "БАГОМЕДОВ З. М.",
     "amount": 200,
     "doc": null
   },
@@ -2955,18 +2885,8 @@
     "type": "income",
     "category": "",
     "description": "А;19/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-03-19",
-    "time": "18:25",
-    "type": "income",
-    "category": "",
-    "description": "в помощь;19/03/2026",
-    "donor": "Частное лицо",
-    "amount": 555,
     "doc": null
   },
   {
@@ -2975,8 +2895,18 @@
     "type": "income",
     "category": "",
     "description": "благодаря;19/03/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-19",
+    "time": "18:25",
+    "type": "income",
+    "category": "",
+    "description": "в помощь;19/03/2026",
+    "donor": "БАГОМЕДОВ Х. М.",
+    "amount": 555,
     "doc": null
   },
   {
@@ -2985,7 +2915,7 @@
     "type": "income",
     "category": "",
     "description": "А;19/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
     "doc": null
   },
@@ -2995,7 +2925,7 @@
     "type": "income",
     "category": "",
     "description": "благодаря;18/03/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -3005,7 +2935,17 @@
     "type": "income",
     "category": "",
     "description": "А;18/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-17",
+    "time": "17:48",
+    "type": "income",
+    "category": "",
+    "description": "А;17/03/2026",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
     "doc": null
   },
@@ -3015,17 +2955,77 @@
     "type": "income",
     "category": "",
     "description": "благодаря;17/03/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
   {
-    "date": "2026-03-17",
-    "time": "17:48",
+    "date": "2026-03-16",
+    "time": "00:48",
     "type": "income",
     "category": "",
-    "description": "А;17/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "description": ".;14/03/2026",
+    "donor": "АБДУЛГАЛИМОВА Е. А.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "00:57",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;15/03/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "03:07",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;16/03/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "00:48",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;14/03/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "01:06",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;15/03/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "23:28",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;16/03/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "01:02",
+    "type": "income",
+    "category": "",
+    "description": "А;15/03/2026",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
     "doc": null
   },
@@ -3035,77 +3035,7 @@
     "type": "income",
     "category": "",
     "description": "А;14/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-03-16",
-    "time": "03:07",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;16/03/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-03-16",
-    "time": "00:57",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;15/03/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-03-16",
-    "time": "23:28",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;16/03/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-03-16",
-    "time": "01:06",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;15/03/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-03-16",
-    "time": "00:48",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;14/03/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-03-16",
-    "time": "01:02",
-    "type": "income",
-    "category": "",
-    "description": "А;15/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-03-16",
-    "time": "00:48",
-    "type": "income",
-    "category": "",
-    "description": ".;14/03/2026",
-    "donor": "СОВХОЗНЫЙ Д. К.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
     "doc": null
   },
@@ -3115,18 +3045,8 @@
     "type": "income",
     "category": "",
     "description": "А;16/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-03-13",
-    "time": "05:27",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;13/03/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
     "doc": null
   },
   {
@@ -3135,7 +3055,7 @@
     "type": "income",
     "category": "",
     "description": "Садака;13/03/2026",
-    "donor": "Частное лицо",
+    "donor": "ИБРАГИМОВА З. С.",
     "amount": 100,
     "doc": null
   },
@@ -3145,38 +3065,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа;13/03/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-03-13",
-    "time": "11:59",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;13/03/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-03-13",
-    "time": "15:34",
-    "type": "income",
-    "category": "",
-    "description": "100;13/03/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-03-13",
-    "time": "17:24",
-    "type": "income",
-    "category": "",
-    "description": "А;13/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 50,
     "doc": null
   },
   {
@@ -3185,8 +3075,18 @@
     "type": "income",
     "category": "",
     "description": "А;13/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "05:27",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;13/03/2026",
+    "donor": "АЙСАЕВА Д. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -3195,7 +3095,7 @@
     "type": "income",
     "category": "",
     "description": ".;13/03/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ С. М.",
     "amount": 500,
     "doc": null
   },
@@ -3210,23 +3110,33 @@
     "doc": null
   },
   {
-    "date": "2026-03-12",
-    "time": "16:36",
+    "date": "2026-03-13",
+    "time": "17:24",
     "type": "income",
     "category": "",
-    "description": "А;12/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "description": "А;13/03/2026",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
     "doc": null
   },
   {
-    "date": "2026-03-12",
-    "time": "22:09",
+    "date": "2026-03-13",
+    "time": "11:59",
     "type": "income",
     "category": "",
-    "description": "благодаря;12/03/2026",
-    "donor": "Частное лицо",
+    "description": "садакьа;13/03/2026",
+    "donor": "БАГОМЕДОВ З. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "15:34",
+    "type": "income",
+    "category": "",
+    "description": "100;13/03/2026",
+    "donor": "САЛИХОВА Н. Г.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -3235,8 +3145,28 @@
     "type": "income",
     "category": "",
     "description": "садакьа;12/03/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-12",
+    "time": "22:09",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;12/03/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-12",
+    "time": "16:36",
+    "type": "income",
+    "category": "",
+    "description": "А;12/03/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
     "doc": null
   },
   {
@@ -3245,37 +3175,7 @@
     "type": "income",
     "category": "",
     "description": "благодаря;11/03/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-03-10",
-    "time": "23:06",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;10/03/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-03-10",
-    "time": "20:59",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;10/03/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-03-10",
-    "time": "01:01",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;08/03/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -3285,7 +3185,47 @@
     "type": "income",
     "category": "",
     "description": "благодаря;09/03/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-10",
+    "time": "23:06",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;10/03/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-10",
+    "time": "01:11",
+    "type": "income",
+    "category": "",
+    "description": "на ифтар;09/03/2026",
+    "donor": "МАГОМЕДОВ С. М.",
+    "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2026-03-10",
+    "time": "01:01",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;08/03/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-10",
+    "time": "20:59",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;10/03/2026",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -3295,18 +3235,18 @@
     "type": "income",
     "category": "",
     "description": "А;10/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 50,
     "doc": null
   },
   {
-    "date": "2026-03-10",
-    "time": "01:11",
+    "date": "2026-03-06",
+    "time": "23:07",
     "type": "income",
     "category": "",
-    "description": "на ифтар;09/03/2026",
-    "donor": "Частное лицо",
-    "amount": 5000,
+    "description": "Благотворительность;06/03/2026",
+    "donor": "ЮСУПОВА П. К.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -3315,7 +3255,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;06/03/2026",
-    "donor": "Частное лицо",
+    "donor": "БАГОМЕДОВ З. М.",
     "amount": 200,
     "doc": null
   },
@@ -3325,7 +3265,17 @@
     "type": "income",
     "category": "",
     "description": "садакьа;06/03/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-06",
+    "time": "16:52",
+    "type": "income",
+    "category": "",
+    "description": "А;06/03/2026",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 100,
     "doc": null
   },
@@ -3335,28 +3285,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа нуждающимся;06/03/2026",
-    "donor": "КРАСНЫХ З. Д.",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-03-06",
-    "time": "23:07",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность;06/03/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-03-06",
-    "time": "16:52",
-    "type": "income",
-    "category": "",
-    "description": "А;06/03/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 100,
     "doc": null
   },
   {
@@ -3365,18 +3295,8 @@
     "type": "income",
     "category": "",
     "description": "Садака;01/03/2026",
-    "donor": "НЕФТЕКАЧКА Д. А.",
+    "donor": "МАМАЕВ Г. М.",
     "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-02-27",
-    "time": "23:12",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;27/02/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
     "doc": null
   },
   {
@@ -3385,18 +3305,18 @@
     "type": "income",
     "category": "",
     "description": "садакьа;27/02/2026",
-    "donor": "Частное лицо",
+    "donor": "ШАМХАЛОВ А. Г.",
     "amount": 300,
     "doc": null
   },
   {
     "date": "2026-02-27",
-    "time": "17:33",
+    "time": "23:12",
     "type": "income",
     "category": "",
     "description": "садакьа;27/02/2026",
-    "donor": "КРАСНЫХ З. Д.",
-    "amount": 500,
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -3405,7 +3325,27 @@
     "type": "income",
     "category": "",
     "description": "А;27/02/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-02-27",
+    "time": "17:33",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;27/02/2026",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-02-24",
+    "time": "00:58",
+    "type": "income",
+    "category": "",
+    "description": "на лечение ребенка;22/02/2026",
+    "donor": "МЕДЖИДОВА У. М.",
     "amount": 100,
     "doc": null
   },
@@ -3415,28 +3355,8 @@
     "type": "income",
     "category": "",
     "description": "благодаря;21/02/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-02-24",
-    "time": "00:58",
-    "type": "income",
-    "category": "",
-    "description": "на лечение ребенка;22/02/2026",
-    "donor": "ЛЕЧЕНИЕ Р.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-02-24",
-    "time": "00:57",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;22/02/2026",
-    "donor": "Частное лицо",
-    "amount": 500,
     "doc": null
   },
   {
@@ -3445,28 +3365,18 @@
     "type": "income",
     "category": "",
     "description": "благодаря;23/02/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
   {
-    "date": "2026-02-20",
-    "time": "16:13",
+    "date": "2026-02-24",
+    "time": "00:57",
     "type": "income",
     "category": "",
-    "description": "на благотворительность;20/02/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-02-20",
-    "time": "10:58",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;20/02/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
+    "description": "садакьа;22/02/2026",
+    "donor": "БАГОМЕДОВ З. М.",
+    "amount": 500,
     "doc": null
   },
   {
@@ -3475,7 +3385,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;20/02/2026",
-    "donor": "Частное лицо",
+    "donor": "БАГОМЕДОВ З. М.",
     "amount": 200,
     "doc": null
   },
@@ -3485,7 +3395,37 @@
     "type": "income",
     "category": "",
     "description": "А;20/02/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-02-20",
+    "time": "16:13",
+    "type": "income",
+    "category": "",
+    "description": "на благотворительность;20/02/2026",
+    "donor": "МЕДЖИДОВ М. Б.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-02-20",
+    "time": "10:58",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;20/02/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-02-13",
+    "time": "11:46",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;13/02/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -3501,21 +3441,11 @@
   },
   {
     "date": "2026-02-13",
-    "time": "11:46",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;13/02/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-02-13",
     "time": "17:09",
     "type": "income",
     "category": "",
     "description": "благодаря;13/02/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -3525,18 +3455,8 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность;07/02/2026",
-    "donor": "Частное лицо",
+    "donor": "АБДУСАЛАМОВ А. Б.",
     "amount": 3000,
-    "doc": null
-  },
-  {
-    "date": "2026-02-06",
-    "time": "13:52",
-    "type": "income",
-    "category": "",
-    "description": "А;06/02/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
-    "amount": 150,
     "doc": null
   },
   {
@@ -3545,8 +3465,18 @@
     "type": "income",
     "category": "",
     "description": "благодаря;06/02/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-02-06",
+    "time": "13:52",
+    "type": "income",
+    "category": "",
+    "description": "А;06/02/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 150,
     "doc": null
   },
   {
@@ -3555,7 +3485,7 @@
     "type": "income",
     "category": "",
     "description": "А;30/01/2026",
-    "donor": "АНАТОЛИЙ Н. Д.",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 150,
     "doc": null
   },
@@ -3575,7 +3505,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;30/01/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -3585,7 +3515,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;30/01/2026",
-    "donor": "КРАСНЫХ З. Д.",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 300,
     "doc": null
   },
@@ -3595,8 +3525,28 @@
     "type": "income",
     "category": "",
     "description": "садакьа;23/01/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-23",
+    "time": "15:13",
+    "type": "income",
+    "category": "",
+    "description": "На благие дела;23/01/2026",
+    "donor": "МАГОМЕДОВ К. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-23",
+    "time": "06:03",
+    "type": "expense",
+    "category": "",
+    "description": "Комиссия за Ежегодное обслуживание СберБизнес Карты (на пластиковом носителе) № 2202********6410 от 23.01.2026 согласно Тарифам Банка, с НДС 360.66",
+    "donor": "БЛАГОТВОРИТЕЛЬНЫЙ ФОНД ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
+    "amount": 2000,
     "doc": null
   },
   {
@@ -3610,43 +3560,13 @@
     "doc": null
   },
   {
-    "date": "2026-01-23",
-    "time": "06:03",
-    "type": "expense",
-    "category": "",
-    "description": "Комиссия за Ежегодное обслуживание СберБизнес Карты (на пластиковом носителе) № 2202********6410 от 23.01.2026 согласно Тарифам Банка, с НДС 360.66",
-    "donor": "",
-    "amount": 2000,
-    "doc": null
-  },
-  {
-    "date": "2026-01-23",
-    "time": "15:13",
-    "type": "income",
-    "category": "",
-    "description": "На благие дела;23/01/2026",
-    "donor": "БЛАГИЕ Д.",
-    "amount": 100,
-    "doc": null
-  },
-  {
     "date": "2026-01-16",
-    "time": "18:25",
+    "time": "16:37",
     "type": "income",
     "category": "",
-    "description": "Садака;16/01/2026",
-    "donor": "НЕФТЕКАЧКА Д. А.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-01-16",
-    "time": "10:20",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;16/01/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
+    "description": "ПЕРЕВОД СОБСТВЕННЫХ СРЕДСТВ",
+    "donor": "ИДРИСОВА И. М.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -3661,6 +3581,26 @@
   },
   {
     "date": "2026-01-16",
+    "time": "10:20",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;16/01/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-16",
+    "time": "15:55",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;16/01/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-01-16",
     "time": "13:12",
     "type": "income",
     "category": "",
@@ -3671,22 +3611,12 @@
   },
   {
     "date": "2026-01-16",
-    "time": "15:55",
+    "time": "18:25",
     "type": "income",
     "category": "",
-    "description": "благодаря;16/01/2026",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2026-01-16",
-    "time": "16:37",
-    "type": "income",
-    "category": "",
-    "description": "ПЕРЕВОД СОБСТВЕННЫХ СРЕДСТВ",
-    "donor": "ИДРИСОВА И. М.",
-    "amount": 200,
+    "description": "Садака;16/01/2026",
+    "donor": "МАМАЕВ Г. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -3695,7 +3625,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;09/01/2026",
-    "donor": "КРАСНЫХ З. Д.",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 300,
     "doc": null
   },
@@ -3705,7 +3635,7 @@
     "type": "income",
     "category": "",
     "description": "Подарок;09/01/2026",
-    "donor": "ДОНА Д. Д.",
+    "donor": "ДЖАММИРЗАЕВА З. А.",
     "amount": 1000,
     "doc": null
   },
@@ -3715,7 +3645,7 @@
     "type": "income",
     "category": "",
     "description": ".;09/01/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ С. М.",
     "amount": 1000,
     "doc": null
   },
@@ -3725,28 +3655,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа;05/01/2026",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 270,
-    "doc": null
-  },
-  {
-    "date": "2026-01-03",
-    "time": "00:53",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;02/01/2026",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-01-03",
-    "time": "00:53",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;02/01/2026",
-    "donor": "КРАСНЫХ З. Д.",
-    "amount": 300,
     "doc": null
   },
   {
@@ -3755,8 +3665,28 @@
     "type": "income",
     "category": "",
     "description": "благодаря;02/01/2026",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-01-03",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;02/01/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-03",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;02/01/2026",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 300,
     "doc": null
   },
   {
@@ -3765,17 +3695,17 @@
     "type": "income",
     "category": "",
     "description": ".;27/12/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ М. Г.",
     "amount": 100,
     "doc": null
   },
   {
     "date": "2025-12-26",
-    "time": "14:25",
+    "time": "16:00",
     "type": "income",
     "category": "",
-    "description": "благодаря;26/12/2025",
-    "donor": "Частное лицо",
+    "description": "садакьа;26/12/2025",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 200,
     "doc": null
   },
@@ -3785,17 +3715,27 @@
     "type": "income",
     "category": "",
     "description": "благотворительность;26/12/2025",
-    "donor": "Частное лицо",
+    "donor": "АЙСАЕВ Г. А.",
     "amount": 150,
     "doc": null
   },
   {
     "date": "2025-12-26",
-    "time": "16:00",
+    "time": "14:25",
     "type": "income",
     "category": "",
-    "description": "садакьа;26/12/2025",
-    "donor": "Частное лицо",
+    "description": "благодаря;26/12/2025",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-12-26",
+    "time": "10:09",
+    "type": "income",
+    "category": "",
+    "description": "1;26/12/2025",
+    "donor": "ЗАЛКЕПРИЕВ А. М.",
     "amount": 200,
     "doc": null
   },
@@ -3805,58 +3745,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа;26/12/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-12-26",
-    "time": "10:09",
-    "type": "income",
-    "category": "",
-    "description": "1;26/12/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2025-12-19",
-    "time": "16:03",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;19/12/2025",
-    "donor": "Частное лицо",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2025-12-19",
-    "time": "19:12",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;19/12/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2025-12-19",
-    "time": "18:15",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;19/12/2025",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-12-19",
-    "time": "12:33",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;19/12/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
     "doc": null
   },
   {
@@ -3865,8 +3755,28 @@
     "type": "income",
     "category": "",
     "description": "Садакьа. НДС не облагается",
-    "donor": "САДАКЬА О.",
+    "donor": "АЛИШЕЙХОВА Г. И.",
     "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-12-19",
+    "time": "16:03",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;19/12/2025",
+    "donor": "АЛИЕВА С. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2025-12-19",
+    "time": "12:33",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;19/12/2025",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -3875,38 +3785,28 @@
     "type": "income",
     "category": "",
     "description": "садакьа;19/12/2025",
-    "donor": "Частное лицо",
+    "donor": "ГУСЕЙНОВА Н. А.",
     "amount": 500,
     "doc": null
   },
   {
-    "date": "2025-12-12",
-    "time": "13:07",
+    "date": "2025-12-19",
+    "time": "18:15",
     "type": "income",
     "category": "",
-    "description": "пятничный сбор;12/12/2025",
-    "donor": "Частное лицо",
+    "description": "садакьа;19/12/2025",
+    "donor": "ЮСУПОВА П. Г.",
     "amount": 100,
     "doc": null
   },
   {
-    "date": "2025-12-12",
-    "time": "19:35",
+    "date": "2025-12-19",
+    "time": "19:12",
     "type": "income",
     "category": "",
-    "description": "благодаря;12/12/2025",
-    "donor": "Частное лицо",
+    "description": "благодаря;19/12/2025",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2025-12-12",
-    "time": "12:00",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;12/12/2025",
-    "donor": "Частное лицо",
-    "amount": 300,
     "doc": null
   },
   {
@@ -3915,17 +3815,37 @@
     "type": "income",
     "category": "",
     "description": "Мало имущим. НДС не облагается",
-    "donor": "МАЛО И. О.",
+    "donor": "БАГАНДОВ К. И.",
     "amount": 400,
     "doc": null
   },
   {
-    "date": "2025-12-05",
-    "time": "10:30",
+    "date": "2025-12-12",
+    "time": "12:00",
     "type": "income",
     "category": "",
-    "description": "Садакьа. НДС не облагается",
-    "donor": "САДАКЬА О.",
+    "description": "садакьа;12/12/2025",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2025-12-12",
+    "time": "19:35",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;12/12/2025",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-12-12",
+    "time": "13:07",
+    "type": "income",
+    "category": "",
+    "description": "пятничный сбор;12/12/2025",
+    "donor": "МУСАЕВ Р. И.",
     "amount": 100,
     "doc": null
   },
@@ -3935,7 +3855,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;05/12/2025",
-    "donor": "Частное лицо",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 300,
     "doc": null
   },
@@ -3945,8 +3865,18 @@
     "type": "income",
     "category": "",
     "description": "благодаря;05/12/2025",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-12-05",
+    "time": "10:30",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -3955,18 +3885,8 @@
     "type": "expense",
     "category": "",
     "description": "По решению о взыскании от 03.12.2025 № 55574 по ст.46 НК РФ",
-    "donor": "",
+    "donor": "БЛАГОТВОРИТЕЛЬНЫЙ ФОНД ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
     "amount": 3000,
-    "doc": null
-  },
-  {
-    "date": "2025-11-28",
-    "time": "13:53",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;28/11/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
     "doc": null
   },
   {
@@ -3975,17 +3895,17 @@
     "type": "income",
     "category": "",
     "description": "садакьа;28/11/2025",
-    "donor": "Частное лицо",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 200,
     "doc": null
   },
   {
-    "date": "2025-11-21",
-    "time": "18:30",
+    "date": "2025-11-28",
+    "time": "13:53",
     "type": "income",
     "category": "",
-    "description": "благодаря;21/11/2025",
-    "donor": "Частное лицо",
+    "description": "благодаря;28/11/2025",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -3995,8 +3915,18 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность;21/11/2025",
-    "donor": "Частное лицо",
+    "donor": "АМИРЖУПАНОВ З. Р.",
     "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2025-11-21",
+    "time": "18:30",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;21/11/2025",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -4005,18 +3935,8 @@
     "type": "income",
     "category": "",
     "description": "Садака;19/11/2025",
-    "donor": "Частное лицо",
+    "donor": "МАМАЕВ Г. М.",
     "amount": 600,
-    "doc": null
-  },
-  {
-    "date": "2025-11-14",
-    "time": "15:06",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;14/11/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
     "doc": null
   },
   {
@@ -4025,8 +3945,18 @@
     "type": "expense",
     "category": "",
     "description": "Покупка PURCHASE_CB в ТУ Сбербанка SBERPRAJM PLYUS по карте MIR 220220482DC56410 за 2025-11-14. Держатель ТАГИРОВ ТАГИР МАГОМЕДРАСУЛОВИЧ. 1010 КА_815625 Чек он-лайн №646300 от 14.11.2025",
-    "donor": "",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
     "amount": 599,
+    "doc": null
+  },
+  {
+    "date": "2025-11-14",
+    "time": "15:06",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;14/11/2025",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -4035,8 +3965,18 @@
     "type": "income",
     "category": "",
     "description": "Садака;14/11/2025",
-    "donor": "Частное лицо",
+    "donor": "МАМАЕВ Г. М.",
     "amount": 26,
+    "doc": null
+  },
+  {
+    "date": "2025-11-07",
+    "time": "10:24",
+    "type": "income",
+    "category": "",
+    "description": "Садака;07/11/2025",
+    "donor": "МАМАЕВ Г. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -4045,7 +3985,7 @@
     "type": "income",
     "category": "",
     "description": "благодаря;07/11/2025",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -4055,7 +3995,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;07/11/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ С. М.",
     "amount": 1000,
     "doc": null
   },
@@ -4065,17 +4005,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;07/11/2025",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-11-07",
-    "time": "10:24",
-    "type": "income",
-    "category": "",
-    "description": "Садака;07/11/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -4085,7 +4015,37 @@
     "type": "income",
     "category": "",
     "description": "Садакьа. НДС не облагается",
-    "donor": "САДАКЬА О.",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-10-31",
+    "time": "11:57",
+    "type": "income",
+    "category": "",
+    "description": "А;31/10/2025",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-10-31",
+    "time": "10:09",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 70,
+    "doc": null
+  },
+  {
+    "date": "2025-10-31",
+    "time": "12:03",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;31/10/2025",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -4095,37 +4055,7 @@
     "type": "income",
     "category": "",
     "description": "200;31/10/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2025-10-31",
-    "time": "12:03",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;31/10/2025",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-10-31",
-    "time": "10:09",
-    "type": "income",
-    "category": "",
-    "description": "Садакьа. НДС не облагается",
-    "donor": "САДАКЬА О.",
-    "amount": 70,
-    "doc": null
-  },
-  {
-    "date": "2025-10-31",
-    "time": "11:57",
-    "type": "income",
-    "category": "",
-    "description": "А;31/10/2025",
-    "donor": "Частное лицо",
+    "donor": "ЗАЛКЕПРИЕВ А. М.",
     "amount": 200,
     "doc": null
   },
@@ -4135,7 +4065,7 @@
     "type": "income",
     "category": "",
     "description": "благодаря;31/10/2025",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
@@ -4145,18 +4075,8 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность. НДС не облагается",
-    "donor": "Частное лицо",
+    "donor": "САЛИХОВ З. М.",
     "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2025-10-24",
-    "time": "15:03",
-    "type": "income",
-    "category": "",
-    "description": "пятница;24/10/2025",
-    "donor": "Частное лицо",
-    "amount": 101,
     "doc": null
   },
   {
@@ -4165,18 +4085,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа;24/10/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-10-24",
-    "time": "12:36",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность;24/10/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
     "doc": null
   },
   {
@@ -4185,68 +4095,28 @@
     "type": "income",
     "category": "",
     "description": "благодаря;24/10/2025",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
   {
-    "date": "2025-10-17",
-    "time": "19:54",
+    "date": "2025-10-24",
+    "time": "15:03",
     "type": "income",
     "category": "",
-    "description": "Садака;17/10/2025",
-    "donor": "Частное лицо",
-    "amount": 100,
+    "description": "пятница;24/10/2025",
+    "donor": "ИБРАГИМОВ М. Ш.",
+    "amount": 101,
     "doc": null
   },
   {
-    "date": "2025-10-17",
-    "time": "10:20",
+    "date": "2025-10-24",
+    "time": "12:36",
     "type": "income",
     "category": "",
-    "description": "садака;17/10/2025",
-    "donor": "Частное лицо",
+    "description": "Благотворительность;24/10/2025",
+    "donor": "АМИРЖУПАНОВ З. Р.",
     "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2025-10-17",
-    "time": "10:08",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;17/10/2025",
-    "donor": "Частное лицо",
-    "amount": 163,
-    "doc": null
-  },
-  {
-    "date": "2025-10-17",
-    "time": "12:05",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;17/10/2025",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-10-17",
-    "time": "10:14",
-    "type": "income",
-    "category": "",
-    "description": "Садакьа. НДС не облагается",
-    "donor": "САДАКЬА О.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-10-17",
-    "time": "10:28",
-    "type": "income",
-    "category": "",
-    "description": "садака;17/10/2025",
-    "donor": "Частное лицо",
-    "amount": 100,
     "doc": null
   },
   {
@@ -4255,7 +4125,17 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность;17/10/2025",
-    "donor": "Частное лицо",
+    "donor": "АМИРЖУПАНОВ З. Р.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-10-17",
+    "time": "10:20",
+    "type": "income",
+    "category": "",
+    "description": "садака;17/10/2025",
+    "donor": "ГУСЕЙНОВА Н. А.",
     "amount": 200,
     "doc": null
   },
@@ -4265,27 +4145,67 @@
     "type": "income",
     "category": "",
     "description": "благодаря;17/10/2025",
-    "donor": "Частное лицо",
+    "donor": "ОСМАНОВ М. М.",
     "amount": 200,
     "doc": null
   },
   {
-    "date": "2025-10-10",
-    "time": "09:53",
+    "date": "2025-10-17",
+    "time": "10:28",
     "type": "income",
     "category": "",
-    "description": "200;10/10/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
+    "description": "садака;17/10/2025",
+    "donor": "ЛАТИПОВА К. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-10-17",
+    "time": "10:08",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;17/10/2025",
+    "donor": "БАГОМЕДОВ З. М.",
+    "amount": 163,
+    "doc": null
+  },
+  {
+    "date": "2025-10-17",
+    "time": "19:54",
+    "type": "income",
+    "category": "",
+    "description": "Садака;17/10/2025",
+    "donor": "МАМАЕВ Г. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-10-17",
+    "time": "12:05",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;17/10/2025",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-10-17",
+    "time": "10:14",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 100,
     "doc": null
   },
   {
     "date": "2025-10-10",
-    "time": "08:36",
+    "time": "15:01",
     "type": "income",
     "category": "",
-    "description": "садакьа;10/10/2025",
-    "donor": "Частное лицо",
+    "description": "Благотворительность;10/10/2025",
+    "donor": "АМИРЖУПАНОВ З. Р.",
     "amount": 200,
     "doc": null
   },
@@ -4295,28 +4215,38 @@
     "type": "income",
     "category": "",
     "description": "садакьа;10/10/2025",
-    "donor": "Частное лицо",
+    "donor": "БАГОМЕДОВ З. М.",
     "amount": 100,
     "doc": null
   },
   {
     "date": "2025-10-10",
-    "time": "10:41",
+    "time": "08:42",
     "type": "income",
     "category": "",
-    "description": "садакьа;10/10/2025",
-    "donor": "Частное лицо",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
     "amount": 100,
     "doc": null
   },
   {
     "date": "2025-10-10",
-    "time": "09:35",
+    "time": "09:53",
     "type": "income",
     "category": "",
-    "description": "благодаря;10/10/2025",
-    "donor": "Частное лицо",
+    "description": "200;10/10/2025",
+    "donor": "ЗАЛКЕПРИЕВ А. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-10-10",
+    "time": "20:22",
+    "type": "expense",
+    "category": "",
+    "description": "НДС не облагается.",
+    "donor": "БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО",
+    "amount": 150000,
     "doc": null
   },
   {
@@ -4325,7 +4255,47 @@
     "type": "income",
     "category": "",
     "description": "благотворительность;10/10/2025",
-    "donor": "Частное лицо",
+    "donor": "ГАЗИЕВ А. А.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-10-10",
+    "time": "13:25",
+    "type": "income",
+    "category": "",
+    "description": "Во благо;10/10/2025",
+    "donor": "ДЖОРДАН-ОГЛЫ Р. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2025-10-10",
+    "time": "09:35",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;10/10/2025",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-10-10",
+    "time": "10:41",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;10/10/2025",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-10-10",
+    "time": "08:36",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;10/10/2025",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 200,
     "doc": null
   },
@@ -4335,48 +4305,8 @@
     "type": "income",
     "category": "",
     "description": "1;10/10/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ С. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-10-10",
-    "time": "20:22",
-    "type": "expense",
-    "category": "",
-    "description": "НДС не облагается.",
-    "donor": "",
-    "amount": 150000,
-    "doc": null
-  },
-  {
-    "date": "2025-10-10",
-    "time": "08:42",
-    "type": "income",
-    "category": "",
-    "description": "Садакьа. НДС не облагается",
-    "donor": "САДАКЬА О.",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-10-10",
-    "time": "13:25",
-    "type": "income",
-    "category": "",
-    "description": "Во благо;10/10/2025",
-    "donor": "Частное лицо",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2025-10-10",
-    "time": "15:01",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность;10/10/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
     "doc": null
   },
   {
@@ -4385,7 +4315,7 @@
     "type": "income",
     "category": "",
     "description": "1. НДС не облагается",
-    "donor": "Частное лицо",
+    "donor": "ИДЗИЕВ Б. Н.",
     "amount": 200,
     "doc": null
   },
@@ -4395,28 +4325,8 @@
     "type": "income",
     "category": "",
     "description": "пострадавшим при пожаре в Мюрего  Перевод с бизнес-карты за 2025-10-09 на карту Сбербанка MIR 220220482DC56410 через SBOL. 7071 КА_528344 Чек он-лайн №997579 от 09.10.2025",
-    "donor": "ПОСТРАДАВШИМ П. В.",
+    "donor": "ПАО Сбербанк",
     "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2025-10-09",
-    "time": "20:58",
-    "type": "income",
-    "category": "",
-    "description": "Пожертвование погорельцам. НДС не облагается",
-    "donor": "ПОГОРЕЛЬЦАМ О.",
-    "amount": 20000,
-    "doc": null
-  },
-  {
-    "date": "2025-10-09",
-    "time": "10:52",
-    "type": "income",
-    "category": "",
-    "description": "Мурего. НДС не облагается",
-    "donor": "МУРЕГО О.",
-    "amount": 500,
     "doc": null
   },
   {
@@ -4425,8 +4335,28 @@
     "type": "income",
     "category": "",
     "description": "погорельцам;09/10/2025",
-    "donor": "Частное лицо",
+    "donor": "ШАМХАЛОВ А. Г.",
     "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2025-10-09",
+    "time": "10:52",
+    "type": "income",
+    "category": "",
+    "description": "Мурего. НДС не облагается",
+    "donor": "КУРБАНКАДИЕВ М. Х.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2025-10-09",
+    "time": "20:58",
+    "type": "income",
+    "category": "",
+    "description": "Пожертвование погорельцам. НДС не облагается",
+    "donor": "ТАГИРОВ Т. М.",
+    "amount": 20000,
     "doc": null
   },
   {
@@ -4435,7 +4365,7 @@
     "type": "income",
     "category": "",
     "description": "для помощи тем которых сгорел дом;07/10/2025",
-    "donor": "ПОМОЩИ Т. К.",
+    "donor": "ИБРАГИМОВ М. А.",
     "amount": 100,
     "doc": null
   },
@@ -4445,7 +4375,7 @@
     "type": "income",
     "category": "",
     "description": "для дом. НДС не облагается",
-    "donor": "Частное лицо",
+    "donor": "ИСАЕВ А. А.",
     "amount": 500,
     "doc": null
   },
@@ -4455,7 +4385,7 @@
     "type": "income",
     "category": "",
     "description": "помошь;08/10/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ М. М.",
     "amount": 500,
     "doc": null
   },
@@ -4465,48 +4395,8 @@
     "type": "income",
     "category": "",
     "description": "Помощь погорельцам. НДС не облагается",
-    "donor": "ПОГОРЕЛЬЦАМ О.",
+    "donor": "ТАГИРОВ Т. М.",
     "amount": 40000,
-    "doc": null
-  },
-  {
-    "date": "2025-10-07",
-    "time": "18:22",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительность;07/10/2025",
-    "donor": "Частное лицо",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2025-10-07",
-    "time": "16:38",
-    "type": "income",
-    "category": "",
-    "description": "Благотворительный взнос. НДС не облагается",
-    "donor": "Частное лицо",
-    "amount": 35000,
-    "doc": null
-  },
-  {
-    "date": "2025-10-07",
-    "time": "20:29",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;07/10/2025",
-    "donor": "Частное лицо",
-    "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2025-10-07",
-    "time": "16:22",
-    "type": "income",
-    "category": "",
-    "description": "погорельцам Перевод с бизнес-карты за 2025-10-07 на карту Сбербанка MIR 220220482DC56410 через SBOL. 7071 КА_547848 Чек он-лайн №653789 от 07.10.2025",
-    "donor": "ПОГОРЕЛЬЦАМ С. Б.",
-    "amount": 500,
     "doc": null
   },
   {
@@ -4515,28 +4405,18 @@
     "type": "income",
     "category": "",
     "description": "Перевод на бизнес-карту Сбербанка MIR 220220482DC56410 за 2025-10-07 с карты стороннего банка T-Bank Card2Card. 7206 КА_550363 Чек он-лайн №835877 от 07.10.2025",
-    "donor": "БИЗНЕС-КАРТУ С. К.",
+    "donor": "ПАО Сбербанк",
     "amount": 10,
     "doc": null
   },
   {
     "date": "2025-10-07",
-    "time": "16:40",
+    "time": "18:22",
     "type": "income",
     "category": "",
-    "description": "благотворительность;07/10/2025",
-    "donor": "Частное лицо",
-    "amount": 32000,
-    "doc": null
-  },
-  {
-    "date": "2025-10-07",
-    "time": "21:11",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;07/10/2025",
-    "donor": "Частное лицо",
-    "amount": 424,
+    "description": "Благотворительность;07/10/2025",
+    "donor": "МОГОМЕДОВ А. М.",
+    "amount": 500,
     "doc": null
   },
   {
@@ -4545,8 +4425,18 @@
     "type": "income",
     "category": "",
     "description": "Пожертвование погорельцам. НДС не облагается",
-    "donor": "ПОГОРЕЛЬЦАМ О.",
+    "donor": "ТАГИРОВ Т. М.",
     "amount": 15000,
+    "doc": null
+  },
+  {
+    "date": "2025-10-07",
+    "time": "21:11",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;07/10/2025",
+    "donor": "БАГОМЕДОВ З. М.",
+    "amount": 424,
     "doc": null
   },
   {
@@ -4555,8 +4445,18 @@
     "type": "income",
     "category": "",
     "description": "А;07/10/2025",
-    "donor": "Частное лицо",
+    "donor": "ГАЗИЕВА А. А.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-10-07",
+    "time": "20:29",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;07/10/2025",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 1000,
     "doc": null
   },
   {
@@ -4565,18 +4465,38 @@
     "type": "income",
     "category": "",
     "description": "Помощь при пожаре да облегчит всевышний;07/10/2025",
-    "donor": "ПОЖАРЕ О. В.",
+    "donor": "БАГАНДАЛИЕВА А. О.",
     "amount": 150,
     "doc": null
   },
   {
-    "date": "2025-10-06",
-    "time": "01:03",
+    "date": "2025-10-07",
+    "time": "16:38",
     "type": "income",
     "category": "",
-    "description": "садакьа;05/10/2025",
-    "donor": "Частное лицо",
-    "amount": 100,
+    "description": "Благотворительный взнос. НДС не облагается",
+    "donor": "ТАГИРОВ Т. М.",
+    "amount": 35000,
+    "doc": null
+  },
+  {
+    "date": "2025-10-07",
+    "time": "16:40",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;07/10/2025",
+    "donor": "ТАГИРОВ Т. М.",
+    "amount": 32000,
+    "doc": null
+  },
+  {
+    "date": "2025-10-07",
+    "time": "16:22",
+    "type": "income",
+    "category": "",
+    "description": "погорельцам Перевод с бизнес-карты за 2025-10-07 на карту Сбербанка MIR 220220482DC56410 через SBOL. 7071 КА_547848 Чек он-лайн №653789 от 07.10.2025",
+    "donor": "ПАО Сбербанк",
+    "amount": 500,
     "doc": null
   },
   {
@@ -4585,47 +4505,17 @@
     "type": "income",
     "category": "",
     "description": "бисмиллагь;04/10/2025",
-    "donor": "СЕРГОКАЛИНСКИЙ С. Д.",
+    "donor": "АЛИЕВ А. А.",
     "amount": 250,
     "doc": null
   },
   {
-    "date": "2025-10-03",
-    "time": "15:06",
+    "date": "2025-10-06",
+    "time": "01:03",
     "type": "income",
     "category": "",
-    "description": "благодаря;03/10/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2025-10-03",
-    "time": "11:33",
-    "type": "income",
-    "category": "",
-    "description": "Б;03/10/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2025-10-03",
-    "time": "11:47",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;03/10/2025",
-    "donor": "Частное лицо",
-    "amount": 300,
-    "doc": null
-  },
-  {
-    "date": "2025-10-03",
-    "time": "09:26",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;03/10/2025",
-    "donor": "Частное лицо",
+    "description": "садакьа;05/10/2025",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
@@ -4635,8 +4525,48 @@
     "type": "income",
     "category": "",
     "description": "Пожертвование;03/10/2025",
-    "donor": "Частное лицо",
+    "donor": "ИБРАГИМОВ И. К.",
     "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2025-10-03",
+    "time": "11:47",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;03/10/2025",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2025-10-03",
+    "time": "15:06",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;03/10/2025",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-10-03",
+    "time": "09:26",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;03/10/2025",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-10-03",
+    "time": "11:33",
+    "type": "income",
+    "category": "",
+    "description": "Б;03/10/2025",
+    "donor": "АМИРЖУПАНОВ З. Р.",
+    "amount": 200,
     "doc": null
   },
   {
@@ -4645,17 +4575,7 @@
     "type": "income",
     "category": "",
     "description": "Благотворительность;27/09/2025",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-09-26",
-    "time": "10:26",
-    "type": "income",
-    "category": "",
-    "description": "благотворительность;26/09/2025",
-    "donor": "Частное лицо",
+    "donor": "АМИРЖУПАНОВ З. Р.",
     "amount": 100,
     "doc": null
   },
@@ -4665,8 +4585,18 @@
     "type": "income",
     "category": "",
     "description": "садакьа;26/09/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-09-26",
+    "time": "14:39",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;26/09/2025",
+    "donor": "РАБАДАНОВ Р. О.",
+    "amount": 50,
     "doc": null
   },
   {
@@ -4675,8 +4605,28 @@
     "type": "income",
     "category": "",
     "description": "садакьа;26/09/2025",
-    "donor": "Частное лицо",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-09-26",
+    "time": "11:46",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа;26/09/2025",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-09-26",
+    "time": "10:26",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;26/09/2025",
+    "donor": "МАГОМЕДОВ М. А.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -4685,7 +4635,7 @@
     "type": "income",
     "category": "",
     "description": "садакьа;26/09/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ С. М.",
     "amount": 500,
     "doc": null
   },
@@ -4695,18 +4645,18 @@
     "type": "income",
     "category": "",
     "description": "благотворительность;26/09/2025",
-    "donor": "Частное лицо",
+    "donor": "ТАГИРОВ А. У.",
     "amount": 50,
     "doc": null
   },
   {
     "date": "2025-09-26",
-    "time": "14:39",
+    "time": "14:04",
     "type": "income",
     "category": "",
-    "description": "благотворительность;26/09/2025",
-    "donor": "Частное лицо",
-    "amount": 50,
+    "description": "Садака. НДС не облагается",
+    "donor": "КУРБАНКАДИЕВ М. Х.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -4715,7 +4665,7 @@
     "type": "income",
     "category": "",
     "description": "во благо;26/09/2025",
-    "donor": "Частное лицо",
+    "donor": "КАДИРИСОВ М. К.",
     "amount": 100,
     "doc": null
   },
@@ -4725,28 +4675,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа;26/09/2025",
-    "donor": "Частное лицо",
+    "donor": "БАГОМЕДОВ З. М.",
     "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2025-09-26",
-    "time": "14:04",
-    "type": "income",
-    "category": "",
-    "description": "Садака. НДС не облагается",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-09-26",
-    "time": "11:46",
-    "type": "income",
-    "category": "",
-    "description": "Садакьа;26/09/2025",
-    "donor": "Частное лицо",
-    "amount": 100,
     "doc": null
   },
   {
@@ -4755,18 +4685,8 @@
     "type": "income",
     "category": "",
     "description": "Воду в дом;20/09/2025",
-    "donor": "ВОДУ В.",
+    "donor": "РАБАДАНОВА Н. И.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-09-19",
-    "time": "10:15",
-    "type": "income",
-    "category": "",
-    "description": "Садакьа;19/09/2025",
-    "donor": "Частное лицо",
-    "amount": 160,
     "doc": null
   },
   {
@@ -4775,28 +4695,8 @@
     "type": "income",
     "category": "",
     "description": "садакьа;19/09/2025",
-    "donor": "Частное лицо",
+    "donor": "БАГОМЕДОВ З. М.",
     "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2025-09-19",
-    "time": "18:23",
-    "type": "income",
-    "category": "",
-    "description": "садака;19/09/2025",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-09-19",
-    "time": "11:28",
-    "type": "income",
-    "category": "",
-    "description": "Садака. НДС не облагается",
-    "donor": "Частное лицо",
-    "amount": 100,
     "doc": null
   },
   {
@@ -4805,7 +4705,7 @@
     "type": "income",
     "category": "",
     "description": "200;19/09/2025",
-    "donor": "Частное лицо",
+    "donor": "РАШИДОВА П. Х.",
     "amount": 200,
     "doc": null
   },
@@ -4814,8 +4714,18 @@
     "time": "10:15",
     "type": "income",
     "category": "",
-    "description": "садакьа;19/09/2025",
-    "donor": "Частное лицо",
+    "description": "Садакьа;19/09/2025",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 160,
+    "doc": null
+  },
+  {
+    "date": "2025-09-19",
+    "time": "18:23",
+    "type": "income",
+    "category": "",
+    "description": "садака;19/09/2025",
+    "donor": "АЙСАЕВА Д. М.",
     "amount": 100,
     "doc": null
   },
@@ -4825,8 +4735,28 @@
     "type": "income",
     "category": "",
     "description": "благотворительностт;19/09/2025",
-    "donor": "Частное лицо",
+    "donor": "ТАГИРОВ А. У.",
     "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2025-09-19",
+    "time": "10:15",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;19/09/2025",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-09-19",
+    "time": "11:28",
+    "type": "income",
+    "category": "",
+    "description": "Садака. НДС не облагается",
+    "donor": "КУРБАНКАДИЕВ М. Х.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -4835,38 +4765,18 @@
     "type": "income",
     "category": "",
     "description": "садакьа;12/09/2025",
-    "donor": "Частное лицо",
+    "donor": "РАШИДОВ Р. А.",
     "amount": 200,
     "doc": null
   },
   {
     "date": "2025-09-12",
-    "time": "17:21",
+    "time": "11:00",
     "type": "income",
     "category": "",
-    "description": "Сбор на проведение воды в дом матери 6 детей;12/09/2025",
-    "donor": "ПРОВЕДЕНИЕ В. В.",
-    "amount": 1500,
-    "doc": null
-  },
-  {
-    "date": "2025-09-12",
-    "time": "10:53",
-    "type": "income",
-    "category": "",
-    "description": "Садакьа;12/09/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
-    "doc": null
-  },
-  {
-    "date": "2025-09-12",
-    "time": "14:38",
-    "type": "income",
-    "category": "",
-    "description": "благодаря;12/09/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
+    "description": "Садака. НДС не облагается",
+    "donor": "КУРБАНКАДИЕВ М. Х.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -4875,7 +4785,37 @@
     "type": "income",
     "category": "",
     "description": "садакьа;12/09/2025",
-    "donor": "Частное лицо",
+    "donor": "БАГОМЕДОВ З. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-09-12",
+    "time": "11:03",
+    "type": "income",
+    "category": "",
+    "description": "На поддержку малоимущих семей;12/09/2025",
+    "donor": "ЗУЛПИКАРОВ Г. Р.",
+    "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2025-09-12",
+    "time": "14:38",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;12/09/2025",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-09-12",
+    "time": "10:53",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа;12/09/2025",
+    "donor": "АЛИШЕЙХОВА Г. И.",
     "amount": 200,
     "doc": null
   },
@@ -4885,28 +4825,18 @@
     "type": "income",
     "category": "",
     "description": "садакьа;12/09/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ Э. М.",
     "amount": 100,
     "doc": null
   },
   {
     "date": "2025-09-12",
-    "time": "11:00",
+    "time": "17:21",
     "type": "income",
     "category": "",
-    "description": "Садака. НДС не облагается",
-    "donor": "Частное лицо",
-    "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-09-12",
-    "time": "11:03",
-    "type": "income",
-    "category": "",
-    "description": "На поддержку малоимущих семей;12/09/2025",
-    "donor": "ПОДДЕРЖКУ М. С.",
-    "amount": 5000,
+    "description": "Сбор на проведение воды в дом матери 6 детей;12/09/2025",
+    "donor": "ГАДЖИАЛИЕВА А. А.",
+    "amount": 1500,
     "doc": null
   },
   {
@@ -4915,18 +4845,8 @@
     "type": "income",
     "category": "",
     "description": "100;11/09/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ С. М.",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2025-09-08",
-    "time": "01:02",
-    "type": "income",
-    "category": "",
-    "description": "СБОР СРЕДСТВ НА ВОДУ В ДОМ МНОГОДЕТНОЙ МАТЕРИ;07/09/2025",
-    "donor": "ВОДУ В. М.",
-    "amount": 300,
     "doc": null
   },
   {
@@ -4935,18 +4855,8 @@
     "type": "income",
     "category": "",
     "description": "благотворительность;07/09/2025",
-    "donor": "Частное лицо",
+    "donor": "МАГОМЕДОВ М. А.",
     "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2025-09-08",
-    "time": "01:01",
-    "type": "income",
-    "category": "",
-    "description": "200;07/09/2025",
-    "donor": "Частное лицо",
-    "amount": 200,
     "doc": null
   },
   {
@@ -4955,38 +4865,8 @@
     "type": "income",
     "category": "",
     "description": "Для матери шестерых детей;07/09/2025",
-    "donor": "МАТЕРИ Ш. Д.",
+    "donor": "АБДУСАЛАМОВ М. Г.",
     "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2025-09-08",
-    "time": "00:48",
-    "type": "income",
-    "category": "",
-    "description": "бисмиллагь;06/09/2025",
-    "donor": "СЕРГОКАЛИНСКИЙ С. Д.",
-    "amount": 497,
-    "doc": null
-  },
-  {
-    "date": "2025-09-08",
-    "time": "10:22",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;08/09/2025",
-    "donor": "Частное лицо",
-    "amount": 1000,
-    "doc": null
-  },
-  {
-    "date": "2025-09-08",
-    "time": "01:01",
-    "type": "income",
-    "category": "",
-    "description": "н;07/09/2025",
-    "donor": "Частное лицо",
-    "amount": 300,
     "doc": null
   },
   {
@@ -4995,8 +4875,128 @@
     "type": "income",
     "category": "",
     "description": ".;07/09/2025",
-    "donor": "Частное лицо",
+    "donor": "ШАМХАЛОВА С. А.",
     "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2025-09-08",
+    "time": "10:22",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;08/09/2025",
+    "donor": "ШАМХАЛОВ А. Г.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2025-09-08",
+    "time": "00:48",
+    "type": "income",
+    "category": "",
+    "description": "бисмиллагь;06/09/2025",
+    "donor": "АЛИЕВ А. А.",
+    "amount": 497,
+    "doc": null
+  },
+  {
+    "date": "2025-09-08",
+    "time": "01:01",
+    "type": "income",
+    "category": "",
+    "description": "н;07/09/2025",
+    "donor": "КАДИЕВА Р. Р.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2025-09-08",
+    "time": "01:01",
+    "type": "income",
+    "category": "",
+    "description": "200;07/09/2025",
+    "donor": "ЗАЛКЕПРИЕВ А. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-09-08",
+    "time": "01:02",
+    "type": "income",
+    "category": "",
+    "description": "СБОР СРЕДСТВ НА ВОДУ В ДОМ МНОГОДЕТНОЙ МАТЕРИ;07/09/2025",
+    "donor": "МОГОМЕДОВ А. М.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2025-09-07",
+    "time": "16:22",
+    "type": "income",
+    "category": "",
+    "description": ". НДС не облагается",
+    "donor": "БАГАНДОВ К. И.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2025-09-05",
+    "time": "09:36",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа;05/09/2025",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-09-05",
+    "time": "08:43",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;05/09/2025",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-09-05",
+    "time": "10:11",
+    "type": "income",
+    "category": "",
+    "description": "во благо;05/09/2025",
+    "donor": "КАДИРИСОВ М. К.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-09-05",
+    "time": "22:56",
+    "type": "income",
+    "category": "",
+    "description": "Пожертвование;05/09/2025",
+    "donor": "ЮСУПОВ Д. И.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2025-09-05",
+    "time": "12:15",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;05/09/2025",
+    "donor": "БАГОМЕДОВ З. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2025-09-05",
+    "time": "18:52",
+    "type": "income",
+    "category": "",
+    "description": "Садака. НДС не облагается",
+    "donor": "КУРБАНКАДИЕВ М. Х.",
+    "amount": 100,
     "doc": null
   }
 ]
