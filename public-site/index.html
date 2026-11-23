@@ -2,6 +2,15 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -2683,15 +2692,10 @@
          window.addEventListener('scroll', onScroll, { passive: true });
          onScroll();
 
-          // При любой перезагрузке страницы полный сброс: убираем якорь из URL, скролл в верх, активная ссылка «О фонде»
-          history.replaceState(null, '', window.location.pathname + window.location.search);
-          window.scrollTo(0, 0);
-
-          // Отключаем CSS-анимацию при первичной инициализации, чтобы плюшка не «перебегала»
+          // При загрузке страницы активная ссылка «О фонде» без анимации, затем переходим к обычному режиму
           navLinks.forEach(link => link.classList.add('nav-no-transition'));
           setActiveLink('#about');
 
-          // Через кадр возвращаем плавный переход и разрешаем onScroll менять активную ссылку
           requestAnimationFrame(() => {
             navLinks.forEach(link => link.classList.remove('nav-no-transition'));
             navState.initializing = false;
