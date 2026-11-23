@@ -2684,10 +2684,8 @@
 
          initPageData();
 
-      // Редирект на блок «О фонде» при загрузке сайта
-      if (!window.location.hash) {
-        window.location.hash = '#about';
-      }
+      // При любой перезагрузке страницы сбрасывать на блок «О фонде»
+      window.location.hash = '#about';
        </script>
 
       <!-- JSON-LD Organization -->
