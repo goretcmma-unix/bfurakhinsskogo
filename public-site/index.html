@@ -361,8 +361,7 @@
         }
         .hero-text > .hero-badge,
         .hero-text > p:not(.hero-sub-mobile),
-        .hero-text > .hero-actions,
-        .hero-text > .hero-urgent { display: none !important; }
+        .hero-text > .hero-actions { display: none !important; }
         .hero-title-desktop { display: none !important; }
         .hero-title-block-mobile { display: flex; flex-direction: column; align-items: flex-start; align-self: flex-end; width: fit-content; max-width: 80%; margin: -32px 20px 14px; transform: scale(0.8); transform-origin: right top; }
         .hero-title-mobile { display: block; text-align: left; margin: 0; width: auto; max-width: 100%; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; cursor: default; caret-color: transparent; pointer-events: none; outline: none; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: translateZ(0); }
@@ -619,7 +618,13 @@
         margin-top: 40px;
         max-width: 520px;
         margin-left: 0;
+        display: none !important;
       }
+      .hero-urgent-mobile {
+        display: none !important;
+      }
+      [data-urgent="true"] .hero-urgent,
+      [data-urgent="true"] .hero-urgent-mobile { display: block !important; }
       .hero-urgent-head {
         display: flex;
         align-items: center;
@@ -1907,10 +1912,10 @@
         // Включение/выключение блока «Срочный сбор» через флаг enabled
         const urgentEls = document.querySelectorAll('.hero-urgent, .hero-urgent-mobile');
         if (!uc.enabled) {
-          urgentEls.forEach(el => { el.style.display = 'none'; });
+          document.documentElement.dataset.urgent = 'false';
           return;
         }
-        urgentEls.forEach(el => { el.style.display = ''; });
+        document.documentElement.dataset.urgent = 'true';
         const pct = Math.max(0, Math.min(100, Math.round((uc.raised / (uc.goal || 1)) * 100)));
         const remain = Math.max(0, (uc.goal || 0) - (uc.raised || 0));
         const set = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
