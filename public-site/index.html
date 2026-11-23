@@ -1652,56 +1652,64 @@
         return /Failed to fetch|NetworkError|Load failed|fetch failed|ERR_CONNECTION_RESET|ERR_HTTP2|Content-Length header of network response exceeds response Body/i.test(msg);
       };
 
-      async function loadPublicData({ background = false } = {}) {
-        const hasData = Array.isArray(allTransactions) && allTransactions.length > 0;
-        const attempts = 2;
-        for (let i = 0; i < attempts; i++) {
-          try {
-            if (!SUPABASE_URL || !SUPABASE_ANON_KEY) throw new Error('Supabase config missing');
-            const q = new URL('/rest/v1/public_transactions', SUPABASE_URL);
-            q.searchParams.set('select', 'date,time,type,category,description,donor,amount,doc');
-            q.searchParams.set('order', 'date.desc');
-            q.searchParams.set('limit', '500');
-            const ctrl = new AbortController();
-            const timer = setTimeout(() => ctrl.abort(), 15000);
-            let resp;
-            try {
-              resp = await fetch(q.toString(), {
-                headers: {
-                  'apikey': SUPABASE_ANON_KEY,
-                  'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                  'Accept': 'application/json'
-                },
-                signal: ctrl.signal
-              });
-            } finally {
-              clearTimeout(timer);
-            }
-            if (!resp.ok) throw new Error(`Supabase HTTP ${resp.status}`);
-            const txns = await resp.json();
+      let isRefreshing = false;
 
-            if (Array.isArray(txns) && txns.length > 0) {
-              applyTransactions(txns);
-              writeCachedPublicData(txns);
-              return true;
+      async function loadPublicData({ background = false } = {}) {
+        if (isRefreshing) return false;
+        isRefreshing = true;
+        try {
+          const hasData = Array.isArray(allTransactions) && allTransactions.length > 0;
+          const attempts = 2;
+          for (let i = 0; i < attempts; i++) {
+            try {
+              if (!SUPABASE_URL || !SUPABASE_ANON_KEY) throw new Error('Supabase config missing');
+              const q = new URL('/rest/v1/public_transactions', SUPABASE_URL);
+              q.searchParams.set('select', 'date,time,type,category,description,donor,amount,doc');
+              q.searchParams.set('order', 'date.desc');
+              q.searchParams.set('limit', '500');
+              const ctrl = new AbortController();
+              const timer = setTimeout(() => ctrl.abort(), 15000);
+              let resp;
+              try {
+                resp = await fetch(q.toString(), {
+                  headers: {
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                    'Accept': 'application/json'
+                  },
+                  signal: ctrl.signal
+                });
+              } finally {
+                clearTimeout(timer);
+              }
+              if (!resp.ok) throw new Error(`Supabase HTTP ${resp.status}`);
+              const txns = await resp.json();
+
+              if (Array.isArray(txns) && txns.length > 0) {
+                applyTransactions(txns);
+                writeCachedPublicData(txns);
+                return true;
+              }
+              return false;
+            } catch (e) {
+              const transient = isTransientNetworkError(e);
+              if (transient && i < attempts - 1) {
+                await new Promise(r => setTimeout(r, 1200));
+                continue;
+              }
+              if (!(background || hasData)) {
+                console.error('[public-site] load failed:', e);
+                console.warn('[public-site] Using cached/demo data:', e?.message || e);
+              }
+              // Фоновая ошибка (Supabase недоступен в Chrome/Firefox и т.п.) — тихо игнорируем,
+              // уже отрисованные данные из data.json/кэша не затираем.
+              return false;
             }
-            return false;
-          } catch (e) {
-            const transient = isTransientNetworkError(e);
-            if (transient && i < attempts - 1) {
-              await new Promise(r => setTimeout(r, 1200));
-              continue;
-            }
-            if (!(background || hasData)) {
-              console.error('[public-site] load failed:', e);
-              console.warn('[public-site] Using cached/demo data:', e?.message || e);
-            }
-            // Фоновая ошибка (Supabase недоступен в Chrome/Firefox и т.п.) — тихо игнорируем,
-            // уже отрисованные данные из data.json/кэша не затираем.
-            return false;
           }
+          return false;
+        } finally {
+          isRefreshing = false;
         }
-        return false;
       }
 
       // Realtime subscription — обновляет данные при изменении в дашборде
