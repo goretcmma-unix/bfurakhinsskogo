@@ -1567,8 +1567,6 @@
     <script type="module">
       const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
       const isReload = navEntry ? navEntry.type === 'reload' : (performance.navigation && performance.navigation.type === 1);
-      // Сохраняем хэш в URL при обновлении, чтобы браузер прокрутил к якорной секции (#about, #finances и т.д.)
-      if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
       if (isReload && !location.hash) {
         window.addEventListener('load', () => {
           window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
