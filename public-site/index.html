@@ -16,6 +16,7 @@
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       });
     </script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -2707,7 +2708,24 @@
           });
         }
 
-          // Плавная прокрутка для всех якорных ссылок (меню, кнопки)
+          // Плавная прокрутка для всех якорных ссылок через Lenis (меню, кнопки)
+          const lenis = new Lenis({
+            duration: 1.1,
+            smoothWheel: true,
+            syncTouch: false,
+            smoothTouch: false,
+            gestureDirection: 'vertical'
+          });
+
+          function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+          }
+          requestAnimationFrame(raf);
+
+          // Lenis стартует строго с позиции 0 без анимированного отката
+          lenis.scrollTo(0, { immediate: true });
+
           document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
               const id = link.getAttribute('href');
@@ -2715,7 +2733,7 @@
               const target = document.querySelector(id);
               if (target) {
                 e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                lenis.scrollTo(target, { offset: -80 });
               }
             });
           });
