@@ -2691,7 +2691,10 @@
 
          window.addEventListener('scroll', onScroll, { passive: true });
 
-          // При загрузке страницы активная ссылка «О фонде» без анимации, затем переходим к обычному режиму
+          // Полный сброс состояния при перезагрузке: убрать якорь, скролл в верх, активная ссылка «О фонде»
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+          window.scrollTo(0, 0);
+
           navLinks.forEach(link => link.classList.add('nav-no-transition'));
           setActiveLink('#about');
 
