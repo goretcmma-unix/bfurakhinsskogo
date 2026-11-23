@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="description" content="Благотворительный фонд — прозрачная статистика пожертвований и расходов" />
     <meta name="keywords" content="Благотворительный фонд, фонд сергокалы, сергокала фонд, помощь, благотворительность, прозрачность пожертвований, статистика расходов">
     <title>Благотворительный фонд | Прозрачность и отчёты</title>
@@ -1606,8 +1606,9 @@
         if (categoriesSelect) {
           const categoriesOptions = categoriesSelect.querySelector('.custom-select-options');
           const uniqueCategories = [...new Set(allTransactions.map(t => t.category).filter(c => c && c !== '—'))].sort();
+          const escAttr = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
           categoriesOptions.innerHTML = `<div class="custom-select-option selected" role="option" data-value="all">Все категории</div>` +
-            uniqueCategories.map(cat => `<div class="custom-select-option" role="option" data-value="${String(cat).replace(/"/g,'&quot;')}">${cat}</div>`).join('');
+            uniqueCategories.map(cat => { const safe = escAttr(cat); return `<div class="custom-select-option" role="option" data-value="${safe}">${safe}</div>`; }).join('');
           categoriesSelect.dataset.value = 'all';
           const trig = categoriesSelect.querySelector('.custom-select-trigger');
           if (trig) trig.textContent = 'Все категории';
