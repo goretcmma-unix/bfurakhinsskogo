@@ -192,40 +192,129 @@ function classifySource(counterpartyName: string | null): PublicTransaction['sou
   return /\s/.test(lower.trim()) ? 'individual' : 'unknown'
 }
 
-/** Очистка имени отправителя: убирает банк, цифры, разделители (//, /) и ОПФ,
- *  форматирует как «ФАМИЛИЯ И.О» (фамилия + инициалы имени и отчества).
- *  Пример: «ПАО//Сбербанк МАГОМЕДОВ ЭСКЕНДЕР МАГОМЕДШАРИПОВИЧ//36000703»
- *  → «МАГОМЕДОВ Э.М»
- *  Пример: «ААЛИЕВА М. Д.» → «ААЛИЕВА М. Д.»
- *  Пример: «Д А. К.» → «Д А. К.» (нет длинного слова — оставляет как есть) */
+const ORG_MARKERS = [
+  'СБЕРБАНК', 'БАНК', 'ТБАНК', 'ТИНЬКОФФ', 'ВТБ', 'АЛЬФА', 'СБП', 'НСПК',
+  'ПАО', 'АО', 'ООО', 'ЦБ РФ', 'РОССЕЛЬХОЗБАНК', 'ГАЗПРОМБАНК', 'СОВКОМБАНК'
+]
+
+const DONOR_STOPWORDS = new Set([
+  'ЧАСТНОЕ','ЛИЦО','ФИЗ','ПЕРЕВОД','СРЕДСТВ','ОПЛАТА','ПОЖЕРТВОВАНИЕ',
+  'САДАКА','САДАКЪА','ДОНАТ','ПЛАТЕЖ','ПЛАТЁЖ','БЕЗНАЛИЧНЫЙ','КАРТА',
+  'СЧЕТ','СЧЁТ','МОБИЛЬНОГО','БАНКА','КЛИЕНТ','ПОЛУЧАТЕЛЬ','ОТПРАВИТЕЛЬ',
+  'ДЛЯ','ОТ','ЗА','НА','ПО','БЕЗ','ПРИ','ВО','ДО','ИЗ','ОБ','ПОД','НАД','ЧЕРЕЗ',
+  'ПОМОЩЬ','ФОНД','СБОР','ЦЕЛЕВОЙ','НУЖДЫ','БЛАГО','МИЛОСТЫНЯ','ЗАКЯТ','ФИТР','ПОЖЕРТВ','ХАДИЯ',
+  'НДС','БЛАГОТВОРИТЕЛЬНОСТЬ','БЛАГОТВОРИТЕЛЬНЫЙ','ВЗНОС','ДАР','ЦЕЛЕВОЕ','НАЗНАЧЕНИЕ',
+  'НЕ','НЕТ','ДА','ПОЖЕРТВОВАНИЯ','ПОЖЕРТВОВАНИЙ','ПОЖЕРТВОВАНИЮ','ПОЖЕРТВОВАНИЕМ'
+])
+
+const ADDRESS_TOKENS = new Set([
+  'УЛ', 'УЛИЦА', 'ПЕР', 'ПРТ', 'ПРОСП', 'ПРОСПЕКТ', 'БР', 'БУЛЬВАР', 'ШОССЕ',
+  'ГОР', 'ГОРОД', 'СЕЛО', 'ПОС', 'ПОСЕЛОК', 'ПОСЁЛОК', 'ДОМ',
+  'КВ', 'КОРП', 'КОРПУС', 'СТР', 'СТРОЕНИЕ', 'РЕСП', 'РЕСПУБЛИКА', 'ОБЛ', 'ОБЛАСТЬ',
+  'РН', 'РАЙОН', 'КРАЙ', 'РЕГИОН', 'МОСКВА', 'САНКТ', 'ПЕТЕРБУРГ'
+])
+
+function hasOrgMarker(value: string | null | undefined): boolean {
+  const upper = String(value ?? '').toUpperCase()
+  return ORG_MARKERS.some((m) => upper.includes(m))
+}
+
+function cutDonorNoise(value: string): string {
+  let s = String(value ?? '')
+  // отрезаем всё после служебных маркеров/разделителей
+  s = s.split(/\bИНН\b/i)[0]
+  s = s.split(/\bтел\.?\b/i)[0]
+  s = s.split(/\bсчет[а]?\b/i)[0]
+  s = s.split(/\bсч[её]т\b/i)[0]
+  s = s.split(/\bкарта\b/i)[0]
+  s = s.split('//')[0]
+  s = s.split(';')[0]
+  s = s.split(',')[0]
+  s = s.split('(')[0]
+  return s
+}
+
+function extractFioFromPurpose(purpose: string | null | undefined): string | null {
+  const raw = String(purpose ?? '').trim()
+  if (!raw) return null
+
+  // сегменты между // часто содержат ФИО
+  const segments = raw.split('//').map((s) => s.trim()).filter(Boolean)
+  const candidates: string[] = []
+
+  for (const re of [/\bот\s+([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i, /\bплательщик\s*[:\-]\s*([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i, /\bФИО\s*[:\-]\s*([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i]) {
+    const m = raw.match(re)
+    if (m?.[1]) candidates.push(m[1])
+  }
+  candidates.push(...segments)
+
+  for (const c of candidates) {
+    const cleaned = sanitizeFioCandidate(c)
+    if (cleaned) return cleaned
+  }
+  return null
+}
+
+function sanitizeFioCandidate(value: string | null | undefined): string | null {
+  let s = cutDonorNoise(String(value ?? ''))
+  s = s.replace(/ё/g, 'е').replace(/Ё/g, 'Е')
+  // убираем индексы, номера домов/квартир и другие цифры
+  s = s.replace(/\b\d{6}\b/g, ' ')
+  s = s.replace(/\b\d+[а-яА-ЯёЁ]?\b/g, ' ')
+  s = s.replace(/[^\p{L}\s-]/gu, ' ')
+  s = s.replace(/\s+/g, ' ').trim()
+  if (!s) return null
+
+  const rawWords = s.split(/\s+/).filter(Boolean)
+  const words: string[] = []
+  for (const w of rawWords) {
+    const upper = w.toUpperCase()
+    if (ADDRESS_TOKENS.has(upper)) continue
+    if (DONOR_STOPWORDS.has(upper)) continue
+    if (ORG_MARKERS.some((m) => upper.includes(m))) continue
+    if (!/^[А-ЯЁ][А-ЯЁа-яё-]*$/.test(w) && !/^[А-ЯЁ-]+$/.test(w)) continue
+    const lettersOnly = w.replace(/-/g, '')
+    if (lettersOnly.length > 25) continue
+    if (lettersOnly.length < 2 && !/^[А-ЯЁа-яё]$/.test(w)) continue
+    words.push(w)
+  }
+
+  // Оставляем только валидные слова из русских букв/дефиса
+  const valid = words.filter((w) => /^[А-ЯЁа-яё-]+$/.test(w) && w.replace(/-/g, '').length <= 25)
+  const cleaned = valid.filter((w) => !DONOR_STOPWORDS.has(w.toUpperCase()))
+  if (cleaned.length < 2) return null
+  if (cleaned.every((w) => w.replace(/-/g, '').length === 1)) return null
+
+  // Формат: ФАМИЛИЯ И.О. или Фамилия Имя Отчество -> ФАМИЛИЯ И.О.
+  const normalized = cleaned.slice(0, 3).map((w) => w.toUpperCase())
+  const surname = TYPO_MAP[normalized[0]] ?? normalized[0]
+  const initials = normalized.slice(1).map((w) => w.replace(/[^А-ЯЁ-]/g, '')).filter(Boolean)
+  if (initials.length === 0) return null
+  const formattedInitials = initials.map((w) => (w.length === 1 ? `${w}.` : `${w[0]}.`))
+  return `${surname} ${formattedInitials.join(' ')}`.trim()
+}
+
+function resolveDonorName(rawName: string | null, purpose: string | null, direction: 'incoming' | 'outgoing' | 'unknown'): string | null {
+  if (direction !== 'incoming') return null
+  const name = String(rawName ?? '').trim()
+  const purposeText = String(purpose ?? '').trim()
+
+  if (name && !hasOrgMarker(name)) {
+    const fromName = sanitizeFioCandidate(name)
+    if (fromName) return fromName
+  }
+
+  const fromPurpose = extractFioFromPurpose(purposeText)
+  if (fromPurpose) return fromPurpose
+
+  // В назначении нет ФИО — возвращаем нейтральную метку
+  if (purposeText) return 'Частное лицо'
+  if (name && hasOrgMarker(name)) return 'Частное лицо'
+  return 'Частное лицо'
+}
+
 function cleanCounterpartyName(name: string | null): string | null {
-  if (!name) return null
-  let s = name.trim()
-  // цифры — мусор
-  s = s.replace(/\d+/g, ' ')
-  // слэши — разделители
-  s = s.replace('[/]+', ' ')
-  // отдельные токены организационно-правовых форм — шум
-  s = s.replace(/\b(ооо|ао|пао|зао|ип|ltd|llc|inc|банк|банке|банка)\b/gi, ' ')
-  // разбиваем по пробелам
-  const words = s.split(/\s+/).filter(Boolean)
-  if (words.length === 0) return null
-  // фамилия — самое длинное слово (буквы только)
-  const surnameIdx = words.reduce((best, w, i) => {
-    const clean = w.replace(/[^А-ЯA-ZЁ]/gi, '')
-    return clean.length > words[best].replace(/[^А-ЯA-ZЁ]/gi, '').length ? i : best
-  }, 0)
-  const surnameBase = words[surnameIdx].replace(/[^А-ЯA-ZЁ]/gi, '').toUpperCase()
-  if (surnameBase.length === 0) return null
-  // исправляем известные опечатки фамилий (например, ААЛИЕВА → АЛИЕВА)
-  let surname = TYPO_MAP[surnameBase] ?? surnameBase
-  // инициалы — короткие однобуквенные слова (кроме фамилии)
-  const initials = words
-    .filter((_, i) => i !== surnameIdx)
-    .map((w) => w.replace(/[^А-ЯA-ZЁ]/gi, '').toUpperCase())
-    .filter((w) => w.length >= 1 && w.length <= 2)
-    .map((w) => w + '.')
-  return initials.length > 0 ? `${surname} ${initials.join(' ')}` : surname
+  return sanitizeFioCandidate(name)
 }
 
 /**
@@ -324,7 +413,10 @@ export function normalizeTransaction(
     ? ['counterpartyInn', 'payerInn', 'inn']
     : ['counterpartyInn', 'payeeInn', 'inn']
 
-  const counterpartyName = cleanCounterpartyName(asString(pick(input, nameKeys)))
+  const rawCounterpartyName = asString(pick(input, nameKeys))
+  const counterpartyName = isIncoming
+    ? resolveDonorName(rawCounterpartyName, purpose, direction)
+    : (sanitizeFioCandidate(rawCounterpartyName) ?? rawCounterpartyName ?? null)
   const counterpartyAccount = asString(pick(input, accountKeys))
   const counterpartyBank = asString(pick(input, bankKeys))
   const counterpartyInn = asString(pick(input, innKeys))
