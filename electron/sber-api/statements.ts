@@ -201,11 +201,13 @@ export class SberStatements {
 
       if (!result.ok) {
         const failure = describeHttpFailure(result)
+        const bodyPreview = (result.text || '').slice(0, 1000)
         // Возвращаем статус наверх — oauth решит, обновлять ли токен и повторять.
         throw new SberHttpError(
           failure.code,
-          `${failure.message} (page ${pageIndex + 1})`,
-          result.status
+          `${failure.message} (page ${pageIndex + 1})${bodyPreview ? ` Body: ${bodyPreview}` : ''}`,
+          result.status,
+          result.text
         )
       }
 
@@ -275,7 +277,7 @@ export class SberStatements {
       } catch (e) {
         const err = e as SberHttpError
         if (err instanceof SberHttpError && err.status) {
-          return { ok: false, status: err.status, bodyText: err.message, value: null as never }
+          return { ok: false, status: err.status, bodyText: err.bodyText ?? err.message, value: null as never }
         }
         throw e
       }

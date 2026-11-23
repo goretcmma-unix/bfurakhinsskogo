@@ -67,8 +67,8 @@ const account = (apiEnv === 'production'
   ? (process.env.SBER_PRODUCTION_ACCOUNT_NUMBER || process.env.SBER_ACCOUNT_NUMBER || process.env.SBER_SANDBOX_ACCOUNT_NUMBER)
   : (process.env.SBER_SANDBOX_ACCOUNT_NUMBER || process.env.SBER_ACCOUNT_NUMBER || process.env.SBER_PRODUCTION_ACCOUNT_NUMBER)
   || '').trim()
-const rangeFrom = '2025-01-01'
-const rangeTo = '2025-12-31'
+const rangeFrom = (process.env.SBER_SYNC_FROM || '2025-01-01').trim()
+const rangeTo = (process.env.SBER_SYNC_TO || '2025-12-31').trim()
 
 if (!account) {
   await persistRefreshedTokens(api)

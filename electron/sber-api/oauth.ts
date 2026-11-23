@@ -506,10 +506,12 @@ export class SberOAuth {
       )
     }
 
+    const bodyPreview = (result.bodyText || '').slice(0, 1000)
     throw new SberHttpError(
       'REQUEST_FAILED',
-      `Запрос завершился с HTTP ${result.status}.`,
-      result.status
+      `Запрос завершился с HTTP ${result.status}.${bodyPreview ? ` Body: ${bodyPreview}` : ''}`,
+      result.status,
+      result.bodyText
     )
   }
 

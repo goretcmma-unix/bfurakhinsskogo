@@ -37,12 +37,14 @@ export interface HttpRequest {
 export class SberHttpError extends Error {
   readonly code: string
   readonly status?: number
+  readonly bodyText?: string
 
-  constructor(code: string, message: string, status?: number) {
+  constructor(code: string, message: string, status?: number, bodyText?: string) {
     super(message)
     this.name = 'SberHttpError'
     this.code = code
     this.status = status
+    this.bodyText = bodyText
   }
 }
 
