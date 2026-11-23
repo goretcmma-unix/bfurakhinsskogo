@@ -2710,7 +2710,9 @@
 
           // Плавная прокрутка для всех якорных ссылок через Lenis (меню, кнопки)
           const lenis = new Lenis({
-            duration: 0.8,
+            lerp: 0.15,
+            duration: 0.45,
+            wheelMultiplier: 1.1,
             smoothWheel: true,
             syncTouch: false,
             smoothTouch: false,
@@ -2733,7 +2735,7 @@
               const target = document.querySelector(id);
               if (target) {
                 e.preventDefault();
-                lenis.scrollTo(target, { offset: -80 });
+                lenis.scrollTo(target, { offset: -80, duration: 0.8 });
               }
             });
           });
