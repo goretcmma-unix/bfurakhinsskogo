@@ -1565,10 +1565,22 @@
       const PUBLIC_CACHE_KEY = 'public-site-transactions-v1';
       let supabaseClient = null;
       let supabaseReady = null;
+      function loadSupabaseScript() {
+        if (window.supabase?.createClient) return Promise.resolve(window.supabase);
+        return new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          s.src = './supabase.min.js';
+          s.async = true;
+          s.onload = () => window.supabase?.createClient ? resolve(window.supabase) : reject(new Error('Supabase script loaded without API'));
+          s.onerror = () => reject(new Error('Failed to load local Supabase script'));
+          document.head.appendChild(s);
+        });
+      }
+
       function getSupabaseClient() {
         if (supabaseClient) return Promise.resolve(supabaseClient);
         if (!supabaseReady) {
-          supabaseReady = import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm')
+          supabaseReady = loadSupabaseScript()
             .then(({ createClient }) => {
               supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
               return supabaseClient;
