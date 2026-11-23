@@ -1789,7 +1789,8 @@
 
         // 4) Периодическое фоновое обновление
         try { subscribeRealtime().catch(() => {}); } catch (e) {}
-        setInterval(() => { void refreshPublicData(true); }, 20000);
+        // Редкое фоновое обновление: основной источник — data.json/localStorage.
+        setInterval(() => { void refreshPublicData(true); }, 300000);
         document.addEventListener('visibilitychange', () => {
           if (document.visibilityState === 'visible') void refreshPublicData(true);
         });
