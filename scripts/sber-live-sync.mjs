@@ -85,20 +85,31 @@ if (!prepared.rows.length) {
   await persistRefreshedTokens(api)
   process.exit(0)
 }
-const admin = createClient(process.env.VITE_SUPABASE_URL, process.env.VITE_SUPABASE_ANON_KEY, {
+const supabaseKey = (process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_ANON_KEY || '').trim()
+if (!supabaseKey) throw new Error('Нет SUPABASE_SERVICE_ROLE_KEY или VITE_SUPABASE_ANON_KEY в .env')
+const admin = createClient(process.env.VITE_SUPABASE_URL, supabaseKey, {
   auth: { persistSession: false, autoRefreshToken: false }
 })
-const { data: fund } = await admin.from('funds').select('id').limit(1).single()
-const { data: existing } = await admin.from('transactions').select('bank_transaction_id').eq('data_source', 'sber_api')
+const { data: fund, error: fundError } = await admin.from('funds').select('id').limit(1).single()
+if (fundError || !fund?.id) {
+  await persistRefreshedTokens(api)
+  throw new Error(`Не удалось получить fund_id из Supabase: ${fundError?.message || 'fund not found'}. Для записи после RLS нужен SUPABASE_SERVICE_ROLE_KEY в .env.`)
+}
+const { data: existing, error: existingError } = await admin.from('transactions').select('bank_transaction_id').eq('data_source', 'sber_api')
+if (existingError) {
+  await persistRefreshedTokens(api)
+  throw new Error(`Не удалось прочитать существующие sber_api транзакции: ${existingError.message}`)
+}
 const known = new Set((existing || []).map((r) => r.bank_transaction_id))
 const toInsert = prepared.rows.filter((r) => !known.has(r.bank_transaction_id)).map((r) => ({ ...r, fund_id: fund.id, user_id: null }))
-let inserted = toInsert.length
 const duplicates = prepared.rows.length - toInsert.length
 const errors = []
+let inserted = 0
 for (let i = 0; i < toInsert.length; i += 200) {
   const batch = toInsert.slice(i, i + 200)
   const { error } = await admin.from('transactions').insert(batch)
   if (error) errors.push(error.message)
+  else inserted += batch.length
 }
 console.log(`[4] Запись: добавлено ${inserted}, дублей пропущено ${duplicates}`)
 if (errors.length) console.log('    ОШИБКИ:', errors)
