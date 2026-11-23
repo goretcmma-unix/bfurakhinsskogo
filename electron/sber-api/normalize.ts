@@ -192,129 +192,195 @@ function classifySource(counterpartyName: string | null): PublicTransaction['sou
   return /\s/.test(lower.trim()) ? 'individual' : 'unknown'
 }
 
-const ORG_MARKERS = [
-  'СБЕРБАНК', 'БАНК', 'ТБАНК', 'ТИНЬКОФФ', 'ВТБ', 'АЛЬФА', 'СБП', 'НСПК',
-  'ПАО', 'АО', 'ООО', 'ЦБ РФ', 'РОССЕЛЬХОЗБАНК', 'ГАЗПРОМБАНК', 'СОВКОМБАНК'
+const BANK_MARKERS = ['СБЕРБАНК', 'ТБАНК', 'ТИНЬКОФФ', 'ВТБ', 'АЛЬФА', 'СБП', 'НСПК', 'ЦБ РФ']
+const BANK_WORD_MARKERS = ['БАНК'] // word-boundary: avoid matching surnames like КУРБАНКАДИЕВ
+
+const ORG_OR_IP_MARKERS = [
+  'ООО', 'АО', 'ЗАО', 'ПАО', 'ИП ', 'ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ', 'КФХ', 'БФ', 'АНО', 'НКО', 'ФОНД'
 ]
 
-const DONOR_STOPWORDS = new Set([
-  'ЧАСТНОЕ','ЛИЦО','ФИЗ','ПЕРЕВОД','СРЕДСТВ','ОПЛАТА','ПОЖЕРТВОВАНИЕ',
-  'САДАКА','САДАКЪА','ДОНАТ','ПЛАТЕЖ','ПЛАТЁЖ','БЕЗНАЛИЧНЫЙ','КАРТА',
-  'СЧЕТ','СЧЁТ','МОБИЛЬНОГО','БАНКА','КЛИЕНТ','ПОЛУЧАТЕЛЬ','ОТПРАВИТЕЛЬ',
-  'ДЛЯ','ОТ','ЗА','НА','ПО','БЕЗ','ПРИ','ВО','ДО','ИЗ','ОБ','ПОД','НАД','ЧЕРЕЗ',
-  'ПОМОЩЬ','ФОНД','СБОР','ЦЕЛЕВОЙ','НУЖДЫ','БЛАГО','МИЛОСТЫНЯ','ЗАКЯТ','ФИТР','ПОЖЕРТВ','ХАДИЯ',
-  'НДС','БЛАГОТВОРИТЕЛЬНОСТЬ','БЛАГОТВОРИТЕЛЬНЫЙ','ВЗНОС','ДАР','ЦЕЛЕВОЕ','НАЗНАЧЕНИЕ',
-  'НЕ','НЕТ','ДА','ПОЖЕРТВОВАНИЯ','ПОЖЕРТВОВАНИЙ','ПОЖЕРТВОВАНИЮ','ПОЖЕРТВОВАНИЕМ'
+// Слова, которые ни при каких обстоятельствах не могут быть именем отправителя.
+const PERSON_STOPWORDS = new Set([
+  'ЧАСТНОЕ','ЛИЦО','ОКАЗАНИЕ','ФИНАНСОВОЙ','ПОМОЩИ','БЛАГОТВОРИТЕЛЬНОСТЬ','ПОЖЕРТВОВАНИЕ',
+  'САДАКА','САДАКЪА','САДАКЬА','САДАКАХ','ПЕРЕВОД','СРЕДСТВ','ОПЛАТА','СЧЕТ','СЧЁТ','УЛ','ДОМ',
+  'БАНК','СБП','ПОМОЩЬ','ПОДДЕРЖКА','БЛАГОДАРЯ','БЛАГОДАРЮ','БЛАГОДАРНОСТЬ','ПЕРЕЧИСЛЕНИЕ',
+  'ВЗНОС','ДАР','ЦЕЛЕВОЕ','НАЗНАЧЕНИЕ','НДС','КАРТА','СЧЕТА','КОШЕЛЕК','ТЕЛЕФОН','НОМЕР'
 ])
 
-const ADDRESS_TOKENS = new Set([
-  'УЛ', 'УЛИЦА', 'ПЕР', 'ПРТ', 'ПРОСП', 'ПРОСПЕКТ', 'БР', 'БУЛЬВАР', 'ШОССЕ',
-  'ГОР', 'ГОРОД', 'СЕЛО', 'ПОС', 'ПОСЕЛОК', 'ПОСЁЛОК', 'ДОМ',
-  'КВ', 'КОРП', 'КОРПУС', 'СТР', 'СТРОЕНИЕ', 'РЕСП', 'РЕСПУБЛИКА', 'ОБЛ', 'ОБЛАСТЬ',
-  'РН', 'РАЙОН', 'КРАЙ', 'РЕГИОН', 'МОСКВА', 'САНКТ', 'ПЕТЕРБУРГ'
-])
-
-function hasOrgMarker(value: string | null | undefined): boolean {
-  const upper = String(value ?? '').toUpperCase()
-  return ORG_MARKERS.some((m) => upper.includes(m))
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
 
-function cutDonorNoise(value: string): string {
+function hasWordMarker(value: string | null | undefined, markers: string[]): boolean {
+  const upper = String(value ?? '').toUpperCase()
+  return markers.some((m) => {
+    const token = m.trim().toUpperCase()
+    if (!token) return false
+    return new RegExp(`(^|[^А-ЯЁA-Z0-9])${escapeRegExp(token)}([^А-ЯЁA-Z0-9]|$)`, 'i').test(upper)
+  })
+}
+
+function hasMarker(value: string, markers: string[]): boolean {
+  return hasWordMarker(value, markers)
+}
+
+function hasBankWordMarker(value: string | null | undefined): boolean {
+  return hasWordMarker(value, BANK_WORD_MARKERS)
+}
+
+function hasBankMarker(value: string | null | undefined): boolean {
+  return hasWordMarker(value, BANK_MARKERS) || hasBankWordMarker(value)
+}
+
+function hasOrgOrIpMarker(value: string | null | undefined): boolean {
+  return hasWordMarker(value, ORG_OR_IP_MARKERS)
+}
+
+/** Разбивает текст на сегменты по '//' — в выписках Сбера ФИО часто лежит во втором сегменте:
+ *  «ПАО СБЕРБАНК//ФАМИЛИЯ ИМЯ ОТЧЕСТВО//телефон//адрес//». */
+function fioSegments(value: string): string[] {
+  return String(value ?? '').split('//').map((s) => s.trim()).filter(Boolean)
+}
+
+/** Отрезает адресную и техническую часть: всё после // ; , ( , ИНН, а также по адресным словам. */
+function cutTechnicalTail(value: string): string {
   let s = String(value ?? '')
-  // отрезаем всё после служебных маркеров/разделителей
   s = s.split(/\bИНН\b/i)[0]
-  s = s.split(/\bтел\.?\b/i)[0]
-  s = s.split(/\bсчет[а]?\b/i)[0]
-  s = s.split(/\bсч[её]т\b/i)[0]
-  s = s.split(/\bкарта\b/i)[0]
   s = s.split('//')[0]
   s = s.split(';')[0]
   s = s.split(',')[0]
   s = s.split('(')[0]
-  return s
+  for (const word of ['ул', 'улица', 'д.', 'дом', 'кв.', 'г.', 'с.', 'пос.', 'р-н', 'респ.']) {
+    const re = new RegExp(`\\b${word.replace(/[.]/g, '\\.')}`, 'i')
+    const parts = s.split(re)
+    if (parts.length > 1) s = parts[0]
+  }
+  return s.trim()
 }
 
-function extractFioFromPurpose(purpose: string | null | undefined): string | null {
-  const raw = String(purpose ?? '').trim()
+function isOnlyLetters(value: string): boolean {
+  return /^[А-ЯЁа-яё-]+$/.test(value)
+}
+
+function hasDigitsOrRef(value: string): boolean {
+  return /[0-9№]/.test(value)
+}
+
+function normalizeBankLabel(raw: string): string {
+  const s = cutTechnicalTail(raw.split('//')[0] || raw).replace(/\s+/g, ' ').trim()
+  if (!s) return 'Не указан'
+  if (/сбербанк/i.test(s)) return 'ПАО Сбербанк'
+  if (/тинькофф|т-?банк|тбанк/i.test(s)) return 'Т-Банк'
+  if (/втб/i.test(s)) return 'ВТБ'
+  if (/альфа/i.test(s)) return 'Альфа-Банк'
+  return s.length > 80 ? 'Банк-отправитель' : s
+}
+
+/**
+ * Шаг 3 — форматирование физического лица.
+ * 3 слова -> «ФАМИЛИЯ И. О.», 2 слова -> «ФАМИЛИЯ И.», 1 слово -> «ИМЯ».
+ * Строки с цифрами/адресными refs, банками или стоп-словами — null.
+ */
+function formatPerson(raw: string): string | null {
+  const source = String(raw ?? '').trim()
+  if (!source || hasDigitsOrRef(source)) return null
+  if (hasBankMarker(source) || hasOrgOrIpMarker(source)) return null
+  const s = cutTechnicalTail(source)
+  if (!s) return null
+  const words = s.split(/\s+/).filter(Boolean)
+  if (words.length === 0) return null
+  const first = words[0]
+  if (!isOnlyLetters(first)) return null
+  const firstUpper = first.toUpperCase()
+  if (PERSON_STOPWORDS.has(firstUpper)) return null
+  if (hasMarker(firstUpper, ORG_OR_IP_MARKERS) || hasMarker(firstUpper, BANK_MARKERS) || hasBankWordMarker(firstUpper)) return null
+
+  const take = words.slice(0, 3).map((w) => w.toUpperCase())
+  if (take.some((w) => !isOnlyLetters(w) || PERSON_STOPWORDS.has(w))) return null
+  if (take.length === 1) return take[0]
+  if (take.length === 2) return `${take[0]} ${take[1][0]}.`
+  return `${take[0]} ${take[1][0]}. ${take[2][0]}.`
+}
+
+/** Явные маркеры отправителя в тексте: «от Имя», «Отправитель: Имя», «Плательщик: Имя». */
+function extractByExplicitMarkers(text: string): string | null {
+  const raw = String(text ?? '').trim()
   if (!raw) return null
-
-  // сегменты между // часто содержат ФИО
-  const segments = raw.split('//').map((s) => s.trim()).filter(Boolean)
-  const candidates: string[] = []
-
-  for (const re of [/\bот\s+([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i, /\bплательщик\s*[:\-]\s*([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i, /\bФИО\s*[:\-]\s*([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i]) {
+  // \b не работает с кириллицей в JS (\w = [A-Za-z0-9_]), пробел после слова защищает от ложных срабатываний.
+  for (const re of [
+    /от\s+([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){0,3})/i,
+    /отправитель\s*[:\-]\s*([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){0,3})/i,
+    /плательщик\s*[:\-]\s*([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){0,3})/i
+  ]) {
     const m = raw.match(re)
-    if (m?.[1]) candidates.push(m[1])
-  }
-  candidates.push(...segments)
-
-  for (const c of candidates) {
-    const cleaned = sanitizeFioCandidate(c)
-    if (cleaned) return cleaned
+    if (m?.[1]) return m[1]
   }
   return null
 }
 
-function sanitizeFioCandidate(value: string | null | undefined): string | null {
-  let s = cutDonorNoise(String(value ?? ''))
-  s = s.replace(/ё/g, 'е').replace(/Ё/g, 'Е')
-  // убираем индексы, номера домов/квартир и другие цифры
-  s = s.replace(/\b\d{6}\b/g, ' ')
-  s = s.replace(/\b\d+[а-яА-ЯёЁ]?\b/g, ' ')
-  s = s.replace(/[^\p{L}\s-]/gu, ' ')
-  s = s.replace(/\s+/g, ' ').trim()
-  if (!s) return null
-
-  const rawWords = s.split(/\s+/).filter(Boolean)
-  const words: string[] = []
-  for (const w of rawWords) {
-    const upper = w.toUpperCase()
-    if (ADDRESS_TOKENS.has(upper)) continue
-    if (DONOR_STOPWORDS.has(upper)) continue
-    if (ORG_MARKERS.some((m) => upper.includes(m))) continue
-    if (!/^[А-ЯЁ][А-ЯЁа-яё-]*$/.test(w) && !/^[А-ЯЁ-]+$/.test(w)) continue
-    const lettersOnly = w.replace(/-/g, '')
-    if (lettersOnly.length > 25) continue
-    if (lettersOnly.length < 2 && !/^[А-ЯЁа-яё]$/.test(w)) continue
-    words.push(w)
+/** Первая валидная форма имени среди кандидатов (каждый проверяется через formatPerson). */
+function firstValidName(...candidates: (string | null | undefined)[]): string | null {
+  for (const c of candidates) {
+    if (!c) continue
+    const formatted = formatPerson(String(c))
+    if (formatted) return formatted
   }
-
-  // Оставляем только валидные слова из русских букв/дефиса
-  const valid = words.filter((w) => /^[А-ЯЁа-яё-]+$/.test(w) && w.replace(/-/g, '').length <= 25)
-  const cleaned = valid.filter((w) => !DONOR_STOPWORDS.has(w.toUpperCase()))
-  if (cleaned.length < 2) return null
-  if (cleaned.every((w) => w.replace(/-/g, '').length === 1)) return null
-
-  // Формат: ФАМИЛИЯ И.О. или Фамилия Имя Отчество -> ФАМИЛИЯ И.О.
-  const normalized = cleaned.slice(0, 3).map((w) => w.toUpperCase())
-  const surname = TYPO_MAP[normalized[0]] ?? normalized[0]
-  const initials = normalized.slice(1).map((w) => w.replace(/[^А-ЯЁ-]/g, '')).filter(Boolean)
-  if (initials.length === 0) return null
-  const formattedInitials = initials.map((w) => (w.length === 1 ? `${w}.` : `${w[0]}.`))
-  return `${surname} ${formattedInitials.join(' ')}`.trim()
+  return null
 }
 
-function resolveDonorName(rawName: string | null, purpose: string | null, direction: 'incoming' | 'outgoing' | 'unknown'): string | null {
-  if (direction !== 'incoming') return null
-  const name = String(rawName ?? '').trim()
-  const purposeText = String(purpose ?? '').trim()
+/**
+ * Единая функция определения имени отправителя (donor) по строгому 4-шаговому алгоритму.
+ * payerName — поле плательщика из выписки Сбера.
+ * paymentPurpose — назначение платежа.
+ *
+ * Правила:
+ * - Физлицо: «ФАМИЛИЯ И. О.» (без полного ФИО в отчёте).
+ * - Организация/ИП: полное юридическое наименование (без тех. хвоста).
+ * - СБП/банковский шлюз без достоверного ФИО/орг: банк-отправитель.
+ * - Назначение платежа никогда не используется как отправитель.
+ * - Если нет ни имени, ни банка: «Не указан».
+ */
+export function resolveDonorName(
+  payerName: string | null,
+  paymentPurpose: string | null
+): string | null {
+  const pn = String(payerName ?? '').trim()
+  const pp = String(paymentPurpose ?? '').trim()
 
-  if (name && !hasOrgMarker(name)) {
-    const fromName = sanitizeFioCandidate(name)
-    if (fromName) return fromName
+  // --- Шаг 1: юрлицо / ИП ---
+  if (pn && hasOrgOrIpMarker(pn) && !hasBankMarker(pn)) {
+    return cutTechnicalTail(pn) || 'Не указан'
   }
 
-  const fromPurpose = extractFioFromPurpose(purposeText)
-  if (fromPurpose) return fromPurpose
+  // --- Шаг 2: банковский шлюз / СБП — имя только из самого payerName (явные маркеры/сегменты), не из назначения ---
+  if (pn && hasBankMarker(pn)) {
+    const found = firstValidName(
+      ...fioSegments(pn),
+      extractByExplicitMarkers(pn)
+    )
+    if (found) return found
+    // User rule: SBP/bank gateway, no reliable FIO/org -> keep bank sender, never purpose
+    return normalizeBankLabel(pn)
+  }
 
-  // В назначении нет ФИО — возвращаем нейтральную метку
-  if (purposeText) return 'Частное лицо'
-  if (name && hasOrgMarker(name)) return 'Частное лицо'
-  return 'Частное лицо'
+  // --- Шаг 3: физическое лицо ---
+  const found = firstValidName(
+    extractByExplicitMarkers(pn),
+    ...fioSegments(pn),
+    pn
+  )
+  if (found) return found
+
+  // If purpose contains explicit sender markers, allow only that explicit marker (not purpose text itself)
+  const markerFromPurpose = firstValidName(extractByExplicitMarkers(pp))
+  if (markerFromPurpose) return markerFromPurpose
+
+  // --- Шаг 4: имени вообще нигде нет ---
+  return 'Не указан'
 }
 
 function cleanCounterpartyName(name: string | null): string | null {
-  return sanitizeFioCandidate(name)
+  return resolveDonorName(name, null)
 }
 
 /**
@@ -415,8 +481,8 @@ export function normalizeTransaction(
 
   const rawCounterpartyName = asString(pick(input, nameKeys))
   const counterpartyName = isIncoming
-    ? resolveDonorName(rawCounterpartyName, purpose, direction)
-    : (sanitizeFioCandidate(rawCounterpartyName) ?? rawCounterpartyName ?? null)
+    ? resolveDonorName(rawCounterpartyName, purpose)
+    : (cutTechnicalTail(rawCounterpartyName) ?? rawCounterpartyName ?? null)
   const counterpartyAccount = asString(pick(input, accountKeys))
   const counterpartyBank = asString(pick(input, bankKeys))
   const counterpartyInn = asString(pick(input, innKeys))

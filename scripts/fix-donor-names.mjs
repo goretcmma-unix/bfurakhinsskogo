@@ -22,7 +22,16 @@ const DONOR_STOPWORDS = new Set([
   'ДЛЯ','ОТ','ЗА','НА','ПО','БЕЗ','ПРИ','ВО','ДО','ИЗ','ОБ','ПОД','НАД','ЧЕРЕЗ',
   'ПОМОЩЬ','ФОНД','СБОР','ЦЕЛЕВОЙ','НУЖДЫ','БЛАГО','МИЛОСТЫНЯ','ЗАКЯТ','ФИТР','ПОЖЕРТВ','ХАДИЯ',
   'НДС','БЛАГОТВОРИТЕЛЬНОСТЬ','БЛАГОТВОРИТЕЛЬНЫЙ','ВЗНОС','ДАР','ЦЕЛЕВОЕ','НАЗНАЧЕНИЕ',
-  'НЕ','НЕТ','ДА','ПОЖЕРТВОВАНИЯ','ПОЖЕРТВОВАНИЙ','ПОЖЕРТВОВАНИЮ','ПОЖЕРТВОВАНИЕМ'
+  'НЕ','НЕТ','ДА','ПОЖЕРТВОВАНИЯ','ПОЖЕРТВОВАНИЙ','ПОЖЕРТВОВАНИЮ','ПОЖЕРТВОВАНИЕМ',
+  'САДАКЬА','САДАКАХ','БЛАГОДАРЮ','БЛАГОДАРЯ','БЛАГОДАРНОСТЬ','СПАСИБО',
+  'ВОДОПРОВОД','НУЖДАЮЩИМСЯ','НУЖДАЮЩИМСЯМ','ОБЛАГАЕТСЯ',
+  'БИСМИАЛЛАХ','БИСМИЛЛАГЬ','БИСМИЛЛАХ','ИНШААЛЛАХ','ИНСААЛЛАХ','АЛЛАХ','СУБХАНАЛЛАХ',
+  'МАСДЖИД','МЕЧЕТЬ','ФОНДУ','ФОНДА','ДЕТЯМ','СЕМЬЯМ','ЛЕЧЕНИЕ',
+  'ПЯТНИЦА','ПЯТНИЧНЫЙ','ВОДА','ВОДЫ','ВОДУ','ВОДОВОД','ВОДОВОДА','МАЛОИМУЩИМ','МАЛОИМУЩИХ',
+  'ИФТАР','ИФТАРА','ДЕТЕЙ','ДТП','НУЖДАЮЩИМ','НУЖДАЮЩИХ','НЕИМУЩИМ','НЕИМУЩИХ',
+  'ПОМОШЬ','БЛАГОТВОРИТЕЛЬНОСТТ','БЛАГОТВОРИЬЕЛЬНОСТЬ','БЛАГОТВОРИТЕЛЬНОСТИ','ПОСТРОЙКУ','МЕЧЕТИ',
+  'ПОЖАР','ПОГОРЕЛЬЦЕВ','ПОГОРЕЛЬЦАМ','ПОГОРЕЛЕЦ','РЕБЕНКА','РЕБЕНОК','РЕБЁНКА','РЕБЁНОК',
+  'МУЖА','ЖЕНЫ','ИНСАН','БИСМИЛЯХЬ','БЛАГОТВАРИТЕЛЬНОСТЬ','ПОМОГИТЕ','НУЖНА'
 
 ]);
 const ADDRESS_TOKENS = new Set(['УЛ','УЛИЦА','ПЕР','ПРТ','ПРОСП','ПРОСПЕКТ','БР','БУЛЬВАР','ШОССЕ','ГОР','ГОРОД','СЕЛО','ПОС','ПОСЕЛОК','ПОСЁЛОК','ДОМ','КВ','КОРП','КОРПУС','СТР','СТРОЕНИЕ','РЕСП','РЕСПУБЛИКА','ОБЛ','ОБЛАСТЬ','РН','РАЙОН','КРАЙ','РЕГИОН','МОСКВА','САНКТ','ПЕТЕРБУРГ']);
@@ -64,12 +73,14 @@ function sanitizeFioCandidate(value) {
     words.push(w);
   }
   const cleaned = words.filter(w => /^[А-ЯЁа-яё-]+$/.test(w) && w.replace(/-/g, '').length <= 25 && !DONOR_STOPWORDS.has(w.toUpperCase()));
-  if (cleaned.length < 2) return null;
+  if (cleaned.length < 1) return null;
   if (cleaned.every(w => w.replace(/-/g, '').length === 1)) return null;
   const normalized = cleaned.slice(0, 3).map(w => w.toUpperCase());
-  const surname = TYPO_MAP[normalized[0]] ?? normalized[0];
+  const first = TYPO_MAP[normalized[0]] ?? normalized[0];
+  if (normalized.length === 1) return first.length <= 2 ? null : first;
+  const surname = first;
   const initials = normalized.slice(1).map(w => w.replace(/[^А-ЯЁ-]/g, '')).filter(Boolean);
-  if (initials.length === 0) return null;
+  if (initials.length === 0) return surname;
   const formattedInitials = initials.map(w => (w.length === 1 ? `${w}.` : `${w[0]}.`));
   return `${surname} ${formattedInitials.join(' ')}`.trim();
 }
@@ -93,13 +104,24 @@ function resolveDonorName(rawName, purpose, type) {
   if (type !== 'income') return rawName ?? null;
   const name = String(rawName ?? '').trim();
   const purposeText = String(purpose ?? '').trim();
-  if (name && !hasOrgMarker(name)) {
+  const sources = [name, purposeText].filter(Boolean);
+
+  if (name && !hasOrgMarker(name) && name !== 'Частное лицо') {
     const fromName = sanitizeFioCandidate(name);
     if (fromName) return fromName;
   }
-  const fromPurpose = extractFioFromPurpose(purposeText);
-  if (fromPurpose) return fromPurpose;
-  if (purposeText || (name && hasOrgMarker(name))) return 'Частное лицо';
+
+  for (const src of sources) {
+    const fromPurpose = extractFioFromPurpose(src);
+    if (fromPurpose) return fromPurpose;
+  }
+
+  for (const src of sources) {
+    if (hasOrgMarker(src)) continue;
+    const candidate = sanitizeFioCandidate(src);
+    if (candidate) return candidate;
+  }
+
   return 'Частное лицо';
 }
 
