@@ -2685,11 +2685,9 @@
          initPageData();
 
       // Редирект на блок «О фонде» при загрузке сайта
-      window.addEventListener('DOMContentLoaded', () => {
-        if (!window.location.hash) {
-          window.location.hash = '#about';
-        }
-      });
+      if (!window.location.hash) {
+        window.location.hash = '#about';
+      }
        </script>
 
       <!-- JSON-LD Organization -->
