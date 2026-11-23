@@ -562,7 +562,7 @@
           max-width: 560px;
           padding-right: 40px;
           box-sizing: border-box;
-          overflow-y: auto;
+          overflow: visible;
         }
       }
 
@@ -1669,7 +1669,7 @@
 
       const isTransientNetworkError = (e) => {
         const msg = String(e?.message || e || '');
-        return /Failed to fetch|NetworkError|Load failed|fetch failed|ERR_CONNECTION_RESET|ERR_HTTP2/i.test(msg);
+        return /Failed to fetch|NetworkError|Load failed|fetch failed|ERR_CONNECTION_RESET|ERR_HTTP2|Content-Length header of network response exceeds response Body/i.test(msg);
       };
 
       async function loadPublicData({ background = false } = {}) {
@@ -2618,32 +2618,38 @@
 
         // Scroll handler - auto-detect active section (only when not navigating)
         let lastActive = null;
+        let scrollTicking = false;
         function onScroll() {
-          if (navState.isNavigating) return;
-          
-          const scrollY = window.scrollY + window.innerHeight * 0.35;
-          let currentId = null;
-          let bestMatch = null;
-          let bestDist = Infinity;
+          if (scrollTicking) return;
+          scrollTicking = true;
+          requestAnimationFrame(() => {
+            scrollTicking = false;
+            if (navState.isNavigating) return;
 
-          sections.forEach(section => {
-            const top = section.offsetTop;
-            const bottom = top + section.offsetHeight;
-            if (scrollY >= top && scrollY < bottom) {
-              currentId = '#' + section.id;
-            }
-            const dist = Math.abs(top - scrollY);
-            if (dist < bestDist) {
-              bestDist = dist;
-              bestMatch = '#' + section.id;
+            const scrollY = window.scrollY + window.innerHeight * 0.35;
+            let currentId = null;
+            let bestMatch = null;
+            let bestDist = Infinity;
+
+            sections.forEach(section => {
+              const top = section.offsetTop;
+              const bottom = top + section.offsetHeight;
+              if (scrollY >= top && scrollY < bottom) {
+                currentId = '#' + section.id;
+              }
+              const dist = Math.abs(top - scrollY);
+              if (dist < bestDist) {
+                bestDist = dist;
+                bestMatch = '#' + section.id;
+              }
+            });
+
+            const targetId = currentId || bestMatch;
+            if (targetId && targetId !== lastActive) {
+              setActiveLink(targetId);
+              lastActive = targetId;
             }
           });
-
-          const targetId = currentId || bestMatch;
-          if (targetId && targetId !== lastActive) {
-            setActiveLink(targetId);
-            lastActive = targetId;
-          }
         }
 
          window.addEventListener('scroll', onScroll, { passive: true });
