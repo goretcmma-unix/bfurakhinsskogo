@@ -1,31 +1,65 @@
 // Полный живой прогон: Sandbox → стейдж → строки БД → INSERT (аддитивно)
 // Показывает фактические числа, без изменения существующих записей.
 // --- .env ДОЛЖЕН быть загружен до импорта модуля (loadSberConfig читает process.env в конструкторе) ---
-import { readFileSync } from 'node:fs'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const envText = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', '.env'), 'utf8')
+const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..')
+const envPath = join(rootDir, '.env')
+const envText = readFileSync(envPath, 'utf8')
 for (const line of envText.split(/\r?\n/)) {
   const m = line.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/)
   if (m && !(m[1] in process.env)) process.env[m[1]] = m[2].trim()
 }
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const modPath = 'file://' + join(root, 'out', 'main', 'sber-api', 'index.js').replaceAll('\\', '/')
+function upsertEnvValue(text, key, value) {
+  const re = new RegExp(`^${key}=.*$`, 'm')
+  const line = `${key}=${value ?? ''}`
+  if (re.test(text)) return text.replace(re, line)
+  const eol = text.includes('\r\n') ? '\r\n' : '\n'
+  return text.replace(/\s*$/, '') + eol + line + eol
+}
+
+async function persistRefreshedTokens(api) {
+  try {
+    const pair = await api.store.loadTokens()
+    if (!pair?.accessToken) return
+    let next = readFileSync(envPath, 'utf8')
+    next = upsertEnvValue(next, 'SBER_ACCESS_TOKEN', pair.accessToken || '')
+    next = upsertEnvValue(next, 'SBER_REFRESH_TOKEN', pair.refreshToken || '')
+    if (pair.expiresAt) next = upsertEnvValue(next, 'SBER_TOKEN_EXPIRES_IN', new Date(pair.expiresAt).toISOString())
+    if (next !== readFileSync(envPath, 'utf8')) {
+      writeFileSync(envPath, next, 'utf8')
+      console.log('[env] Обновлены SBER_* токены в .env (refresh rotation сохранён)')
+    }
+  } catch (e) {
+    console.warn('[env] Не удалось сохранить обновлённые токены в .env:', e?.message || e)
+  }
+}
+
+const modPath = 'file://' + join(rootDir, 'out', 'main', 'sber-api', 'index.js').replaceAll('\\', '/')
 const { SberApi } = await import(modPath)
 const require = (await import('node:module')).createRequire(import.meta.url)
 const { createClient } = require('@supabase/supabase-js')
 
-// 1. Токены из .env → в защищённое хранилище модуля
-const api = new SberApi({ userDataDir: join(root, '.sber-data') })
-await api.oauth.setTokens({
-  accessToken: process.env.SBER_ACCESS_TOKEN,
-  refreshToken: process.env.SBER_REFRESH_TOKEN,
-  expiresAt: process.env.SBER_TOKEN_EXPIRES_IN,
-  scope: process.env.SBER_SCOPES
-})
-console.log('[1] Токены установлены')
+// 1. Токены: не перезаписываем свежие store-токены старыми значениями из .env
+const api = new SberApi({ userDataDir: join(rootDir, '.sber-data') })
+const storePair = await api.store.loadTokens().catch(() => null)
+const envAccess = (process.env.SBER_ACCESS_TOKEN || '').trim()
+const envRefresh = (process.env.SBER_REFRESH_TOKEN || '').trim()
+const envChanged = envAccess && envAccess !== (storePair?.accessToken || '')
+if (envChanged || !storePair?.refreshToken) {
+  await api.oauth.setTokens({
+    accessToken: envAccess,
+    refreshToken: envRefresh,
+    expiresAt: process.env.SBER_TOKEN_EXPIRES_IN,
+    scope: process.env.SBER_SCOPES
+  })
+  console.log('[1] Токены установлены из .env')
+} else {
+  console.log('[1] Используются сохранённые токены из .sber-data (не перезаписываю .env-токенами)')
+}
 
 // 2. Реальный запрос выписки в Sandbox
 const account = process.env.SBER_SANDBOX_ACCOUNT_NUMBER
@@ -48,6 +82,7 @@ for (const r of prepared.rows.slice(0, 5)) {
 // 4. Запись в Supabase (upsert, ignoreDuplicates — CSV не трогаем)
 if (!prepared.rows.length) {
   console.log('[4] Записывать нечего — выписка за период пуста. Попробуйте другую дату в SBER_STATEMENT_DATE.')
+  await persistRefreshedTokens(api)
   process.exit(0)
 }
 const admin = createClient(process.env.VITE_SUPABASE_URL, process.env.VITE_SUPABASE_ANON_KEY, {
@@ -74,3 +109,4 @@ const { count } = await admin.from('transactions')
   .eq('data_source', 'sber_api')
 console.log(`[5] В БД записей с data_source='sber_api': ${count}`)
 console.log(count > 0 ? '\n✔ ДАННЫЕ СБЕРА В SUPABASE — дашборд их покажет' : '\n✘ В БД пусто — см. логи выше')
+await persistRefreshedTokens(api)
