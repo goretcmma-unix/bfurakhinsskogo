@@ -8,7 +8,7 @@ import { getFullReport } from '@/lib/dataService'
 import { supabase, getCurrentFundId } from '@/lib/supabase'
 import type { FullReport, ReportPeriod, MonthlyStat } from '@/lib/types'
 
-type PeriodPreset = 'month' | 'quarter' | 'year' | 'all' | 'custom'
+type PeriodPreset = 'month' | 'quarter' | '2025' | '2026' | 'all' | 'custom'
 
 export default function ReportsPage() {
   const { t, currency, locale } = useApp()
@@ -23,7 +23,8 @@ export default function ReportsPage() {
   const presets = [
     { value: 'month' as PeriodPreset, label: t.month },
     { value: 'quarter' as PeriodPreset, label: t.ranges.quarter },
-    { value: 'year' as PeriodPreset, label: t.yearLabel },
+    { value: '2025' as PeriodPreset, label: '2025' },
+    { value: '2026' as PeriodPreset, label: '2026' },
     { value: 'all' as PeriodPreset, label: t.ranges.all },
     { value: 'custom' as PeriodPreset, label: 'Произвольный' },
   ]
@@ -41,8 +42,13 @@ export default function ReportsPage() {
         const quarterStart = new Date(now.getFullYear(), Math.floor(now.getMonth() / 3) * 3, 1)
         startDate = quarterStart.toISOString().slice(0, 10)
         break
-      case 'year':
-        startDate = new Date(now.getFullYear(), 0, 1).toISOString().slice(0, 10)
+      case '2025':
+        startDate = '2025-01-01'
+        endDate = '2025-12-31'
+        break
+      case '2026':
+        startDate = '2026-01-01'
+        endDate = '2026-12-31'
         break
       case 'all':
         startDate = '2020-01-01'
