@@ -1692,12 +1692,12 @@
               await new Promise(r => setTimeout(r, 1200));
               continue;
             }
-            if (background || hasData) {
-              console.warn('[public-site] background refresh failed:', e?.message || e);
-            } else {
+            if (!(background || hasData)) {
               console.error('[public-site] load failed:', e);
               console.warn('[public-site] Using cached/demo data:', e?.message || e);
             }
+            // Фоновая ошибка (Supabase недоступен в Chrome/Firefox и т.п.) — тихо игнорируем,
+            // уже отрисованные данные из data.json/кэша не затираем.
             return false;
           }
         }
@@ -1732,33 +1732,52 @@
       window.filterAndRender = filterAndRender;
       window.currentPeriod = currentPeriod;
 
+      async function loadLocalDataJson() {
+        try {
+          const resp = await fetch('./data.json?t=' + Date.now(), { cache: 'no-store' });
+          if (!resp.ok) throw new Error(`data.json HTTP ${resp.status}`);
+          const txns = await resp.json();
+          if (Array.isArray(txns) && txns.length > 0) return normalizeTransactions(txns);
+        } catch (e) {
+          console.warn('[public-site] local data.json load failed:', e?.message || e);
+        }
+        return null;
+      }
+
       async function initPageData() {
         // 1) Сразу поднимаем UI, чтобы меню/кнопки работали без ожидания сети
         try { if (typeof initCustomSelects === 'function') initCustomSelects(); } catch (e) { console.error(e); }
         try { if (typeof initDonate === 'function') initDonate(); } catch (e) { console.error(e); }
         try { initMobileMenuAndTableControls(); } catch (e) { console.error(e); }
 
-        // 2) Мгновенно показываем кэш (если есть), потом обновляем из Supabase в фоне
-        const cached = readCachedPublicData();
-        if (cached) {
-          try { applyTransactions(cached); } catch (e) { console.warn('[public-site] cache apply failed:', e); }
+        // 2) Сначала локальный data.json (same-origin, работает в Chrome/Firefox при блокировке Supabase)
+        const localTxns = await loadLocalDataJson();
+        if (localTxns && localTxns.length > 0) {
+          try { applyTransactions(localTxns); } catch (e) { console.warn('[public-site] local data apply failed:', e); }
+        } else {
+          // Fallback: локальный кэш браузера
+          const cached = readCachedPublicData();
+          if (cached) {
+            try { applyTransactions(cached); } catch (e) { console.warn('[public-site] cache apply failed:', e); }
+          }
         }
         try { if (typeof renderStats === 'function') renderStats(); } catch (e) { console.error(e); }
         try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
 
-        // 3) Фоновое обновление из Supabase — не блокирует интерфейс
+        // 3) Фоновое обновление из прямого Supabase REST — если успешно, обновляем свежими данными;
+        //    если упало (Chrome/Firefox/DoH/ETP) — тихо игнорируем, не затирая данные из data.json.
         void loadPublicData({ background: true }).then((ok) => {
           if (!ok) return;
           try { if (typeof renderStats === 'function') renderStats(); } catch (e) { console.error(e); }
           try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
-        }).catch((e) => console.warn('[public-site] background load failed:', e));
+        }).catch(() => {});
 
         window.addEventListener('load', () => {
           try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
         });
 
-        // 4) Realtime/периодическое обновление — только как фоновые задачи
-        try { subscribeRealtime().catch((e) => console.warn('[public-site] realtime subscribe failed:', e)); } catch (e) { console.warn('[public-site] realtime init failed:', e); }
+        // 4) Периодическое фоновое обновление
+        try { subscribeRealtime().catch(() => {}); } catch (e) {}
         setInterval(() => { void refreshPublicData(true); }, 20000);
         document.addEventListener('visibilitychange', () => {
           if (document.visibilityState === 'visible') void refreshPublicData(true);

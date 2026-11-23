@@ -36,6 +36,12 @@ jobs:
           };
           EOF
 
+      - name: Sync public data snapshot
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: node scripts/sync-public-data.mjs
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

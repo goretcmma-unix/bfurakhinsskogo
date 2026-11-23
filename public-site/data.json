@@ -1,0 +1,3682 @@
+[
+  {
+    "date": "2026-11-23",
+    "time": "00:51",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;21/11/2026",
+    "donor": "СБЕРБАНКОСМАНОВ",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-11-21",
+    "time": "04:49",
+    "type": "expense",
+    "category": "",
+    "description": "Плата за пакет услуг Легкий старт за период 22.11.2026-21.12.2026 дог. от 22.01.2025 №40703810860450000006 в размере 490.00 руб., в т.ч. НДС",
+    "donor": "",
+    "amount": 490,
+    "doc": null
+  },
+  {
+    "date": "2026-11-20",
+    "time": "14:10",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-11-20",
+    "time": "10:38",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;20/11/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-11-17",
+    "time": "15:55",
+    "type": "expense",
+    "category": "",
+    "description": "Единый налоговый платеж. НДС не облагается.",
+    "donor": "",
+    "amount": 4080,
+    "doc": null
+  },
+  {
+    "date": "2026-11-16",
+    "time": "00:49",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;14/11/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-11-13",
+    "time": "15:25",
+    "type": "income",
+    "category": "",
+    "description": "А;13/11/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-11-13",
+    "time": "13:07",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-11-09",
+    "time": "01:05",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;08/11/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-11-06",
+    "time": "12:27",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;06/11/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-11-06",
+    "time": "09:15",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;06/11/2026",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-11-06",
+    "time": "11:59",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-11-06",
+    "time": "16:16",
+    "type": "income",
+    "category": "",
+    "description": "А;06/11/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-30",
+    "time": "11:18",
+    "type": "income",
+    "category": "",
+    "description": "А;30/10/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-30",
+    "time": "10:23",
+    "type": "income",
+    "category": "",
+    "description": "1;30/10/2026",
+    "donor": "ЗАЛКЕПРИЕВ А. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-10-30",
+    "time": "12:42",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;30/10/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-29",
+    "time": "14:54",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;29/10/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-10-23",
+    "time": "12:40",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-23",
+    "time": "18:28",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;23/10/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-23",
+    "time": "16:19",
+    "type": "income",
+    "category": "",
+    "description": "А;23/10/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-19",
+    "time": "00:49",
+    "type": "income",
+    "category": "",
+    "description": "пятничный благотворительный сбор;17/10/2026",
+    "donor": "ИБРАГИМОВ М. Ш.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-19",
+    "time": "14:34",
+    "type": "expense",
+    "category": "",
+    "description": "Единый налоговый платеж. НДС не облагается.",
+    "donor": "",
+    "amount": 4080,
+    "doc": null
+  },
+  {
+    "date": "2026-10-16",
+    "time": "13:20",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;16/10/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-16",
+    "time": "01:02",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность. НДС не облагается",
+    "donor": "РАБАДАНОВ Р. О.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-10-16",
+    "time": "15:46",
+    "type": "income",
+    "category": "",
+    "description": "А;16/10/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-16",
+    "time": "13:46",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-09",
+    "time": "11:19",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-09",
+    "time": "13:44",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;09/10/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-09",
+    "time": "16:26",
+    "type": "income",
+    "category": "",
+    "description": "А;09/10/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-10-05",
+    "time": "11:10",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;05/10/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-09-25",
+    "time": "13:01",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-09-25",
+    "time": "11:49",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;25/09/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-09-24",
+    "time": "12:14",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;24/09/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-09-23",
+    "time": "09:52",
+    "type": "expense",
+    "category": "",
+    "description": "Единый налоговый платеж. НДС не облагается.",
+    "donor": "",
+    "amount": 4080,
+    "doc": null
+  },
+  {
+    "date": "2026-09-18",
+    "time": "09:07",
+    "type": "income",
+    "category": "",
+    "description": "Садака;18/09/2026",
+    "donor": "КУБАЕВА М. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-09-18",
+    "time": "10:23",
+    "type": "income",
+    "category": "",
+    "description": "П;18/09/2026",
+    "donor": "ОМАРОВ К. Х.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-09-18",
+    "time": "12:37",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-09-18",
+    "time": "09:38",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;18/09/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-09-17",
+    "time": "18:55",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;17/09/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-09-11",
+    "time": "09:57",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-09-11",
+    "time": "16:15",
+    "type": "income",
+    "category": "",
+    "description": "А;11/09/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 150,
+    "doc": null
+  },
+  {
+    "date": "2026-09-11",
+    "time": "10:24",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;11/09/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-09-04",
+    "time": "16:20",
+    "type": "income",
+    "category": "",
+    "description": "А;04/09/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 150,
+    "doc": null
+  },
+  {
+    "date": "2026-09-04",
+    "time": "10:03",
+    "type": "income",
+    "category": "",
+    "description": "помощь;04/09/2026",
+    "donor": "ИСАЕВА Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-09-04",
+    "time": "10:49",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;04/09/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-28",
+    "time": "10:16",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;28/08/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-28",
+    "time": "12:41",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;28/08/2026",
+    "donor": "ГАЗИЕВ А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-28",
+    "time": "18:10",
+    "type": "income",
+    "category": "",
+    "description": "А;28/08/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-26",
+    "time": "04:51",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;26/08/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-24",
+    "time": "09:59",
+    "type": "expense",
+    "category": "",
+    "description": "Единый налоговый платеж. НДС не облагается.",
+    "donor": "",
+    "amount": 4080,
+    "doc": null
+  },
+  {
+    "date": "2026-08-21",
+    "time": "12:29",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;21/08/2026",
+    "donor": "ГАЗИЕВ А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-21",
+    "time": "13:42",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;21/08/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "АбдуллаХаджи;15/08/2026",
+    "donor": "КУРБАНОВА А. Г.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "01:00",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;16/08/2026",
+    "donor": "АМАТАЕВ А. А.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "На лечение Абдулла Хаджи;15/08/2026",
+    "donor": "АЛИЕВА М. С.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "Лечение;15/08/2026",
+    "donor": "ЮСУПОВА А. М.",
+    "amount": 490,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:56",
+    "type": "income",
+    "category": "",
+    "description": "Абдулагаджи;15/08/2026",
+    "donor": "МУСАЕВ Ш. М.",
+    "amount": 150,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:59",
+    "type": "income",
+    "category": "",
+    "description": "100;16/08/2026",
+    "donor": "МАГОМЕДОВ Т. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "02:33",
+    "type": "income",
+    "category": "",
+    "description": "ПЕРЕВОД СОБСТВЕННЫХ СРЕДСТВ",
+    "donor": "ЮСУФОВА Ф. Г.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "01:00",
+    "type": "income",
+    "category": "",
+    "description": "на лечение;16/08/2026",
+    "donor": "АСАНАЕВА С. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;15/08/2026",
+    "donor": "МАСТАЕВА М. Х.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-17",
+    "time": "00:54",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;15/08/2026",
+    "donor": "МИРЗАБЕЙКОВ А. Х.",
+    "amount": 1500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-15",
+    "time": "15:42",
+    "type": "income",
+    "category": "",
+    "description": "Сбор для Абдуллахаджи. НДС не облагается",
+    "donor": "ОМАРОВА Б. К.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "03:53",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;14/08/2026",
+    "donor": "ГАСАНОВА А. Т.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "12:06",
+    "type": "income",
+    "category": "",
+    "description": "Для Абдуллахаджи сгоревшего",
+    "donor": "БАГАНДАЛИЕВА Р. Г.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "12:53",
+    "type": "income",
+    "category": "",
+    "description": "Помощь человеку который получил ожог;14/08/2026",
+    "donor": "РАБАДАНОВА П. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "18:06",
+    "type": "income",
+    "category": "",
+    "description": "помош;14/08/2026",
+    "donor": "БАГАНДОВА П. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "09:48",
+    "type": "income",
+    "category": "",
+    "description": "помощь;14/08/2026",
+    "donor": "ЭДИЛЬСОЛТАНОВ Х. С.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "17:42",
+    "type": "income",
+    "category": "",
+    "description": "Для пострадавшего от взрыва;14/08/2026",
+    "donor": "ОСМАНОВА П. Х.",
+    "amount": 150,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "09:34",
+    "type": "income",
+    "category": "",
+    "description": "Ромощь",
+    "donor": "ТУКАНАЕВ Н. Х.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "19:21",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;14/08/2026",
+    "donor": "РИЗАЕВА З. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "01:47",
+    "type": "income",
+    "category": "",
+    "description": "ПЕРЕВОД СОБСТВЕННЫХ СРЕДСТВ",
+    "donor": "АЗИЗОВ М. А.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "13:11",
+    "type": "income",
+    "category": "",
+    "description": "Бисмиллягь;14/08/2026",
+    "donor": "АХМЕДОВА З. М.",
+    "amount": 130,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "15:40",
+    "type": "income",
+    "category": "",
+    "description": "На лечение Абдуллы. НДС не облагается",
+    "donor": "АЛИЕВА М. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "07:29",
+    "type": "income",
+    "category": "",
+    "description": "Абдулла Хаджи харахинского;14/08/2026",
+    "donor": "МАГОМЕДОВА Х. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "05:06",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность. НДС не облагается",
+    "donor": "АБДУРАХМАНОВА У. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "21:25",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;14/08/2026",
+    "donor": "АХМЕД Ф. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "16:14",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;14/08/2026",
+    "donor": "АМИРАЛИЕВ А. Г.",
+    "amount": 400,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "09:38",
+    "type": "income",
+    "category": "",
+    "description": ".;14/08/2026",
+    "donor": "МАГОМЕДОВА Р. И.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "18:59",
+    "type": "income",
+    "category": "",
+    "description": "На реабилитацию Абдуллахаджи;14/08/2026",
+    "donor": "КАЗАЛИЕВА З. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "14:01",
+    "type": "income",
+    "category": "",
+    "description": "Бисмиллях;14/08/2026",
+    "donor": "МАГОМЕДОВА Н. В.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "00:50",
+    "type": "income",
+    "category": "",
+    "description": "БисмиЛлагь(на лечение);14/08/2026",
+    "donor": "БАГАДЗИЕВ Ю. А.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "21:15",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;14/08/2026",
+    "donor": "АБДУРАХМАНОВА А. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "05:13",
+    "type": "income",
+    "category": "",
+    "description": "помощь;14/08/2026",
+    "donor": "КАМБУЛАТОВА А. А.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "15:40",
+    "type": "income",
+    "category": "",
+    "description": "сбор средств садакьа;14/08/2026",
+    "donor": "БАГАМЕДОВ М. А.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "09:51",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;14/08/2026",
+    "donor": "МАГОМЕДОВА А. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "09:47",
+    "type": "income",
+    "category": "",
+    "description": "Казиханова Патимат;14/08/2026",
+    "donor": "КАЗИХАНОВА П. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "00:50",
+    "type": "income",
+    "category": "",
+    "description": "помощь;14/08/2026",
+    "donor": "БАГОМЕДОВА М. А.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "16:16",
+    "type": "income",
+    "category": "",
+    "description": "А;14/08/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "06:50",
+    "type": "income",
+    "category": "",
+    "description": "На операцию;14/08/2026",
+    "donor": "АЛИЕВА З. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "12:17",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;14/08/2026",
+    "donor": "АБДУРАХМАНОВА С. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "18:56",
+    "type": "income",
+    "category": "",
+    "description": "на помощь;14/08/2026",
+    "donor": "ИСАЕВА Н. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "18:07",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;14/08/2026",
+    "donor": "КОНДРАХИН Д. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "07:37",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;14/08/2026",
+    "donor": "ЧАМКУРОВ Р. Р.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "14:25",
+    "type": "income",
+    "category": "",
+    "description": "Тагиров Т.;14/08/2026",
+    "donor": "МАГОМЕДОВА З. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "10:09",
+    "type": "income",
+    "category": "",
+    "description": "парню с ожогами;14/08/2026",
+    "donor": "МУРТАЗАЛИЕВА Р. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "15:24",
+    "type": "income",
+    "category": "",
+    "description": "Пожертвование. НДС не облагается",
+    "donor": "ИСМАИЛОВА А. Ш.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "06:01",
+    "type": "income",
+    "category": "",
+    "description": "для Абдуллахажи;14/08/2026",
+    "donor": "АЛИЕВА Н. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "13:12",
+    "type": "income",
+    "category": "",
+    "description": "садакьа Аллагьасе гьоло;14/08/2026",
+    "donor": "ИДАКОВА П. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "15:44",
+    "type": "income",
+    "category": "",
+    "description": "помощь для Абдулахаджи;14/08/2026",
+    "donor": "АЛИЕВА М. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "13:05",
+    "type": "income",
+    "category": "",
+    "description": "помощь;14/08/2026",
+    "donor": "ЗАКАРГАЕВА К. Г.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "14:18",
+    "type": "income",
+    "category": "",
+    "description": "На лечение Абдуллахаджи;14/08/2026",
+    "donor": "ХАЛИМБЕКОВА З. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-14",
+    "time": "01:03",
+    "type": "income",
+    "category": "",
+    "description": "Абдулагаджи Сергокалинский. Ожо. НДС не облагается",
+    "donor": "ГУСЕЙНОВ Г. М.",
+    "amount": 1500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "20:04",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;13/08/2026",
+    "donor": "ИСМАИЛОВ С. Г.",
+    "amount": 330,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "14:49",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;13/08/2026",
+    "donor": "БАГОМЕДОВА С. Р.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "12:09",
+    "type": "income",
+    "category": "",
+    "description": "Сбор для Абдуллагаджи;13/08/2026",
+    "donor": "ИСМАИЛОВА З. И.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "22:42",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;13/08/2026",
+    "donor": "БАГОМЕДОВА К. Н.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "23:45",
+    "type": "income",
+    "category": "",
+    "description": "на лечение Абдуллахажи;13/08/2026",
+    "donor": "ГАПИЗОВА С. Х.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "13:06",
+    "type": "income",
+    "category": "",
+    "description": "На лечение. НДС не облагается",
+    "donor": "ЗАКАРИГАЕВ М. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "15:07",
+    "type": "income",
+    "category": "",
+    "description": "Помощь Абдуллахажи;13/08/2026",
+    "donor": "МАГОМЕДОВ М. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "13:28",
+    "type": "income",
+    "category": "",
+    "description": "помощь;13/08/2026",
+    "donor": "ИСАЕВА Э. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "15:04",
+    "type": "income",
+    "category": "",
+    "description": "Помощь. НДС не облагается",
+    "donor": "ГУСЕНОВА Л. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "15:31",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность,ожог парня;13/08/2026",
+    "donor": "ЭСКЕРОВ А. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "19:43",
+    "type": "income",
+    "category": "",
+    "description": "Бисмиллагь;13/08/2026",
+    "donor": "МУРТАЗАЛИЕВА Р. К.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "16:03",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;13/08/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "14:32",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;13/08/2026",
+    "donor": "ГАДЖИЕВ Д. Х.",
+    "amount": 185,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "23:18",
+    "type": "income",
+    "category": "",
+    "description": "Абдулагаджи Сергокалинский.Ожоги.;13/08/2026",
+    "donor": "ГУСЕЙНОВ Г. М.",
+    "amount": 2500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "14:44",
+    "type": "income",
+    "category": "",
+    "description": "То что мог. НДС не облагается",
+    "donor": "МИРЗАЕВ М. И.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "19:12",
+    "type": "income",
+    "category": "",
+    "description": "На лечение ребенку в, Дагестан. НДС не облагается",
+    "donor": "ТАНОВА Т. В.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "20:40",
+    "type": "income",
+    "category": "",
+    "description": "Для Абдулахажи;13/08/2026",
+    "donor": "БАГОМЕДОВА З. З.",
+    "amount": 350,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "21:11",
+    "type": "income",
+    "category": "",
+    "description": "помош;13/08/2026",
+    "donor": "ТУКАНАЕВА А. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "15:55",
+    "type": "income",
+    "category": "",
+    "description": "пожертвования;13/08/2026",
+    "donor": "ГАПИЗОВА З. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "22:41",
+    "type": "income",
+    "category": "",
+    "description": "садака;13/08/2026",
+    "donor": "АДЗИЕВ Ш. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "20:13",
+    "type": "income",
+    "category": "",
+    "description": "Добро;13/08/2026",
+    "donor": "ГУЛИЕВА Р. М.",
+    "amount": 150,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "14:49",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;13/08/2026",
+    "donor": "КАСУМГАДЖИЕВА А. К.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "12:08",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;13/08/2026",
+    "donor": "МАГОМЕДОВ С. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "20:15",
+    "type": "income",
+    "category": "",
+    "description": "Садакъ;13/08/2026",
+    "donor": "МЕДЖИДОВА Х. С.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "13:01",
+    "type": "income",
+    "category": "",
+    "description": "QR5/Для Абдуллахаджи НДС не облагается",
+    "donor": "РОМАНТИКОВ Д. К.",
+    "amount": 446,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "18:34",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;13/08/2026",
+    "donor": "НАЗИРБЕКОВА Х. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "13:01",
+    "type": "income",
+    "category": "",
+    "description": "Сбор. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 700,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "21:39",
+    "type": "income",
+    "category": "",
+    "description": "Для Абдулла Хаджи биссмиЛлягь;13/08/2026",
+    "donor": "ОМАРОВА Р. О.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "21:41",
+    "type": "income",
+    "category": "",
+    "description": "на лечение;13/08/2026",
+    "donor": "КАРААЛИЕВА Ш. Н.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "17:28",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительный;13/08/2026",
+    "donor": "ИСАЕВА Д. И.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "17:40",
+    "type": "income",
+    "category": "",
+    "description": "Для Абдулахаджи;13/08/2026",
+    "donor": "АБДУЛЛАЕВ Р. М.",
+    "amount": 1400,
+    "doc": null
+  },
+  {
+    "date": "2026-08-13",
+    "time": "11:30",
+    "type": "income",
+    "category": "",
+    "description": "На лечение;13/08/2026",
+    "donor": "КАДИРОВ Р. М.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-08-12",
+    "time": "17:55",
+    "type": "income",
+    "category": "",
+    "description": "А;12/08/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-12",
+    "time": "17:55",
+    "type": "income",
+    "category": "",
+    "description": "А;12/08/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-08-07",
+    "time": "13:08",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;07/08/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-31",
+    "time": "12:37",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;31/07/2026",
+    "donor": "МОГОМЕДОВ А. М.",
+    "amount": 400,
+    "doc": null
+  },
+  {
+    "date": "2026-07-31",
+    "time": "10:01",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;31/07/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-31",
+    "time": "15:11",
+    "type": "income",
+    "category": "",
+    "description": "А;31/07/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-31",
+    "time": "14:43",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;31/07/2026",
+    "donor": "МАГОМЕДОВ С. М.",
+    "amount": 1111.11,
+    "doc": null
+  },
+  {
+    "date": "2026-07-30",
+    "time": "19:48",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;30/07/2026",
+    "donor": "ОСМАНОВ М. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-07-24",
+    "time": "17:36",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;24/07/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-24",
+    "time": "20:12",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;24/07/2026",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-07-24",
+    "time": "10:41",
+    "type": "income",
+    "category": "",
+    "description": "БИСМИЛЛАГЬ",
+    "donor": "ИДРИСОВА И. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-07-24",
+    "time": "10:40",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;24/07/2026",
+    "donor": "МОГОМЕДОВ А. М.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-07-24",
+    "time": "14:20",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;24/07/2026",
+    "donor": "МИРЗАЕВ А. А.",
+    "amount": 101.54,
+    "doc": null
+  },
+  {
+    "date": "2026-07-24",
+    "time": "17:47",
+    "type": "income",
+    "category": "",
+    "description": "А;24/07/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-24",
+    "time": "16:20",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;24/07/2026",
+    "donor": "РАБАДАНОВ Р. О.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-24",
+    "time": "12:44",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;24/07/2026",
+    "donor": "ГАДЖИЕВА У. Г.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-07-17",
+    "time": "12:47",
+    "type": "income",
+    "category": "",
+    "description": ".;17/07/2026",
+    "donor": "ГАДЖИЕВ З. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-07-17",
+    "time": "16:24",
+    "type": "income",
+    "category": "",
+    "description": "А;17/07/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-17",
+    "time": "12:37",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;17/07/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-15",
+    "time": "14:50",
+    "type": "expense",
+    "category": "",
+    "description": "Единый налоговый платеж. НДС не облагается.",
+    "donor": "",
+    "amount": 4080,
+    "doc": null
+  },
+  {
+    "date": "2026-07-10",
+    "time": "16:44",
+    "type": "income",
+    "category": "",
+    "description": "Помощь малоимущим;10/07/2026",
+    "donor": "УМАЛАТОВ Р. У.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-07-10",
+    "time": "19:24",
+    "type": "income",
+    "category": "",
+    "description": "А;10/07/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-07-10",
+    "time": "13:08",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;10/07/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-10",
+    "time": "13:05",
+    "type": "income",
+    "category": "",
+    "description": "пятница сбор благотворительность;10/07/2026",
+    "donor": "ИБРАГИМОВ М. Ш.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-10",
+    "time": "11:12",
+    "type": "income",
+    "category": "",
+    "description": "ПОГАШЕНИЕ ГРЕХОВ",
+    "donor": "ИДРИСОВА И. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-07-10",
+    "time": "10:20",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;10/07/2026",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-07-06",
+    "time": "00:59",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;05/07/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 400,
+    "doc": null
+  },
+  {
+    "date": "2026-07-03",
+    "time": "15:14",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;03/07/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-07-03",
+    "time": "19:24",
+    "type": "income",
+    "category": "",
+    "description": "А;03/07/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-07-03",
+    "time": "10:44",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;03/07/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-07-03",
+    "time": "12:43",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;03/07/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-07-03",
+    "time": "10:49",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 250,
+    "doc": null
+  },
+  {
+    "date": "2026-07-01",
+    "time": "22:21",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;01/07/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
+    "time": "10:31",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;26/06/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
+    "time": "17:27",
+    "type": "income",
+    "category": "",
+    "description": "А;26/06/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
+    "time": "15:00",
+    "type": "income",
+    "category": "",
+    "description": "Помощь малоимущим семьям;26/06/2026",
+    "donor": "С А. Д.",
+    "amount": 400,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
+    "time": "17:27",
+    "type": "income",
+    "category": "",
+    "description": "А;26/06/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
+    "time": "10:08",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 91.05,
+    "doc": null
+  },
+  {
+    "date": "2026-06-19",
+    "time": "15:22",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 253,
+    "doc": null
+  },
+  {
+    "date": "2026-06-19",
+    "time": "14:41",
+    "type": "income",
+    "category": "",
+    "description": "А;19/06/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-06-19",
+    "time": "10:25",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;19/06/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-06-19",
+    "time": "10:08",
+    "type": "income",
+    "category": "",
+    "description": "050001001;19/06/2026",
+    "donor": "УЛ М. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-06-19",
+    "time": "19:07",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;19/06/2026",
+    "donor": "КРАСНЫХ З. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-06-18",
+    "time": "21:21",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;18/06/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-06-17",
+    "time": "11:57",
+    "type": "expense",
+    "category": "",
+    "description": "Единый налоговый платеж. НДС не облагается.",
+    "donor": "",
+    "amount": 4080,
+    "doc": null
+  },
+  {
+    "date": "2026-06-15",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;12/06/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-06-15",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "А;12/06/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-06-15",
+    "time": "00:54",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;12/06/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-06-15",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;12/06/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-06-12",
+    "time": "11:20",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 352,
+    "doc": null
+  },
+  {
+    "date": "2026-06-09",
+    "time": "01:13",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;09/06/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-06-05",
+    "time": "19:58",
+    "type": "income",
+    "category": "",
+    "description": "Садакъа;05/06/2026",
+    "donor": "УЛ О. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-06-05",
+    "time": "12:09",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;05/06/2026",
+    "donor": "С А. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-06-05",
+    "time": "12:09",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;05/06/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-05-29",
+    "time": "10:29",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;29/05/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-05-29",
+    "time": "13:54",
+    "type": "income",
+    "category": "",
+    "description": "Помощь малоимущим;29/05/2026",
+    "donor": "УЛ Ч. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-05-29",
+    "time": "18:35",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;29/05/2026",
+    "donor": "УЛ П. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-05-29",
+    "time": "13:52",
+    "type": "income",
+    "category": "",
+    "description": "Бисмиллагь;29/05/2026",
+    "donor": "С А. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-05-22",
+    "time": "18:37",
+    "type": "income",
+    "category": "",
+    "description": "А;22/05/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-05-22",
+    "time": "20:57",
+    "type": "income",
+    "category": "",
+    "description": "садака;22/05/2026",
+    "donor": "УЛ Ч. Д.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-05-22",
+    "time": "18:37",
+    "type": "income",
+    "category": "",
+    "description": "А;22/05/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-05-22",
+    "time": "12:45",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;22/05/2026",
+    "donor": "УЛ Д. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-05-22",
+    "time": "11:13",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;22/05/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-05-21",
+    "time": "12:37",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;21/05/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-05-20",
+    "time": "10:12",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;20/05/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-05-19",
+    "time": "17:24",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;19/05/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-05-15",
+    "time": "21:05",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;15/05/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-05-15",
+    "time": "12:59",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;15/05/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-05-14",
+    "time": "14:18",
+    "type": "expense",
+    "category": "",
+    "description": "Единый налоговый платеж. НДС не облагается.",
+    "donor": "",
+    "amount": 4080,
+    "doc": null
+  },
+  {
+    "date": "2026-05-08",
+    "time": "09:50",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;08/05/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-05-08",
+    "time": "10:59",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;08/05/2026",
+    "donor": "УЛ М. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-05-08",
+    "time": "08:25",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;08/05/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-05-08",
+    "time": "10:07",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;08/05/2026",
+    "donor": "КРАСНЫХ З. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-05-08",
+    "time": "09:51",
+    "type": "income",
+    "category": "",
+    "description": "Благотварительность;08/05/2026",
+    "donor": "С А. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-05-04",
+    "time": "00:56",
+    "type": "income",
+    "category": "",
+    "description": "Пакет помощи для нуждающихся;01/05/2026",
+    "donor": "Д К. К.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-05-04",
+    "time": "00:52",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;01/05/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-05-04",
+    "time": "00:52",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;01/05/2026",
+    "donor": "КРАСНЫХ З. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-05-04",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "А;01/05/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-04-29",
+    "time": "11:03",
+    "type": "income",
+    "category": "",
+    "description": "Оказание финансовой помощи для восстановления водопровода. НДС не облагается.",
+    "donor": "КРИСТАЛЛКАСПИЙ",
+    "amount": 150000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-29",
+    "time": "16:05",
+    "type": "income",
+    "category": "",
+    "description": "садака;29/04/2026",
+    "donor": "УЛ Ч. Д.",
+    "amount": 3000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-29",
+    "time": "22:00",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;29/04/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-24",
+    "time": "09:39",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-22",
+    "time": "21:08",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность НДС не облагается",
+    "donor": "БИБУЛАТОВ И. М.",
+    "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-17",
+    "time": "09:45",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;17/04/2026",
+    "donor": "УЛ О. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-17",
+    "time": "10:20",
+    "type": "income",
+    "category": "",
+    "description": "А;17/04/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-04-17",
+    "time": "18:28",
+    "type": "income",
+    "category": "",
+    "description": "сбор на востоновление водопровода;17/04/2026",
+    "donor": "Д К. К.",
+    "amount": 750,
+    "doc": null
+  },
+  {
+    "date": "2026-04-17",
+    "time": "11:59",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;17/04/2026",
+    "donor": "ПРКТ К. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-17",
+    "time": "10:27",
+    "type": "income",
+    "category": "",
+    "description": "На поддержку малоимущих семей и фонда;17/04/2026",
+    "donor": "С А. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-17",
+    "time": "13:18",
+    "type": "income",
+    "category": "",
+    "description": "на благотворительность водопровод;17/04/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-16",
+    "time": "22:05",
+    "type": "income",
+    "category": "",
+    "description": "сбор на на востановление водоканала;16/04/2026",
+    "donor": "УЛ Г. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-16",
+    "time": "01:15",
+    "type": "income",
+    "category": "",
+    "description": "В помощь после разрушений;16/04/2026",
+    "donor": "УЛ Г. Д.",
+    "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-16",
+    "time": "11:24",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность;16/04/2026",
+    "donor": "УЛ Г. Д.",
+    "amount": 9500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-15",
+    "time": "16:37",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;15/04/2026",
+    "donor": "УЛ С. Д.",
+    "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-15",
+    "time": "10:05",
+    "type": "income",
+    "category": "",
+    "description": "ОПЛАТА ПО СЧЕТУ НДС НЕ ОБЛАГАЕТСЯ",
+    "donor": "АСАДУЛА К.",
+    "amount": 50000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-15",
+    "time": "12:53",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;15/04/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-14",
+    "time": "00:41",
+    "type": "income",
+    "category": "",
+    "description": "помощь;14/04/2026",
+    "donor": "С А. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-14",
+    "time": "01:00",
+    "type": "income",
+    "category": "",
+    "description": "НА БЛАГОТВОРИТЕЛЬНОСТЬ",
+    "donor": "ВАВИЛОВ Р. В.",
+    "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-14",
+    "time": "12:28",
+    "type": "income",
+    "category": "",
+    "description": "На стр водовода;14/04/2026",
+    "donor": "Д Б. К.",
+    "amount": 2000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "01:00",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;12/04/2026",
+    "donor": "УЛ Д. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:50",
+    "type": "income",
+    "category": "",
+    "description": "на благотворительность водопровод;11/04/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:51",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность.Восстановление водопровода;11/04/2026",
+    "donor": "Д К. А.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:52",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность на водопровод;11/04/2026",
+    "donor": "УЛ К. Д.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;11/04/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "На водопровод в селение Урахи;11/04/2026",
+    "donor": "Д В. К.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "на благотвтрительность;11/04/2026",
+    "donor": "УЛ М. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "на благотворительность;11/04/2026",
+    "donor": "УЛ М. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:54",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность;11/04/2026",
+    "donor": "УЛ Ц. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:54",
+    "type": "income",
+    "category": "",
+    "description": "на благотворительность;11/04/2026",
+    "donor": "УЛ С. Д.",
+    "amount": 2000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "Для воды;11/04/2026",
+    "donor": "С С. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:56",
+    "type": "income",
+    "category": "",
+    "description": "помошь;11/04/2026",
+    "donor": "УЛ Д. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:57",
+    "type": "income",
+    "category": "",
+    "description": "Помощь;11/04/2026",
+    "donor": "Д А. К.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:58",
+    "type": "income",
+    "category": "",
+    "description": "Помощь на восстановление водопровода с Сергокала;12/04/2026",
+    "donor": "УЛ Ч. Д.",
+    "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:58",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;12/04/2026",
+    "donor": "УЛ М. Д.",
+    "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:59",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;12/04/2026",
+    "donor": "УЛ П. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:59",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность;12/04/2026",
+    "donor": "Р-Н, С. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "01:00",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;12/04/2026",
+    "donor": "Р-Н, С. К.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "19:07",
+    "type": "income",
+    "category": "",
+    "description": "на благотворительность восстановление водопровода от Исакова М-Р.К;13/04/2026",
+    "donor": "УЛ А. Д.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "20:36",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность НДС не облагается",
+    "donor": "БИБУЛАТОВ И. М.",
+    "amount": 50000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:56",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность;11/04/2026",
+    "donor": "УЛ Г. Д.",
+    "amount": 8000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:51",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность;11/04/2026",
+    "donor": "ГГАМИДОВА Д. К.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "01:02",
+    "type": "income",
+    "category": "",
+    "description": "Пожертвование;12/04/2026",
+    "donor": "ААЛИЕВА М. Д.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:56",
+    "type": "income",
+    "category": "",
+    "description": "Сбор;11/04/2026",
+    "donor": "НИЖНЕЕ М. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "00:51",
+    "type": "income",
+    "category": "",
+    "description": "Помощь для водоснабжения.;11/04/2026",
+    "donor": "ДЗЕРЖИНСКОГО Д. А.",
+    "amount": 2500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "01:02",
+    "type": "income",
+    "category": "",
+    "description": "помощь в восстановлении;12/04/2026",
+    "donor": "САМУРСКОГО Д. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-13",
+    "time": "12:01",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;13/04/2026",
+    "donor": "АМИРЧУПАНОВА У. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-12",
+    "time": "08:50",
+    "type": "income",
+    "category": "",
+    "description": "Помощь трубопроводу. НДС не облагается",
+    "donor": "МАГОМЕДОВ Р. К.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-11",
+    "time": "19:01",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность. НДС не облагается",
+    "donor": "ЧУПАНОВА П. А.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-11",
+    "time": "12:53",
+    "type": "income",
+    "category": "",
+    "description": "БЛАГОТВОРИТЕЛЬНОСТЬ",
+    "donor": "АЛИЕВ М. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-11",
+    "time": "18:59",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность. НДС не облагается",
+    "donor": "КАДИЕВ М. М.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-04-10",
+    "time": "12:25",
+    "type": "income",
+    "category": "",
+    "description": "помощь;10/04/2026",
+    "donor": "УЛ Д. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-04-10",
+    "time": "10:29",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;10/04/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-10",
+    "time": "17:45",
+    "type": "income",
+    "category": "",
+    "description": "А;10/04/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-04-10",
+    "time": "14:36",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;10/04/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-10",
+    "time": "17:44",
+    "type": "income",
+    "category": "",
+    "description": "А;10/04/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-04-10",
+    "time": "13:21",
+    "type": "income",
+    "category": "",
+    "description": "пятничный сбор;10/04/2026",
+    "donor": "УЛ М. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-04-09",
+    "time": "12:13",
+    "type": "expense",
+    "category": "",
+    "description": "Единый налоговый платеж. НДС не облагается.",
+    "donor": "",
+    "amount": 12240,
+    "doc": null
+  },
+  {
+    "date": "2026-04-06",
+    "time": "00:59",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;05/04/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-04-03",
+    "time": "12:10",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;03/04/2026",
+    "donor": "КРАСНЫХ З. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-04-03",
+    "time": "18:54",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;03/04/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-03",
+    "time": "13:31",
+    "type": "income",
+    "category": "",
+    "description": "садака;03/04/2026",
+    "donor": "ПРИМОРСКИЙ Д. К.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-04-03",
+    "time": "15:06",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;03/04/2026",
+    "donor": "УЛ Д. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-03",
+    "time": "10:28",
+    "type": "income",
+    "category": "",
+    "description": "Пожертвования,благотворительность;03/04/2026",
+    "donor": ", ,. ,.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-04-03",
+    "time": "23:38",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;03/04/2026",
+    "donor": "УЛ С. Д.",
+    "amount": 350,
+    "doc": null
+  },
+  {
+    "date": "2026-04-03",
+    "time": "15:33",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;03/04/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-04-01",
+    "time": "13:52",
+    "type": "income",
+    "category": "",
+    "description": "Помощь пострадавшим от наводнения, НДС не облагается.",
+    "donor": "РАНДА",
+    "amount": 250000,
+    "doc": null
+  },
+  {
+    "date": "2026-03-27",
+    "time": "18:08",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 152,
+    "doc": null
+  },
+  {
+    "date": "2026-03-27",
+    "time": "17:36",
+    "type": "income",
+    "category": "",
+    "description": "А;27/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-27",
+    "time": "12:16",
+    "type": "income",
+    "category": "",
+    "description": "садака;27/03/2026",
+    "donor": "ПРИМОРСКИЙ Д. К.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-27",
+    "time": "13:18",
+    "type": "income",
+    "category": "",
+    "description": "1;27/03/2026",
+    "donor": "УЛ Т. Д.",
+    "amount": 150,
+    "doc": null
+  },
+  {
+    "date": "2026-03-27",
+    "time": "16:25",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;27/03/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-27",
+    "time": "12:04",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;27/03/2026",
+    "donor": "УЛ Д. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-27",
+    "time": "11:51",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность;27/03/2026",
+    "donor": "С А. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-19",
+    "time": "17:50",
+    "type": "income",
+    "category": "",
+    "description": "А;19/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-19",
+    "time": "18:25",
+    "type": "income",
+    "category": "",
+    "description": "в помощь;19/03/2026",
+    "donor": "УЛ С. Д.",
+    "amount": 555,
+    "doc": null
+  },
+  {
+    "date": "2026-03-19",
+    "time": "03:11",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;19/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-19",
+    "time": "17:56",
+    "type": "income",
+    "category": "",
+    "description": "А;19/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-18",
+    "time": "17:34",
+    "type": "income",
+    "category": "",
+    "description": "А;18/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-18",
+    "time": "03:11",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;18/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-17",
+    "time": "17:48",
+    "type": "income",
+    "category": "",
+    "description": "А;17/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-17",
+    "time": "04:10",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;17/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "00:54",
+    "type": "income",
+    "category": "",
+    "description": "А;14/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "16:50",
+    "type": "income",
+    "category": "",
+    "description": "А;16/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "00:48",
+    "type": "income",
+    "category": "",
+    "description": ".;14/03/2026",
+    "donor": "СОВХОЗНЫЙ Д. К.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "01:02",
+    "type": "income",
+    "category": "",
+    "description": "А;15/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "00:48",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;14/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "00:57",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;15/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "01:06",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;15/03/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "03:07",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;16/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-16",
+    "time": "23:28",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;16/03/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "17:23",
+    "type": "income",
+    "category": "",
+    "description": "А;13/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "13:56",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;13/03/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "15:34",
+    "type": "income",
+    "category": "",
+    "description": "100;13/03/2026",
+    "donor": "УЛ Г. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "12:05",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "13:45",
+    "type": "income",
+    "category": "",
+    "description": "Садака;13/03/2026",
+    "donor": "УЛ М. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "14:25",
+    "type": "income",
+    "category": "",
+    "description": ".;13/03/2026",
+    "donor": "УЛ Т. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "05:27",
+    "type": "income",
+    "category": "",
+    "description": "благотворительность;13/03/2026",
+    "donor": "УЛ Ч. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "17:24",
+    "type": "income",
+    "category": "",
+    "description": "А;13/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-13",
+    "time": "11:59",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;13/03/2026",
+    "donor": "УЛ Д. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-12",
+    "time": "16:36",
+    "type": "income",
+    "category": "",
+    "description": "А;12/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-12",
+    "time": "22:09",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;12/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-12",
+    "time": "00:49",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;12/03/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-11",
+    "time": "22:19",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;11/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-10",
+    "time": "01:10",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;09/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-10",
+    "time": "16:20",
+    "type": "income",
+    "category": "",
+    "description": "А;10/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-03-10",
+    "time": "01:01",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;08/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-10",
+    "time": "01:11",
+    "type": "income",
+    "category": "",
+    "description": "на ифтар;09/03/2026",
+    "donor": "УЛ Т. Д.",
+    "amount": 5000,
+    "doc": null
+  },
+  {
+    "date": "2026-03-10",
+    "time": "20:59",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;10/03/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-10",
+    "time": "23:06",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;10/03/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-06",
+    "time": "11:19",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;06/03/2026",
+    "donor": "УЛ Д. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-06",
+    "time": "16:52",
+    "type": "income",
+    "category": "",
+    "description": "А;06/03/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-06",
+    "time": "23:07",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;06/03/2026",
+    "donor": "УЛ Ч. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-03-06",
+    "time": "14:26",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;06/03/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-03-06",
+    "time": "12:55",
+    "type": "income",
+    "category": "",
+    "description": "садакьа нуждающимся;06/03/2026",
+    "donor": "КРАСНЫХ З. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-03-02",
+    "time": "01:02",
+    "type": "income",
+    "category": "",
+    "description": "Садака;01/03/2026",
+    "donor": "НЕФТЕКАЧКА Д. А.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-02-27",
+    "time": "23:12",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;27/02/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-02-27",
+    "time": "17:08",
+    "type": "income",
+    "category": "",
+    "description": "А;27/02/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-02-27",
+    "time": "18:41",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;27/02/2026",
+    "donor": "УЛ С. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-02-27",
+    "time": "17:33",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;27/02/2026",
+    "donor": "КРАСНЫХ З. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-02-24",
+    "time": "00:57",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;22/02/2026",
+    "donor": "УЛ Д. Д.",
+    "amount": 500,
+    "doc": null
+  },
+  {
+    "date": "2026-02-24",
+    "time": "01:06",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;23/02/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-02-24",
+    "time": "00:52",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;21/02/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-02-24",
+    "time": "00:58",
+    "type": "income",
+    "category": "",
+    "description": "на лечение ребенка;22/02/2026",
+    "donor": "С М. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-02-20",
+    "time": "13:25",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;20/02/2026",
+    "donor": "УЛ Д. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-02-20",
+    "time": "10:58",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;20/02/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-02-20",
+    "time": "17:08",
+    "type": "income",
+    "category": "",
+    "description": "А;20/02/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-02-20",
+    "time": "16:13",
+    "type": "income",
+    "category": "",
+    "description": "на благотворительность;20/02/2026",
+    "donor": "УЛ О. Д.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-02-13",
+    "time": "11:46",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;13/02/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-02-13",
+    "time": "14:14",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 101,
+    "doc": null
+  },
+  {
+    "date": "2026-02-13",
+    "time": "17:09",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;13/02/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-02-09",
+    "time": "00:54",
+    "type": "income",
+    "category": "",
+    "description": "Благотворительность;07/02/2026",
+    "donor": "Д А. К.",
+    "amount": 3000,
+    "doc": null
+  },
+  {
+    "date": "2026-02-06",
+    "time": "13:52",
+    "type": "income",
+    "category": "",
+    "description": "А;06/02/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 150,
+    "doc": null
+  },
+  {
+    "date": "2026-02-06",
+    "time": "15:09",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;06/02/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-01-30",
+    "time": "05:52",
+    "type": "income",
+    "category": "",
+    "description": "А;30/01/2026",
+    "donor": "АНАТОЛИЙ Н. Д.",
+    "amount": 150,
+    "doc": null
+  },
+  {
+    "date": "2026-01-30",
+    "time": "11:13",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;30/01/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-30",
+    "time": "16:47",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;30/01/2026",
+    "donor": "КРАСНЫХ З. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-01-30",
+    "time": "09:58",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-23",
+    "time": "06:03",
+    "type": "expense",
+    "category": "",
+    "description": "Комиссия за Ежегодное обслуживание СберБизнес Карты (на пластиковом носителе) № 2202********6410 от 23.01.2026 согласно Тарифам Банка, с НДС 360.66",
+    "donor": "",
+    "amount": 2000,
+    "doc": null
+  },
+  {
+    "date": "2026-01-23",
+    "time": "12:45",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;23/01/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-23",
+    "time": "15:13",
+    "type": "income",
+    "category": "",
+    "description": "На благие дела;23/01/2026",
+    "donor": "УЛ О. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-23",
+    "time": "11:38",
+    "type": "income",
+    "category": "",
+    "description": "садакьа",
+    "donor": "РАШИДОВ Р. А.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-01-16",
+    "time": "20:45",
+    "type": "income",
+    "category": "",
+    "description": "ПЯТНИЧНЫЙ СБОР",
+    "donor": "АЛИЛБИЕВ А. А.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-01-16",
+    "time": "13:12",
+    "type": "income",
+    "category": "",
+    "description": "Садакьа. НДС не облагается",
+    "donor": "АЛИШЕЙХОВА Г. И.",
+    "amount": 175,
+    "doc": null
+  },
+  {
+    "date": "2026-01-16",
+    "time": "10:20",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;16/01/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-16",
+    "time": "15:55",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;16/01/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-01-16",
+    "time": "16:37",
+    "type": "income",
+    "category": "",
+    "description": "ПЕРЕВОД СОБСТВЕННЫХ СРЕДСТВ",
+    "donor": "ИДРИСОВА И. М.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-01-16",
+    "time": "18:25",
+    "type": "income",
+    "category": "",
+    "description": "Садака;16/01/2026",
+    "donor": "НЕФТЕКАЧКА Д. А.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-09",
+    "time": "16:05",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;09/01/2026",
+    "donor": "КРАСНЫХ З. Д.",
+    "amount": 300,
+    "doc": null
+  },
+  {
+    "date": "2026-01-09",
+    "time": "11:34",
+    "type": "income",
+    "category": "",
+    "description": "Подарок;09/01/2026",
+    "donor": "ДОНА Д. Д.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-01-09",
+    "time": "11:40",
+    "type": "income",
+    "category": "",
+    "description": ".;09/01/2026",
+    "donor": "УЛ Т. Д.",
+    "amount": 1000,
+    "doc": null
+  },
+  {
+    "date": "2026-01-06",
+    "time": "00:54",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;05/01/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 270,
+    "doc": null
+  },
+  {
+    "date": "2026-01-03",
+    "time": "00:55",
+    "type": "income",
+    "category": "",
+    "description": "благодаря;02/01/2026",
+    "donor": "Р-Н, С. В.",
+    "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-01-03",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;02/01/2026",
+    "donor": "УЛ Б. Д.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-01-03",
+    "time": "00:53",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;02/01/2026",
+    "donor": "КРАСНЫХ З. Д.",
+    "amount": 300,
+    "doc": null
+  }
+]
