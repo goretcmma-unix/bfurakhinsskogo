@@ -3,8 +3,8 @@
   "short_name": "Благотворительный фонд",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B0D0D",
-  "theme_color": "#40E0D0",
+  "background_color": "#080b0a",
+  "theme_color": "#080b0a",
   "description": "Благотворительный фонд — прозрачная статистика пожертвований и расходов",
   "icons": [
     {

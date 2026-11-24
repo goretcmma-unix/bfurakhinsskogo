@@ -17,11 +17,14 @@
       });
     </script>
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <meta name="theme-color" content="#080b0a" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
     <meta name="description" content="Благотворительный фонд имени Абдуллахаджи Урахинского — прозрачная статистика пожертвований и расходов" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="keywords" content="Благотворительный фонд, фонд сергокалы, сергокала фонд, помощь, благотворительность, прозрачность пожертвований, статистика расходов">
     <title>Благотворительный фонд имени Абдуллахаджи Урахинского</title>
     <link rel="canonical" href="https://fond-urakhinskogo.ru/">
@@ -75,12 +78,13 @@
         --shadow-md: 0 12px 32px rgba(0,0,0,0.35);
         --shadow-lg: 0 24px 64px rgba(0,0,0,0.45);
       }
-      html { scrollbar-width: thin; }
+      html { scrollbar-width: thin; background-color: #080b0a; }
       html::-webkit-scrollbar { width: 6px; }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
       body {
         font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
         background: #080b0a;
+        background-color: #080b0a;
         color: var(--text);
         line-height: 1.7;
         -webkit-font-smoothing: antialiased;
