@@ -19,10 +19,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0A0D0D" />
     <!-- Hero поднимаем заранее: media совпадают с <source> внутри <picture>. -->
-    <link rel="preload" as="image" href="ohero_volounter_mobile.png" media="(max-width: 640px)" fetchpriority="high">
-    <link rel="preload" as="image" href="ohero_volounter_tablet.png" media="(min-width: 641px) and (max-width: 2559px)" fetchpriority="high">
-    <link rel="preload" as="image" href="ohero_volounter_wide.png" media="(min-width: 2560px) and (max-width: 3839px)" fetchpriority="high">
-    <link rel="preload" as="image" href="ohero_volounter.png" media="(min-width: 3840px)" fetchpriority="high">
+    <link rel="preload" as="image" type="image/webp" href="ohero_volounter_mobile.webp" media="(max-width: 767px)" fetchpriority="high">
+    <link rel="preload" as="image" type="image/webp" href="ohero_volounter_desktop.webp" media="(min-width: 768px)" fetchpriority="high">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
@@ -281,7 +279,8 @@
         min-height: 100vh;
         overflow: visible;
         scroll-margin-top: 92px;
-        background: #0A0D0D;
+        /* Подложка цвета верха фото: пока WebP грузится, экран не мигает чёрным. */
+        background: #061E1C;
         margin: 0;
       }
       @media (max-width: 1024px) { .hero { padding: 80px 0 60px; } }
@@ -1475,16 +1474,11 @@
           <div class="hero-grid">
             <div class="hero-visual" aria-hidden="true">
               <div class="hero-image-wrap">
-                <!-- PNG отдаётся напрямую из публичной папки: без Image-оптимайзера и без потери качества.
-                     Мобильная/таблетная версии — тот же PNG меньшего размера, без пережатия. -->
+                <!-- WebP quality 92, method 6: градиенты остаются гладкими, вес в разы меньше PNG. -->
                 <picture>
-                  <source media="(max-width: 640px)" srcset="ohero_volounter_mobile.png">
-                  <!-- 2400px хватает вплоть до 2560px экрана: не отдаём 5.8 МБ оригинал
-                       там, где он всё равно масштабируется браузером. -->
-                  <source media="(max-width: 2559px)" srcset="ohero_volounter_tablet.png">
-                  <!-- 3200px на экраны 2560–3839px; 4800px оригинал остаётся только для 4K. -->
-                  <source media="(max-width: 3839px)" srcset="ohero_volounter_wide.png">
-                  <img src="ohero_volounter.png" alt="Волонтёр фонда" class="hero-image" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
+                  <source type="image/webp" media="(max-width: 767px)" srcset="ohero_volounter_mobile.webp">
+                  <source type="image/webp" srcset="ohero_volounter_desktop.webp">
+                  <img src="ohero_volounter_desktop.webp" alt="Волонтёр фонда" class="hero-image" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
                 </picture>
               </div>
             </div>
