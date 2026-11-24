@@ -348,8 +348,8 @@
           linear-gradient(to top, var(--bg) 0%, rgba(11,13,13,0.72) 14%, rgba(11,13,13,0) 38%);
         pointer-events: none;
       }
-      /* Dither-слой от полос на 8-битных экранах/градиентах (все браузеры, кроме Gecko/Tor) */
-      @supports not (-moz-appearance: none) {
+      /* Фикс от полос на градиенте ТОЛЬКО для Tor и Firefox */
+      @supports (-moz-appearance: none) {
         .hero::after {
           content: "";
           position: absolute;
