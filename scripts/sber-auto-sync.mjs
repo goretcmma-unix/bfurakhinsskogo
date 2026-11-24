@@ -121,7 +121,15 @@ console.log(JSON.stringify({
   userDataDir
 }))
 
+const onceMode = process.argv.includes('--once')
+
+// ... (existing code)
+
 await runTick('startup')
+if (onceMode) {
+  console.log(JSON.stringify({ ts: new Date().toISOString(), event: 'once_done' }))
+  process.exit(0)
+}
 timer = setInterval(() => {
   void runTick('auto')
 }, intervalMs)
