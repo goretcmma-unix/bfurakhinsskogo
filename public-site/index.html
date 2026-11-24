@@ -61,8 +61,6 @@
     <link rel="stylesheet" href="./vendor/fonts.css">
     <style>
       * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-      html { scrollbar-width: none; -ms-overflow-style: none; }
-      html::-webkit-scrollbar { width: 0; height: 0; display: none; }
       :root {
         --bg: #0A0D0D;
         --bg-elevated: #111414;
@@ -84,8 +82,8 @@
         --shadow-md: 0 12px 32px rgba(0,0,0,0.35);
         --shadow-lg: 0 24px 64px rgba(0,0,0,0.45);
       }
-      html { scrollbar-width: none; -ms-overflow-style: none; background-color: #0A0D0D; }
-      html::-webkit-scrollbar { width: 0; height: 0; display: none; }
+      html { scrollbar-width: thin; background-color: #0A0D0D; }
+      html::-webkit-scrollbar { width: 6px; }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
       body {
         font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -96,10 +94,8 @@
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
         overflow-y: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
       }
-      body::-webkit-scrollbar { width: 0; height: 0; display: none; }
+      body::-webkit-scrollbar { width: 6px; }
       input[type='number'] { -moz-appearance: textfield; }
       input[type='number']::-webkit-inner-spin-button,
       input[type='number']::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; display: none; }
