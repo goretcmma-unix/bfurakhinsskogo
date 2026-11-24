@@ -86,15 +86,15 @@ input[type='number']::-webkit-outer-spin-button {
 /* Smooth cursor interaction on amount input */
 input[type='number'] {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  caret-color: #40E0D0;
+  caret-color: #40DED8;
 }
 input[type='number']:hover {
-  border-color: #40E0D0;
+  border-color: #40DED8;
 }
 input[type='number']:focus {
   outline: none;
-  border-color: #40E0D0;
-  box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.15);
+  border-color: #40DED8;
+  box-shadow: 0 0 0 3px rgba(64, 222, 216, 0.15);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -110,7 +110,7 @@ input[type='number']:focus {
 
 .nav-center a.active,
 nav button.active {
-  border-color: #40E0D0;
+  border-color: #40DED8;
   color: #ffffff;
   opacity: 1;
 }

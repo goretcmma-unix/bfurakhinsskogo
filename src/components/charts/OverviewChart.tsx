@@ -24,7 +24,7 @@ interface OverviewChartProps {
   onDrillUp?: () => void
 }
 
-const INCOME_COLOR = '#40E0D0'
+const INCOME_COLOR = '#40DED8'
 const EXPENSE_COLOR = '#f87171'
 const NEUTRAL = '#6b7572'
 const GRID_COLOR = 'rgba(255,255,255,0.04)'
@@ -67,7 +67,7 @@ const YAxisLabels = ({ domain, padding, innerHeight, tickCount, formatCurrency, 
 
 const CustomTooltip = ({ data, x, y, t, currency, locale, formatCurrency, width }: any) => {
   const netValue = Number(data.net || 0)
-  const netColor = netValue >= 0 ? '#40E0D0' : '#f87171'
+  const netColor = netValue >= 0 ? '#40DED8' : '#f87171'
   const tooltipWidth = 220
   const left = Math.min(Math.max(x - tooltipWidth / 2, 16), width - tooltipWidth - 16)
   const top = Math.max(y - 140, 16)
@@ -309,7 +309,7 @@ const OverviewChart = ({
         
         <div className="flex flex-wrap items-center gap-6">
           <div className="flex items-center gap-2.5">
-            <div className="h-2 w-2 rounded-full shadow-[0_0_8px_rgba(64,224,208,0.8)]" style={{ background: INCOME_COLOR }} />
+            <div className="h-2 w-2 rounded-full shadow-[0_0_8px_rgba(64,222,216,0.8)]" style={{ background: INCOME_COLOR }} />
             <div className="flex flex-col">
               <span className="text-[10px] font-medium text-muted uppercase tracking-wider leading-none mb-1">{t.donationsLegend}</span>
               <span className="font-bold tabular-nums text-sm leading-none" style={{ color: INCOME_COLOR }}>

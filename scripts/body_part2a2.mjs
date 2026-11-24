@@ -15,8 +15,8 @@ const part2a2 = `
               <ComposedChart data={publicChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="pubGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#40E0D0" stopOpacity={0.4} />
-                    <stop offset="100%" stopColor="#40E0D0" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#40DED8" stopOpacity={0.4} />
+                    <stop offset="100%" stopColor="#40DED8" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid stroke="#222b28" strokeDasharray="3 3" vertical={false} />
@@ -26,7 +26,7 @@ const part2a2 = `
                   contentStyle={{ backgroundColor: '#141a18', borderColor: '#22332c', borderRadius: '12px', color: '#fff', fontSize: '12px' }}
                 />
                 <Bar dataKey="expenses" fill="#3a4a46" radius={[4, 4, 0, 0]} />
-                <Area type="monotone" dataKey="donations" stroke="#40E0D0" strokeWidth={2.5} fill="url(#pubGrad)" />
+                <Area type="monotone" dataKey="donations" stroke="#40DED8" strokeWidth={2.5} fill="url(#pubGrad)" />
               </ComposedChart>
             </ResponsiveContainer>
           </div>

@@ -44,7 +44,7 @@ interface FinanceChartProps {
   locale?: string
 }
 
-const INCOME_COLOR = '#40E0D0'
+const INCOME_COLOR = '#40DED8'
 const EXPENSE_COLOR = '#f87171'
 const GRID_COLOR = 'rgba(255,255,255,0.04)'
 
@@ -161,7 +161,7 @@ export default function FinanceChart({ height = 420, currency = 'RUB', locale = 
         <div className="space-y-1.5">
           <div className="flex items-baseline justify-between gap-6 text-gray-300">
             <span className="text-[10px] text-gray-500">{t.donationsLegend}</span>
-            <span className="font-semibold text-[#40E0D0]">{formatCurrency(d.income, currency as any, locale)}</span>
+            <span className="font-semibold text-[#40DED8]">{formatCurrency(d.income, currency as any, locale)}</span>
           </div>
           <div className="flex items-baseline justify-between gap-6 text-gray-300">
             <span className="text-[10px] text-gray-500">{t.expensesLegend}</span>
@@ -169,7 +169,7 @@ export default function FinanceChart({ height = 420, currency = 'RUB', locale = 
           </div>
           <div className="flex items-baseline justify-between gap-1 pt-1 border-t border-white/5">
             <span className="text-[10px] text-gray-500">{t.netChange}</span>
-            <span className={`font-bold ${d.net >= 0 ? 'text-[#40E0D0]' : 'text-[#f87171]'}`}>
+            <span className={`font-bold ${d.net >= 0 ? 'text-[#40DED8]' : 'text-[#f87171]'}`}>
               {d.net >= 0 ? '+' : ''}{formatCurrency(d.net, currency as any, locale)}
             </span>
           </div>
@@ -321,7 +321,7 @@ export default function FinanceChart({ height = 420, currency = 'RUB', locale = 
               </defs>
               <polyline
                 fill="none"
-                stroke="rgba(64, 224, 208, 0.35)"
+                stroke="rgba(64, 222, 216, 0.35)"
                 strokeWidth="1.5"
                 points={data.map((d, i) => {
                   const x = data.length === 1 ? 50 : (i / (data.length - 1)) * 100
@@ -335,8 +335,8 @@ export default function FinanceChart({ height = 420, currency = 'RUB', locale = 
                 y={2}
                 width={brushWidth}
                 height={42}
-                fill="rgba(64, 224, 208, 0.12)"
-                stroke="#40E0D0"
+                fill="rgba(64, 222, 216, 0.12)"
+                stroke="#40DED8"
                 strokeWidth="1.5"
                 rx="2"
                 cursor="ew-resize"
@@ -345,7 +345,7 @@ export default function FinanceChart({ height = 420, currency = 'RUB', locale = 
                 cx={brushStart}
                 cy={23}
                 r={5}
-                fill="#40E0D0"
+                fill="#40DED8"
                 stroke="#0b0f0e"
                 strokeWidth="2"
                 cursor="ew-resize"
@@ -354,7 +354,7 @@ export default function FinanceChart({ height = 420, currency = 'RUB', locale = 
                 cx={brushStart + brushWidth}
                 cy={23}
                 r={5}
-                fill="#40E0D0"
+                fill="#40DED8"
                 stroke="#0b0f0e"
                 strokeWidth="2"
                 cursor="ew-resize"
@@ -374,8 +374,8 @@ export default function FinanceChart({ height = 420, currency = 'RUB', locale = 
 
       <div className="flex items-center justify-between px-4 py-2 border-t border-white/5 bg-[#0a0d0c] text-xs">
         <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#40E0D0]" />
-          <span className="text-[#40E0D0] font-medium">{t.donationsLegend}</span>
+          <span className="w-2 h-2 rounded-full bg-[#40DED8]" />
+          <span className="text-[#40DED8] font-medium">{t.donationsLegend}</span>
           <span className="text-gray-500">{formatCurrency(totalIncome, currency as any, locale)}</span>
         </div>
         <div className="flex items-center gap-1.5">
@@ -385,7 +385,7 @@ export default function FinanceChart({ height = 420, currency = 'RUB', locale = 
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-          <span className={`text-${totalNet >= 0 ? '#40E0D0' : '#f87171'} font-medium`}>{t.netChange}</span>
+          <span className={`text-${totalNet >= 0 ? '#40DED8' : '#f87171'} font-medium`}>{t.netChange}</span>
           <span className="text-gray-500">{formatCurrency(totalNet, currency as any, locale)}</span>
         </div>
       </div>

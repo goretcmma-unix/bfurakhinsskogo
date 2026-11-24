@@ -14,9 +14,9 @@ const oldCss = `/* ===== BUTTONS ===== */
       .donate-amounts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
       .donate-amt { border: 1px solid var(--border); border-radius: 10px; padding: 10px 6px; background: transparent; color: var(--text-soft); font-size: 14px; font-weight: 600; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
       .donate-amt:hover { border-color: var(--border-strong); color: var(--text); }
-      .donate-amt.active { border-color: rgba(64,224,208,0.55); color: var(--accent); background: var(--accent-soft); }
+      .donate-amt.active { border-color: rgba(64,222,216,0.55); color: var(--accent); background: var(--accent-soft); }
       .donate-field { width: 100%; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 15px; padding: 13px 14px; outline: none; margin-bottom: 12px; transition: border-color .2s, box-shadow .2s; }
-      .donate-field:focus { border-color: rgba(64,224,208,0.45); box-shadow: 0 0 0 3px var(--accent-soft); }
+      .donate-field:focus { border-color: rgba(64,222,216,0.45); box-shadow: 0 0 0 3px var(--accent-soft); }
       .donate-pay { width: 100%; margin-top: 4px; justify-content: center; }
       .donate-qr { margin-top:16px; padding:16px; background:var(--panel); border:1px solid var(--border); border-radius:14px; text-align:center; display: block; }
       .donate-qr img { max-width: 140px; height: auto; }
@@ -45,9 +45,9 @@ const newCss = `/* ===== BUTTONS ===== */
       .donate-amounts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
       .donate-amt { border: 1px solid var(--border); border-radius: 10px; padding: 10px 6px; background: transparent; color: var(--text-soft); font-size: 14px; font-weight: 600; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
       .donate-amt:hover { border-color: var(--border-strong); color: var(--text); }
-      .donate-amt.active { border-color: rgba(64,224,208,0.55); color: var(--accent); background: var(--accent-soft); }
+      .donate-amt.active { border-color: rgba(64,222,216,0.55); color: var(--accent); background: var(--accent-soft); }
       .donate-field { width: 100%; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 15px; padding: 13px 14px; outline: none; margin-bottom: 12px; transition: border-color .2s, box-shadow .2s; }
-      .donate-field:focus { border-color: rgba(64,224,208,0.45); box-shadow: 0 0 0 3px var(--accent-soft); }
+      .donate-field:focus { border-color: rgba(64,222,216,0.45); box-shadow: 0 0 0 3px var(--accent-soft); }
       
       .donate-payment-methods { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
       .donate-pay { width: 100%; justify-content: center; margin: 0; }

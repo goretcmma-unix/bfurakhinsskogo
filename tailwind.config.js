@@ -9,7 +9,7 @@ module.exports = {
         sidebar: '#0F1312',
         card: '#121817',
         cardAlt: '#19201F',
-        accent: '#40E0D0',
+        accent: '#40DED8',
         accentDeep: '#155E59',
         accentMuted: '#2C8F85',
         text: '#F2F5F4',
@@ -18,7 +18,7 @@ module.exports = {
         borderStrong: '#333E3B'
       },
       boxShadow: {
-        glow: '0 0 0 1px rgba(64,224,208,0.12), 0 8px 30px rgba(64,224,208,0.08)',
+        glow: '0 0 0 1px rgba(64,222,216,0.12), 0 8px 30px rgba(64,222,216,0.08)',
         card: '0 10px 30px rgba(0,0,0,0.35)'
       },
       borderRadius: {

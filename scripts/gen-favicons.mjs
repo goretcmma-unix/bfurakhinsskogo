@@ -45,7 +45,7 @@ await sharp(Buffer.from(squareSvg))
   .toFile(path.join(outDir, 'favicon.ico'));
 console.log('created favicon.ico');
 
-// favicon.svg: biryuzyovyi lotoip (original #40E0D0 color)
+// favicon.svg: biryuzyovyi lotoip (original #40DED8 color)
 const coloredSvg = `<?xml version="1.0" encoding="UTF-8"?>
 ${svg}`;
 fs.writeFileSync(path.join(outDir, 'favicon.svg'), coloredSvg);
@@ -53,7 +53,7 @@ console.log('created favicon.svg');
 
 // safari-pinned-tab.svg: black silhouette mask
 const maskSvg = `<?xml version="1.0" encoding="UTF-8"?>
-${svg.replace(/fill:\s*#40E0D0;/g, 'fill:#000000;').replace(/class="cls-1"/g, '')}`;
+${svg.replace(/fill:\s*#40DED8;/g, 'fill:#000000;').replace(/class="cls-1"/g, '')}`;
 fs.writeFileSync(path.join(outDir, 'safari-pinned-tab.svg'), maskSvg);
 console.log('created safari-pinned-tab.svg');
 

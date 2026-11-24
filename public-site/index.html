@@ -51,8 +51,8 @@
     <link rel="icon" href="android-chrome-192x192.png" sizes="192x192" type="image/png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#40E0D0">
-    <meta name="msapplication-TileColor" content="#40E0D0">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#40DED8">
+    <meta name="msapplication-TileColor" content="#40DED8">
     <meta name="msapplication-TileImage" content="android-chrome-512x512.png">
     <link rel="stylesheet" href="./vendor/fonts.css">
     <style>
@@ -62,9 +62,9 @@
         --bg-elevated: #111414;
         --panel: #151A19;
         --panelAlt: #1B2220;
-        --accent: #40E0D0;
-        --accent-soft: rgba(64, 224, 208, 0.08);
-        --accent-glow: rgba(64, 224, 208, 0.25);
+        --accent: #40DED8;
+        --accent-soft: rgba(64, 222, 216, 0.08);
+        --accent-glow: rgba(64, 222, 216, 0.25);
         --text: #F2F5F4;
         --text-soft: #C8D0CD;
         --muted: #7A8582;
@@ -202,7 +202,7 @@
         #header .header-inner { position: relative; z-index: 2; background: transparent; }
         .nav-center a { width: 100%; padding: 14px 20px; text-align: left; border-radius: 0; border: none; border-bottom: 1px solid rgba(37,45,43,0.3); font-size: 15px; color: var(--text-soft); }
         .nav-center a:last-child { border-bottom: none; border-radius: 0 0 24px 24px; }
-        .nav-center a:hover { background: rgba(64,224,208,0.08); color: var(--accent); }
+        .nav-center a:hover { background: rgba(64,222,216,0.08); color: var(--accent); }
         .nav-center a.active { color: #fff; border-bottom-color: var(--accent); }
         #header .container { padding-left: 0; padding-right: 0; }
         .header-inner { height: auto; min-height: 60px; gap: 12px; flex-wrap: nowrap; justify-content: space-between; align-items: center; width: 100%; padding: 0 16px; box-sizing: border-box; }
@@ -240,12 +240,12 @@
         border-radius: 25px;
       }
       .nav-link:hover { color: var(--text-soft); opacity: 1; }
-      .nav-link.active { color: #fff !important; opacity: 1 !important; border: 2px solid #40E0D0 !important; border-radius: 22px !important; }
+      .nav-link.active { color: #fff !important; opacity: 1 !important; border: 2px solid #40DED8 !important; border-radius: 22px !important; }
       .nav-link.nav-no-transition { transition: none !important; }
       .btn-help {
         position: relative;
         display: inline-flex; align-items: center; gap: 8px;
-        background: linear-gradient(135deg, var(--accent) 0%, #2DD4BF 100%); color: var(--bg);
+        background: linear-gradient(135deg, var(--accent) 0%, #2FC4BC 100%); color: var(--bg);
         border: none; border-radius: 10px; padding: 10px 18px;
         font-weight: 600; font-size: 13px; cursor: pointer;
         transition: color 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; flex-shrink: 0;
@@ -299,6 +299,8 @@
       .hero-image-wrap {
         position: absolute;
         inset: 0;
+        /* ВРЕМЕННО ОТКЛЮЧЕНО: старые маски-градиенты поверх картинки.
+           Раскомментируй блок ниже, чтобы вернуть исходный переход.
         -webkit-mask-image:
           linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 28%, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.18) 74%, rgba(0,0,0,0) 100%),
           linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 22%, rgba(0,0,0,1) 100%);
@@ -307,6 +309,7 @@
           linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 28%, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.18) 74%, rgba(0,0,0,0) 100%),
           linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 22%, rgba(0,0,0,1) 100%);
         mask-composite: intersect;
+        */
       }
       .hero-image {
         width: 100%;
@@ -314,12 +317,15 @@
         object-fit: cover;
         object-position: 18% center;
         display: block;
-        filter: contrast(1.03) saturate(0.98);
+        /* ВРЕМЕННО ОТКЛЮЧЕНО: фильтр меняет цвета отфотошопленной картинки.
+           filter: contrast(1.03) saturate(0.98); */
       }
       .hero-visual::after {
         content: '';
         position: absolute;
         inset: 0;
+        /* Вернули исходные градиенты: снизу во всю ширину + затемнение справа / снизу-справа.
+           Маски и фильтры поверх картинки остаются временно отключёнными. */
         background:
           linear-gradient(to right, rgba(11,13,13,0) 0%, rgba(11,13,13,0) 22%, rgba(11,13,13,0.06) 40%, rgba(11,13,13,0.22) 58%, rgba(11,13,13,0.55) 76%, rgba(11,13,13,0.88) 90%, var(--bg) 100%),
           linear-gradient(to top, var(--bg) 0%, rgba(11,13,13,0.72) 14%, rgba(11,13,13,0) 38%);
@@ -328,14 +334,18 @@
       @media (max-width: 1024px) {
         .hero-image { object-position: 30% center; }
         .hero-image-wrap {
+          /* ВРЕМЕННО ОТКЛЮЧЕНО: старые маски-градиенты поверх картинки.
+             Раскомментируй блок ниже, чтобы вернуть как было.
           -webkit-mask-image:
             linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.88) 45%, rgba(0,0,0,0.3) 72%, rgba(0,0,0,0) 100%),
             linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 28%, rgba(0,0,0,1) 100%);
           mask-image:
             linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.88) 45%, rgba(0,0,0,0.3) 72%, rgba(0,0,0,0) 100%),
             linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 28%, rgba(0,0,0,1) 100%);
+          */
         }
         .hero-visual::after {
+          /* Вернули исходные градиенты для ≤1024px. Маски/фильтры остаются отключёнными. */
           background:
             linear-gradient(to bottom, rgba(11,13,13,0.08) 0%, rgba(11,13,13,0.38) 48%, rgba(11,13,13,0.82) 78%, var(--bg) 100%),
             linear-gradient(to right, rgba(11,13,13,0) 0%, rgba(11,13,13,0.18) 55%, rgba(11,13,13,0.5) 100%);
@@ -373,11 +383,13 @@
           height: 100%;
           object-fit: contain;
           object-position: top center;
-           filter: contrast(1.02) saturate(1.0) brightness(0.95);
+          /* ВРЕМЕННО ОТКЛЮЧЕНО: фильтр меняет цвета отфотошопленной картинки.
+             filter: contrast(1.02) saturate(1.0) brightness(0.95); */
           transform: scale(5.5) translateX(15%);
           transform-origin: top center;
         }
         .hero-visual::after {
+          /* Вернули исходный нижний градиент во всю ширину для ≤640px. */
           background:
             linear-gradient(to bottom, rgba(11,13,13,0.12) 0%, rgba(11,13,13,0.52) 42%, rgba(11,13,13,0.86) 76%, var(--bg) 100%);
         }
@@ -461,7 +473,7 @@
         .hero-bottom-mobile .lifeline-fill {
           transition: width 1.8s cubic-bezier(0.22, 1, 0.36, 1);
           overflow: hidden;
-          box-shadow: 0 0 18px rgba(64,224,208,0.28), 0 0 8px rgba(248,113,113,0.18);
+          box-shadow: 0 0 18px rgba(64,222,216,0.28), 0 0 8px rgba(248,113,113,0.18);
         }
         .hero-bottom-mobile .lifeline-fill::before {
           content: '';
@@ -620,8 +632,8 @@
         background: var(--accent-soft); color: var(--accent);
         font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
         margin-bottom: 28px;
-        border: 1px solid rgba(64,224,208,0.2);
-        box-shadow: 0 0 24px rgba(64,224,208,0.08);
+        border: 1px solid rgba(64,222,216,0.2);
+        box-shadow: 0 0 24px rgba(64,222,216,0.08);
         animation: heroFadeUp 0.8s ease-out both;
       }
       .hero h1 {
@@ -631,13 +643,13 @@
         animation: heroFadeUp 0.8s ease-out 0.15s both;
       }
       .hero h1 .accent-line { 
-        background: linear-gradient(135deg, var(--accent) 0%, #2DD4BF 100%);
+        background: linear-gradient(135deg, var(--accent) 0%, #2FC4BC 100%);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
       }
       .hero p { font-size: clamp(17px, 2vw, 20px); color: var(--text-soft); max-width: 540px; margin-bottom: 36px; line-height: 1.8; font-weight: 400; margin-left: 0; animation: heroFadeUp 0.8s ease-out 0.3s both; }
       .btn-primary {
         display: inline-flex; align-items: center; gap: 12px;
-        background: linear-gradient(135deg, var(--accent) 0%, #2DD4BF 100%); color: var(--bg);
+        background: linear-gradient(135deg, var(--accent) 0%, #2FC4BC 100%); color: var(--bg);
         border: none; border-radius: 14px; padding: 16px 36px;
         font-weight: 700; font-size: 16px; cursor: pointer;
         transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap;
@@ -650,7 +662,7 @@
         border: 1px solid var(--border-strong); border-radius: 14px; padding: 16px 32px;
         font-size: 16px; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap;
       }
-      .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 24px rgba(64,224,208,0.1); }
+      .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 24px rgba(64,222,216,0.1); }
 
       .hero-urgent {
         margin-top: 40px;
@@ -720,7 +732,7 @@
         width: 0%;
         border-radius: 999px;
         background: linear-gradient(90deg, rgba(248,113,113,0.55) 0%, #f87171 45%, var(--accent) 100%);
-        box-shadow: 0 0 16px rgba(64,224,208,0.22);
+        box-shadow: 0 0 16px rgba(64,222,216,0.22);
         transition: width 900ms cubic-bezier(0.22, 1, 0.36, 1);
       }
       .lifeline-fill::after {
@@ -733,7 +745,7 @@
         transform: translate(35%, -50%);
         border-radius: 50%;
         background: var(--accent);
-        box-shadow: 0 0 0 3px rgba(64,224,208,0.18), 0 0 14px rgba(64,224,208,0.35);
+        box-shadow: 0 0 0 3px rgba(64,222,216,0.18), 0 0 14px rgba(64,222,216,0.35);
       }
       .hero-urgent-meta {
         display: flex;
@@ -761,7 +773,7 @@
         background: var(--accent-soft); color: var(--accent);
         font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
         margin-bottom: 20px;
-        border: 1px solid rgba(64,224,208,0.15);
+        border: 1px solid rgba(64,222,216,0.15);
       }
       .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: var(--text); margin-bottom: 16px; }
       .section-desc { font-size: clamp(17px, 2vw, 20px); color: var(--text-soft); line-height: 1.8; max-width: 720px; }
@@ -1194,7 +1206,7 @@
       .donate-amounts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
       .donate-amt { border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 10px 6px; background: transparent; color: var(--text); font-size: 14px; font-weight: 500; cursor: pointer; transition: border-color 0.15s, background 0.15s; font-variant-numeric: tabular-nums; }
       .donate-amt:hover { border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.03); }
-      .donate-amt.active { border-color: var(--accent); background: rgba(64,224,208,0.06); color: var(--text); }
+      .donate-amt.active { border-color: var(--accent); background: rgba(64,222,216,0.06); color: var(--text); }
       .donate-fields { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
       .donate-input-wrap { position: relative; }
       .donate-input-suffix { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; pointer-events: none; }
@@ -1204,7 +1216,7 @@
       .donate-field[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; display: none; }
       .donate-field::placeholder { color: #5f6966; }
       .donate-field:hover { border-color: rgba(255,255,255,0.16); }
-      .donate-field:focus { border-color: rgba(64,224,208,0.45); box-shadow: 0 0 0 3px rgba(64,224,208,0.1); }
+      .donate-field:focus { border-color: rgba(64,222,216,0.45); box-shadow: 0 0 0 3px rgba(64,222,216,0.1); }
       .donate-payment-label { font-size: 13px; font-weight: 500; color: var(--text-soft); margin: 0 0 10px; }
       .donate-payment-methods { display: flex; flex-direction: column; gap: 8px; }
       .donate-pay { width: 100%; justify-content: center; margin: 0; padding: 13px 16px; font-size: 15px; font-weight: 600; border-radius: 10px; background: var(--text); color: #0b0d0d; border: none; box-shadow: none; }
@@ -1276,7 +1288,8 @@
           <div class="hero-grid">
             <div class="hero-visual" aria-hidden="true">
               <div class="hero-image-wrap">
-                <img src="hero_volounter.webp" alt="Волонтёр фонда" class="hero-image" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
+                <!-- Отдаём PNG напрямую из публичной папки public-site/ (аналог public/): без Image-оптимизатора и без пережатия. -->
+                <img src="ohero_volounter.png" alt="Волонтёр фонда" class="hero-image" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
               </div>
             </div>
             <div class="hero-text">
@@ -1968,7 +1981,7 @@
       };
 
       let finChartInstance = null;
-      const INCOME_COLOR = '#40E0D0';
+      const INCOME_COLOR = '#40DED8';
       const EXPENSE_COLOR = '#f87171';
       const GRID_COLOR = 'rgba(255,255,255,0.04)';
       const AXIS_COLOR = 'rgba(255,255,255,0.16)';
@@ -2166,7 +2179,7 @@
           ctx.strokeStyle = stroke; ctx.lineWidth = lineWidth; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
           ctx.stroke();
         }
-        drawSeries(incomeData, INCOME_COLOR, 'rgba(64,224,208,0.55)', 'rgba(64,224,208,0.13)', 'rgba(64,224,208,0)', 2.5);
+        drawSeries(incomeData, INCOME_COLOR, 'rgba(64,222,216,0.55)', 'rgba(64,222,216,0.13)', 'rgba(64,222,216,0)', 2.5);
         drawSeries(expenseData, EXPENSE_COLOR, 'rgba(248,113,113,0.5)', 'rgba(248,113,113,0.10)', 'rgba(248,113,113,0)', 2);
         ctx.restore(); // конец clip-области анимации
 
@@ -2190,13 +2203,13 @@
         if (!tip) {
           tip = document.createElement('div');
           tip.id = 'finChartTooltip';
-          tip.style.cssText = 'position:absolute;display:none;z-index:50;width:220px;pointer-events:none;border-radius:12px;border:1px solid rgba(255,255,255,0.1);border-left:4px solid #40E0D0;background:rgba(11,15,14,0.95);padding:12px 16px;font-size:12px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);backdrop-filter:blur(4px);font-family:inherit;color:#fff';
+          tip.style.cssText = 'position:absolute;display:none;z-index:50;width:220px;pointer-events:none;border-radius:12px;border:1px solid rgba(255,255,255,0.1);border-left:4px solid #40DED8;background:rgba(11,15,14,0.95);padding:12px 16px;font-size:12px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);backdrop-filter:blur(4px);font-family:inherit;color:#fff';
           wrap.appendChild(tip);
         }
         // Каждый раз перезаписываем целиком, иначе значения не обновляются
         tip.innerHTML = `
             <div style="margin-bottom:8px;font-size:11px;font-weight:500">${labels[i]}</div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#8b9491">Поступления</span><span style="font-weight:600;color:#40E0D0">${formatCurrency(incomeData[i] || 0)}</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#8b9491">Поступления</span><span style="font-weight:600;color:#40DED8">${formatCurrency(incomeData[i] || 0)}</span></div>
             <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:10px;color:#8b9491">Расходы</span><span style="font-weight:600;color:#f87171">${formatCurrency(expenseData[i] || 0)}</span></div>
             <div style="display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.05);padding-top:6px"><span style="font-size:10px;color:#8b9491">Изменение</span><span style="font-size:16px;font-weight:700;color:${netColor}">${net >= 0 ? '+' : ''}${formatCurrency(net)}</span></div>`;
         tip.style.display = 'block';
