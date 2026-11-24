@@ -16,8 +16,8 @@
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       });
     </script>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-    <meta name="theme-color" content="#080b0a" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0D0D" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
@@ -58,7 +58,7 @@
     <style>
       * { box-sizing: border-box; margin: 0; padding: 0; }
       :root {
-        --bg: #0B0D0D;
+        --bg: #0A0D0D;
         --bg-elevated: #111414;
         --panel: #151A19;
         --panelAlt: #1B2220;
@@ -78,13 +78,13 @@
         --shadow-md: 0 12px 32px rgba(0,0,0,0.35);
         --shadow-lg: 0 24px 64px rgba(0,0,0,0.45);
       }
-      html { scrollbar-width: thin; background-color: #080b0a; }
+      html { scrollbar-width: thin; background-color: #0A0D0D; }
       html::-webkit-scrollbar { width: 6px; }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
       body {
         font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-        background: #080b0a;
-        background-color: #080b0a;
+        background: #0A0D0D;
+        background-color: #0A0D0D;
         color: var(--text);
         line-height: 1.7;
         -webkit-font-smoothing: antialiased;
@@ -114,9 +114,13 @@
       .reveal-delay-2 { transition-delay: 0.2s; }
       .reveal-delay-3 { transition-delay: 0.3s; }
       .reveal-delay-4 { transition-delay: 0.4s; }
-      @keyframes heroMobileFadeUp {
-        from { opacity: 0; transform: translateY(14px) translateZ(0); }
-        to { opacity: 1; transform: translateY(0) translateZ(0); }
+      @keyframes heroFadeUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes heroFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
       }
       @keyframes heroMobileFadeIn {
         from { opacity: 0; }
@@ -129,6 +133,7 @@
       @media (prefers-reduced-motion: reduce) {
         .reveal { opacity: 1; transform: none; transition: none; }
         .hero-title-mobile, .hero p.hero-sub-mobile, .hero-bottom-mobile { animation: none !important; }
+        .hero-badge, .hero h1, .hero p, .hero-actions { animation: none !important; }
         .lifeline-fill, .hero-bottom-mobile .lifeline-fill::before { transition: none !important; animation: none !important; }
       }
 
@@ -264,7 +269,7 @@
         min-height: 100vh;
         overflow: visible;
         scroll-margin-top: 92px;
-        background: #080b0a;
+        background: #0A0D0D;
         margin: 0;
       }
       @media (max-width: 1024px) { .hero { padding: 80px 0 60px; } }
@@ -286,43 +291,55 @@
       }
 
       .hero-visual {
-        position: static;
+        position: absolute;
+        inset: 0;
         z-index: 0;
         pointer-events: none;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
       }
       .hero-image-wrap {
-        position: relative;
-        overflow: hidden;
-        background: #080b0a;
-        width: 100%;
-        height: 100%;
-        min-height: 500px;
-        border-radius: 0;
+        position: absolute;
+        inset: 0;
+        -webkit-mask-image:
+          linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 28%, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.18) 74%, rgba(0,0,0,0) 100%),
+          linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 22%, rgba(0,0,0,1) 100%);
+        -webkit-mask-composite: source-in;
+        mask-image:
+          linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 28%, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.18) 74%, rgba(0,0,0,0) 100%),
+          linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 22%, rgba(0,0,0,1) 100%);
+        mask-composite: intersect;
       }
       .hero-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: 18% 100%;
+        object-position: 18% center;
         display: block;
-        filter: contrast(1.05) saturate(1.0);
-        transform: none;
+        filter: contrast(1.03) saturate(0.98);
       }
       .hero-visual::after {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(to bottom, rgba(8,11,10,0.4) 0%, transparent 8%, transparent 70%, rgba(8,11,10,0.85) 95%, #080b0a 100%);
+        background:
+          linear-gradient(to right, rgba(11,13,13,0) 0%, rgba(11,13,13,0) 22%, rgba(11,13,13,0.06) 40%, rgba(11,13,13,0.22) 58%, rgba(11,13,13,0.55) 76%, rgba(11,13,13,0.88) 90%, var(--bg) 100%),
+          linear-gradient(to top, var(--bg) 0%, rgba(11,13,13,0.72) 14%, rgba(11,13,13,0) 38%);
         pointer-events: none;
-        border-radius: 0;
       }
       @media (max-width: 1024px) {
-        .hero-image { object-position: 50% 100%; }
-        .hero-image-wrap { min-height: 350px; }
+        .hero-image { object-position: 30% center; }
+        .hero-image-wrap {
+          -webkit-mask-image:
+            linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.88) 45%, rgba(0,0,0,0.3) 72%, rgba(0,0,0,0) 100%),
+            linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 28%, rgba(0,0,0,1) 100%);
+          mask-image:
+            linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.88) 45%, rgba(0,0,0,0.3) 72%, rgba(0,0,0,0) 100%),
+            linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 28%, rgba(0,0,0,1) 100%);
+        }
+        .hero-visual::after {
+          background:
+            linear-gradient(to bottom, rgba(11,13,13,0.08) 0%, rgba(11,13,13,0.38) 48%, rgba(11,13,13,0.82) 78%, var(--bg) 100%),
+            linear-gradient(to right, rgba(11,13,13,0) 0%, rgba(11,13,13,0.18) 55%, rgba(11,13,13,0.5) 100%);
+        }
       }
       .hero-title-block-mobile { display: none; }
       .hero-title-mobile { display: none; }
@@ -356,18 +373,13 @@
           height: 100%;
           object-fit: contain;
           object-position: top center;
-          filter: contrast(1.05) saturate(1.0);
+           filter: contrast(1.02) saturate(1.0) brightness(0.95);
           transform: scale(5.5) translateX(15%);
           transform-origin: top center;
         }
         .hero-visual::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          background: linear-gradient(to bottom, transparent 0%, rgba(8,11,10,0.02) 25%, rgba(8,11,10,0.18) 45%, rgba(8,11,10,0.55) 65%, rgba(8,11,10,0.88) 82%, #080b0a 100%);
-          border-radius: 0;
-          pointer-events: none;
+          background:
+            linear-gradient(to bottom, rgba(11,13,13,0.12) 0%, rgba(11,13,13,0.52) 42%, rgba(11,13,13,0.86) 76%, var(--bg) 100%);
         }
         .hero-text {
           position: relative;
@@ -420,7 +432,7 @@
           flex-direction: column;
           gap: 12px;
           padding: 20px 20px 28px;
-          background: linear-gradient(to top, #080b0a 0%, rgba(8,11,10,0.85) 35%, rgba(8,11,10,0.4) 70%, transparent 100%);
+          background: linear-gradient(to top, #0A0D0D 0%, rgba(10,13,13,0.85) 35%, rgba(10,13,13,0.4) 70%, transparent 100%);
           animation: heroMobileFadeIn 1.2s ease 0.4s both;
         }
         .hero-urgent-mobile { display: flex; flex-direction: column; gap: 8px; }
@@ -599,6 +611,7 @@
         flex-wrap: wrap;
         justify-content: flex-start;
         align-items: center;
+        animation: heroFadeUp 0.8s ease-out 0.45s both;
       }
 
       .hero-badge {
@@ -609,17 +622,19 @@
         margin-bottom: 28px;
         border: 1px solid rgba(64,224,208,0.2);
         box-shadow: 0 0 24px rgba(64,224,208,0.08);
+        animation: heroFadeUp 0.8s ease-out both;
       }
       .hero h1 {
         font-size: clamp(40px, 5.5vw, 64px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px;
         background: linear-gradient(180deg, var(--text) 0%, var(--text-soft) 100%);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        animation: heroFadeUp 0.8s ease-out 0.15s both;
       }
       .hero h1 .accent-line { 
         background: linear-gradient(135deg, var(--accent) 0%, #2DD4BF 100%);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
       }
-      .hero p { font-size: clamp(17px, 2vw, 20px); color: var(--text-soft); max-width: 540px; margin-bottom: 36px; line-height: 1.8; font-weight: 400; margin-left: 0; }
+      .hero p { font-size: clamp(17px, 2vw, 20px); color: var(--text-soft); max-width: 540px; margin-bottom: 36px; line-height: 1.8; font-weight: 400; margin-left: 0; animation: heroFadeUp 0.8s ease-out 0.3s both; }
       .btn-primary {
         display: inline-flex; align-items: center; gap: 12px;
         background: linear-gradient(135deg, var(--accent) 0%, #2DD4BF 100%); color: var(--bg);
@@ -752,7 +767,7 @@
       .section-desc { font-size: clamp(17px, 2vw, 20px); color: var(--text-soft); line-height: 1.8; max-width: 720px; }
 
       /* ===== FINANCIAL OVERVIEW ===== */
-      .financial { padding: 100px 0; position: static; scroll-margin-top: 92px; background: #080b0a; border-top: none; }
+      .financial { padding: 100px 0; position: static; scroll-margin-top: 92px; background: #0A0D0D; border-top: none; }
       @media (max-width: 1024px) { .financial { padding: 70px 0; } }
       @media (max-width: 768px) { .financial { padding: 60px 0; } }
       @media (max-width: 640px) { .financial { padding: 50px 0; } }
@@ -849,7 +864,7 @@
       .kpi-trend.neg { color: #f87171; }
 
       /* ===== IMPACT SECTION ===== */
-      .impact { padding: 100px 0 140px; position: static; scroll-margin-top: 92px; background: #080b0a; }
+      .impact { padding: 100px 0 140px; position: static; scroll-margin-top: 92px; background: #0A0D0D; }
       @media (max-width: 1024px) { .impact { padding: 70px 0 100px; } }
       @media (max-width: 768px) { .impact { padding: 60px 0 90px; } }
       @media (max-width: 640px) { .impact { padding: 50px 0 80px; } }
@@ -918,7 +933,7 @@
       .impact-item-desc { font-size: 14px; color: var(--text-soft); line-height: 1.6; }
 
       /* ===== REPORTS SECTION ===== */
-      .reports { padding: 100px 0; background: #080b0a; border-top: none; position: static; scroll-margin-top: 92px; }
+      .reports { padding: 100px 0; background: #0A0D0D; border-top: none; position: static; scroll-margin-top: 92px; }
       @media (max-width: 1024px) { .reports { padding: 70px 0; } }
       @media (max-width: 768px) { .reports { padding: 60px 0; } }
       @media (max-width: 640px) { .reports { padding: 50px 0; } }
@@ -1136,7 +1151,7 @@
       @media (max-width: 640px) { .search-input { width: 100%; padding-left: 40px; } }
 
       /* ===== FOOTER ===== */
-      footer { padding: 80px 0 40px; background: #080b0a; border-top: none; }
+      footer { padding: 80px 0 40px; background: #0A0D0D; border-top: none; }
       .footer-grid {
         display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px;
       }
@@ -1261,7 +1276,7 @@
           <div class="hero-grid">
             <div class="hero-visual" aria-hidden="true">
               <div class="hero-image-wrap">
-                <img src="volounter.jpg" alt="Волонтёр фонда" class="hero-image" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
+                <img src="hero_volounter.webp" alt="Волонтёр фонда" class="hero-image" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
               </div>
             </div>
             <div class="hero-text">
@@ -2725,20 +2740,7 @@
           });
         }
 
-          // Плавная прокрутка для всех якорных ссылок через Lenis (меню, кнопки)
-          const lenis = new Lenis({
-            lerp: 0.15,
-          });
-
-          function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-          }
-          requestAnimationFrame(raf);
-
-          // Lenis стартует строго с позиции 0 без анимированного отката
-          lenis.scrollTo(0, { immediate: true });
-
+          // Нативный плавный скролл по клику
           document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
               const id = link.getAttribute('href');
@@ -2746,12 +2748,12 @@
               const target = document.querySelector(id);
               if (target) {
                 e.preventDefault();
-                lenis.scrollTo(target, { offset: -80, duration: 0.8 });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             });
           });
 
-          // Футерная навигация — Lenis (нижнее меню)
+          // Футерная навигация — нативный плавный скролл
           document.querySelectorAll('.footer-links a[href^="#"], .footer-nav a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
               const id = link.getAttribute('href');
@@ -2759,7 +2761,7 @@
               const target = document.querySelector(id);
               if (target) {
                 e.preventDefault();
-                lenis.scrollTo(target, { offset: -80, duration: 0.8 });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
               // «Годовой отчёт 2025» — переключить период отчёта на 2025
               if (link.textContent && link.textContent.includes('2025')) {
@@ -2770,6 +2772,9 @@
               }
             });
           });
+
+          // Нативный скролл вверх при загрузке (без анимации)
+          window.scrollTo(0, 0);
 
           initPageData();
         </script>
