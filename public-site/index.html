@@ -88,6 +88,9 @@
         overflow-y: auto;
       }
       body::-webkit-scrollbar { width: 6px; }
+      input[type='number'] { -moz-appearance: textfield; }
+      input[type='number']::-webkit-inner-spin-button,
+      input[type='number']::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; display: none; }
       a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
       a:hover { color: var(--accent); text-decoration: none; }
       img { max-width: 100%; height: auto; display: block; }
@@ -1177,7 +1180,9 @@
       .donate-input-wrap { position: relative; }
       .donate-input-suffix { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; pointer-events: none; }
       .donate-field { width: 100%; background: #0f1312; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: var(--text); font-size: 15px; padding: 12px 14px; outline: none; transition: border-color 0.15s, box-shadow 0.15s; }
-      .donate-field.has-suffix { padding-right: 36px; font-variant-numeric: tabular-nums; }
+      .donate-field[type="number"] { -moz-appearance: textfield; }
+      .donate-field[type="number"]::-webkit-inner-spin-button,
+      .donate-field[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; display: none; }
       .donate-field::placeholder { color: #5f6966; }
       .donate-field:hover { border-color: rgba(255,255,255,0.16); }
       .donate-field:focus { border-color: rgba(64,224,208,0.45); box-shadow: 0 0 0 3px rgba(64,224,208,0.1); }
@@ -1498,8 +1503,8 @@
           <div class="footer-contact">
             <h3 class="footer-title">Контакты</h3>
             <div class="footer-links">
-              <a href="mailto:tagir.tagirov.62@mail.ru">tagir.tagirov.62@mail.ru</a>
-              <a href="tel:+79640206215">+7 964 020 62 15</a>
+              <a href="mailto:fondabdullakhadzhi@mail.ru">fondabdullakhadzhi@mail.ru</a>
+              <a href="tel:+79640206215">+7 909 005 66 99</a>
               <a href="https://yandex.ru/maps/-/CXcK7B~1" target="_blank" rel="noopener noreferrer">село Сергокала, Республика Дагестан</a>
             </div>
           </div>
