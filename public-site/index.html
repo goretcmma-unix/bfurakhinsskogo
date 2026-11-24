@@ -311,6 +311,7 @@
         mask-composite: intersect;
         */
       }
+      .hero-image-wrap picture { display: block; width: 100%; height: 100%; }
       .hero-image {
         width: 100%;
         height: 100%;
@@ -345,10 +346,14 @@
           */
         }
         .hero-visual::after {
-          /* Вернули исходные градиенты для ≤1024px. Маски/фильтры остаются отключёнными. */
+          /* Мобильные/таблетки: никакого бокового/углового затемнения.
+             Фейд только у самого нижнего шва фотографии, волонтёр не перекрывается. */
           background:
-            linear-gradient(to bottom, rgba(11,13,13,0.08) 0%, rgba(11,13,13,0.38) 48%, rgba(11,13,13,0.82) 78%, var(--bg) 100%),
-            linear-gradient(to right, rgba(11,13,13,0) 0%, rgba(11,13,13,0.18) 55%, rgba(11,13,13,0.5) 100%);
+            linear-gradient(to bottom,
+              rgba(10,13,13,0) 0%,
+              rgba(10,13,13,0) 80%,
+              rgba(10,13,13,0.5) 92%,
+              var(--bg) 100%);
         }
       }
       .hero-title-block-mobile { display: none; }
@@ -376,22 +381,42 @@
           min-height: 0;
           background: transparent;
           border-radius: 0;
-          overflow: visible;
+          /* Обрезаем фото по его собственному блоку: ниже уже сплошной фон Hero. */
+          overflow: hidden;
+        }
+        .hero-image-wrap::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          /* Фиксированные пиксели: на высоких экранах фейд не поднимается к волонтёру. */
+          height: 80px;
+          z-index: 1;
+          pointer-events: none;
+          /* Фейд только у нижнего края фотографии — не зависит от высоты экрана телефона. */
+          background: linear-gradient(to bottom,
+            rgba(10,13,13,0) 0%,
+            rgba(10,13,13,0.6) 60%,
+            var(--bg) 100%);
         }
         .hero-image {
           width: 100%;
           height: 100%;
-          object-fit: contain;
-          object-position: top center;
+          /* Масштабируем по высоте: контейнер фото занимает 65% Hero, а contain
+             показывал только 16:9 полосу у самого верха. cover заполняет блок
+             по высоте на любом телефоне, сдвиг вниз сохраняет кадр волонтёра. */
+          object-fit: cover;
+          object-position: 20% top;
           /* ВРЕМЕННО ОТКЛЮЧЕНО: фильтр меняет цвета отфотошопленной картинки.
              filter: contrast(1.02) saturate(1.0) brightness(0.95); */
-          transform: scale(5.5) translateX(15%);
+          transform: translateY(5%);
           transform-origin: top center;
         }
         .hero-visual::after {
-          /* Вернули исходный нижний градиент во всю ширину для ≤640px. */
-          background:
-            linear-gradient(to bottom, rgba(11,13,13,0.12) 0%, rgba(11,13,13,0.52) 42%, rgba(11,13,13,0.86) 76%, var(--bg) 100%);
+          /* На телефонах overlay не нужен: фото обрезано по своему блоку,
+             а плавный переход делает .hero-image-wrap::after у нижнего края фото. */
+          background: none;
         }
         .hero-text {
           position: relative;
@@ -529,7 +554,7 @@
         .hero { padding: 60px 0 0; min-height: 82vh; min-height: 82svh; }
         .hero-visual { inset: -60px 0 0 0; overflow: hidden; }
         .hero-image-wrap { top: 0; left: 0; right: 0; bottom: auto; height: 65%; }
-        .hero-image { object-fit: contain; object-position: top center; transform: scale(2.3) translateX(15%); transform-origin: top center; }
+        .hero-image { object-fit: cover; object-position: 20% top; transform: translateY(5%); transform-origin: top center; }
         .hero-text { min-height: calc(82vh - 60px); min-height: calc(82svh - 60px); padding-bottom: 210px; }
         .hero h1 { font-size: clamp(20px, 6vw, 28px); }
         .hero-title-block-mobile { margin: -34px 12px 14px; max-width: 64%; align-self: flex-end; width: fit-content; transform: scale(0.8); transform-origin: right top; }
@@ -561,19 +586,160 @@
         .hero { min-height: 88vh; min-height: 88svh; }
         .hero-visual { inset: -60px 0 0 0; overflow: hidden; }
         .hero-image-wrap { top: 0; left: 0; right: 0; bottom: auto; height: 65%; }
-        .hero-image { object-fit: contain; object-position: top center; transform: scale(2.3) translateX(15%); transform-origin: top center; }
+        .hero-image { object-fit: cover; object-position: 20% top; transform: translateY(5%); transform-origin: top center; }
         .hero-text { min-height: calc(88vh - 60px); min-height: calc(88svh - 60px); padding-bottom: 190px; }
         .hero-bottom-mobile { padding: 12px 14px 6px; gap: 8px; }
       }
       @media (max-width: 375px) and (max-device-height: 667px) {
         .hero-visual { inset: -60px 0 0 0; }
         .hero-image-wrap { top: 0; left: 0; right: 0; bottom: auto; height: 62%; }
-        .hero-image { transform: scale(1.8) translateX(15%); transform-origin: top center; }
+        .hero-image { transform-origin: top center; }
       }
       @media (max-width: 375px) and (min-device-height: 700px) and (max-device-height: 820px) {
         .hero-visual { inset: -60px 0 0 0; }
         .hero-image-wrap { top: 0; left: 0; right: 0; bottom: auto; height: 64%; }
-        .hero-image { transform: scale(2.25) translateX(15%); transform-origin: top center; }
+        .hero-image { transform-origin: top center; }
+      }
+
+      /* ===== HERO: фото на весь первый экран смартфона (< 768px) =====
+         Старые мобильные правила выше оставлены для быстрого возврата.
+         Здесь фон приклеен к шапке и тянется под кнопками до низа Hero. */
+      @media (max-width: 767px) {
+        .hero {
+          display: block;
+          min-height: calc(100svh - 64px);
+          padding: 0;
+        }
+        .hero .container {
+          position: relative;
+          z-index: 1;
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+          padding: 0;
+        }
+        .hero-grid {
+          position: relative;
+          display: block;
+          min-height: calc(100svh - 64px);
+          gap: 0;
+        }
+        .hero-visual {
+          position: absolute;
+          inset: 0;
+          height: auto;
+          overflow: hidden;
+          pointer-events: none;
+        }
+        .hero-image-wrap {
+          position: absolute;
+          inset: 0;
+          height: auto;
+          min-height: 0;
+          background: transparent;
+          border-radius: 0;
+          overflow: hidden;
+        }
+        .hero-image {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 20% top;
+          display: block;
+          transform: none;
+        }
+        .hero-image-wrap::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 80px;
+          z-index: 1;
+          pointer-events: none;
+          background: linear-gradient(to bottom, transparent, #0A0D0D);
+        }
+        .hero-visual::after {
+          background: none;
+        }
+        .hero-text {
+          position: relative;
+          z-index: 2;
+          display: block;
+          width: 100%;
+          max-width: none;
+          min-height: calc(100svh - 64px);
+          padding: 0;
+          box-sizing: border-box;
+        }
+        .hero-text > .hero-badge,
+        .hero-text > p:not(.hero-sub-mobile),
+        .hero-text > .hero-actions { display: none !important; }
+        .hero-title-desktop { display: none !important; }
+        .hero-title-block-mobile {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          position: absolute;
+          top: 4%;
+          right: 16px;
+          left: auto;
+          width: fit-content;
+          max-width: 72%;
+          margin: 0;
+          align-self: auto;
+          transform: scale(0.8);
+          transform-origin: right top;
+        }
+        .hero-title-mobile { display: block; margin: 0; text-align: left; width: auto; max-width: 100%; }
+        .hero-title-mobile .hero-title-white { color: var(--text); -webkit-text-fill-color: var(--text); background: none; }
+        .hero-title-mobile .accent-line {
+          background: none;
+          -webkit-text-fill-color: var(--accent);
+          color: var(--accent);
+          display: inline-block;
+          border: 0;
+          box-shadow: none;
+        }
+        .hero p.hero-sub-mobile { display: block; margin: -12px 0 0; padding-left: 2px; font-size: clamp(12px, 2.4vw, 14px); color: var(--text-soft); line-height: 1.4; white-space: nowrap; }
+        .hero-bottom-mobile {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding: 16px 16px 20px;
+          background: none;
+        }
+      }
+      @media (min-width: 641px) and (max-width: 767px) {
+        /* Широкие телефоны: фон чуть короче Hero, чтобы низ не выглядел
+           слишком тяжёлым. Кнопки остаются прижатыми к нижней кромке. */
+        .hero-image-wrap { bottom: 40px; }
+      }
+      @media (max-width: 480px) and (max-aspect-ratio: 55 / 100) {
+        /* Длинные телефоны (Infinix Note 30 и т.п.): cover во всю высоту
+           слишком приближает волонтёра. Укорачиваем только картинку,
+           подложка того же изумрудного цвета не даёт чёрной дыры снизу. */
+        .hero-image-wrap { background: #001615; }
+        .hero-image {
+          /* Ограничиваем высоту картинки, чтобы волонтёр на длинном экране
+             был такого же размера, как на iPhone 7, а не вытягивался cover. */
+          height: calc(100% - 72px);
+          height: min(calc(100% - 72px), 560px);
+          bottom: auto;
+          object-position: 24% top;
+        }
+        /* Фейд начинается выше кромки укороченного фото, поэтому переход
+           к изумрудной подложке не виден как резкая линия. */
+        .hero-image-wrap::after { height: 140px; }
+        /* Без блока «Срочный сбор» остаётся только две кнопки — поднимаем их
+           ближе к кромке фото. Когда сбор есть, кнопки остаются у низа Hero. */
+        :root[data-urgent="false"] .hero-bottom-mobile { bottom: 48px; }
       }
 
       /* ===== HERO DESKTOP: фото на всю ширину, текст справа ===== */
@@ -1288,8 +1454,13 @@
           <div class="hero-grid">
             <div class="hero-visual" aria-hidden="true">
               <div class="hero-image-wrap">
-                <!-- Отдаём PNG напрямую из публичной папки public-site/ (аналог public/): без Image-оптимизатора и без пережатия. -->
-                <img src="ohero_volounter.png" alt="Волонтёр фонда" class="hero-image" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
+                <!-- PNG отдаётся напрямую из публичной папки: без Image-оптимайзера и без потери качества.
+                     Мобильная/таблетная версии — тот же PNG меньшего размера, без пережатия. -->
+                <picture>
+                  <source media="(max-width: 640px)" srcset="ohero_volounter_mobile.png">
+                  <source media="(max-width: 1599px)" srcset="ohero_volounter_tablet.png">
+                  <img src="ohero_volounter.png" alt="Волонтёр фонда" class="hero-image" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
+                </picture>
               </div>
             </div>
             <div class="hero-text">
