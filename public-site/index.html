@@ -18,6 +18,11 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0A0D0D" />
+    <!-- Hero поднимаем заранее: media совпадают с <source> внутри <picture>. -->
+    <link rel="preload" as="image" href="ohero_volounter_mobile.png" media="(max-width: 640px)" fetchpriority="high">
+    <link rel="preload" as="image" href="ohero_volounter_tablet.png" media="(min-width: 641px) and (max-width: 2559px)" fetchpriority="high">
+    <link rel="preload" as="image" href="ohero_volounter_wide.png" media="(min-width: 2560px) and (max-width: 3839px)" fetchpriority="high">
+    <link rel="preload" as="image" href="ohero_volounter.png" media="(min-width: 3840px)" fetchpriority="high">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
@@ -56,7 +61,7 @@
     <meta name="msapplication-TileImage" content="android-chrome-512x512.png">
     <link rel="stylesheet" href="./vendor/fonts.css">
     <style>
-      * { box-sizing: border-box; margin: 0; padding: 0; }
+      * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
       :root {
         --bg: #0A0D0D;
         --bg-elevated: #111414;
@@ -97,6 +102,13 @@
       input[type='number']::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; display: none; }
       a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
       a:hover { color: var(--accent); text-decoration: none; }
+      /* На тапе не показываем системную рамку фокуса. Для клавиатуры она
+         остаётся только на интерактивных элементах (:focus-visible). */
+      *:focus { outline: none; }
+      a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
       img { max-width: 100%; height: auto; display: block; }
 
       .container { width: 100%; margin: 0 auto; padding: 0 64px; }
@@ -829,6 +841,12 @@
         font-size: 16px; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap;
       }
       .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 24px rgba(64,222,216,0.1); }
+      /* Кастомный отклик на касание вместо системного синего прямоугольника. */
+      a:active, button:active, [role="button"]:active { transform: scale(0.98); filter: brightness(0.92); }
+      .btn-primary:active, .hero-donate-mobile:active, .donate-pay:active {
+        transform: scale(0.98); filter: brightness(0.92);
+        box-shadow: 0 2px 12px var(--accent-glow);
+      }
 
       .hero-urgent {
         margin-top: 40px;
@@ -1407,8 +1425,11 @@
       .donate-note a { color: var(--muted); text-decoration: none; }
       .donate-note a:hover { color: var(--text-soft); text-decoration: underline; }
       @media (max-width: 640px) {
-        .donate-overlay { align-items: flex-end; justify-content: center; padding: max(64px, calc(env(safe-area-inset-top) + 16px)) 0 0; }
-        .donate-modal { max-width: 100%; max-height: calc(100dvh - max(64px, calc(env(safe-area-inset-top) + 16px))); border-radius: 20px 20px 0 0; padding: 8px 20px calc(20px + env(safe-area-inset-bottom)); border-bottom: none; transform: translateY(100%); transition: transform 0.28s cubic-bezier(0.4, 0, 1, 1); }
+        .donate-overlay { align-items: flex-end; justify-content: center; padding: max(64px, calc(env(safe-area-inset-top) + 16px)) 12px max(12px, env(safe-area-inset-bottom)); }
+        .donate-modal { width: 100%; max-width: 480px; max-height: calc(100dvh - max(64px, calc(env(safe-area-inset-top) + 16px)) - max(12px, env(safe-area-inset-bottom))); border-radius: 20px; padding: 8px 20px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.28s cubic-bezier(0.4, 0, 1, 1); }
+        /* 16px — минимум, чтобы iOS Safari не увеличивал страницу при фокусе поля */
+        .donate-field { font-size: 16px; }
+        .donate-field.has-suffix { padding-right: 38px; }
         .donate-overlay.open .donate-modal { transform: translateY(0); transition: transform 0.28s cubic-bezier(0, 0, 0.2, 1); }
         .donate-modal-handle { display: block; }
         .donate-header { margin-bottom: 16px; padding-right: 36px; }
@@ -1458,7 +1479,11 @@
                      Мобильная/таблетная версии — тот же PNG меньшего размера, без пережатия. -->
                 <picture>
                   <source media="(max-width: 640px)" srcset="ohero_volounter_mobile.png">
-                  <source media="(max-width: 1599px)" srcset="ohero_volounter_tablet.png">
+                  <!-- 2400px хватает вплоть до 2560px экрана: не отдаём 5.8 МБ оригинал
+                       там, где он всё равно масштабируется браузером. -->
+                  <source media="(max-width: 2559px)" srcset="ohero_volounter_tablet.png">
+                  <!-- 3200px на экраны 2560–3839px; 4800px оригинал остаётся только для 4K. -->
+                  <source media="(max-width: 3839px)" srcset="ohero_volounter_wide.png">
                   <img src="ohero_volounter.png" alt="Волонтёр фонда" class="hero-image" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
                 </picture>
               </div>
@@ -1743,7 +1768,7 @@
           <div class="donate-fields">
             <div class="donate-input-wrap">
               <label class="visually-hidden" for="donateAmount">Другая сумма</label>
-              <input class="donate-field has-suffix" id="donateAmount" type="number" min="50" step="50" inputmode="numeric" value="1000" placeholder="Другая сумма">
+              <input class="donate-field has-suffix" id="donateAmount" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="1000" placeholder="Другая сумма">
               <span class="donate-input-suffix" aria-hidden="true">₽</span>
             </div>
             <label class="visually-hidden" for="donateName">Имя (необязательно)</label>
@@ -2735,7 +2760,7 @@
         const qrBack = document.getElementById('donateQrBack');
         const sbpBtn = document.getElementById('donateSbp');
         if (!overlay) return;
-        const open = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; if (amountInput) amountInput.focus(); };
+        const open = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; };
         const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (modal) modal.classList.remove('qr-mode'); };
         document.querySelectorAll('[data-donate]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); open(); }));
         if (closeBtn) closeBtn.addEventListener('click', close);
@@ -2746,7 +2771,22 @@
           btn.classList.add('active');
           if (amountInput) amountInput.value = btn.dataset.amount || '';
         }));
-        if (amountInput) amountInput.addEventListener('input', () => amtBtns.forEach(b => b.classList.toggle('active', b.dataset.amount === amountInput.value)));
+        if (amountInput) {
+          // При нажатии на поле суммы каретка встаёт в конец числа.
+          // При открытии модалки поле не фокусируется — клавиатура не всплывает.
+          const caretToEnd = () => {
+            const end = (amountInput.value || '').length;
+            amountInput.setSelectionRange(end, end);
+          };
+          amountInput.addEventListener('focus', caretToEnd);
+          amountInput.addEventListener('click', caretToEnd);
+          amountInput.addEventListener('input', () => {
+            // Оставляем только цифры — как было у type="number".
+            const digits = amountInput.value.replace(/\D/g, '');
+            if (digits !== amountInput.value) amountInput.value = digits;
+            amtBtns.forEach(b => b.classList.toggle('active', b.dataset.amount === amountInput.value));
+          });
+        }
         if (payBtn) payBtn.addEventListener('click', () => {
           const amount = Math.max(50, Number(amountInput && amountInput.value) || 1000);
           const name = (document.getElementById('donateName') || {}).value || '';
