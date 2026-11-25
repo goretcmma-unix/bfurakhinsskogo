@@ -1457,8 +1457,8 @@
       .donate-error:empty { display: none; }
       .donate-pay:disabled, .donate-sbp:disabled, .donate-qr-toggle:disabled { opacity: 0.55; cursor: not-allowed; filter: grayscale(0.15); }
       @media (max-width: 640px) {
-        .donate-overlay { align-items: flex-end; justify-content: center; padding: max(64px, calc(env(safe-area-inset-top) + 16px)) 16px max(16px, env(safe-area-inset-bottom)); }
-        .donate-modal { width: 100%; max-width: 480px; max-height: calc(100dvh - max(64px, calc(env(safe-area-inset-top) + 16px)) - max(16px, env(safe-area-inset-bottom))); border-radius: 20px; padding: 8px 20px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.28s cubic-bezier(0.4, 0, 1, 1); }
+        .donate-overlay { align-items: flex-end; justify-content: center; padding: max(64px, calc(env(safe-area-inset-top) + 16px)) 12px max(12px, env(safe-area-inset-bottom)); }
+        .donate-modal { width: 100%; max-width: 480px; max-height: calc(100dvh - max(64px, calc(env(safe-area-inset-top) + 16px)) - max(12px, env(safe-area-inset-bottom))); border-radius: 20px; padding: 8px 20px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.28s cubic-bezier(0.4, 0, 1, 1); }
         /* 16px — минимум, чтобы iOS Safari не увеличивал страницу при фокусе поля */
         .donate-field { font-size: 16px; }
         .donate-field.has-suffix { padding-right: 38px; }
