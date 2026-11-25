@@ -1,21 +1,22 @@
 /**
- * Creates an Atol Pay payment and returns the hosted checkout URL.
+ * Creates a Paydex invoice and returns the hosted checkout URL.
  *
- * The Atol bearer token lives ONLY in Supabase function secrets — it is never
+ * The Paydex secret key lives ONLY in Supabase function secrets — it is never
  * shipped to the browser. The site calls this function with the public anon key.
  *
- * Required Supabase secrets:
- *   ATOLPAY_ACCESS_TOKEN   — token from the Atol Pay personal account
+ * Required Supabase secret:
+ *   PAYDEX_SECRET_KEY        — sk_test_… or sk_live_… from the Paydex cabinet
  * Optional Supabase secrets:
- *   ATOLPAY_RETURN_URL     — where the donor goes after paying
- *   ATOLPAY_NOTIFICATION_URL — callback endpoint (defaults to atol-callback)
- *   ATOLPAY_BANK_ID        — bankId from the merchant agreement (default 100)
- *   SITE_ORIGIN            — allowed browser origin for CORS
+ *   PAYDEX_SUCCESS_URL       — donor return URL after payment
+ *   PAYDEX_FAIL_URL          — donor return URL after failure/expiry
+ *   PAYDEX_CUSTOMER_FEE_PCT  — percent of commission paid by donor (default 0)
+ *   SITE_ORIGIN              — allowed browser origin for CORS
  */
 
-const ATOL_API = 'https://new-api-mobile.atolpay.ru/v1/ecom/payments';
+const PAYDEX_API = 'https://paydex.pro/api/v1/invoices';
 const DEFAULT_SITE_ORIGIN = 'https://fond-urakhinskogo.ru,https://goretcmma-unix.github.io';
 const DEFAULT_SITE_URL = 'https://fond-urakhinskogo.ru/';
+const DESCRIPTION = 'Пожертвование в фонд имени Абдуллахаджи Урахинского';
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -37,61 +38,17 @@ const cors = (req: Request) => ({
   'Vary': 'Origin'
 });
 
-/** Atol does not document one fixed field for the checkout link in every
- *  integration version, so look for the common ones first, then any URL.
- *  Echoed returnUrl/notificationUrl are skipped deliberately. */
-function findCheckoutUrl(value: unknown, depth = 0): string | null {
-  if (value == null || depth > 6) return null;
-  if (typeof value === 'string') {
-    const v = value.trim();
-    return /^https?:\/\//i.test(v) ? v : null;
-  }
-  if (Array.isArray(value)) {
-    for (const item of value) {
-      const found = findCheckoutUrl(item, depth + 1);
-      if (found) return found;
-    }
-    return null;
-  }
-  if (typeof value !== 'object') return null;
-
-  const obj = value as Record<string, unknown>;
-  const preferred = [
-    'paymentUrl', 'redirectUrl', 'checkoutUrl', 'paymentLink',
-    'formUrl', 'payUrl', 'url', 'link', 'href'
-  ];
-  const skipped = new Set([
-    'returnUrl', 'notificationUrl', 'callbackUrl', 'webhookUrl',
-    'successUrl', 'failUrl'
-  ]);
-
-  for (const key of preferred) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      const found = findCheckoutUrl(obj[key], depth + 1);
-      if (found) return found;
-    }
-  }
-  for (const key of Object.keys(obj)) {
-    if (preferred.includes(key) || skipped.has(key)) continue;
-    const found = findCheckoutUrl(obj[key], depth + 1);
-    if (found) return found;
-  }
-  return null;
-}
-
-function findPaymentId(value: unknown, depth = 0): string | null {
-  if (value == null || depth > 5 || typeof value !== 'object') return null;
-  const obj = value as Record<string, unknown>;
-  for (const key of ['paymentId', 'payment_id', 'transactionId', 'id']) {
-    const v = obj[key];
-    if (typeof v === 'string' || typeof v === 'number') return String(v);
-  }
-  for (const key of Object.keys(obj)) {
-    const found = findPaymentId(obj[key], depth + 1);
-    if (found) return found;
-  }
-  return null;
-}
+const ERROR_MESSAGES: Record<string, string> = {
+  validation: 'Платёжный сервис отклонил запрос',
+  unauthorized: 'Платёжный сервис недоступен',
+  project_not_active: 'Проект оплаты ещё не активирован в Paydex',
+  order_id_conflict: 'Такой платёж уже создан — обновите страницу',
+  amount_out_of_range: 'Сумма вне допустимого диапазона',
+  customer_fee_pct_too_high: 'Некорректная комиссия платежа',
+  method_unavailable: 'Этот способ оплаты временно недоступен',
+  rate_limited: 'Слишком много запросов — попробуйте позже',
+  provider_unavailable: 'Банк временно недоступен — попробуйте позже'
+};
 
 Deno.serve(async (req: Request) => {
   if (req.method === 'OPTIONS') {
@@ -106,68 +63,69 @@ Deno.serve(async (req: Request) => {
     const amountRub = Number(input?.amount);
     const method = input?.method === 'sbp' ? 'sbp' : 'card';
 
-    if (!Number.isFinite(amountRub) || amountRub < 50 || amountRub > 1_000_000) {
+    if (!Number.isFinite(amountRub) || amountRub < 10 || amountRub > 300000) {
       return json({ ok: false, error: 'Недопустимая сумма пожертвования' }, 400);
     }
 
-    const token = (Deno.env.get('ATOLPAY_ACCESS_TOKEN') || '').trim();
-    if (!token) {
-      return json({ ok: false, error: 'Платёжный сервис не настроен: отсутствует токен Атол Пэй' }, 503);
+    const key = (Deno.env.get('PAYDEX_SECRET_KEY') || '').trim();
+    if (!key) {
+      return json({ ok: false, error: 'Платёжный сервис не настроен: отсутствует ключ Paydex' }, 503);
     }
 
-    const supabaseUrl = (Deno.env.get('SUPABASE_URL') || '').replace(/\/$/, '');
-    const returnUrl = (Deno.env.get('ATOLPAY_RETURN_URL') || DEFAULT_SITE_URL).trim();
-    const notificationUrl = (
-      Deno.env.get('ATOLPAY_NOTIFICATION_URL') ||
-      (supabaseUrl ? `${supabaseUrl}/functions/v1/atol-callback` : '')
-    ).trim();
-    const bankIdRaw = Number(Deno.env.get('ATOLPAY_BANK_ID') || 100);
-    const bankId = Number.isFinite(bankIdRaw) && bankIdRaw > 0 ? Math.trunc(bankIdRaw) : 100;
+    const successUrl = (Deno.env.get('PAYDEX_SUCCESS_URL') || DEFAULT_SITE_URL).trim();
+    const failUrl = (Deno.env.get('PAYDEX_FAIL_URL') || DEFAULT_SITE_URL).trim();
+    const feePctRaw = Number(Deno.env.get('PAYDEX_CUSTOMER_FEE_PCT') || 0);
+    const customerFeePct = Number.isFinite(feePctRaw) && feePctRaw >= 0 ? feePctRaw : 0;
 
     const orderId = `DF-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
-    const atolBody = {
-      amount: Math.round(amountRub * 100),
+    const payload: Record<string, unknown> = {
+      amount: amountRub.toFixed(2),
       orderId,
-      sessionType: 'oneStep',
-      additionalProps: { returnUrl, notificationUrl },
-      paymentMethods: [{ paymentType: method, bankId }]
+      description: DESCRIPTION,
+      method,
+      // 0 = donor pays exactly the chosen amount; the foundation absorbs the fee.
+      customerFeePct,
+      successUrl,
+      failUrl,
+      expire: 60
     };
+    const name = typeof input?.name === 'string' ? input.name.trim().slice(0, 120) : '';
+    if (name) payload.customer = { name };
 
-    const atolRes = await fetch(ATOL_API, {
+    const paydexRes = await fetch(PAYDEX_API, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${key}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(atolBody)
+      body: JSON.stringify(payload)
     });
 
-    const rawText = await atolRes.text();
-    let atolData: unknown = null;
-    try { atolData = rawText ? JSON.parse(rawText) : null; } catch { atolData = { raw: rawText }; }
+    const rawText = await paydexRes.text();
+    let data: Record<string, unknown> = {};
+    try { data = rawText ? JSON.parse(rawText) as Record<string, unknown> : {}; } catch { data = {}; }
 
-    if (!atolRes.ok) {
-      console.error('[create-payment] Atol Pay error', atolRes.status, rawText);
-      return json(
-        { ok: false, error: `Платёжный сервис вернул ошибку ${atolRes.status}`, details: atolData },
-        502
-      );
+    if (!paydexRes.ok) {
+      const error = data.error as { code?: string; message?: string } | undefined;
+      console.error('[create-payment] Paydex error', paydexRes.status, rawText);
+      return json({
+        ok: false,
+        error: (error && ERROR_MESSAGES[error.code || '']) || error?.message || `Ошибка платёжного сервиса: ${paydexRes.status}`
+      }, 502);
     }
 
-    const url = findCheckoutUrl(atolData);
+    const url = typeof data.url === 'string' && /^https:\/\//i.test(data.url) ? data.url : '';
     if (!url) {
-      console.error('[create-payment] no checkout URL in Atol response', rawText);
-      return json(
-        { ok: false, error: 'Платёжный сервис не вернул ссылку на оплату', details: atolData },
-        502
-      );
+      console.error('[create-payment] no checkout URL in Paydex response', rawText);
+      return json({ ok: false, error: 'Платёжный сервис не вернул ссылку на оплату' }, 502);
     }
 
     return json({
       ok: true,
       url,
       orderId,
-      paymentId: findPaymentId(atolData),
+      invoiceId: data.id || null,
+      payableAmount: data.payableAmount || null,
       method
     });
   } catch (error) {

@@ -1,4 +1,4 @@
-name: Deploy Atol Pay functions
+name: Deploy Paydex functions
 
 on:
   push:
@@ -39,9 +39,9 @@ jobs:
         if: env.SUPABASE_ACCESS_TOKEN != ''
         run: supabase functions deploy create-payment --no-verify-jwt
 
-      - name: Deploy atol-callback
+      - name: Deploy paydex-callback
         if: env.SUPABASE_ACCESS_TOKEN != ''
-        run: supabase functions deploy atol-callback --no-verify-jwt
+        run: supabase functions deploy paydex-callback --no-verify-jwt
 
       - name: Notice
         if: env.SUPABASE_ACCESS_TOKEN == ''
