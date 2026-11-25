@@ -1480,12 +1480,12 @@
       .footer-bottom-links a:hover, .footer-bottom-links button:hover { color: var(--accent); }
       .legal-overlay { position: fixed; inset: 0; z-index: 220; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(5,7,7,0.84); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.28s cubic-bezier(0.4,0,1,1), visibility 0s linear 0.28s; }
       .legal-overlay.open { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity 0.28s cubic-bezier(0,0,0.2,1), visibility 0s linear 0s; }
-      .legal-modal { width: 100%; max-width: 760px; max-height: calc(100dvh - 48px); overflow: hidden; background: #121716; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; box-shadow: 0 20px 48px rgba(0,0,0,0.55); position: relative; display: flex; flex-direction: column; }
+      .legal-modal { width: 100%; max-width: 760px; max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); overflow: hidden; background: #121716; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; box-shadow: 0 20px 48px rgba(0,0,0,0.55); position: relative; display: flex; flex-direction: column; }
       .legal-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; background: #121716; border-bottom: 1px solid rgba(255,255,255,0.08); }
       .legal-close { width: 32px; height: 32px; min-width: 32px; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; background: transparent; color: var(--muted); cursor: pointer; font-size: 20px; line-height: 1; display: inline-flex; align-items: center; justify-content: center; transition: background 0.15s, color 0.15s, border-color 0.15s; }
       .legal-close:hover { background: rgba(255,255,255,0.06); color: var(--text); border-color: rgba(255,255,255,0.14); }
       .legal-modal h2 { font-size: 22px; line-height: 1.3; margin: 0; color: var(--text); }
-      .legal-body { padding: 24px; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+      .legal-body { flex: 1 1 auto; min-height: 0; padding: 24px; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
       .legal-body::-webkit-scrollbar { width: 0; height: 0; display: none; }
       .legal-modal h3 { font-size: 15px; margin: 20px 0 8px; color: var(--text-soft); }
       .legal-modal p, .legal-modal li { font-size: 14px; line-height: 1.7; color: var(--muted-strong); }
@@ -1501,7 +1501,23 @@
       .req-copy { padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(64,222,216,0.35); background: rgba(64,222,216,0.08); color: var(--accent); cursor: pointer; font: inherit; font-size: 14px; }
       .req-copy:hover { background: rgba(64,222,216,0.14); }
       .req-copy-status { font-size: 13px; color: var(--muted-strong); align-self: center; min-height: 20px; }
-      @media (max-width: 640px) { .legal-overlay { padding: 12px; } .legal-head { padding: 16px 18px; } .legal-body { padding: 18px; } .legal-modal h2 { font-size: 19px; } .req-row { flex-direction: column; gap: 4px; } .req-row .v { text-align: left; } }
+      @media (max-width: 640px) {
+        .legal-overlay { align-items: flex-end; padding: max(32px, calc(env(safe-area-inset-top) + 12px)) 12px max(12px, env(safe-area-inset-bottom)); }
+        .legal-modal {
+          max-width: 480px;
+          max-height: calc(100vh - max(32px, calc(env(safe-area-inset-top) + 12px)) - max(12px, env(safe-area-inset-bottom)));
+          max-height: calc(100dvh - max(32px, calc(env(safe-area-inset-top) + 12px)) - max(12px, env(safe-area-inset-bottom)));
+          border-radius: 20px;
+        }
+        .legal-head { padding: 14px 16px; gap: 12px; }
+        .legal-close { width: 30px; height: 30px; min-width: 30px; }
+        .legal-body { padding: 16px; }
+        .legal-modal h2 { font-size: 17px; line-height: 1.25; }
+        .legal-modal h3 { font-size: 14px; margin: 16px 0 6px; }
+        .legal-modal p, .legal-modal li { font-size: 14px; line-height: 1.6; }
+        .req-row { flex-direction: column; gap: 4px; }
+        .req-row .v { text-align: left; }
+      }
     </style>
     <script>
       // Защита контента: блокируем выделение и копирование мышью/клавиатурой.
