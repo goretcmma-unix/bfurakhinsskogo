@@ -1,6 +1,5 @@
 import { useMemo, useState, useEffect, useRef, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import Lenis from 'lenis'
 import Sidebar from './components/layout/Sidebar'
 import TopBar from './components/layout/TopBar'
 import DashboardPage from './pages/DashboardPage'
@@ -19,40 +18,13 @@ export default function App() {
   const [collapsed, setCollapsed] = useState(false)
   const [initialTxType, setInitialTxType] = useState<TxType | null>(null)
   const mainRef = useRef<HTMLDivElement>(null)
-  const lenisRef = useRef<Lenis | null>(null)
 
   useEffect(() => {
     initDatabase()
   }, [])
 
-  useEffect(() => {
-    const el = mainRef.current
-    if (!el) return
-    const lenis = new Lenis({
-      wrapper: el,
-      content: el,
-      lerp: 0.15,
-      duration: 0.45,
-      wheelMultiplier: 1.1,
-      smoothWheel: true,
-      syncTouch: false
-    })
-    lenisRef.current = lenis
-
-    function raf(time: number) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-    requestAnimationFrame(raf)
-
-    return () => {
-      lenis.destroy()
-      lenisRef.current = null
-    }
-  }, [])
-
   const scrollToTop = useCallback(() => {
-    lenisRef.current?.scrollTo(0, { immediate: false, duration: 0.4 })
+    mainRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 
   const title = useMemo(() => {
