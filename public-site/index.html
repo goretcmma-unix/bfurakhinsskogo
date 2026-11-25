@@ -24,7 +24,7 @@
     <link rel="preload" as="image" type="image/svg+xml" href="fondlogotip.svg" fetchpriority="high">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
     <meta name="description" content="Благотворительный фонд имени Абдуллахаджи Урахинского — прозрачная статистика пожертвований и расходов" />
@@ -1826,8 +1826,6 @@
         }, { once: true });
       }
 
-      const SUPABASE_URL = window.__ENV__?.VITE_SUPABASE_URL || import.meta.env?.VITE_SUPABASE_URL || 'https://ybgxfewbhjvtgdklzihr.supabase.co';
-      const SUPABASE_ANON_KEY = window.__ENV__?.VITE_SUPABASE_ANON_KEY || import.meta.env?.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InliZ3hmZXdiaGp2dGdka2x6aWhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQyMzQxNDMsImV4cCI6MjEwOTgxMDE0M30.TNtI-728-qIjKxBGhVi0Ckrfug1ogL-t0hHtODTtfAA';
       const PUBLIC_CACHE_KEY = 'public-site-transactions-v1';
 
       const demoData = {
@@ -1926,53 +1924,14 @@
         if (isRefreshing) return false;
         isRefreshing = true;
         try {
-          const hasData = Array.isArray(allTransactions) && allTransactions.length > 0;
-          const attempts = 2;
-          for (let i = 0; i < attempts; i++) {
-            try {
-              if (!SUPABASE_URL || !SUPABASE_ANON_KEY) throw new Error('Supabase config missing');
-              const q = new URL('/rest/v1/public_transactions', SUPABASE_URL);
-              q.searchParams.set('select', 'date,time,type,category,description,donor,amount,doc');
-              q.searchParams.set('order', 'date.desc');
-              q.searchParams.set('limit', '500');
-              const ctrl = new AbortController();
-              const timer = setTimeout(() => ctrl.abort(), 15000);
-              let resp;
-              try {
-                resp = await fetch(q.toString(), {
-                  headers: {
-                    'apikey': SUPABASE_ANON_KEY,
-                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                    'Accept': 'application/json'
-                  },
-                  signal: ctrl.signal
-                });
-              } finally {
-                clearTimeout(timer);
-              }
-              if (!resp.ok) throw new Error(`Supabase HTTP ${resp.status}`);
-              const txns = await resp.json();
-
-              if (Array.isArray(txns) && txns.length > 0) {
-                applyTransactions(txns);
-                writeCachedPublicData(txns);
-                return true;
-              }
-              return false;
-            } catch (e) {
-              const transient = isTransientNetworkError(e);
-              if (transient && i < attempts - 1) {
-                await new Promise(r => setTimeout(r, 1200));
-                continue;
-              }
-              if (!(background || hasData)) {
-                console.error('[public-site] load failed:', e);
-                console.warn('[public-site] Using cached/demo data:', e?.message || e);
-              }
-              // Фоновая ошибка (Supabase недоступен в Chrome/Firefox и т.п.) — тихо игнорируем,
-              // уже отрисованные данные из data.json/кэша не затираем.
-              return false;
-            }
+          const localTxns = await loadLocalDataJson();
+          if (localTxns && localTxns.length > 0) {
+            applyTransactions(localTxns);
+            writeCachedPublicData(localTxns);
+            return true;
+          }
+          if (!(background || (Array.isArray(allTransactions) && allTransactions.length > 0))) {
+            console.warn('[public-site] No local data.json or cache available');
           }
           return false;
         } finally {
@@ -1980,7 +1939,6 @@
         }
       }
 
-      // Realtime subscription — обновляет данные при изменении в дашборде
       async function refreshPublicData(silent) {
         try {
           const ok = await loadPublicData({ background: !!silent });
@@ -2026,12 +1984,11 @@
         try { if (typeof initDonate === 'function') initDonate(); } catch (e) { console.error(e); }
         try { initMobileMenuAndTableControls(); } catch (e) { console.error(e); }
 
-        // 2) Сначала локальный data.json (same-origin, работает в Chrome/Firefox при блокировке Supabase)
+        // 2) Загружаем данные только из same-origin data.json; при сбое — localStorage-кэш
         const localTxns = await loadLocalDataJson();
         if (localTxns && localTxns.length > 0) {
-          try { applyTransactions(localTxns); } catch (e) { console.warn('[public-site] local data apply failed:', e); }
+          try { applyTransactions(localTxns); writeCachedPublicData(localTxns); } catch (e) { console.warn('[public-site] local data apply failed:', e); }
         } else {
-          // Fallback: локальный кэш браузера
           const cached = readCachedPublicData();
           if (cached) {
             try { applyTransactions(cached); } catch (e) { console.warn('[public-site] cache apply failed:', e); }
@@ -2040,21 +1997,11 @@
         try { if (typeof renderStats === 'function') renderStats(); } catch (e) { console.error(e); }
         try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
 
-        // 3) Фоновое обновление из прямого Supabase REST — если успешно, обновляем свежими данными;
-        //    если упало (Chrome/Firefox/DoH/ETP) — тихо игнорируем, не затирая данные из data.json.
-        void loadPublicData({ background: true }).then((ok) => {
-          if (!ok) return;
-          try { if (typeof renderStats === 'function') renderStats(); } catch (e) { console.error(e); }
-          try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
-        }).catch(() => {});
-
         window.addEventListener('load', () => {
           try { if (typeof filterAndRender === 'function') filterAndRender(currentPeriod); } catch (e) { console.error(e); }
         });
 
-        // 4) Периодическое фоновое обновление
-        try { subscribeRealtime().catch(() => {}); } catch (e) {}
-        // Редкое фоновое обновление: основной источник — data.json/localStorage.
+        // 3) Фоновое обновление только из data.json/localStorage
         setInterval(() => { void refreshPublicData(true); }, 300000);
         document.addEventListener('visibilitychange', () => {
           if (document.visibilityState === 'visible') void refreshPublicData(true);
