@@ -2943,6 +2943,7 @@
         const consentLabel = document.getElementById('donateConsentLabel');
         const errorEl = document.getElementById('donateError');
         const DONATE_PAYMENT_URL = ''; // TODO: вставить официальный URL виджета/платёжной страницы «Технологии Добра»
+        const SBP_PHONE = '+7 909 005 66 99'; // номер из реквизитов фонда для перевода через СБП
         if (!overlay) return;
         let donateBusy = false;
         const getAmount = () => Number(String(amountInput && amountInput.value || '').replace(/\D/g, '')) || 0;
@@ -3005,6 +3006,40 @@
           }
           return true;
         };
+        const copyToClipboard = (text) => {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text).then(() => true).catch(() => false);
+          }
+          const temp = document.createElement('input');
+          temp.type = 'text';
+          temp.value = text;
+          temp.setAttribute('readonly', '');
+          temp.style.position = 'fixed';
+          temp.style.left = '-9999px';
+          temp.style.opacity = '0';
+          document.body.appendChild(temp);
+          temp.select();
+          let ok = false;
+          try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+          temp.remove();
+          return Promise.resolve(ok);
+        };
+        const beginSbpByPhone = () => {
+          const state = syncDonateState();
+          if (!state.ok || !requireConsent()) return;
+          const amountText = formatCurrency(state.amount);
+          copyToClipboard(SBP_PHONE).then((copied) => {
+            const labelEl = sbpBtn && sbpBtn.querySelector('.donate-btn-label');
+            if (labelEl) {
+              if (!labelEl.dataset.sbpDefault) labelEl.dataset.sbpDefault = labelEl.textContent;
+              labelEl.textContent = copied ? 'Номер скопирован' : 'Номер для перевода';
+              window.setTimeout(() => { labelEl.textContent = labelEl.dataset.sbpDefault; }, 3000);
+            }
+            setError(copied
+              ? 'Номер скопирован. Переведите ' + amountText + ' в приложении банка: СБП → По номеру телефона.'
+              : 'Переведите ' + amountText + ' в приложении банка: СБП → По номеру телефона ' + SBP_PHONE + '.');
+          });
+        };
         const beginPayment = (method) => {
           const state = syncDonateState();
           if (!state.ok || !requireConsent()) return;
@@ -3027,7 +3062,7 @@
           }
         };
         if (payBtn) payBtn.addEventListener('click', () => beginPayment('card'));
-        if (sbpBtn) sbpBtn.addEventListener('click', () => beginPayment('sbp'));
+        if (sbpBtn) sbpBtn.addEventListener('click', beginSbpByPhone);
         if (qrToggle && modal) qrToggle.addEventListener('click', () => {
           const state = syncDonateState();
           if (!state.ok || !requireConsent()) return;
