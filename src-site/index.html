@@ -2,6 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <script src="env-config.js"></script>
     <script>
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
@@ -24,7 +25,7 @@
     <link rel="preload" as="image" type="image/svg+xml" href="fondlogotip.svg" fetchpriority="high">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
     <meta name="description" content="Благотворительный фонд имени Абдуллахаджи Урахинского — прозрачная статистика пожертвований и расходов" />
@@ -2942,7 +2943,7 @@
         const consent = document.getElementById('donateConsent');
         const consentLabel = document.getElementById('donateConsentLabel');
         const errorEl = document.getElementById('donateError');
-        const DONATE_PAYMENT_URL = ''; // TODO: вставить официальный URL виджета/платёжной страницы «Технологии Добра»
+        const PAYMENT_FUNCTION_PATH = '/functions/v1/create-payment';
         if (!overlay) return;
         let donateBusy = false;
         const getAmount = () => Number(String(amountInput && amountInput.value || '').replace(/\D/g, '')) || 0;
@@ -3005,25 +3006,40 @@
           }
           return true;
         };
-        const beginPayment = (method) => {
+        const beginPayment = async (method) => {
           const state = syncDonateState();
           if (!state.ok || !requireConsent()) return;
-          if (!DONATE_PAYMENT_URL) {
-            setError('Платёжный сервис ещё не подключён. Для оплаты используйте реквизиты фонда или обратитесь: fondabdullakhadzhi@mail.ru');
+          const env = window.__ENV__ || {};
+          const baseUrl = String(env.VITE_SUPABASE_URL || '').replace(/\/$/, '');
+          const anonKey = String(env.VITE_SUPABASE_ANON_KEY || '');
+          if (!baseUrl || !anonKey) {
+            setError('Платёжный сервис ещё не настроен. Обратитесь: fondabdullakhadzhi@mail.ru');
             return;
           }
           setBusy(true, 'Открываем оплату…');
           try {
-            const url = new URL(DONATE_PAYMENT_URL, window.location.href);
-            url.searchParams.set('amount', String(state.amount));
-            url.searchParams.set('method', method);
-            const name = (nameInput && nameInput.value || '').trim();
-            if (name) url.searchParams.set('name', name);
-            window.location.assign(url.toString());
+            const response = await fetch(baseUrl + PAYMENT_FUNCTION_PATH, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + anonKey,
+                'apikey': anonKey
+              },
+              body: JSON.stringify({
+                amount: state.amount,
+                method: method === 'sbp' ? 'sbp' : 'card',
+                name: (nameInput && nameInput.value || '').trim()
+              })
+            });
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok || !data.ok || !data.url) {
+              throw new Error(data.error || ('Ошибка платёжного сервиса: ' + response.status));
+            }
+            window.location.assign(data.url);
           } catch (e) {
-            console.error('[donate] payment redirect failed', e);
-            setError('Не удалось открыть платёжную страницу. Попробуйте позже или свяжитесь с фондом.');
+            console.error('[donate] payment start failed', e);
             setBusy(false);
+            setError('Не удалось открыть оплату. Попробуйте позже или свяжитесь с фондом.');
           }
         };
         if (payBtn) payBtn.addEventListener('click', () => beginPayment('card'));
