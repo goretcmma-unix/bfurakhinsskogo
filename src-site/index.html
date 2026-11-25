@@ -2020,17 +2020,40 @@
       const pageSize = 25;
       let allTransactions = [];
 
+      function categoryFromDescription(description) {
+        const raw = String(description || '').trim();
+        if (!raw) return '—';
+        const lower = raw.toLowerCase();
+        const has = (words) => words.some((word) => lower.includes(word));
+        if (has(['водопровод', 'водоканал', 'водоснабж', 'воду', 'воды', 'водовод'])) return 'Водоснабжение';
+        if (has(['лечен', 'реабилитац', 'операц', 'ожог'])) return 'Лечение';
+        if (has(['погорель', 'пожар', 'сгорев', 'взрыв', 'разрушен', 'наводнен', 'пострадавш'])) return 'Пострадавшим';
+        if (has(['малоимуч', 'нуждающ'])) return 'Малоимущим';
+        if (has(['пятниц', 'ифтар'])) return 'Пятничный сбор';
+        if (has(['налог', 'плата за', 'комисс', 'обслуживан', 'перевод', 'оплата по счету', 'сбер', 'карт'])) return 'Платежи и комиссии';
+        if (has(['садак', 'благодаря', 'благотворительн', 'пожертвован', 'бисмилл', 'добро', 'во благо', 'подарок', 'грехов'])) return 'Благотворительность';
+        if (has(['помощ', 'помош', 'ромощ'])) return 'Помощь';
+        if (has(['сбор'])) return 'Сбор средств';
+        return 'Прочее';
+      }
+
       function normalizeTransactions(txns) {
-        return (Array.isArray(txns) ? txns : []).map(t => ({
-          date: t?.date || '',
-          time: t?.time || '',
-          type: t?.type === 'expense' ? 'expense' : 'income',
-          category: t?.category || '—',
-          description: t?.description || '',
-          donor: t?.donor || '—',
-          amount: Number(t?.amount) || 0,
-          doc: t?.doc || '—'
-        })).sort((a, b) => {
+        return (Array.isArray(txns) ? txns : []).map(t => {
+          const description = t?.description || '';
+          const sourceCategory = String(t?.category || '').trim();
+          const categoryAuto = !sourceCategory || sourceCategory === '—';
+          return {
+            date: t?.date || '',
+            time: t?.time || '',
+            type: t?.type === 'expense' ? 'expense' : 'income',
+            category: categoryAuto ? categoryFromDescription(description) : sourceCategory,
+            categoryAuto,
+            description,
+            donor: t?.donor || '—',
+            amount: Number(t?.amount) || 0,
+            doc: t?.doc || '—'
+          };
+        }).sort((a, b) => {
           const da = new Date(`${a.date}T${a.time || '00:00'}`);
           const db = new Date(`${b.date}T${b.time || '00:00'}`);
           return db - da;
@@ -2717,7 +2740,7 @@
           const income = t.type === 'income' ? '+' + formatCurrency(t.amount) : '';
           const expense = t.type === 'expense' ? '−' + formatCurrency(t.amount) : '';
           const opLabel = t.type === 'income' ? 'Поступление' : 'Расход';
-          const category = hasText(t.category) ? String(t.category).trim() : '';
+          const category = !t.categoryAuto && hasText(t.category) ? String(t.category).trim() : '';
           const desc = hasText(t.description) ? String(t.description).trim() : '';
           const purposeParts = [];
           if (category) purposeParts.push(`<span>${esc(category)}</span>`);

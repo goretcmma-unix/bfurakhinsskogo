@@ -78,7 +78,7 @@ async function build() {
   for (const match of html.matchAll(/classList\.(?:add|remove|toggle|contains)\s*\(\s*["']([^"']+)["']/g)) {
     addClass(match[1]);
   }
-  for (const match of html.matchAll(/(?:querySelector|querySelectorAll|getElementsByClassName)\s*\(\s*["']\.([^"']+)["']/g)) {
+  for (const match of html.matchAll(/(?:querySelector|querySelectorAll|getElementsByClassName|closest|matches)\s*\(\s*["']\.([^"']+)["']/g)) {
     for (const cls of match[1].split(/\s+/)) addClass(cls);
   }
   for (const match of html.matchAll(/\bclassName\s*=\s*["']([^"']+)["']/g)) {
@@ -181,6 +181,8 @@ async function build() {
   html = html.replace(/(\bclassName\s*=\s*)(["'])([^"']+)\2/g,
     (full, prefix, quote, value) => prefix + quote + swapClasses(value) + quote);
   html = html.replace(/((?:querySelector|querySelectorAll)\s*\(\s*)(["'])([^"']+)\2/g,
+    (full, prefix, quote, value) => prefix + quote + swapClasses(value, true) + quote);
+  html = html.replace(/(\.(?:closest|matches)\s*\(\s*)(["'])([^"']+)\2/g,
     (full, prefix, quote, value) => prefix + quote + swapClasses(value, true) + quote);
 
   dynamicTokens.forEach((code, index) => {
