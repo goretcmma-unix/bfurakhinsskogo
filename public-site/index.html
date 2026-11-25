@@ -26,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
     <meta name="description" content="Благотворительный фонд имени Абдуллахаджи Урахинского — прозрачная статистика пожертвований и расходов" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="keywords" content="Благотворительный фонд, фонд сергокалы, сергокала фонд, помощь, благотворительность, прозрачность пожертвований, статистика расходов">
@@ -1442,9 +1442,15 @@
       .donate-modal.qr-mode .donate-header { margin-bottom: 8px; }
       .donate-secure { margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: var(--muted); }
       .donate-secure svg { width: 14px; height: 14px; stroke: var(--muted); flex-shrink: 0; }
+      .donate-consent { display: flex; align-items: flex-start; gap: 10px; margin-top: 14px; font-size: 12px; color: var(--muted-strong); line-height: 1.5; cursor: pointer; }
+      .donate-consent input { width: 16px; height: 16px; margin-top: 1px; accent-color: var(--accent); flex-shrink: 0; cursor: pointer; }
+      .donate-consent a, .donate-note a, .donate-consent button, .donate-note button, .footer-bottom-links a, .footer-bottom-links button, .footer-links button { color: var(--text-soft); text-decoration: underline; text-underline-offset: 2px; background: none; border: none; padding: 0; font: inherit; cursor: pointer; }
+      .donate-consent a:hover, .donate-note a:hover, .donate-consent button:hover, .donate-note button:hover, .footer-bottom-links a:hover, .footer-bottom-links button:hover, .footer-links button:hover { color: var(--accent); }
+      .donate-error { min-height: 18px; margin-top: 8px; font-size: 12px; color: #f87171; text-align: center; }
+      .donate-pay:disabled, .donate-sbp:disabled, .donate-qr-toggle:disabled { opacity: 0.55; cursor: not-allowed; filter: grayscale(0.15); }
       .donate-note { margin-top: 8px; font-size: 11px; color: #5f6966; line-height: 1.5; text-align: center; }
-      .donate-note a { color: var(--muted); text-decoration: none; }
-      .donate-note a:hover { color: var(--text-soft); text-decoration: underline; }
+      .donate-note a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+      .donate-note a:hover { color: var(--text-soft); }
       @media (max-width: 640px) {
         .donate-overlay { align-items: flex-end; justify-content: center; padding: max(64px, calc(env(safe-area-inset-top) + 16px)) 12px max(12px, env(safe-area-inset-bottom)); }
         .donate-modal { width: 100%; max-width: 480px; max-height: calc(100dvh - max(64px, calc(env(safe-area-inset-top) + 16px)) - max(12px, env(safe-area-inset-bottom))); border-radius: 20px; padding: 8px 20px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.28s cubic-bezier(0.4, 0, 1, 1); }
@@ -1463,6 +1469,24 @@
 
       /* ===== UTILITIES ===== */
       .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+      .footer-requisites { margin-top: 14px; display: grid; gap: 4px; font-size: 12px; line-height: 1.55; color: var(--muted-strong); }
+      .footer-requisites strong { color: var(--text-soft); font-weight: 500; }
+      .footer-bottom-links { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; }
+      .footer-bottom-links a, .footer-bottom-links button { background: none; border: none; padding: 0; font: inherit; color: var(--muted-strong); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+      .footer-bottom-links a:hover, .footer-bottom-links button:hover { color: var(--accent); }
+      .legal-overlay { position: fixed; inset: 0; z-index: 220; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(5,7,7,0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.28s cubic-bezier(0.4,0,1,1), visibility 0s linear 0.28s; }
+      .legal-overlay.open { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity 0.28s cubic-bezier(0,0,0.2,1), visibility 0s linear 0s; }
+      .legal-modal { width: 100%; max-width: 760px; max-height: calc(100dvh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; background: #121716; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; box-shadow: 0 20px 48px rgba(0,0,0,0.55); position: relative; }
+      .legal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border: none; border-radius: 8px; background: transparent; color: var(--muted); cursor: pointer; font-size: 22px; line-height: 1; display: flex; align-items: center; justify-content: center; }
+      .legal-close:hover { background: rgba(255,255,255,0.06); color: var(--text); }
+      .legal-modal h2 { font-size: 22px; line-height: 1.3; margin: 0 40px 18px 0; color: var(--text); }
+      .legal-modal h3 { font-size: 15px; margin: 20px 0 8px; color: var(--text-soft); }
+      .legal-modal p, .legal-modal li { font-size: 14px; line-height: 1.7; color: var(--muted-strong); }
+      .legal-modal ul { padding-left: 20px; margin: 8px 0 0; display: grid; gap: 6px; }
+      .legal-meta { padding: 14px 16px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; background: rgba(255,255,255,0.02); margin-bottom: 16px; display: grid; gap: 4px; }
+      .legal-meta span { font-size: 13px; color: var(--muted-strong); }
+      .legal-meta strong { color: var(--text-soft); font-weight: 500; }
+      @media (max-width: 640px) { .legal-overlay { padding: 12px; } .legal-modal { padding: 20px; max-height: calc(100dvh - 24px); } .legal-modal h2 { font-size: 19px; } }
     </style>
   </head>
   <body>
@@ -1481,7 +1505,7 @@
             <a href="#impact" class="nav-link">Влияние</a>
             <a href="#reports" class="nav-link">Отчётность</a>
           </nav>
-          <a class="btn-help" href="mailto:tagir.tagirov.62@mail.ru?subject=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0" aria-label="Написать в поддержку" title="Написать в поддержку"><span class="btn-help-text">Написать в поддержку</span><svg class="btn-help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+          <a class="btn-help" href="mailto:fondabdullakhadzhi@mail.ru?subject=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0" aria-label="Написать в поддержку" title="Написать в поддержку"><span class="btn-help-text">Написать в поддержку</span><svg class="btn-help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
           <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Открыть меню" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -1742,19 +1766,34 @@
               <a href="#reports">Годовой отчёт 2025</a>
               <a href="#reports">Финансовый аудит</a>
               <a href="Устав АУрахинского.PDF" target="_blank" rel="noopener noreferrer">Устав фонда</a>
+              <button type="button" data-legal-open="offer">Публичная оферта</button>
+              <button type="button" data-legal-open="privacy">Политика обработки персональных данных</button>
             </div>
           </nav>
           <div class="footer-contact">
-            <h3 class="footer-title">Контакты</h3>
+            <h3 class="footer-title">Контакты и реквизиты</h3>
             <div class="footer-links">
               <a href="mailto:fondabdullakhadzhi@mail.ru">fondabdullakhadzhi@mail.ru</a>
-              <a href="tel:+79640206215">+7 909 005 66 99</a>
+              <a href="tel:[ВСТАВЬТЕ ТЕЛЕФОН ФОНДА]">[ВСТАВЬТЕ ТЕЛЕФОН ФОНДА]</a>
               <a href="https://yandex.ru/maps/-/CXcK7B~1" target="_blank" rel="noopener noreferrer">село Сергокала, Республика Дагестан</a>
+            </div>
+            <div class="footer-requisites" aria-label="Официальные реквизиты">
+              <span><strong>Получатель:</strong> [ВСТАВЬТЕ НАЗВАНИЕ ПО УСТАВУ]</span>
+              <span><strong>ИНН / КПП:</strong> [ВСТАВЬТЕ ИНН / КПП]</span>
+              <span><strong>ОГРН:</strong> [ВСТАВЬТЕ ОГРН]</span>
+              <span><strong>Юр. адрес:</strong> [ВСТАВЬТЕ АДРЕС]</span>
+              <span><strong>Р/с:</strong> [ВСТАВЬТЕ Р/С]</span>
+              <span><strong>Банк:</strong> [ВСТАВЬТЕ НАЗВАНИЕ БАНКА]</span>
+              <span><strong>БИК / К/с:</strong> [ВСТАВЬТЕ БИК И К/С]</span>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© 2025 Фонд имени Абдуллахаджи Урахинского — Прозрачная отчётность по средствам фонда</p>
+          <p>© 2025 [ВСТАВЬТЕ НАЗВАНИЕ ПО УСТАВУ]. Прозрачная отчётность по средствам фонда.</p>
+          <div class="footer-bottom-links">
+            <button type="button" data-legal-open="offer">Публичная оферта</button>
+            <button type="button" data-legal-open="privacy">Политика обработки персональных данных</button>
+          </div>
           <div class="footer-social" aria-label="Социальные сети">
             <a href="https://vk.ru/club243364521" aria-label="VK"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="m9.489.004.729-.003h3.564l.73.003.914.01.433.007.418.011.403.014.388.016.374.021.36.025.345.03.333.033c1.74.196 2.933.616 3.833 1.516.9.9 1.32 2.092 1.516 3.833l.034.333.029.346.025.36.02.373.025.588.012.41.013.644.009.915.004.98-.001 3.313-.003.73-.01.914-.007.433-.011.418-.014.403-.016.388-.021.374-.025.36-.03.345-.033.333c-.196 1.74-.616 2.933-1.516 3.833-.9.9-2.092 1.32-3.833 1.516l-.333.034-.346.029-.36.025-.373.02-.588.025-.41.012-.644.013-.915.009-.98.004-3.313-.001-.73-.003-.914-.01-.433-.007-.418-.011-.403-.014-.388-.016-.374-.021-.36-.025-.345-.03-.333-.033c-1.74-.196-2.933-.616-3.833-1.516-.9-.9-1.32-2.092-1.516-3.833l-.034-.333-.029-.346-.025-.36-.02-.373-.025-.588-.012-.41-.013-.644-.009-.915-.004-.98.001-3.313.003-.73.01-.914.007-.433.011-.418.014-.403.016-.388.021-.374.025-.36.03-.345.033-.333c.196-1.74.616-2.933 1.516-3.833.9-.9 2.092-1.32 3.833-1.516l.333-.034.346-.029.36-.025.373-.02.588-.025.41-.012.644-.013.915-.009ZM6.79 7.3H4.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V7.3H10.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z" fill="white"/></svg></a>
             <a href="https://t.me/bf_urakhinskogo" aria-label="Telegram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696 .065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" fill="white"/></svg></a>
@@ -1791,21 +1830,28 @@
             <input class="donate-field" id="donateName" type="text" autocomplete="name" placeholder="Имя для отчёта (необязательно)">
           </div>
 
+          <label class="donate-consent" for="donateConsent">
+            <input type="checkbox" id="donateConsent" required>
+            <span>Я соглашаюсь с условиями <button type="button" class="legal-inline" data-legal-open="offer">Публичной оферты</button> и <button type="button" class="legal-inline" data-legal-open="privacy">Политикой обработки персональных данных</button></span>
+          </label>
+
           <p class="donate-payment-label">Способ оплаты</p>
           <div class="donate-payment-methods">
-            <button type="button" class="btn-primary donate-pay" id="donatePay">Оплатить картой</button>
-            <button type="button" class="donate-sbp" id="donateSbp">
+            <button type="button" class="btn-primary donate-pay" id="donatePay" disabled>Оплатить картой</button>
+            <button type="button" class="donate-sbp" id="donateSbp" disabled>
               <img class="sbp-mark" src="sbp.svg" alt="" aria-hidden="true">
               Оплатить через СБП
             </button>
-            <button type="button" class="donate-qr-toggle" id="donateQrToggle">QR-код для оплаты</button>
+            <button type="button" class="donate-qr-toggle" id="donateQrToggle" disabled>QR-код для оплаты</button>
           </div>
+
+          <div class="donate-error" id="donateError" role="status" aria-live="polite"></div>
 
           <div class="donate-secure">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>Защищённый платёж</span>
+            <span>Оплата выполняется через платёжный сервис после подключения эквайринга</span>
           </div>
-          <p class="donate-note"><a href="#">Оферта</a></p>
+          <p class="donate-note">Перед оплатой ознакомьтесь с <button type="button" class="legal-inline" data-legal-open="offer">Публичной офертой</button> и <button type="button" class="legal-inline" data-legal-open="privacy">Политикой обработки персональных данных</button>.</p>
         </div>
 
         <div class="donate-qr-view" id="donateQrView">
@@ -1816,8 +1862,73 @@
       </div>
     </div>
 
-    <script src="./env-config.js?v=2"></script>
-    <script type="module">
+    <div class="legal-overlay" id="legalOverlay" aria-hidden="true">
+      <div class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+        <button type="button" class="legal-close" id="legalClose" aria-label="Закрыть">×</button>
+        <h2 id="legalTitle">Документ</h2>
+        <div id="legalBody"></div>
+      </div>
+    </div>
+
+    <template id="legal-offer-template">
+      <div class="legal-meta">
+        <span><strong>Фонд:</strong> [ВСТАВЬТЕ НАЗВАНИЕ ПО УСТАВУ]</span>
+        <span><strong>ИНН / КПП:</strong> [ВСТАВЬТЕ ИНН / КПП] &nbsp;|&nbsp; <strong>ОГРН:</strong> [ВСТАВЬТЕ ОГРН]</span>
+        <span><strong>Юридический адрес:</strong> [ВСТАВЬТЕ АДРЕС]</span>
+        <span><strong>Банковские реквизиты:</strong> р/с [ВСТАВЬТЕ Р/С], [ВСТАВЬТЕ НАЗВАНИЕ БАНКА], БИК [ВСТАВЬТЕ БИК И К/С]</span>
+        <span><strong>Email для обращений:</strong> <a href="mailto:fondabdullakhadzhi@mail.ru">fondabdullakhadzhi@mail.ru</a></span>
+      </div>
+      <p>Настоящий документ является публичной офертой [ВСТАВЬТЕ НАЗВАНИЕ ПО УСТАВУ] (далее — «Фонд») в соответствии со статьёй 437 Гражданского кодекса Российской Федерации и адресован неопределённому кругу лиц — физическим лицам, желающим совершить добровольное пожертвование.</p>
+      <h3>1. Предмет оферты</h3>
+      <p>1.1. Жертвователь добровольно и безвозмездно передаёт Фонду денежные средства (пожертвование) на уставные цели Фонда в порядке, предусмотренном статьёй 582 ГК РФ и Федеральным законом от 11.08.1995 № 135-ФЗ «О благотворительной деятельности и добровольчестве (волонтёрстве)».</p>
+      <p>1.2. Акцептом оферты является перечисление денежных средств через платёжную форму/СБП/банковский перевод по реквизитам Фонда. Договор пожертвования считается заключённым в письменной форме с момента поступления средств.</p>
+      <h3>2. Назначение пожертвования</h3>
+      <p>2.1. Фонд самостоятельно определяет направление использования пожертвования в рамках уставных целей, если Жертвователь не указал конкретную программу/сбор в назначении или форме пожертвования.</p>
+      <p>2.2. Если целевой сбор закрыт, собрана необходимая сумма или цель утратила актуальность, Фонд вправе направить средства на иные уставные программы, о чём информирует в публичной отчётности.</p>
+      <h3>3. Права и обязанности сторон</h3>
+      <ul>
+        <li>Фонд обязуется использовать пожертвование по уставным целям, обеспечивать учёт и публиковать отчётность в объёме, предусмотренном законодательством и уставом.</li>
+        <li>Жертвователь подтверждает добровольность и безвозмездность пожертвования, законность происхождения средств и дееспособность.</li>
+        <li>Фонд не оказывает Жертвователю встречных имущественных услуг/товаров за пожертвование.</li>
+      </ul>
+      <h3>4. Возврат ошибочно перечисленных средств</h3>
+      <p>4.1. При ошибочном перечислении средств Жертвователь вправе обратиться на <a href="mailto:fondabdullakhadzhi@mail.ru">fondabdullakhadzhi@mail.ru</a> с заявлением, указав дату, сумму, способ оплаты, ФИО/наименование плательщика и реквизиты для возврата.</p>
+      <p>4.2. Возврат производится после проверки платежа, за вычетом фактически понесённых невозвратных комиссий платёжных систем/банков, если иное не требуется законом. Срок рассмотрения — до 10 рабочих дней.</p>
+      <h3>5. Персональные данные и заключительные положения</h3>
+      <p>5.1. Осуществляя пожертвование, Жертвователь подтверждает ознакомление с Политикой обработки персональных данных и даёт согласие на обработку данных, необходимых для приёма пожертвования и отчётности.</p>
+      <p>5.2. Фонд вправе изменять оферту, публикуя новую редакцию на сайте. К отношениям сторон применяется право Российской Федерации.</p>
+    </template>
+
+    <template id="legal-privacy-template">
+      <div class="legal-meta">
+        <span><strong>Оператор:</strong> [ВСТАВЬТЕ НАЗВАНИЕ ПО УСТАВУ]</span>
+        <span><strong>ИНН / КПП:</strong> [ВСТАВЬТЕ ИНН / КПП] &nbsp;|&nbsp; <strong>ОГРН:</strong> [ВСТАВЬТЕ ОГРН]</span>
+        <span><strong>Адрес:</strong> [ВСТАВЬТЕ АДРЕС]</span>
+        <span><strong>Email для обращений по ПДн:</strong> <a href="mailto:fondabdullakhadzhi@mail.ru">fondabdullakhadzhi@mail.ru</a></span>
+      </div>
+      <p>Настоящая Политика составлена в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных пользователей сайта Фонда.</p>
+      <h3>1. Какие данные обрабатываются</h3>
+      <ul>
+        <li>Имя (если указано добровольно в форме пожертвования);</li>
+        <li>сумма, дата, способ и статус пожертвования; технические идентификаторы платежа, предоставленные платёжным сервисом;</li>
+        <li>email/телефон/иные данные, которые пользователь добровольно указывает при обращении в Фонд;</li>
+        <li>технические данные: IP-адрес, cookies/локальное хранилище, данные браузера — в объёме, необходимом для работы сайта и безопасности.</li>
+      </ul>
+      <p>Фонд не собирает и не хранит на своём сайте данные банковских карт. Ввод платёжных данных осуществляется на стороне платёжного провайдера/банка.</p>
+      <h3>2. Цели обработки</h3>
+      <ul>
+        <li>приём, учёт и возврат (при необходимости) пожертвований;</li>
+        <li>формирование обезличенной/агрегированной отчётности и выполнение обязанностей по законодательству РФ;</li>
+        <li>обратная связь по обращениям пользователей;</li>
+        <li>обеспечение работоспособности и безопасности сайта.</li>
+      </ul>
+      <h3>3. Правовые основания и сроки</h3>
+      <p>Основания: согласие субъекта ПДн, исполнение договора/оферты, выполнение обязанностей, возложенных законом. Данные хранятся не дольше, чем требуется целям обработки и требованиям законодательства о бухучёте/отчётности/благотворительной деятельности.</p>
+      <h3>4. Передача и защита данных</h3>
+      <p>Данные могут передаваться платёжным сервисам, банкам, хостинг/IT-подрядчикам и госорганам — только в необходимом объёме и на законных основаниях. Фонд принимает необходимые правовые, организационные и технические меры защиты ПДн.</p>
+      <h3>5. Права субъекта и отзыв согласия</h3>
+      <p>Субъект ПДн вправе запросить сведения об обработке, уточнение, блокирование или удаление данных, а также отозвать согласие, направив обращение на <a href="mailto:fondabdullakhadzhi@mail.ru">fondabdullakhadzhi@mail.ru</a>. Отзыв согласия не влияет на законность обработки до момента отзыва и может быть ограничен требованиями закона.</p>
+    </template>
       const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
       const isReload = navEntry ? navEntry.type === 'reload' : (performance.navigation && performance.navigation.type === 1);
       if (isReload && !location.hash) {
@@ -1982,6 +2093,7 @@
         // 1) Сразу поднимаем UI, чтобы меню/кнопки работали без ожидания сети
         try { if (typeof initCustomSelects === 'function') initCustomSelects(); } catch (e) { console.error(e); }
         try { if (typeof initDonate === 'function') initDonate(); } catch (e) { console.error(e); }
+        try { if (typeof initLegalModals === 'function') initLegalModals(); } catch (e) { console.error(e); }
         try { initMobileMenuAndTableControls(); } catch (e) { console.error(e); }
 
         // 2) Загружаем данные только из same-origin data.json; при сбое — localStorage-кэш
@@ -2718,13 +2830,38 @@
         const closeBtn = document.getElementById('donateClose');
         const payBtn = document.getElementById('donatePay');
         const amountInput = document.getElementById('donateAmount');
+        const nameInput = document.getElementById('donateName');
         const amtBtns = Array.from(document.querySelectorAll('.donate-amt'));
         const qrToggle = document.getElementById('donateQrToggle');
         const qrBack = document.getElementById('donateQrBack');
         const sbpBtn = document.getElementById('donateSbp');
+        const consent = document.getElementById('donateConsent');
+        const errorEl = document.getElementById('donateError');
+        const DONATE_PAYMENT_URL = ''; // TODO: вставить официальный URL виджета/платёжной страницы «Технологии Добра»
         if (!overlay) return;
-        const open = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; };
-        const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (modal) modal.classList.remove('qr-mode'); };
+        let donateBusy = false;
+        const getAmount = () => Number(String(amountInput && amountInput.value || '').replace(/\D/g, '')) || 0;
+        const setError = (msg) => { if (errorEl) errorEl.textContent = msg || ''; };
+        const syncDonateState = () => {
+          const amount = getAmount();
+          const ok = amount >= 50 && !!(consent && consent.checked) && !donateBusy;
+          [payBtn, sbpBtn, qrToggle].forEach(btn => { if (btn) btn.disabled = !ok; });
+          if (amount > 0 && amount < 50) setError('Минимальная сумма пожертвования — 50 ₽');
+          else if (amount >= 50 && consent && !consent.checked) setError('Подтвердите согласие с офертой и политикой обработки персональных данных');
+          else setError('');
+          return { amount, ok: amount >= 50 && !!(consent && consent.checked) };
+        };
+        const setBusy = (busy, label) => {
+          donateBusy = busy;
+          [payBtn, sbpBtn, qrToggle].forEach(btn => {
+            if (!btn) return;
+            if (!btn.dataset.defaultLabel) btn.dataset.defaultLabel = btn.textContent;
+            btn.textContent = busy && label ? label : btn.dataset.defaultLabel;
+          });
+          syncDonateState();
+        };
+        const open = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; syncDonateState(); };
+        const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (modal) modal.classList.remove('qr-mode'); setBusy(false); };
         document.querySelectorAll('[data-donate]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); open(); }));
         if (closeBtn) closeBtn.addEventListener('click', close);
         overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
@@ -2733,10 +2870,9 @@
           amtBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           if (amountInput) amountInput.value = btn.dataset.amount || '';
+          syncDonateState();
         }));
         if (amountInput) {
-          // При нажатии на поле суммы каретка встаёт в конец числа.
-          // При открытии модалки поле не фокусируется — клавиатура не всплывает.
           const caretToEnd = () => {
             const end = (amountInput.value || '').length;
             amountInput.setSelectionRange(end, end);
@@ -2744,20 +2880,70 @@
           amountInput.addEventListener('focus', caretToEnd);
           amountInput.addEventListener('click', caretToEnd);
           amountInput.addEventListener('input', () => {
-            // Оставляем только цифры — как было у type="number".
             const digits = amountInput.value.replace(/\D/g, '');
             if (digits !== amountInput.value) amountInput.value = digits;
             amtBtns.forEach(b => b.classList.toggle('active', b.dataset.amount === amountInput.value));
+            syncDonateState();
           });
         }
-        if (payBtn) payBtn.addEventListener('click', () => {
-          const amount = Math.max(50, Number(amountInput && amountInput.value) || 1000);
-          const name = (document.getElementById('donateName') || {}).value || '';
-          window.location.href = 'mailto:tagir.tagirov.62@mail.ru?subject=' + encodeURIComponent('Пожертвование ' + formatCurrency(amount)) + '&body=' + encodeURIComponent('Здравствуйте! Хочу сделать пожертвование на сумму ' + formatCurrency(amount) + (name ? '\nИмя: ' + name : '') + '.');
+        if (consent) consent.addEventListener('change', syncDonateState);
+        const beginPayment = (method) => {
+          const state = syncDonateState();
+          if (!state.ok) return;
+          if (!DONATE_PAYMENT_URL) {
+            setError('Платёжный сервис ещё не подключён. Для оплаты используйте реквизиты фонда или обратитесь: fondabdullakhadzhi@mail.ru');
+            return;
+          }
+          setBusy(true, 'Открываем оплату…');
+          try {
+            const url = new URL(DONATE_PAYMENT_URL, window.location.href);
+            url.searchParams.set('amount', String(state.amount));
+            url.searchParams.set('method', method);
+            const name = (nameInput && nameInput.value || '').trim();
+            if (name) url.searchParams.set('name', name);
+            window.location.assign(url.toString());
+          } catch (e) {
+            console.error('[donate] payment redirect failed', e);
+            setError('Не удалось открыть платёжную страницу. Попробуйте позже или свяжитесь с фондом.');
+            setBusy(false);
+          }
+        };
+        if (payBtn) payBtn.addEventListener('click', () => beginPayment('card'));
+        if (sbpBtn) sbpBtn.addEventListener('click', () => beginPayment('sbp'));
+        if (qrToggle && modal) qrToggle.addEventListener('click', () => {
+          const state = syncDonateState();
+          if (!state.ok) return;
+          modal.classList.add('qr-mode');
         });
-        if (qrToggle && modal) qrToggle.addEventListener('click', () => modal.classList.add('qr-mode'));
         if (qrBack && modal) qrBack.addEventListener('click', () => modal.classList.remove('qr-mode'));
-        if (sbpBtn) sbpBtn.addEventListener('click', () => { if (modal) modal.classList.add('qr-mode'); });
+        syncDonateState();
+      }
+
+      function initLegalModals() {
+        const overlay = document.getElementById('legalOverlay');
+        const title = document.getElementById('legalTitle');
+        const body = document.getElementById('legalBody');
+        const closeBtn = document.getElementById('legalClose');
+        const templates = {
+          offer: { title: 'Публичная оферта о заключении договора добровольного пожертвования', id: 'legal-offer-template' },
+          privacy: { title: 'Политика обработки персональных данных', id: 'legal-privacy-template' }
+        };
+        if (!overlay || !title || !body) return;
+        const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; };
+        const open = (key) => {
+          const t = templates[key];
+          const tpl = t ? document.getElementById(t.id) : null;
+          if (!t || !tpl) return;
+          title.textContent = t.title;
+          body.replaceChildren(tpl.content.cloneNode(true));
+          overlay.classList.add('open');
+          overlay.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        };
+        document.querySelectorAll('[data-legal-open]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); open(el.getAttribute('data-legal-open')); }));
+        if (closeBtn) closeBtn.addEventListener('click', close);
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('open')) close(); });
       }
 
       function initMobileMenuAndTableControls() {
@@ -2986,8 +3172,8 @@
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "email": "tagir.tagirov.62@mail.ru",
-          "telephone": "+7-964-020-62-15"
+          "email": "fondabdullakhadzhi@mail.ru",
+          "telephone": "[ВСТАВЬТЕ ТЕЛЕФОН ФОНДА]"
         },
         "sameAs": []
       }
