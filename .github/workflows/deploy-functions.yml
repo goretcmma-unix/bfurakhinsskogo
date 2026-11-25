@@ -18,26 +18,31 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
     steps:
       - name: Checkout
+        if: env.SUPABASE_ACCESS_TOKEN != ''
         uses: actions/checkout@v4
 
       - name: Setup Supabase CLI
+        if: env.SUPABASE_ACCESS_TOKEN != ''
         uses: supabase/setup-cli@v1
         with:
           version: latest
 
       - name: Link project
-        env:
-          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        if: env.SUPABASE_ACCESS_TOKEN != ''
         run: supabase link --project-ref ybgxfewbhjvtgdklzihr
 
       - name: Deploy create-payment
-        env:
-          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        if: env.SUPABASE_ACCESS_TOKEN != ''
         run: supabase functions deploy create-payment --no-verify-jwt
 
       - name: Deploy atol-callback
-        env:
-          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        if: env.SUPABASE_ACCESS_TOKEN != ''
         run: supabase functions deploy atol-callback --no-verify-jwt
+
+      - name: Notice
+        if: env.SUPABASE_ACCESS_TOKEN == ''
+        run: echo "SUPABASE_ACCESS_TOKEN is not set — payment functions deploy skipped."

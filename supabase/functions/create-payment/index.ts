@@ -14,8 +14,8 @@
  */
 
 const ATOL_API = 'https://new-api-mobile.atolpay.ru/v1/ecom/payments';
-const DEFAULT_SITE_ORIGIN = 'https://goretcmma-unix.github.io';
-const DEFAULT_SITE_URL = 'https://goretcmma-unix.github.io/bfurakhinsskogo/';
+const DEFAULT_SITE_ORIGIN = 'https://fond-urakhinskogo.ru,https://goretcmma-unix.github.io';
+const DEFAULT_SITE_URL = 'https://fond-urakhinskogo.ru/';
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
