@@ -1383,9 +1383,11 @@
       .footer-logo-mark img { width: 100%; height: 100%; display: block; }
       .footer-desc { font-size: 15px; color: var(--text-soft); line-height: 1.7; }
       .footer-title { font-size: 14px; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
-      .footer-links { display: flex; flex-direction: column; gap: 12px; }
+      .footer-links { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
       .footer-links a { font-size: 15px; color: var(--text-soft); transition: color 0.2s, transform 0.2s; }
       .footer-links a:hover { color: var(--accent); transform: translateX(4px); }
+      .footer-links button { font-size: 15px; color: var(--text-soft); background: none; border: none; padding: 0; margin: 0; text-align: left; cursor: pointer; transition: color 0.2s, transform 0.2s; font: inherit; line-height: 1.5; }
+      .footer-links button:hover { color: var(--accent); transform: translateX(4px); }
       .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid var(--border); font-size: 14px; color: var(--muted); flex-wrap: wrap; gap: 16px; }
       @media (max-width: 640px) { .footer-bottom { flex-direction: column; text-align: center; } }
       .footer-social { display: flex; gap: 14px; justify-content: center; margin-top: 4px; }
@@ -1444,12 +1446,12 @@
       .donate-secure svg { width: 14px; height: 14px; stroke: var(--muted); flex-shrink: 0; }
       .donate-consent { display: flex; align-items: flex-start; gap: 10px; margin-top: 14px; font-size: 12px; color: var(--muted-strong); line-height: 1.5; cursor: pointer; }
       .donate-consent input { width: 16px; height: 16px; margin-top: 1px; accent-color: var(--accent); flex-shrink: 0; cursor: pointer; }
-      .donate-consent a, .donate-note a, .donate-consent button, .donate-note button, .footer-bottom-links a, .footer-bottom-links button, .footer-links button { color: var(--text-soft); text-decoration: underline; text-underline-offset: 2px; background: none; border: none; padding: 0; font: inherit; cursor: pointer; }
+      .donate-consent a, .donate-note a, .donate-consent button, .donate-note button, .footer-bottom-links a, .footer-bottom-links button, .footer-links button { color: var(--text-soft); text-decoration: none; background: none; border: none; padding: 0; font: inherit; cursor: pointer; }
       .donate-consent a:hover, .donate-note a:hover, .donate-consent button:hover, .donate-note button:hover, .footer-bottom-links a:hover, .footer-bottom-links button:hover, .footer-links button:hover { color: var(--accent); }
       .donate-error { min-height: 18px; margin-top: 8px; font-size: 12px; color: #f87171; text-align: center; }
       .donate-pay:disabled, .donate-sbp:disabled, .donate-qr-toggle:disabled { opacity: 0.55; cursor: not-allowed; filter: grayscale(0.15); }
       .donate-note { margin-top: 8px; font-size: 11px; color: #5f6966; line-height: 1.5; text-align: center; }
-      .donate-note a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+      .donate-note a { color: var(--muted); text-decoration: none; }
       .donate-note a:hover { color: var(--text-soft); }
       @media (max-width: 640px) {
         .donate-overlay { align-items: flex-end; justify-content: center; padding: max(64px, calc(env(safe-area-inset-top) + 16px)) 12px max(12px, env(safe-area-inset-bottom)); }
@@ -1763,9 +1765,9 @@
           <nav class="footer-nav" aria-label="Документы">
             <h3 class="footer-title">Документы</h3>
             <div class="footer-links">
+              <a href="Устав АУрахинского.PDF" target="_blank" rel="noopener noreferrer">Устав фонда</a>
               <a href="#reports">Годовой отчёт 2025</a>
               <a href="#reports">Финансовый аудит</a>
-              <a href="Устав АУрахинского.PDF" target="_blank" rel="noopener noreferrer">Устав фонда</a>
               <button type="button" data-legal-open="offer">Публичная оферта</button>
               <button type="button" data-legal-open="privacy">Политика обработки персональных данных</button>
             </div>
@@ -1790,10 +1792,6 @@
         </div>
         <div class="footer-bottom">
           <p>© 2025 Фонд имени Абдуллахаджи Урахинского. Прозрачная отчётность по средствам фонда.</p>
-          <div class="footer-bottom-links">
-            <button type="button" data-legal-open="offer">Публичная оферта</button>
-            <button type="button" data-legal-open="privacy">Политика обработки персональных данных</button>
-          </div>
           <div class="footer-social" aria-label="Социальные сети">
             <a href="https://vk.ru/club243364521" aria-label="VK"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="m9.489.004.729-.003h3.564l.73.003.914.01.433.007.418.011.403.014.388.016.374.021.36.025.345.03.333.033c1.74.196 2.933.616 3.833 1.516.9.9 1.32 2.092 1.516 3.833l.034.333.029.346.025.36.02.373.025.588.012.41.013.644.009.915.004.98-.001 3.313-.003.73-.01.914-.007.433-.011.418-.014.403-.016.388-.021.374-.025.36-.03.345-.033.333c-.196 1.74-.616 2.933-1.516 3.833-.9.9-2.092 1.32-3.833 1.516l-.333.034-.346.029-.36.025-.373.02-.588.025-.41.012-.644.013-.915.009-.98.004-3.313-.001-.73-.003-.914-.01-.433-.007-.418-.011-.403-.014-.388-.016-.374-.021-.36-.025-.345-.03-.333-.033c-1.74-.196-2.933-.616-3.833-1.516-.9-.9-1.32-2.092-1.516-3.833l-.034-.333-.029-.346-.025-.36-.02-.373-.025-.588-.012-.41-.013-.644-.009-.915-.004-.98.001-3.313.003-.73.01-.914.007-.433.011-.418.014-.403.016-.388.021-.374.025-.36.03-.345.033-.333c.196-1.74.616-2.933 1.516-3.833.9-.9 2.092-1.32 3.833-1.516l.333-.034.346-.029.36-.025.373-.02.588-.025.41-.012.644-.013.915-.009ZM6.79 7.3H4.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V7.3H10.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z" fill="white"/></svg></a>
             <a href="https://t.me/bf_urakhinskogo" aria-label="Telegram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696 .065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" fill="white"/></svg></a>
