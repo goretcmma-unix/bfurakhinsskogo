@@ -20,6 +20,4 @@ resources/*.p12
 resources/*.pem
 resources/*.pfx
 resources/*.key
-supabase/*
-!supabase/functions/
-!supabase/functions/**
+supabase/
