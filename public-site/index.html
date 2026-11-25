@@ -1386,7 +1386,7 @@
       .footer-links { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
       .footer-links a { font-size: 15px; color: var(--text-soft); transition: color 0.2s, transform 0.2s; }
       .footer-links a:hover { color: var(--accent); transform: translateX(4px); }
-      .footer-links button { font-size: 15px; color: var(--text-soft); background: none; border: none; padding: 0; margin: 0; text-align: left; cursor: pointer; transition: color 0.2s, transform 0.2s; font: inherit; line-height: 1.5; }
+      .footer-links button { font: inherit; font-size: 15px; color: var(--text-soft); background: none; border: none; padding: 0; margin: 0; text-align: left; cursor: pointer; transition: color 0.2s, transform 0.2s; line-height: 1.5; }
       .footer-links button:hover { color: var(--accent); transform: translateX(4px); }
       .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid var(--border); font-size: 14px; color: var(--muted); flex-wrap: wrap; gap: 16px; }
       @media (max-width: 640px) { .footer-bottom { flex-direction: column; text-align: center; } }
@@ -1442,17 +1442,21 @@
       .donate-modal.qr-mode .donate-form-body { display: none; }
       .donate-modal.qr-mode .donate-qr-view { display: flex; }
       .donate-modal.qr-mode .donate-header { margin-bottom: 8px; }
-      .donate-secure { margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: var(--muted); }
-      .donate-secure svg { width: 14px; height: 14px; stroke: var(--muted); flex-shrink: 0; }
-      .donate-consent { display: flex; align-items: flex-start; gap: 10px; margin-top: 14px; font-size: 12px; color: var(--muted-strong); line-height: 1.5; cursor: pointer; }
-      .donate-consent input { width: 16px; height: 16px; margin-top: 1px; accent-color: var(--accent); flex-shrink: 0; cursor: pointer; }
-      .donate-consent a, .donate-note a, .donate-consent button, .donate-note button, .footer-bottom-links a, .footer-bottom-links button, .footer-links button { color: var(--text-soft); text-decoration: none; background: none; border: none; padding: 0; font: inherit; cursor: pointer; }
-      .donate-consent a:hover, .donate-note a:hover, .donate-consent button:hover, .donate-note button:hover, .footer-bottom-links a:hover, .footer-bottom-links button:hover, .footer-links button:hover { color: var(--accent); }
-      .donate-error { min-height: 18px; margin-top: 8px; font-size: 12px; color: #f87171; text-align: center; }
+      .donate-consent { position: relative; display: grid; grid-template-columns: 1fr minmax(0, 320px) 1fr; align-items: start; margin-top: 16px; font-size: 12px; color: var(--muted-strong); line-height: 1.5; text-align: center; cursor: pointer; }
+      .donate-consent-control { position: absolute; left: max(0px, calc(50% - 160px)); top: 2px; width: 18px; height: 18px; }
+      .donate-consent input { position: absolute; inset: 0; z-index: 1; width: 18px; height: 18px; margin: 0; opacity: 0; cursor: pointer; }
+      .donate-consent-box { position: absolute; inset: 0; pointer-events: none; border: 1px solid rgba(255,255,255,0.22); border-radius: 5px; background: #0f1312; transition: background 0.15s, border-color 0.15s, box-shadow 0.15s; }
+      .donate-consent-box::after { content: ''; position: absolute; left: 50%; top: 50%; width: 11px; height: 11px; background: #0b0d0d; clip-path: polygon(8% 50%, 0 62%, 38% 100%, 100% 22%, 86% 8%, 38% 72%, 22% 50%); opacity: 0; transform: translate(-50%, -50%) scale(0.7); transition: opacity 0.15s, transform 0.15s; }
+      .donate-consent input:checked + .donate-consent-box { background: var(--accent); border-color: var(--accent); }
+      .donate-consent input:checked + .donate-consent-box::after { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      .donate-consent input:focus-visible + .donate-consent-box { outline: 2px solid rgba(64,222,216,0.45); outline-offset: 2px; }
+      .donate-consent.invalid .donate-consent-box { border-color: #e2a05a; box-shadow: 0 0 0 3px rgba(226,160,90,0.14); }
+      .donate-consent-text { grid-column: 2; min-width: 0; padding-left: 26px; box-sizing: border-box; }
+      .donate-consent a, .donate-consent button, .footer-bottom-links a, .footer-bottom-links button { color: var(--text-soft); text-decoration: none; background: none; border: none; padding: 0; font: inherit; cursor: pointer; }
+      .donate-consent a:hover, .donate-consent button:hover, .footer-bottom-links a:hover, .footer-bottom-links button:hover, .footer-links button:hover { color: var(--accent); }
+      .donate-error { margin: 6px 0 0; font-size: 12px; line-height: 1.4; text-align: center; color: #e2a05a; }
+      .donate-error:empty { display: none; }
       .donate-pay:disabled, .donate-sbp:disabled, .donate-qr-toggle:disabled { opacity: 0.55; cursor: not-allowed; filter: grayscale(0.15); }
-      .donate-note { margin-top: 8px; font-size: 11px; color: #5f6966; line-height: 1.5; text-align: center; }
-      .donate-note a { color: var(--muted); text-decoration: none; }
-      .donate-note a:hover { color: var(--text-soft); }
       @media (max-width: 640px) {
         .donate-overlay { align-items: flex-end; justify-content: center; padding: max(64px, calc(env(safe-area-inset-top) + 16px)) 12px max(12px, env(safe-area-inset-bottom)); }
         .donate-modal { width: 100%; max-width: 480px; max-height: calc(100dvh - max(64px, calc(env(safe-area-inset-top) + 16px)) - max(12px, env(safe-area-inset-bottom))); border-radius: 20px; padding: 8px 20px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.28s cubic-bezier(0.4, 0, 1, 1); }
@@ -1471,22 +1475,34 @@
 
       /* ===== UTILITIES ===== */
       .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+      .footer-requisites-line { font-size: 13px; color: var(--muted); line-height: 1.5; }
       .footer-bottom-links { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; }
       .footer-bottom-links a, .footer-bottom-links button { background: none; border: none; padding: 0; font: inherit; color: var(--muted-strong); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
       .footer-bottom-links a:hover, .footer-bottom-links button:hover { color: var(--accent); }
-      .legal-overlay { position: fixed; inset: 0; z-index: 220; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(5,7,7,0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.28s cubic-bezier(0.4,0,1,1), visibility 0s linear 0.28s; }
+      .legal-overlay { position: fixed; inset: 0; z-index: 220; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(5,7,7,0.84); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.28s cubic-bezier(0.4,0,1,1), visibility 0s linear 0.28s; }
       .legal-overlay.open { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity 0.28s cubic-bezier(0,0,0.2,1), visibility 0s linear 0s; }
-      .legal-modal { width: 100%; max-width: 760px; max-height: calc(100dvh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; background: #121716; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; box-shadow: 0 20px 48px rgba(0,0,0,0.55); position: relative; }
-      .legal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border: none; border-radius: 8px; background: transparent; color: var(--muted); cursor: pointer; font-size: 22px; line-height: 1; display: flex; align-items: center; justify-content: center; }
-      .legal-close:hover { background: rgba(255,255,255,0.06); color: var(--text); }
-      .legal-modal h2 { font-size: 22px; line-height: 1.3; margin: 0 40px 18px 0; color: var(--text); }
+      .legal-modal { width: 100%; max-width: 760px; max-height: calc(100dvh - 48px); overflow: hidden; background: #121716; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; box-shadow: 0 20px 48px rgba(0,0,0,0.55); position: relative; display: flex; flex-direction: column; }
+      .legal-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; background: #121716; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .legal-close { width: 32px; height: 32px; min-width: 32px; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; background: transparent; color: var(--muted); cursor: pointer; font-size: 20px; line-height: 1; display: inline-flex; align-items: center; justify-content: center; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+      .legal-close:hover { background: rgba(255,255,255,0.06); color: var(--text); border-color: rgba(255,255,255,0.14); }
+      .legal-modal h2 { font-size: 22px; line-height: 1.3; margin: 0; color: var(--text); }
+      .legal-body { padding: 24px; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+      .legal-body::-webkit-scrollbar { width: 0; height: 0; display: none; }
       .legal-modal h3 { font-size: 15px; margin: 20px 0 8px; color: var(--text-soft); }
       .legal-modal p, .legal-modal li { font-size: 14px; line-height: 1.7; color: var(--muted-strong); }
       .legal-modal ul { padding-left: 20px; margin: 8px 0 0; display: grid; gap: 6px; }
       .legal-meta { padding: 14px 16px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; background: rgba(255,255,255,0.02); margin-bottom: 16px; display: grid; gap: 4px; }
       .legal-meta span { font-size: 13px; color: var(--muted-strong); }
       .legal-meta strong { color: var(--text-soft); font-weight: 500; }
-      @media (max-width: 640px) { .legal-overlay { padding: 12px; } .legal-modal { padding: 20px; max-height: calc(100dvh - 24px); } .legal-modal h2 { font-size: 19px; } }
+      .req-grid { display: grid; gap: 10px; margin-top: 8px; }
+      .req-row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 14px; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; background: rgba(255,255,255,0.02); }
+      .req-row .k { color: var(--muted); font-size: 13px; }
+      .req-row .v { color: var(--text-soft); font-size: 14px; text-align: right; word-break: break-word; }
+      .req-actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+      .req-copy { padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(64,222,216,0.35); background: rgba(64,222,216,0.08); color: var(--accent); cursor: pointer; font: inherit; font-size: 14px; }
+      .req-copy:hover { background: rgba(64,222,216,0.14); }
+      .req-copy-status { font-size: 13px; color: var(--muted-strong); align-self: center; min-height: 20px; }
+      @media (max-width: 640px) { .legal-overlay { padding: 12px; } .legal-head { padding: 16px 18px; } .legal-body { padding: 18px; } .legal-modal h2 { font-size: 19px; } .req-row { flex-direction: column; gap: 4px; } .req-row .v { text-align: left; } }
     </style>
   </head>
   <body>
@@ -1767,7 +1783,7 @@
               <a href="#reports">Годовой отчёт 2025</a>
               <a href="#reports">Финансовый аудит</a>
               <button type="button" data-legal-open="offer">Публичная оферта</button>
-              <button type="button" data-legal-open="privacy">Политика обработки персональных данных</button>
+              <button type="button" data-legal-open="privacy">Конфиденциальность</button>
             </div>
           </nav>
           <div class="footer-contact">
@@ -1775,7 +1791,8 @@
             <div class="footer-links">
               <a href="mailto:fondabdullakhadzhi@mail.ru">fondabdullakhadzhi@mail.ru</a>
               <a href="tel:+79640206215">+7 909 005 66 99</a>
-              <a href="https://yandex.ru/maps/-/CXcK7B~1" target="_blank" rel="noopener noreferrer">село Сергокала, Республика Дагестан</a>
+              <a href="https://yandex.ru/maps/-/CXcK7B~1" target="_blank" rel="noopener noreferrer">Сергокала, Республика Дагестан</a>
+              <span class="footer-requisites-line">ИНН 0500025148 / ОГРН 1240500022510</span>
             </div>
           </div>
         </div>
@@ -1817,28 +1834,24 @@
             <input class="donate-field" id="donateName" type="text" autocomplete="name" placeholder="Имя для отчёта (необязательно)">
           </div>
 
-          <label class="donate-consent" for="donateConsent">
-            <input type="checkbox" id="donateConsent" required>
-            <span>Я соглашаюсь с условиями <button type="button" class="legal-inline" data-legal-open="offer">Публичной оферты</button> и <button type="button" class="legal-inline" data-legal-open="privacy">Политикой обработки персональных данных</button></span>
-          </label>
-
           <p class="donate-payment-label">Способ оплаты</p>
           <div class="donate-payment-methods">
-            <button type="button" class="btn-primary donate-pay" id="donatePay" disabled>Оплатить картой</button>
+            <button type="button" class="btn-primary donate-pay" id="donatePay" disabled><span class="donate-btn-label">Оплатить картой</span></button>
             <button type="button" class="donate-sbp" id="donateSbp" disabled>
               <img class="sbp-mark" src="sbp.svg" alt="" aria-hidden="true">
-              Оплатить через СБП
+              <span class="donate-btn-label">Оплатить через СБП</span>
             </button>
-            <button type="button" class="donate-qr-toggle" id="donateQrToggle" disabled>QR-код для оплаты</button>
+            <button type="button" class="donate-qr-toggle" id="donateQrToggle" disabled><span class="donate-btn-label">QR-код для оплаты</span></button>
           </div>
 
-          <div class="donate-error" id="donateError" role="status" aria-live="polite"></div>
-
-          <div class="donate-secure">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>Оплата выполняется через платёжный сервис после подключения эквайринга</span>
-          </div>
-          <p class="donate-note">Перед оплатой ознакомьтесь с <button type="button" class="legal-inline" data-legal-open="offer">Публичной офертой</button> и <button type="button" class="legal-inline" data-legal-open="privacy">Политикой обработки персональных данных</button>.</p>
+          <label class="donate-consent" id="donateConsentLabel" for="donateConsent">
+            <span class="donate-consent-control">
+              <input type="checkbox" id="donateConsent" required>
+              <span class="donate-consent-box" aria-hidden="true"></span>
+            </span>
+            <span class="donate-consent-text">Я соглашаюсь с условиями <button type="button" class="legal-inline" data-legal-open="offer">Публичной оферты</button> и <button type="button" class="legal-inline" data-legal-open="privacy">Политикой обработки персональных данных</button></span>
+          </label>
+          <p class="donate-error" id="donateError" role="status" aria-live="polite"></p>
         </div>
 
         <div class="donate-qr-view" id="donateQrView">
@@ -1851,18 +1864,20 @@
 
     <div class="legal-overlay" id="legalOverlay" aria-hidden="true">
       <div class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
-        <button type="button" class="legal-close" id="legalClose" aria-label="Закрыть">×</button>
-        <h2 id="legalTitle">Документ</h2>
-        <div id="legalBody"></div>
+        <div class="legal-head">
+          <h2 id="legalTitle">Документ</h2>
+          <button type="button" class="legal-close" id="legalClose" aria-label="Закрыть">×</button>
+        </div>
+        <div class="legal-body" id="legalBody"></div>
       </div>
     </div>
 
     <template id="legal-offer-template">
       <div class="legal-meta">
-        <span><strong>Фонд:</strong> Фонд имени Абдуллахаджи Урахинского</span>
-        <span><strong>ИНН / КПП:</strong> [ВСТАВЬТЕ ИНН / КПП] &nbsp;|&nbsp; <strong>ОГРН:</strong> [ВСТАВЬТЕ ОГРН]</span>
-        <span><strong>Юридический адрес:</strong> [ВСТАВЬТЕ АДРЕС]</span>
-        <span><strong>Банковские реквизиты:</strong> р/с [ВСТАВЬТЕ Р/С], [ВСТАВЬТЕ НАЗВАНИЕ БАНКА], БИК [ВСТАВЬТЕ БИК И К/С]</span>
+        <span><strong>Фонд:</strong> БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО</span>
+        <span><strong>ИНН:</strong> 0500025148 &nbsp;|&nbsp; <strong>КПП:</strong> 050001001 &nbsp;|&nbsp; <strong>ОГРН:</strong> 1240500022510</span>
+        <span><strong>Юридический адрес:</strong> Сергокала, Республика Дагестан</span>
+        <span><strong>Банковские реквизиты:</strong> р/с 40703810860450000006, СТАВРОПОЛЬСКОЕ ОТДЕЛЕНИЕ N5230 ПАО СБЕРБАНК, БИК 040702615, к/с 30101810907020000615</span>
         <span><strong>Email для обращений:</strong> <a href="mailto:fondabdullakhadzhi@mail.ru">fondabdullakhadzhi@mail.ru</a></span>
       </div>
       <p>Настоящий документ является публичной офертой Фонд имени Абдуллахаджи Урахинского (далее — «Фонд») в соответствии со статьёй 437 Гражданского кодекса Российской Федерации и адресован неопределённому кругу лиц — физическим лицам, желающим совершить добровольное пожертвование.</p>
@@ -1888,9 +1903,9 @@
 
     <template id="legal-privacy-template">
       <div class="legal-meta">
-        <span><strong>Оператор:</strong> Фонд имени Абдуллахаджи Урахинского</span>
-        <span><strong>ИНН / КПП:</strong> [ВСТАВЬТЕ ИНН / КПП] &nbsp;|&nbsp; <strong>ОГРН:</strong> [ВСТАВЬТЕ ОГРН]</span>
-        <span><strong>Адрес:</strong> [ВСТАВЬТЕ АДРЕС]</span>
+        <span><strong>Оператор:</strong> БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО</span>
+        <span><strong>ИНН:</strong> 0500025148 &nbsp;|&nbsp; <strong>КПП:</strong> 050001001 &nbsp;|&nbsp; <strong>ОГРН:</strong> 1240500022510</span>
+        <span><strong>Адрес:</strong> Сергокала, Республика Дагестан</span>
         <span><strong>Email для обращений по ПДн:</strong> <a href="mailto:fondabdullakhadzhi@mail.ru">fondabdullakhadzhi@mail.ru</a></span>
       </div>
       <p>Настоящая Политика составлена в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных пользователей сайта Фонда.</p>
@@ -1915,6 +1930,27 @@
       <p>Данные могут передаваться платёжным сервисам, банкам, хостинг/IT-подрядчикам и госорганам — только в необходимом объёме и на законных основаниях. Фонд принимает необходимые правовые, организационные и технические меры защиты ПДн.</p>
       <h3>5. Права субъекта и отзыв согласия</h3>
       <p>Субъект ПДн вправе запросить сведения об обработке, уточнение, блокирование или удаление данных, а также отозвать согласие, направив обращение на <a href="mailto:fondabdullakhadzhi@mail.ru">fondabdullakhadzhi@mail.ru</a>. Отзыв согласия не влияет на законность обработки до момента отзыва и может быть ограничен требованиями закона.</p>
+    </template>
+
+    <template id="legal-requisites-template">
+      <div class="req-grid" id="requisitesGrid">
+        <div class="req-row"><span class="k">Полное наименование</span><span class="v">БФ ИМ. АБДУЛЛАХАЖИ УРАХИНСКОГО</span></div>
+        <div class="req-row"><span class="k">ИНН</span><span class="v">0500025148</span></div>
+        <div class="req-row"><span class="k">КПП</span><span class="v">050001001</span></div>
+        <div class="req-row"><span class="k">ОГРН</span><span class="v">1240500022510</span></div>
+        <div class="req-row"><span class="k">Юридический адрес</span><span class="v">Сергокала, Республика Дагестан</span></div>
+        <div class="req-row"><span class="k">Расчётный счёт</span><span class="v">40703810860450000006</span></div>
+        <div class="req-row"><span class="k">Банк</span><span class="v">СТАВРОПОЛЬСКОЕ ОТДЕЛЕНИЕ N5230 ПАО СБЕРБАНК</span></div>
+        <div class="req-row"><span class="k">БИК банка</span><span class="v">040702615</span></div>
+        <div class="req-row"><span class="k">Корр. счёт</span><span class="v">30101810907020000615</span></div>
+        <div class="req-row"><span class="k">ИНН / КПП банка</span><span class="v">7707083893 / 057343001</span></div>
+        <div class="req-row"><span class="k">Email</span><span class="v">fondabdullakhadzhi@mail.ru</span></div>
+        <div class="req-row"><span class="k">Телефон</span><span class="v">+7 909 005 66 99</span></div>
+      </div>
+      <div class="req-actions">
+        <button type="button" class="req-copy" id="copyRequisitesBtn">Скопировать реквизиты</button>
+        <span class="req-copy-status" id="copyRequisitesStatus" aria-live="polite"></span>
+      </div>
     </template>
 
     <script type="module">
@@ -2825,32 +2861,36 @@
         const qrBack = document.getElementById('donateQrBack');
         const sbpBtn = document.getElementById('donateSbp');
         const consent = document.getElementById('donateConsent');
+        const consentLabel = document.getElementById('donateConsentLabel');
         const errorEl = document.getElementById('donateError');
         const DONATE_PAYMENT_URL = ''; // TODO: вставить официальный URL виджета/платёжной страницы «Технологии Добра»
         if (!overlay) return;
         let donateBusy = false;
         const getAmount = () => Number(String(amountInput && amountInput.value || '').replace(/\D/g, '')) || 0;
-        const setError = (msg) => { if (errorEl) errorEl.textContent = msg || ''; };
+        const setError = (msg, consentError = false) => {
+          if (errorEl) errorEl.textContent = msg || '';
+          if (consentLabel) consentLabel.classList.toggle('invalid', consentError);
+        };
         const syncDonateState = () => {
           const amount = getAmount();
-          const ok = amount >= 50 && !!(consent && consent.checked) && !donateBusy;
+          const ok = amount >= 50 && !donateBusy;
           [payBtn, sbpBtn, qrToggle].forEach(btn => { if (btn) btn.disabled = !ok; });
           if (amount > 0 && amount < 50) setError('Минимальная сумма пожертвования — 50 ₽');
-          else if (amount >= 50 && consent && !consent.checked) setError('Подтвердите согласие с офертой и политикой обработки персональных данных');
-          else setError('');
-          return { amount, ok: amount >= 50 && !!(consent && consent.checked) };
+          else if (consent && consent.checked) setError('');
+          return { amount, ok: amount >= 50 && !donateBusy };
         };
-        const setBusy = (busy, label) => {
+        const setBusy = (busy, labelText) => {
           donateBusy = busy;
           [payBtn, sbpBtn, qrToggle].forEach(btn => {
-            if (!btn) return;
-            if (!btn.dataset.defaultLabel) btn.dataset.defaultLabel = btn.textContent;
-            btn.textContent = busy && label ? label : btn.dataset.defaultLabel;
+            const labelEl = btn && btn.querySelector('.donate-btn-label');
+            if (!labelEl) return;
+            if (!labelEl.dataset.defaultLabel) labelEl.dataset.defaultLabel = labelEl.textContent;
+            labelEl.textContent = busy && labelText ? labelText : labelEl.dataset.defaultLabel;
           });
           syncDonateState();
         };
         const open = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; syncDonateState(); };
-        const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (modal) modal.classList.remove('qr-mode'); setBusy(false); };
+        const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (modal) modal.classList.remove('qr-mode'); setBusy(false); setError(''); };
         document.querySelectorAll('[data-donate]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); open(); }));
         if (closeBtn) closeBtn.addEventListener('click', close);
         overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
@@ -2875,10 +2915,20 @@
             syncDonateState();
           });
         }
-        if (consent) consent.addEventListener('change', syncDonateState);
+        if (consent) consent.addEventListener('change', () => {
+          if (consent.checked) setError('');
+          syncDonateState();
+        });
+        const requireConsent = () => {
+          if (consent && !consent.checked) {
+            setError('Поставьте галочку, чтобы продолжить', true);
+            return false;
+          }
+          return true;
+        };
         const beginPayment = (method) => {
           const state = syncDonateState();
-          if (!state.ok) return;
+          if (!state.ok || !requireConsent()) return;
           if (!DONATE_PAYMENT_URL) {
             setError('Платёжный сервис ещё не подключён. Для оплаты используйте реквизиты фонда или обратитесь: fondabdullakhadzhi@mail.ru');
             return;
@@ -2901,7 +2951,7 @@
         if (sbpBtn) sbpBtn.addEventListener('click', () => beginPayment('sbp'));
         if (qrToggle && modal) qrToggle.addEventListener('click', () => {
           const state = syncDonateState();
-          if (!state.ok) return;
+          if (!state.ok || !requireConsent()) return;
           modal.classList.add('qr-mode');
         });
         if (qrBack && modal) qrBack.addEventListener('click', () => modal.classList.remove('qr-mode'));
@@ -2915,7 +2965,7 @@
         const closeBtn = document.getElementById('legalClose');
         const templates = {
           offer: { title: 'Публичная оферта о заключении договора добровольного пожертвования', id: 'legal-offer-template' },
-          privacy: { title: 'Политика обработки персональных данных', id: 'legal-privacy-template' }
+          privacy: { title: 'Конфиденциальность', id: 'legal-privacy-template' }
         };
         if (!overlay || !title || !body) return;
         const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; };
@@ -3154,7 +3204,7 @@
         "description": "Благотворительный фонд имени Абдуллахаджи Урахинского — прозрачная статистика пожертвований и расходов",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "село Сергокала",
+          "addressLocality": "Сергокала",
           "addressRegion": "Республика Дагестан",
           "addressCountry": "RU"
         },
