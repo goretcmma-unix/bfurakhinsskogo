@@ -2942,7 +2942,8 @@
         const consent = document.getElementById('donateConsent');
         const consentLabel = document.getElementById('donateConsentLabel');
         const errorEl = document.getElementById('donateError');
-        const DONATE_PAYMENT_URL = ''; // TODO: вставить официальный URL виджета/платёжной страницы «Технологии Добра»
+        const DONATE_PAYMENT_URL = 'https://v.sber.ru/sms/payment?cs=7536763688337&sid=lkpu';
+        const DONATE_PAYMENT_PASSTHROUGH = true; // ссылка СберБизнеса уже содержит сумму и получателя
         if (!overlay) return;
         let donateBusy = false;
         const getAmount = () => Number(String(amountInput && amountInput.value || '').replace(/\D/g, '')) || 0;
@@ -3015,10 +3016,12 @@
           setBusy(true, 'Открываем оплату…');
           try {
             const url = new URL(DONATE_PAYMENT_URL, window.location.href);
-            url.searchParams.set('amount', String(state.amount));
-            url.searchParams.set('method', method);
-            const name = (nameInput && nameInput.value || '').trim();
-            if (name) url.searchParams.set('name', name);
+            if (!DONATE_PAYMENT_PASSTHROUGH) {
+              url.searchParams.set('amount', String(state.amount));
+              url.searchParams.set('method', method);
+              const name = (nameInput && nameInput.value || '').trim();
+              if (name) url.searchParams.set('name', name);
+            }
             window.location.assign(url.toString());
           } catch (e) {
             console.error('[donate] payment redirect failed', e);
