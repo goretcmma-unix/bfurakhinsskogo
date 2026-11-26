@@ -998,19 +998,47 @@
       }
       @media (max-width: 640px) { .fin-layout { gap: 16px; } }
 
-      .fin-kpis {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 20px;
+      .donation-insight {
         width: 100%;
-        align-items: stretch;
+        margin-bottom: 56px;
       }
-      @media (max-width: 1024px) { .fin-kpis { gap: 16px; } }
-      @media (max-width: 768px) { .fin-kpis { grid-template-columns: 1fr 1fr; gap: 14px; } }
-      @media (max-width: 640px) { .fin-kpis { grid-template-columns: 1fr; gap: 14px; } }
-      @media (max-width: 480px) { .fin-kpis { gap: 12px; } }
+      .donation-size { width: 100%; }
+      .donation-size-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .donation-size-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+      .donation-size-sub { font-size: 13px; color: var(--muted-strong); }
+      .donation-size-chart { display: grid; gap: 14px; }
+      .donation-size-row { display: grid; grid-template-columns: 108px minmax(0,1fr) 52px; gap: 14px; align-items: center; }
+      .donation-size-label { font-size: 13px; color: var(--text-soft); white-space: nowrap; }
+      .donation-size-bar { height: 6px; background: rgba(255,255,255,0.06); border-radius: 999px; overflow: hidden; }
+      .donation-size-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, rgba(64,222,216,0.45), var(--accent)); width: 0; transition: width 1.1s cubic-bezier(.16,1,.3,1); }
+      .donation-size-row:nth-child(2) .donation-size-fill { background: linear-gradient(90deg, rgba(64,222,216,0.35), rgba(64,222,216,0.85)); }
+      .donation-size-row:nth-child(3) .donation-size-fill,
+      .donation-size-row:nth-child(4) .donation-size-fill,
+      .donation-size-row:nth-child(5) .donation-size-fill { background: rgba(64,222,216,0.55); }
+      .donation-size-val { font-size: 13px; color: var(--muted-strong); text-align: right; font-variant-numeric: tabular-nums; }
+      @media (max-width: 900px) {
+        .donation-insight { grid-template-columns: 1fr; gap: 32px; }
+        .donation-insight-summary { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+      }
+      @media (max-width: 640px) {
+        .donation-insight-summary { grid-template-columns: 1fr; gap: 24px; }
+        .donation-size-row { grid-template-columns: 96px minmax(0,1fr) 44px; gap: 10px; }
+        .donation-size-head { flex-direction: column; align-items: flex-start; gap: 2px; margin-bottom: 16px; }
+      }
 
-      .fin-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+      .fin-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
       .fin-header h3 { font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; letter-spacing: -0.01em; margin: 0; }
       .fin-period { display: flex; gap: 12px; align-items: center; }
       .fin-period .custom-select { position: relative; min-width: 160px; }
@@ -1078,6 +1106,7 @@
       .kpi-value.neg { color: #f87171; }
       .kpi-trend { display: inline-flex; align-items: center; gap: 4px; margin-top: 10px; font-size: 13px; font-weight: 500; color: var(--accent); }
       .kpi-trend.neg { color: #f87171; }
+      .kpi-trend-muted { color: var(--muted-strong); font-weight: 400; }
 
       /* ===== IMPACT SECTION ===== */
       .impact { padding: 100px 0 140px; position: static; scroll-margin-top: 92px; background: #0A0D0D; }
@@ -1441,6 +1470,17 @@
       .donate-qr-view .donate-qr-hint { display: block; margin: 14px 0 0; font-size: 13px; color: var(--muted-strong); }
       .donate-qr-back { width: 100%; margin-top: 20px; padding: 12px 16px; font-size: 14px; font-weight: 500; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: #0f1312; color: var(--text); cursor: pointer; transition: border-color 0.15s, background 0.15s; }
       .donate-qr-back:hover { background: #151a19; border-color: rgba(255,255,255,0.16); }
+      .donate-bank-view { display: none; flex-direction: column; align-items: stretch; text-align: left; padding: 4px 0 0; }
+      .donate-bank-grid { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 6px; width: 100%; }
+      .donate-bank-item { appearance: none; -webkit-appearance: none; display: inline-flex; flex-direction: column; align-items: center; gap: 10px; width: 88px; padding: 10px 4px; border: none; border-radius: 14px; background: transparent; color: var(--text); cursor: pointer; transition: background 0.18s ease, transform 0.18s ease; }
+      .donate-bank-item:hover { background: rgba(255,255,255,0.05); }
+      .donate-bank-item:active { transform: scale(0.97); }
+      .donate-bank-item:focus-visible { outline: 2px solid rgba(74,222,128,0.55); outline-offset: 2px; }
+      .donate-bank-icon { width: 52px; height: 52px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .donate-bank-icon svg, .donate-bank-icon img { width: 52px; height: 52px; display: block; }
+      .donate-bank-name { font-size: 13px; font-weight: 500; line-height: 1.2; color: rgba(232,237,237,0.92); letter-spacing: -0.01em; }
+      .donate-bank-hint { margin: 18px 0 0; font-size: 13px; line-height: 1.45; color: var(--muted-strong); }
+      .donate-bank-view .donate-qr-back { margin-top: 24px; }
       .donate-modal.qr-mode .donate-form-body { display: none; }
       .donate-modal.qr-mode .donate-qr-view { display: flex; }
       .donate-modal.qr-mode .donate-header { margin-bottom: 8px; }
@@ -1652,22 +1692,14 @@
           <p class="section-desc">Интерактивная панель показывает движение средств в реальном времени. Выберите период для детализации.</p>
         </header>
         <div class="fin-layout">
-          <div class="fin-kpis" role="region" aria-label="Ключевые финансовые показатели">
-            <article class="kpi">
-              <div class="kpi-label">Остаток средств</div>
-              <div class="kpi-value accent" id="kpiBalance">—</div>
-              <div class="kpi-trend">+12.4% к прошлому периоду</div>
-            </article>
-            <article class="kpi">
-              <div class="kpi-label">Всего поступило</div>
-              <div class="kpi-value accent" id="kpiDonations">—</div>
-              <div class="kpi-trend">+8.2% к прошлому периоду</div>
-            </article>
-            <article class="kpi kpi-neg">
-              <div class="kpi-label">Всего потрачено</div>
-              <div class="kpi-value neg" id="kpiExpenses">—</div>
-              <div class="kpi-trend neg">+5.1% к прошлому периоду</div>
-            </article>
+          <div class="donation-insight" role="region" aria-label="Размер вкладов">
+            <div class="donation-size" aria-label="Распределение пожертвований по размеру вклада">
+              <div class="donation-size-head">
+                <span class="donation-size-title">Размер вкладов</span>
+                <span class="donation-size-sub">по входящим пожертвованиям</span>
+              </div>
+              <div class="donation-size-chart" id="donationSizeChart"></div>
+            </div>
           </div>
           <div class="fin-main">
             <div class="fin-header">
@@ -2326,13 +2358,88 @@
 
       window.renderStats = function() {
         const uc = window.urgentCollection || { title: '—', raised: 0, goal: 1 };
-        // Всегда обновляем KPI-блоки донатов/баланса/расходов
-        const vals = [demoData.donations, demoData.balance, demoData.expenses];
-        const ids = ['kpiDonations', 'kpiBalance', 'kpiExpenses'];
-        ids.forEach((id, i) => {
-          const el = document.getElementById(id);
-          if (el) el.textContent = formatCurrency(vals[i] || 0);
-        });
+        // KPI активности пожертвований (без остатка и общих оборотов)
+        const txns = (allTransactions && allTransactions.length ? allTransactions : demoData.transactions) || [];
+        const incomes = txns.filter(t => t && t.type === 'income');
+        const count = incomes.length;
+        const avg = count ? Math.round(incomes.reduce((s, t) => s + (Number(t.amount) || 0), 0) / count) : 0;
+        const now = Date.now();
+        const weekAgo = now - 7 * 24 * 60 * 60 * 1000;
+        const weekCount = incomes.filter(t => { const ts = new Date(t.date).getTime(); return !isNaN(ts) && ts >= weekAgo; }).length;
+        const last = incomes.slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
+        const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+        const sizeChart = document.getElementById('donationSizeChart');
+        if (sizeChart) {
+          const buckets = [
+            { label: 'до 100 ₽', min: 0, max: 100 },
+            { label: '100–499 ₽', min: 100, max: 500 },
+            { label: '500–999 ₽', min: 500, max: 1000 },
+            { label: '1 000–4 999 ₽', min: 1000, max: 5000 },
+            { label: '5 000 ₽+', min: 5000, max: Infinity }
+          ].map(b => ({ ...b, count: 0 }));
+          incomes.forEach(t => {
+            const a = Number(t.amount) || 0;
+            const b = buckets.find(x => a >= x.min && a < x.max) || buckets[buckets.length - 1];
+            b.count += 1;
+          });
+          const max = Math.max(1, ...buckets.map(b => b.count));
+          sizeChart.innerHTML = buckets.map(b => {
+            const pct = Math.round((b.count / max) * 100);
+            return `<div class="donation-size-row"><span class="donation-size-label">${b.label}</span><div class="donation-size-bar"><div class="donation-size-fill" style="width:0%" data-width="${pct}%"></div></div><span class="donation-size-val" data-count="${b.count}">0</span></div>`;
+          }).join('');
+          const animateSizeChart = () => {
+            if (sizeChart.dataset.animated === '1') return;
+            sizeChart.dataset.animated = '1';
+            sizeChart.querySelectorAll('.donation-size-fill').forEach((el, i) => {
+              el.style.transitionDelay = `${i * 120}ms`;
+              el.style.width = el.dataset.width;
+            });
+            sizeChart.querySelectorAll('.donation-size-val').forEach((el, i) => {
+              const target = Number(el.dataset.count) || 0;
+              const duration = 1100;
+              const delay = i * 120;
+              const start = performance.now() + delay;
+              const tick = (now) => {
+                if (now < start) { requestAnimationFrame(tick); return; }
+                const p = Math.min(1, (now - start) / duration);
+                const eased = 1 - Math.pow(1 - p, 4);
+                el.textContent = Math.round(target * eased).toLocaleString('ru-RU');
+                if (p < 1) requestAnimationFrame(tick);
+              };
+              requestAnimationFrame(tick);
+            });
+          };
+          if (sizeChart._sizeObserver) sizeChart._sizeObserver.disconnect();
+          sizeChart.dataset.animated = '0';
+          if ('IntersectionObserver' in window) {
+            const obs = new IntersectionObserver((entries) => {
+              if (entries.some(e => e.isIntersecting)) { animateSizeChart(); obs.disconnect(); }
+            }, { threshold: 0.2 });
+            obs.observe(sizeChart);
+            sizeChart._sizeObserver = obs;
+          } else {
+            animateSizeChart();
+          }
+        }
+        if (last) {
+          const ts = new Date(last.date).getTime();
+          const diffMs = Math.max(0, now - ts);
+          const diffMin = Math.floor(diffMs / 60000);
+          const diffH = Math.floor(diffMs / 3600000);
+          const diffD = Math.floor(diffMs / 86400000);
+          let ago = '';
+          if (isNaN(ts)) ago = 'по выписке банка';
+          else if (diffMin < 1) ago = 'только что · по выписке банка';
+          else if (diffMin < 60) ago = `${diffMin} мин назад · по выписке банка`;
+          else if (diffH < 24) ago = `${diffH} ч назад · по выписке банка`;
+          else if (diffD === 1) ago = 'вчера · по выписке банка';
+          else ago = `${diffD} дн. назад · по выписке банка`;
+          setText('kpiLastDonation', '+' + formatCurrency(Number(last.amount) || 0));
+          setText('kpiLastDonationTrend', ago);
+        } else {
+          setText('kpiLastDonation', '—');
+          setText('kpiLastDonationTrend', 'Ожидаем поступления');
+        }
         // Включение/выключение блока «Срочный сбор» через флаг enabled
         const urgentEls = document.querySelectorAll('.hero-urgent, .hero-urgent-mobile');
         if (!uc.enabled) {
@@ -2820,22 +2927,39 @@
         if (pag) pag.style.display = total > pageSize ? 'flex' : 'none';
       }
 
+      let finSectionRevealed = false;
+      let finChartDataReady = false;
+      let finChartHasAnimated = false;
+
       function filterAndRender(period) {
         if (period) currentPeriod = period;
         const scrollEl = document.getElementById('finChartScroll');
         if (scrollEl) delete scrollEl.dataset.scrolledInit;
         try { updateChartData(currentPeriod); } catch (e) { console.warn('[public-site] updateChartData error:', e); }
-        try { if (typeof renderChart === 'function') renderChart(); } catch (e) { console.warn('[public-site] renderChart error:', e); }
+        finChartDataReady = true;
+        if (finSectionRevealed) {
+          if (!finChartHasAnimated) {
+            finChartHasAnimated = true;
+            try { startChartAnim(); } catch (e) { console.warn('[public-site] startChartAnim error:', e); }
+          } else {
+            try { if (typeof renderChart === 'function') renderChart(); } catch (e) { console.warn('[public-site] renderChart error:', e); }
+          }
+        } else {
+          animProgress = 0;
+          try { if (typeof renderChart === 'function') renderChart(); } catch (e) { console.warn('[public-site] renderChart error:', e); }
+        }
         try { renderTable(); } catch (e) { console.warn('[public-site] renderTable error:', e); }
       }
 
       // Анимация при появлении блока финансов в зоне видимости (навигация по меню/скролл)
-      let finSectionRevealed = false;
       const finObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting && !finSectionRevealed) {
             finSectionRevealed = true;
-            startChartAnim();
+            if (finChartDataReady && !finChartHasAnimated) {
+              finChartHasAnimated = true;
+              startChartAnim();
+            }
           }
         });
       }, { threshold: 0.25 });
@@ -2949,58 +3073,82 @@
         const consent = document.getElementById('donateConsent');
         const consentLabel = document.getElementById('donateConsentLabel');
         const errorEl = document.getElementById('donateError');
+        const sub = document.getElementById('donateSub');
+        const formBody = document.getElementById('donateFormBody');
         const DONATE_PAYMENT_URL = 'https://v.sber.ru/sms/payment?cs=7536763688337&sid=lkpu';
         const DONATE_PAYMENT_PASSTHROUGH = true; // ссылка СберБизнеса уже содержит сумму и получателя
         if (!overlay) return;
 
         const qrView = document.getElementById('donateQrView');
         const bankView = document.createElement('div');
-        bankView.className = 'donate-qr-view';
+        bankView.className = 'donate-bank-view';
         bankView.style.display = 'none';
-        const bankTitle = document.createElement('p');
-        bankTitle.className = 'donate-payment-label';
-        bankTitle.textContent = 'Банки';
-        bankTitle.style.margin = '0 0 2px';
-        const bankBtn = document.createElement('button');
-        bankBtn.type = 'button';
-        bankBtn.className = 'donate-pay';
-        bankBtn.style.cssText = 'width:96px;height:96px;margin:0;padding:10px 6px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:#0f1312;color:var(--text);font-size:13px;font-weight:500;';
-        const sberIcon = document.createElement('span');
-        sberIcon.setAttribute('aria-hidden', 'true');
-        sberIcon.style.cssText = 'width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;';
-        sberIcon.innerHTML = '<svg width="34" height="34" viewBox="0 0 47 47" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
-          '<defs>' +
-          '<linearGradient id="sberG0" gradientUnits="userSpaceOnUse" x1="2.1707" y1="13.4952" x2="0.311989" y2="8.08129" gradientTransform="matrix(2.932039,0,0,2.941176,0,0)"><stop offset=".1444" stop-color="#F2E913"/><stop offset=".3037" stop-color="#E7E518"/><stop offset=".5823" stop-color="#CADB26"/><stop offset=".891" stop-color="#A3CD39"/></linearGradient>' +
-          '<linearGradient id="sberG1" gradientUnits="userSpaceOnUse" x1="2.88386" y1="2.28584" x2="7.60262" y2="0.473823" gradientTransform="matrix(2.932039,0,0,2.941176,0,0)"><stop offset=".0592" stop-color="#0FA8E0"/><stop offset=".5385" stop-color="#0099F9"/><stop offset=".9234" stop-color="#0291EB"/></linearGradient>' +
-          '<linearGradient id="sberG2" gradientUnits="userSpaceOnUse" x1="7.42363" y1="14.4944" x2="13.0491" y2="13.2133" gradientTransform="matrix(2.932039,0,0,2.941176,0,0)"><stop offset=".1226" stop-color="#A3CD39"/><stop offset=".2846" stop-color="#86C339"/><stop offset=".8693" stop-color="#21A038"/></linearGradient>' +
-          '<linearGradient id="sberG3" gradientUnits="userSpaceOnUse" x1="7.56102" y1="1.30945" x2="12.2382" y2="2.76364" gradientTransform="matrix(2.932039,0,0,2.941176,0,0)"><stop offset=".0566" stop-color="#0291EB"/><stop offset=".79" stop-color="#0C8ACB"/></linearGradient>' +
-          '<linearGradient id="sberG4" gradientUnits="userSpaceOnUse" x1="2.54776" y1="13.7268" x2="7.57157" y2="15.6183" gradientTransform="matrix(2.932039,0,0,2.941176,0,0)"><stop offset=".1324" stop-color="#F2E913"/><stop offset=".2977" stop-color="#EBE716"/><stop offset=".5306" stop-color="#D9E01F"/><stop offset=".8023" stop-color="#BBD62D"/><stop offset=".9829" stop-color="#A3CD39"/></linearGradient>' +
-          '<linearGradient id="sberG5" gradientUnits="userSpaceOnUse" x1="1.4415" y1="8.32718" x2="3.45094" y2="3.05983" gradientTransform="matrix(2.932039,0,0,2.941176,0,0)"><stop offset=".0698" stop-color="#A3CD39"/><stop offset=".2599" stop-color="#81C55F"/><stop offset=".9216" stop-color="#0FA8E0"/></linearGradient>' +
-          '</defs>' +
-          '<path fill="#21A038" d="M 41.605469 9.546875 C 42.699219 10.976562 43.613281 12.542969 44.386719 14.203125 L 23.3125 29.925781 L 14.460938 24.300781 L 14.460938 17.570312 L 23.265625 23.148438 Z"/>' +
-          '<path fill="url(#sberG0)" d="M 5.472656 23.839844 C 5.472656 23.515625 5.472656 23.242188 5.519531 22.917969 L 0.183594 22.640625 C 0.183594 23.011719 0.136719 23.425781 0.136719 23.792969 C 0.136719 30.25 2.738281 36.105469 6.933594 40.347656 L 10.71875 36.519531 C 7.480469 33.292969 5.472656 28.820312 5.472656 23.839844 Z"/>' +
-          '<path fill="url(#sberG1)" d="M 23.265625 5.855469 C 23.585938 5.855469 23.859375 5.855469 24.179688 5.902344 L 24.453125 0.507812 C 24.085938 0.507812 23.675781 0.460938 23.3125 0.460938 C 16.925781 0.460938 11.132812 3.089844 6.933594 7.332031 L 10.71875 11.160156 C 13.914062 7.886719 18.382812 5.855469 23.265625 5.855469 Z"/>' +
-          '<path fill="url(#sberG2)" d="M 23.265625 41.824219 C 22.945312 41.824219 22.671875 41.824219 22.351562 41.777344 L 22.078125 47.171875 C 22.445312 47.171875 22.855469 47.21875 23.21875 47.21875 C 29.605469 47.21875 35.402344 44.589844 39.597656 40.347656 L 35.8125 36.519531 C 32.617188 39.839844 28.191406 41.824219 23.265625 41.824219 Z"/>' +
-          '<path fill="url(#sberG3)" d="M 33.300781 8.992188 L 37.816406 5.625 C 33.847656 2.398438 28.785156 0.414062 23.265625 0.414062 L 23.265625 5.808594 C 27.007812 5.855469 30.472656 7.007812 33.300781 8.992188 Z"/>' +
-          '<path fill="#21A038" d="M 46.441406 23.839844 C 46.441406 22.410156 46.304688 21.027344 46.074219 19.644531 L 41.101562 23.378906 C 41.101562 23.515625 41.101562 23.703125 41.101562 23.839844 C 41.101562 29.144531 38.820312 33.894531 35.21875 37.167969 L 38.820312 41.179688 C 43.476562 36.9375 46.441406 30.710938 46.441406 23.839844 Z"/>' +
-          '<path fill="url(#sberG4)" d="M 23.265625 41.824219 C 18.019531 41.824219 13.320312 39.519531 10.082031 35.875 L 6.113281 39.519531 C 10.355469 44.269531 16.46875 47.21875 23.265625 47.21875 Z"/>' +
-          '<path fill="url(#sberG5)" d="M 11.359375 10.511719 L 7.753906 6.5 C 3.054688 10.789062 0.136719 16.96875 0.136719 23.839844 L 5.472656 23.839844 C 5.472656 18.582031 7.753906 13.789062 11.359375 10.511719 Z"/>' +
-          '</svg>';
-        const bankLabel = document.createElement('span');
-        bankLabel.className = 'donate-btn-label';
-        bankLabel.textContent = 'Сбербанк';
-        bankBtn.append(sberIcon, bankLabel);
         const bankGrid = document.createElement('div');
-        bankGrid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,96px));justify-content:center;gap:10px;width:100%;margin:4px 0 0;';
-        bankGrid.appendChild(bankBtn);
+        bankGrid.className = 'donate-bank-grid';
+        const bankLogos = [
+          {
+            id: 'sberbank', name: 'Сбербанк', hint: 'Оплата откроется в СберБанк Онлайн',
+            svg: '<svg viewBox="8 8 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sb26e" x1="2.8609" x2="1.9219" y1="10.437" y2="5.9444" gradientTransform="matrix(2.8737,0,0,4.7565,9.654,10.25)" gradientUnits="userSpaceOnUse"><stop offset=".1444" stop-color="#F2E913"/><stop offset=".3037" stop-color="#E7E518"/><stop offset=".5823" stop-color="#CADB26"/><stop offset=".891" stop-color="#A3CD39"/></linearGradient><linearGradient id="sb26b" x1="2.2789" x2="6.2815" y1="2.8981" y2="1.9766" gradientTransform="matrix(4.7565,0,0,2.8737,9.654,10.25)" gradientUnits="userSpaceOnUse"><stop offset=".0592" stop-color="#0FA8E0"/><stop offset=".5385" stop-color="#0099F9"/><stop offset=".9234" stop-color="#0291EB"/></linearGradient><linearGradient id="sb26c" x1="5.8248" x2="10.351" y1="18.547" y2="17.929" gradientTransform="matrix(4.7565,0,0,2.8737,9.654,10.25)" gradientUnits="userSpaceOnUse"><stop offset=".1226" stop-color="#A3CD39"/><stop offset=".2846" stop-color="#86C339"/><stop offset=".8693" stop-color="#21A038"/></linearGradient><linearGradient id="sb26d" x1="5.8242" x2="9.626" y1="1.6952" y2="2.3792" gradientTransform="matrix(4.8418,0,0,2.8231,9.654,10.25)" gradientUnits="userSpaceOnUse"><stop offset=".0566" stop-color="#0291EB"/><stop offset=".79" stop-color="#0C8ACB"/></linearGradient><linearGradient id="sb26a" x1="2.0994" x2="6.483" y1="16.889" y2="17.961" gradientTransform="matrix(4.5708,0,0,2.9905,9.654,10.25)" gradientUnits="userSpaceOnUse"><stop offset=".1324" stop-color="#F2E913"/><stop offset=".2977" stop-color="#EBE716"/><stop offset=".5306" stop-color="#D9E01F"/><stop offset=".8023" stop-color="#BBD62D"/><stop offset=".9829" stop-color="#A3CD39"/></linearGradient><linearGradient id="sb26f" x1="1.8315" x2="2.9828" y1="6.695" y2="2.1176" gradientTransform="matrix(2.9905,0,0,4.5708,9.654,10.25)" gradientUnits="userSpaceOnUse"><stop offset=".0698" stop-color="#A3CD39"/><stop offset=".2599" stop-color="#81C55F"/><stop offset=".9216" stop-color="#0FA8E0"/></linearGradient></defs><path d="m62.448 22.14c1.3848 1.7886 2.5387 3.7504 3.5196 5.8275l-26.657 19.675-11.193-7.0392v-8.4239l11.136 6.9815z" fill="#21a038"/><path d="m16.751 40.02c0-0.40391 0-0.75008 0.05771-1.154l-6.7507-0.34606c0 0.46159-0.05771 0.98086-0.05771 1.4424 0 8.0778 3.2888 15.405 8.597 20.714l4.7889-4.789c-4.0966-4.0389-6.6353-9.6356-6.6353-15.867z" fill="url(#sb26e)"/><path d="m39.253 17.52c0.40388 0 0.75008 0 1.154 0.0577l0.3462-6.7507c-0.46158 0-0.98087-0.0577-1.4425-0.0577-8.0777 0-15.405 3.2888-20.714 8.597l4.7889 4.7889c4.0389-4.0966 9.6933-6.6353 15.867-6.6353z" fill="url(#sb26b)"/><path d="m39.253 62.53c-0.40389 0-0.75008 0-1.154-0.0577l-0.3462 6.7507c0.46158 0 0.98087 0.0577 1.4425 0.0577 8.0777 0 15.405-3.2888 20.714-8.597l-4.7889-4.789c-4.0389 4.1543-9.6356 6.6353-15.867 6.6353z" fill="url(#sb26c)"/><path d="m51.947 21.45 5.7121-4.212c-5.0197-4.0388-11.424-6.5199-18.406-6.5199v6.7507c4.7312 0.0577 9.1163 1.5002 12.694 3.9812z" fill="url(#sb26d)"/><path d="m68.563 40.02c0-1.7886-0.1731-3.5196-0.46159-5.2505l-6.2891 4.6736v0.57697c0 6.6353-2.8849 12.578-7.4431 16.675l4.5582 5.0198c5.8852-5.3082 9.6356-13.097 9.6356-21.695z" fill="#21a038"/><path d="m39.253 62.53c-6.6353 0-12.578-2.8849-16.675-7.4431l-5.0197 4.5582c5.3659 5.9429 13.097 9.6356 21.695 9.6356z" fill="url(#sb26a)"/><path d="m24.194 23.35-4.5582-5.0198c-5.9429 5.3659-9.6356 13.097-9.6356 21.694h6.7507c0-6.5776 2.8849-12.578 7.4431-16.675z" fill="url(#sb26f)"/></svg>'
+          },
+          {
+            id: 'tbank', name: 'Т-Банк',
+            svg: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#FFDD2D"/><path d="M12 14h24v5.2H27.2V34H20.8V19.2H12V14z" fill="#333"/></svg>'
+          },
+          {
+            id: 'alfabank', name: 'Альфа-Банк',
+            svg: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#EF3124"/><path d="M16.2 32.8h3.9l1.4-4h5.1l1.4 4h4L26.1 15h-4.2l-5.7 17.8zm6.4-7.1 1.5-4.8 1.5 4.8h-3zM14 35.2h20v2.8H14v-2.8z" fill="#fff"/></svg>'
+          },
+          {
+            id: 'vtb', name: 'ВТБ',
+            svg: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#0A2896"/><path d="M11 16.5h4.6l2.4 9.2 2.4-9.2h4.1l2.4 9.2 2.4-9.2H34l-4.8 15h-4.2l-2.5-8.8-2.5 8.8h-4.2L11 16.5zm24.5 0h6.5v3.4h-6.5v-3.4zm0 5.8h5.5v3.4h-5.5v-3.4zm0 5.8h4.5v3.4h-4.5v-3.4z" fill="#fff"/></svg>'
+          },
+          {
+            id: 'gazprombank', name: 'Газпромбанк',
+            svg: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#0D1F3C"/><path d="M13 13h22v5.5H18.5v11H29v-3.5h-4.5v-5H35v14H13V13z" fill="#4DA6FF"/></svg>'
+          },
+          {
+            id: 'ozon', name: 'Ozon Банк',
+            svg: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#005BFF"/><path d="M24 13c-6.1 0-11 4.9-11 11s4.9 11 11 11 11-4.9 11-11-4.9-11-11-11zm0 4.2c3.8 0 6.8 3 6.8 6.8s-3 6.8-6.8 6.8-6.8-3-6.8-6.8 3-6.8 6.8-6.8z" fill="#fff"/></svg>'
+          },
+          {
+            id: 'sovcombank', name: 'Совкомбанк',
+            svg: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#003791"/><path d="M14 24c0-5.5 4.5-10 10-10 2.8 0 5.3 1.1 7.1 3l-3.4 3.1c-.9-1-2.2-1.6-3.7-1.6-2.8 0-5 2.2-5 5s2.2 5 5 5c1.5 0 2.8-.6 3.7-1.6l3.4 3.1c-1.8 1.9-4.3 3-7.1 3-5.5 0-10-4.5-10-10z" fill="#fff"/><path d="M31.5 19.5h4.5v9h-4.5z" fill="#F5C400"/></svg>'
+          },
+          {
+            id: 'mkb', name: 'МКБ',
+            svg: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#B20000"/><path d="M12 15h4.2v7.2L21.5 15h5l-6 7.9 6.4 10.1h-5l-4.1-6.6-1.6 2V33H12V15zm15 0h4.2v7.2h.8l4.2-7.2h4.8l-5.3 8.3 5.7 9.7h-5l-4.4-7.5h-.8V33H27V15z" fill="#fff"/></svg>'
+          }
+        ];
+
+        const setBankHint = (text) => { if (bankHint) bankHint.textContent = text; };
+        bankLogos.forEach((bank) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'donate-bank-item';
+          btn.setAttribute('aria-label', 'Оплатить через ' + bank.name);
+          const icon = document.createElement('span');
+          icon.className = 'donate-bank-icon';
+          icon.setAttribute('aria-hidden', 'true');
+          icon.innerHTML = bank.svg;
+          const label = document.createElement('span');
+          label.className = 'donate-bank-name';
+          label.textContent = bank.name;
+          btn.append(icon, label);
+          btn.addEventListener('click', () => {
+            const state = syncDonateState();
+            if (!state.ok || !requireConsent()) return;
+            beginPayment(bank.id);
+          });
+          bankGrid.appendChild(btn);
+        });
         const bankHint = document.createElement('p');
-        bankHint.className = 'donate-qr-hint';
-        bankHint.textContent = 'Оплата откроется в СберБанк Онлайн';
+        bankHint.className = 'donate-bank-hint';
+        bankHint.textContent = 'Выберите банк для оплаты';
         const bankBack = document.createElement('button');
         bankBack.type = 'button';
         bankBack.className = 'donate-qr-back';
         bankBack.textContent = 'Назад';
-        bankView.append(bankTitle, bankGrid, bankHint, bankBack);
+        bankView.append(bankGrid, bankHint, bankBack);
         if (modal) modal.appendChild(bankView);
         let donateBusy = false;
         const getAmount = () => Number(String(amountInput && amountInput.value || '').replace(/\D/g, '')) || 0;
@@ -3027,7 +3175,7 @@
           syncDonateState();
         };
         const open = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; syncDonateState(); };
-        const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (modal) modal.classList.remove('qr-mode'); bankView.style.display='none'; if (qrView) qrView.style.display=''; setBusy(false); setError(''); };
+        const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (modal) modal.classList.remove('qr-mode'); bankView.style.display='none'; if (sub) sub.style.display=''; if (formBody) formBody.style.display=''; if (qrView) qrView.style.display=''; setBusy(false); setError(''); };
         document.querySelectorAll('[data-donate]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); open(); }));
         if (closeBtn) closeBtn.addEventListener('click', close);
         overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
@@ -3090,13 +3238,15 @@
           const state = syncDonateState();
           if (!state.ok || !requireConsent()) return;
           if (qrView) qrView.style.display = 'none';
+          if (formBody) formBody.style.display = 'none';
+          if (sub) sub.style.display = 'none';
           bankView.style.display = 'flex';
           if (modal) modal.classList.add('qr-mode');
         });
-        if (bankBtn) bankBtn.addEventListener('click', () => beginPayment('card'));
         if (bankBack) bankBack.addEventListener('click', () => {
           bankView.style.display = 'none';
-          if (qrView) qrView.style.display = '';
+          if (sub) sub.style.display = '';
+          if (formBody) formBody.style.display = '';
           if (modal) modal.classList.remove('qr-mode');
         });
         if (sbpBtn) sbpBtn.addEventListener('click', () => beginPayment('sbp'));

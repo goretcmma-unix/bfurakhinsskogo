@@ -1,0 +1,29 @@
+const overlay = document.getElementById('donateOverlay');
+        const modal = overlay ? overlay.querySelector('.donate-modal') : null;
+        const closeBtn = document.getElementById('donateClose');
+        const payBtn = document.getElementById('donatePay');
+        const amountInput = document.getElementById('donateAmount');
+        const nameInput = document.getElementById('donateName');
+        const amtBtns = Array.from(document.querySelectorAll('.donate-amt'));
+        const quickAmounts = amountInput && amountInput.parentElement && amountInput.parentElement.parentElement
+          ? amountInput.parentElement.parentElement.previousElementSibling : null;
+        const syncQuickAmounts = () => {
+          if (quickAmounts) quickAmounts.style.display = window.matchMedia('(max-width: 640px)').matches ? 'none' : '';
+        };
+        syncQuickAmounts();
+        window.addEventListener('resize', syncQuickAmounts);
+        const qrToggle = document.getElementById('donateQrToggle');
+        const qrBack = document.getElementById('donateQrBack');
+        const sbpBtn = document.getElementById('donateSbp');
+        const consent = document.getElementById('donateConsent');
+        const consentLabel = document.getElementById('donateConsentLabel');
+        const errorEl = document.getElementById('donateError');
+        const DONATE_PAYMENT_URL = 'https://v.sber.ru/sms/payment?cs=7536763688337&sid=lkpu';
+        const DONATE_PAYMENT_PASSTHROUGH = true; // ссылка СберБизнеса уже содержит сумму и получателя
+        if (!overlay) return;
+
+        const qrView = document.getElementById('donateQrView');
+        const bankView = document.createElement('div');
+        bankView.className = 'donate-bank-view';
+        bankView.style.display = 'none';
+        const bankGrid = docume
