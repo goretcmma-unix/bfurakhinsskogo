@@ -42,7 +42,11 @@ jobs:
             exit 1
           fi
           echo "$SBER_DATA_B64" | base64 -d > /tmp/sber-bundle.tar.gz
-          tar -xzf /tmp/sber-bundle.tar.gz --exclude='*.bak*' -C .
+          tar -xzf /tmp/sber-bundle.tar.gz \
+            --exclude='*.bak*' \
+            --exclude='.sber-data/sber-secrets/tokens.json' \
+            --exclude='.sber-data/sber-sync/state.json' \
+            -C .
           test -d .sber-data
           test -f .env
 
@@ -59,12 +63,14 @@ jobs:
 
       - name: Commit and push updated data
         run: |
-          if git diff --quiet; then
-            echo "No changes"
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
+          # Encrypted token pair and sync cursor must survive GitHub runners.
+          git add -f .sber-data/sber-secrets/tokens.json .sber-data/sber-sync/state.json || true
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
           git commit -m "chore: sber auto-sync"
           git push origin HEAD:master
