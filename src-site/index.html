@@ -2936,6 +2936,13 @@
         const amountInput = document.getElementById('donateAmount');
         const nameInput = document.getElementById('donateName');
         const amtBtns = Array.from(document.querySelectorAll('.donate-amt'));
+        const quickAmounts = amountInput && amountInput.parentElement && amountInput.parentElement.parentElement
+          ? amountInput.parentElement.parentElement.previousElementSibling : null;
+        const syncQuickAmounts = () => {
+          if (quickAmounts) quickAmounts.style.display = window.matchMedia('(max-width: 640px)').matches ? 'none' : '';
+        };
+        syncQuickAmounts();
+        window.addEventListener('resize', syncQuickAmounts);
         const qrToggle = document.getElementById('donateQrToggle');
         const qrBack = document.getElementById('donateQrBack');
         const sbpBtn = document.getElementById('donateSbp');
