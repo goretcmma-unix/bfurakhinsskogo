@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Restore .sber-data
+      - name: Restore Sber runtime bundle
         env:
           SBER_DATA_B64: ${{ secrets.SBER_DATA_B64 }}
         run: |
@@ -41,14 +41,16 @@ jobs:
             echo "SBER_DATA_B64 secret is not set"
             exit 1
           fi
-          echo "$SBER_DATA_B64" | base64 -d > /tmp/sber-data.tar.gz
-          tar -xzf /tmp/sber-data.tar.gz --exclude='*.bak*' -C .
+          echo "$SBER_DATA_B64" | base64 -d > /tmp/sber-bundle.tar.gz
+          tar -xzf /tmp/sber-bundle.tar.gz --exclude='*.bak*' -C .
+          test -d .sber-data
+          test -f .env
 
-      - name: Restore .env
+      - name: Restore .env fallback
         env:
           ENV_FILE: ${{ secrets.ENV_FILE }}
         run: |
-          if [ -n "$ENV_FILE" ]; then
+          if [ ! -f .env ] && [ -n "$ENV_FILE" ]; then
             printf '%s\n' "$ENV_FILE" > .env
           fi
 

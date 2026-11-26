@@ -2218,7 +2218,7 @@
         });
 
         // 3) Фоновое обновление только из data.json/localStorage
-        setInterval(() => { void refreshPublicData(true); }, 300000);
+        setInterval(() => { void refreshPublicData(true); }, 60000);
         document.addEventListener('visibilitychange', () => {
           if (document.visibilityState === 'visible') void refreshPublicData(true);
         });
