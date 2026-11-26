@@ -16,6 +16,7 @@
     "build:mac": "npm run build && electron-builder --mac",
     "build:linux": "npm run build && electron-builder --linux",
     "sber:auto-sync": "node scripts/sber-auto-sync.mjs",
+    "sber:prepare-secret": "node scripts/prepare-sber-bundle.mjs",
     "build:site": "node scripts/build-protected-site.mjs"
   },
   "dependencies": {
