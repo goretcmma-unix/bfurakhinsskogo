@@ -63,6 +63,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin master
+          git rebase origin/master
           git add -A
           # Encrypted token pair and sync cursor must survive GitHub runners.
           git add -f .sber-data/sber-secrets/tokens.json .sber-data/sber-sync/state.json || true
