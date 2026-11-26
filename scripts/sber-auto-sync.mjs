@@ -121,7 +121,10 @@ console.log(JSON.stringify({
   userDataDir
 }))
 
-const onceMode = process.argv.includes('--once')
+// GitHub Actions always wants a single tick: it is scheduled externally and
+// must exit after fetching the latest transactions. Locally, without --once,
+// the same script can still run as a continuous daemon.
+const onceMode = process.argv.includes('--once') || process.env.GITHUB_ACTIONS === 'true'
 
 // ... (existing code)
 

@@ -57,7 +57,7 @@ jobs:
           fi
 
       - name: Run sber-auto-sync (once)
-        run: node scripts/sber-auto-sync.mjs --once
+        run: npm run sber:sync-once
 
       - name: Commit and push updated data
         run: |
