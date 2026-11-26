@@ -2945,6 +2945,36 @@
         const DONATE_PAYMENT_URL = 'https://v.sber.ru/sms/payment?cs=7536763688337&sid=lkpu';
         const DONATE_PAYMENT_PASSTHROUGH = true; // ссылка СберБизнеса уже содержит сумму и получателя
         if (!overlay) return;
+
+        const qrView = document.getElementById('donateQrView');
+        const bankView = document.createElement('div');
+        bankView.className = 'donate-qr-view';
+        bankView.style.display = 'none';
+        const bankTitle = document.createElement('p');
+        bankTitle.className = 'donate-payment-label';
+        bankTitle.textContent = 'Банки';
+        bankTitle.style.margin = '0 0 2px';
+        const bankBtn = document.createElement('button');
+        bankBtn.type = 'button';
+        bankBtn.className = 'donate-pay';
+        bankBtn.style.marginTop = '12px';
+        const sberIcon = document.createElement('span');
+        sberIcon.setAttribute('aria-hidden', 'true');
+        sberIcon.style.cssText = 'width:18px;height:18px;border-radius:50%;background:#21A038;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;line-height:1;flex-shrink:0;';
+        sberIcon.textContent = 'S';
+        const bankLabel = document.createElement('span');
+        bankLabel.className = 'donate-btn-label';
+        bankLabel.textContent = 'Сбербанк';
+        bankBtn.append(sberIcon, bankLabel);
+        const bankHint = document.createElement('p');
+        bankHint.className = 'donate-qr-hint';
+        bankHint.textContent = 'Оплата откроется в СберБанк Онлайн';
+        const bankBack = document.createElement('button');
+        bankBack.type = 'button';
+        bankBack.className = 'donate-qr-back';
+        bankBack.textContent = 'Назад';
+        bankView.append(bankTitle, bankBtn, bankHint, bankBack);
+        if (modal) modal.appendChild(bankView);
         let donateBusy = false;
         const getAmount = () => Number(String(amountInput && amountInput.value || '').replace(/\D/g, '')) || 0;
         const setError = (msg, consentError = false) => {
@@ -2970,7 +3000,7 @@
           syncDonateState();
         };
         const open = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; syncDonateState(); };
-        const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (modal) modal.classList.remove('qr-mode'); setBusy(false); setError(''); };
+        const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (modal) modal.classList.remove('qr-mode'); bankView.style.display='none'; if (qrView) qrView.style.display=''; setBusy(false); setError(''); };
         document.querySelectorAll('[data-donate]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); open(); }));
         if (closeBtn) closeBtn.addEventListener('click', close);
         overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
@@ -3029,11 +3059,25 @@
             setBusy(false);
           }
         };
-        if (payBtn) payBtn.addEventListener('click', () => beginPayment('card'));
+        if (payBtn) payBtn.addEventListener('click', () => {
+          const state = syncDonateState();
+          if (!state.ok || !requireConsent()) return;
+          if (qrView) qrView.style.display = 'none';
+          bankView.style.display = 'flex';
+          if (modal) modal.classList.add('qr-mode');
+        });
+        if (bankBtn) bankBtn.addEventListener('click', () => beginPayment('card'));
+        if (bankBack) bankBack.addEventListener('click', () => {
+          bankView.style.display = 'none';
+          if (qrView) qrView.style.display = '';
+          if (modal) modal.classList.remove('qr-mode');
+        });
         if (sbpBtn) sbpBtn.addEventListener('click', () => beginPayment('sbp'));
         if (qrToggle && modal) qrToggle.addEventListener('click', () => {
           const state = syncDonateState();
           if (!state.ok || !requireConsent()) return;
+          bankView.style.display = 'none';
+          if (qrView) qrView.style.display = '';
           modal.classList.add('qr-mode');
         });
         if (qrBack && modal) qrBack.addEventListener('click', () => modal.classList.remove('qr-mode'));
