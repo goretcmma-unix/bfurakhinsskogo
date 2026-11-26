@@ -42,11 +42,9 @@ jobs:
             exit 1
           fi
           echo "$SBER_DATA_B64" | base64 -d > /tmp/sber-bundle.tar.gz
-          tar -xzf /tmp/sber-bundle.tar.gz \
-            --exclude='*.bak*' \
-            --exclude='.sber-data/sber-secrets/tokens.json' \
-            --exclude='.sber-data/sber-sync/state.json' \
-            -C .
+          tar -xzf /tmp/sber-bundle.tar.gz --exclude='*.bak*' -C .
+          # Once tokens/cursor are committed by a previous run, prefer those over the bundle.
+          git checkout HEAD -- .sber-data/sber-secrets/tokens.json .sber-data/sber-sync/state.json 2>/dev/null || true
           test -d .sber-data
           test -f .env
 

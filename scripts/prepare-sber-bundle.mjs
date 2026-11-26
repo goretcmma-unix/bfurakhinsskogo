@@ -70,10 +70,24 @@ try {
   process.exit(1);
 }
 
-await fs.cp(path.join(root, '.sber-data'), path.join(stage, '.sber-data'), {
-  recursive: true,
-  filter: (source) => !path.basename(source).includes('.bak_'),
-});
+// GitHub Secrets has a ~64 KB value limit. Keep only the runtime files that
+// actually need to bootstrap a runner; large staged statements are regenerated.
+const runtimeFiles = [
+  '.sber-data/sber-secrets/tokens.json',
+  '.sber-data/sber-sync/state.json',
+  '.sber-data/sber-sync/journal.json',
+];
+for (const relative of runtimeFiles) {
+  const source = path.join(root, relative);
+  try {
+    await fs.access(source);
+  } catch {
+    continue;
+  }
+  const target = path.join(stage, relative);
+  await fs.mkdir(path.dirname(target), { recursive: true });
+  await fs.copyFile(source, target);
+}
 await copyIfMissingOrDifferent(p12Source, path.join(stage, '.sber-tls', 'client.p12'));
 await copyIfMissingOrDifferent(caSource, path.join(stage, '.sber-tls', 'ca.pem'));
 
@@ -90,8 +104,12 @@ await fs.writeFile(path.join(stage, '.env'), githubEnv, 'utf8');
 
 execFileSync('tar', ['-czf', tarFile, '-C', stage, '.sber-data', '.env', '.sber-tls'], { stdio: 'inherit' });
 const archive = await fs.readFile(tarFile);
-await fs.writeFile(outFile, archive.toString('base64'), 'ascii');
+const encoded = archive.toString('base64');
+await fs.writeFile(outFile, encoded, 'ascii');
 
 console.log(`[sber-bundle] Готово: ${outFile}`);
-console.log(`[sber-bundle] Размер: ${(archive.toString('base64').length / 1024).toFixed(1)} KB base64`);
+console.log(`[sber-bundle] Размер: ${(encoded.length / 1024).toFixed(1)} KB base64`);
+if (encoded.length > 60000) {
+  console.warn('[sber-bundle] Внимание: GitHub Secrets обычно ограничивает значение ~64 KB');
+}
 console.log('[sber-bundle] Скопируйте содержимое файла в GitHub Secret SBER_DATA_B64');
