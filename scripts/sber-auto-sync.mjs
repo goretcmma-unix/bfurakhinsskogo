@@ -1,6 +1,7 @@
 ﻿import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { execFileSync } from 'node:child_process'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
@@ -52,6 +53,33 @@ let stopped = false
 let timer = null
 let tickNo = 0
 
+// GitHub rotates encrypted tokens and commits them back on every successful run.
+// A local checkout keeps its own copy and goes stale, so on REAUTH_REQUIRED we
+// adopt the fresh pair from origin/master instead of asking the user to reauth.
+function adoptTokensFromRepo() {
+  if (process.env.GITHUB_ACTIONS === 'true') return false
+  const files = [
+    '.sber-data/sber-secrets/tokens.json',
+    '.sber-data/sber-sync/state.json'
+  ]
+  try {
+    execFileSync('git', ['fetch', 'origin', 'master', '--quiet'], { stdio: 'ignore' })
+    for (const relative of files) {
+      const buf = execFileSync('git', ['show', `origin/master:${relative}`], { stdio: ['ignore', 'pipe', 'ignore'] })
+      fs.writeFileSync(path.join(root, relative), buf)
+    }
+    console.log(JSON.stringify({ ts: new Date().toISOString(), event: 'tokens_adopted_from_repo' }))
+    return true
+  } catch (e) {
+    console.warn(JSON.stringify({
+      ts: new Date().toISOString(),
+      event: 'tokens_adopt_failed',
+      reason: e instanceof Error ? e.message : String(e)
+    }))
+    return false
+  }
+}
+
 async function runTick(trigger) {
   if (stopped) return
   if (inFlight) {
@@ -64,7 +92,11 @@ async function runTick(trigger) {
   const t0 = Date.now()
   console.log(JSON.stringify({ ts: new Date().toISOString(), event: 'start', n, trigger }))
   try {
-    const entry = await api.syncNow(trigger)
+    let entry = await api.syncNow(trigger)
+    if (entry?.errorCode === 'REAUTH_REQUIRED' && adoptTokensFromRepo()) {
+      console.log(JSON.stringify({ ts: new Date().toISOString(), event: 'retry_after_token_adopt', n }))
+      entry = await api.syncNow(trigger)
+    }
     const ok = entry.status === 'success' || entry.status === 'partial'
     const line = {
       ts: new Date().toISOString(),
@@ -84,7 +116,11 @@ async function runTick(trigger) {
       ms: Date.now() - t0
     }
     if (ok) console.log(JSON.stringify(line))
-    else console.error(JSON.stringify(line))
+    else {
+      console.error(JSON.stringify(line))
+      // GitHub must not report a green run when the sync actually failed.
+      process.exitCode = 1
+    }
   } catch (e) {
     console.error(JSON.stringify({
       ts: new Date().toISOString(),
@@ -94,6 +130,7 @@ async function runTick(trigger) {
       error: e instanceof Error ? e.message : String(e),
       ms: Date.now() - t0
     }))
+    process.exitCode = 1
   } finally {
     inFlight = false
   }
@@ -131,7 +168,7 @@ const onceMode = process.argv.includes('--once') || process.env.GITHUB_ACTIONS =
 await runTick('startup')
 if (onceMode) {
   console.log(JSON.stringify({ ts: new Date().toISOString(), event: 'once_done' }))
-  process.exit(0)
+  process.exit()
 }
 timer = setInterval(() => {
   void runTick('auto')
