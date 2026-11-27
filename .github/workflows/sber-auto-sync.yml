@@ -60,6 +60,14 @@ jobs:
       - name: Run sber-auto-sync (once)
         run: npm run sber:sync-once
 
+      # Immediately publish newly imported rows; otherwise the separate
+      # sync-data.yml job would add up to another 5 minutes of delay.
+      - name: Refresh public data snapshot
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: node scripts/sync-public-data.mjs
+
       - name: Commit and push updated data
         run: |
           git config user.name "github-actions[bot]"

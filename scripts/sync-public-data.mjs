@@ -18,7 +18,7 @@ if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
 const endpoint = new URL('/rest/v1/public_transactions', SUPABASE_URL);
 endpoint.searchParams.set('select', 'date,time,type,category,description,donor,amount,doc');
 endpoint.searchParams.set('order', 'date.desc');
-endpoint.searchParams.set('limit', '500');
+endpoint.searchParams.set('limit', '5000');
 
 const resp = await fetch(endpoint, {
   headers: {
