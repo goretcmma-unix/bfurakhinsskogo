@@ -17,6 +17,7 @@
     "build:linux": "npm run build && electron-builder --linux",
     "sber:auto-sync": "node scripts/sber-auto-sync.mjs",
     "sber:sync-once": "node scripts/sber-auto-sync.mjs --once",
+    "sber:reauth": "node scripts/sber-reauth.mjs",
     "sber:prepare-secret": "node scripts/prepare-sber-bundle.mjs",
     "build:site": "node scripts/build-protected-site.mjs"
   },

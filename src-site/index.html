@@ -2473,7 +2473,7 @@
       let chartPadLeft = 56;
       let hoverIndex = -1;
       // Анимация появления: 0..1; rAF для плавности, с fallback-таймером для скрытых вкладок
-      let animProgress = 1;
+      let animProgress = 0;
       let animRaf = 0;
       let animFallback = 0;
       function finishAnim() {
@@ -2937,16 +2937,14 @@
         if (scrollEl) delete scrollEl.dataset.scrolledInit;
         try { updateChartData(currentPeriod); } catch (e) { console.warn('[public-site] updateChartData error:', e); }
         finChartDataReady = true;
-        if (finSectionRevealed) {
-          if (!finChartHasAnimated) {
-            finChartHasAnimated = true;
-            try { startChartAnim(); } catch (e) { console.warn('[public-site] startChartAnim error:', e); }
-          } else {
-            try { if (typeof renderChart === 'function') renderChart(); } catch (e) { console.warn('[public-site] renderChart error:', e); }
-          }
-        } else {
+        if (!finSectionRevealed) {
           animProgress = 0;
-          try { if (typeof renderChart === 'function') renderChart(); } catch (e) { console.warn('[public-site] renderChart error:', e); }
+        }
+        try { if (typeof renderChart === 'function') renderChart(); } catch (e) { console.warn('[public-site] renderChart error:', e); }
+        if (finSectionRevealed && !finChartHasAnimated) {
+          finChartHasAnimated = true;
+          animProgress = 0;
+          try { startChartAnim(); } catch (e) { console.warn('[public-site] startChartAnim error:', e); }
         }
         try { renderTable(); } catch (e) { console.warn('[public-site] renderTable error:', e); }
       }
@@ -2958,13 +2956,27 @@
             finSectionRevealed = true;
             if (finChartDataReady && !finChartHasAnimated) {
               finChartHasAnimated = true;
+              animProgress = 0;
               startChartAnim();
             }
           }
         });
-      }, { threshold: 0.25 });
+      }, { threshold: 0.15 });
       const finSectionEl = document.getElementById('finances');
       if (finSectionEl) finObserver.observe(finSectionEl);
+      requestAnimationFrame(() => {
+        if (finSectionEl && !finSectionRevealed) {
+          const r = finSectionEl.getBoundingClientRect();
+          if (r.top < window.innerHeight && r.bottom > 0) {
+            finSectionRevealed = true;
+            if (finChartDataReady && !finChartHasAnimated) {
+              finChartHasAnimated = true;
+              animProgress = 0;
+              startChartAnim();
+            }
+          }
+        }
+      });
 
       // Сброс страницы отчётов при уходе из секции скроллом — мгновенно
       let wasReportsVisible = false;
