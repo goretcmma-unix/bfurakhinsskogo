@@ -9,7 +9,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: sync-public-data
+  # Shared with sber-auto-sync.yml: both workflows push to master every 5 minutes.
+  group: repository-data-sync
   cancel-in-progress: false
 
 jobs:
@@ -37,4 +38,15 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public-site/data.json
           git commit -m "chore: sync public-site data snapshot"
-          git push origin HEAD:master
+          for attempt in 1 2 3 4 5; do
+            git fetch origin master
+            if git rebase origin/master && git push origin HEAD:master; then
+              echo "Pushed on attempt $attempt"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "Push attempt $attempt failed, retrying"
+            sleep $((attempt * 5))
+          done
+          echo "WARNING: data.json was not pushed; next run will retry"
+          exit 0

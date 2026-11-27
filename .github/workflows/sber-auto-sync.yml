@@ -9,7 +9,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: sber-auto-sync
+  # Shared with sync-data.yml: both workflows push to master every 5 minutes.
+  group: repository-data-sync
   cancel-in-progress: false
 
 jobs:
@@ -63,8 +64,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin master
-          git rebase origin/master
           git add -A
           # Encrypted token pair and sync cursor must survive GitHub runners.
           git add -f .sber-data/sber-secrets/tokens.json .sber-data/sber-sync/state.json || true
@@ -73,4 +72,15 @@ jobs:
             exit 0
           fi
           git commit -m "chore: sber auto-sync"
-          git push origin HEAD:master
+          for attempt in 1 2 3 4 5; do
+            git fetch origin master
+            if git rebase origin/master && git push origin HEAD:master; then
+              echo "Pushed on attempt $attempt"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "Push attempt $attempt failed, retrying"
+            sleep $((attempt * 5))
+          done
+          echo "WARNING: changes were not pushed; next run will retry"
+          exit 0
