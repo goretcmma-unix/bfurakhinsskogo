@@ -40,21 +40,38 @@ if (/\*/.test(access) || /\*/.test(refresh)) {
 }
 
 const modPath = 'file://' + path.join(root, 'out/main/sber-api/index.js').replaceAll('\\', '/')
-const { SberApi } = await import(modPath)
+const { SberApi, parseExpiryDate } = await import(modPath)
 const api = new SberApi({ userDataDir: path.join(root, '.sber-data') })
 
-const expiresRaw = (env.SBER_TOKEN_EXPIRES_IN || '').trim()
-let expiresInSeconds
-if (/^\d+$/.test(expiresRaw)) expiresInSeconds = Number(expiresRaw)
-else if (expiresRaw) {
-  const ms = Date.parse(expiresRaw) - Date.now()
-  if (Number.isFinite(ms) && ms > 0) expiresInSeconds = Math.floor(ms / 1000)
+// Access и refresh истекают в разные даты. Важно сохранить ОБЕ, иначе
+// просроченный access будет считаться «бессрочным», а рабочий refresh — неизвестным.
+function accessExpiry(raw) {
+  const value = (raw || '').trim()
+  if (!value) return {}
+  if (/^\d+$/.test(value)) return { expiresInSeconds: Number(value) }
+  return { expiresAt: value }
 }
+
+function refreshTtlSeconds(raw) {
+  const value = (raw || '').trim()
+  if (!value) return undefined
+  if (/^\d+$/.test(value)) return Number(value)
+  const absolute = parseExpiryDate(value)
+  return absolute && absolute > Date.now() ? Math.floor((absolute - Date.now()) / 1000) : undefined
+}
+
+const accessRaw = env.SBER_TOKEN_EXPIRES_IN || env.SBER_ACCESS_TOKEN_EXPIRES_AT || ''
+const refreshRaw =
+  env.SBER_REFRESH_TOKEN_EXPIRES_IN ||
+  env.SBER_REFRESH_TOKEN_EXPIRES_AT ||
+  env.SBER_REFRESH_EXPIRES_AT ||
+  ''
 
 const status = await api.oauth.setTokens({
   accessToken: access,
   refreshToken: refresh,
-  expiresInSeconds,
+  ...accessExpiry(accessRaw),
+  refreshExpiresInSeconds: refreshTtlSeconds(refreshRaw),
   scope: env.SBER_SCOPES || env.SBER_TOKEN_SCOPE
 })
 
@@ -62,5 +79,6 @@ console.log(JSON.stringify({
   event: 'tokens_imported',
   hasAccess: status.hasAccessToken,
   hasRefresh: status.hasRefreshToken,
-  expiresAt: status.expiresAt ? new Date(Number(status.expiresAt)).toISOString() : null
+  expiresAt: status.expiresAt ? new Date(Number(status.expiresAt)).toISOString() : null,
+  refreshExpiresAt: status.refreshExpiresAt || null
 }, null, 2))
