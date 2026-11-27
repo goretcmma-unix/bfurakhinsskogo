@@ -61,7 +61,7 @@ const normalized = data.map((row) => {
       ? 'Благотворительное пожертвование'
       : (row?.category ?? ''),
     description: registryPayment ? '' : sourceDescription,
-    donor: row?.donor ?? '',
+    donor: String(row?.donor ?? '').toLocaleUpperCase('ru-RU'),
     amount: Number(row?.amount ?? 0),
     doc: row?.doc ?? null,
   };
