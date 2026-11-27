@@ -197,17 +197,16 @@ const ORG_MARKERS = [
   'ПАО', 'АО', 'ООО', 'ЦБ РФ', 'РОССЕЛЬХОЗБАНК', 'ГАЗПРОМБАНК', 'СОВКОМБАНК'
 ]
 
-// Сводные платежи СБП/EPS: в выписке приходит не ФИО плательщика, а обрывок
-// назначения ("ПО ПРИНЯТЫМ ПЛАТЕЖАМ..."). Настоящие имена есть только в файле
-// реестра, который выписка не передаёт.
-const SBP_MARKERS = [
-  'СБП', 'SBP', 'НСПК', 'ЕПС', 'EPS',
-  'ПО ПРИНЯТЫМ ПЛАТЕЖАМ', 'ЭЛ.РЕЕСТР', 'В Т.Ч.УСЛ.БАНКА'
+// Реестровые платежи через платёжную ссылку Сбера: в выписке приходит не ФИО,
+// а обрывок назначения ("ПО ПРИНЯТЫМ ПЛАТЕЖАМ...") и ссылка на ЭЛ.РЕЕСТР EPS.
+// Настоящие имена есть только в файле реестра, который выписка не передаёт.
+const REGISTRY_MARKERS = [
+  'ПО ПРИНЯТЫМ ПЛАТЕЖАМ', 'ЭЛ.РЕЕСТР', 'EPS', 'В Т.Ч.УСЛ.БАНКА'
 ]
 
-function isSbpPayment(rawName: string | null, purpose: string | null): boolean {
+function isRegistryPayment(rawName: string | null, purpose: string | null): boolean {
   const text = `${String(rawName ?? '')} ${String(purpose ?? '')}`.toUpperCase()
-  return SBP_MARKERS.some((marker) => text.includes(marker))
+  return REGISTRY_MARKERS.some((marker) => text.includes(marker))
 }
 
 const DONOR_STOPWORDS = new Set([
@@ -321,20 +320,20 @@ function resolveDonorName(rawName: string | null, purpose: string | null, direct
   if (direction !== 'incoming') return null
   const name = String(rawName ?? '').trim()
   const purposeText = String(purpose ?? '').trim()
-  const sbpPayment = isSbpPayment(name, purposeText)
+  const registryPayment = isRegistryPayment(name, purposeText)
 
   if (name && !hasOrgMarker(name)) {
     const fromName = sanitizeFioCandidate(name)
-    // Для СБП bank сам отдаёт "ПРИНЯТЫМ П. С." — это не фамилия, а начало
-    // назначения. Стоп-слова выше не дают ему превратиться в ФИО.
+    // Банк отдаёт "ПРИНЯТЫМ П. С." — это не фамилия, а начало назначения.
+    // Стоп-слова выше не дают ему превратиться в ФИО.
     if (fromName) return fromName
   }
 
   const fromPurpose = extractFioFromPurpose(purposeText)
   if (fromPurpose) return fromPurpose
 
-  // ФИО плательщика есть только в прикреплённом реестре, а не в выписке.
-  if (sbpPayment) return 'СБП'
+  // Реестровый платёж по ссылке: ФИО есть только в файле реестра, а не в выписке.
+  if (registryPayment) return 'Сбербанк'
 
   // В назначении нет ФИО — возвращаем нейтральную метку
   if (purposeText) return 'Частное лицо'
