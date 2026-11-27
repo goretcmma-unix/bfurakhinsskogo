@@ -1,12 +1,12 @@
 [
   {
     "date": "2026-11-27",
-    "time": "13:34",
+    "time": "02:45",
     "type": "income",
     "category": "",
-    "description": "На благотворительность. НДС не облагается",
-    "donor": "ИДЗИЕВ Б. Н.",
-    "amount": 100,
+    "description": "ПО ПРИНЯТЫМ ПЛАТЕЖАМ С 26/11/2026 ПО 26/11/2026 НА ОБЩУЮ СУММУ 50.00,В Т.Ч.УСЛ.БАНКА:0.35,В КОЛ-ВЕ 1,СОГЛАСНО ЭЛ.РЕЕСТРУ EPS7536761989971_900005_0500025148_40703810860450000006_001.txt",
+    "donor": "СБП",
+    "amount": 49.65,
     "doc": null
   },
   {
@@ -21,22 +21,22 @@
   },
   {
     "date": "2026-11-27",
+    "time": "13:34",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-11-27",
     "time": "12:25",
     "type": "income",
     "category": "",
     "description": "садакьа;27/11/2026",
     "donor": "Частное лицо",
     "amount": 100,
-    "doc": null
-  },
-  {
-    "date": "2026-11-27",
-    "time": "02:45",
-    "type": "income",
-    "category": "",
-    "description": "ПО ПРИНЯТЫМ ПЛАТЕЖАМ С 26/11/2026 ПО 26/11/2026 НА ОБЩУЮ СУММУ 50.00,В Т.Ч.УСЛ.БАНКА:0.35,В КОЛ-ВЕ 1,СОГЛАСНО ЭЛ.РЕЕСТРУ EPS7536761989971_900005_0500025148_40703810860450000006_001.txt",
-    "donor": "ПРИНЯТЫМ П. С.",
-    "amount": 49.65,
     "doc": null
   },
   {
@@ -401,6 +401,16 @@
   },
   {
     "date": "2026-09-18",
+    "time": "12:37",
+    "type": "income",
+    "category": "",
+    "description": "На благотворительность. НДС не облагается",
+    "donor": "ИДЗИЕВ Б. Н.",
+    "amount": 100,
+    "doc": null
+  },
+  {
+    "date": "2026-09-18",
     "time": "09:07",
     "type": "income",
     "category": "",
@@ -420,16 +430,6 @@
     "doc": null
   },
   {
-    "date": "2026-09-18",
-    "time": "12:37",
-    "type": "income",
-    "category": "",
-    "description": "На благотворительность. НДС не облагается",
-    "donor": "ИДЗИЕВ Б. Н.",
-    "amount": 100,
-    "doc": null
-  },
-  {
     "date": "2026-09-17",
     "time": "18:55",
     "type": "income",
@@ -437,6 +437,16 @@
     "description": "благодаря;17/09/2026",
     "donor": "ОСМАНОВ М. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-09-11",
+    "time": "10:24",
+    "type": "income",
+    "category": "",
+    "description": "садакьа;11/09/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -457,16 +467,6 @@
     "description": "А;11/09/2026",
     "donor": "ГАЗИЕВА А. А.",
     "amount": 150,
-    "doc": null
-  },
-  {
-    "date": "2026-09-11",
-    "time": "10:24",
-    "type": "income",
-    "category": "",
-    "description": "садакьа;11/09/2026",
-    "donor": "МАГОМЕДОВ Э. М.",
-    "amount": 100,
     "doc": null
   },
   {
@@ -1691,16 +1691,6 @@
   },
   {
     "date": "2026-07-03",
-    "time": "19:24",
-    "type": "income",
-    "category": "",
-    "description": "А;03/07/2026",
-    "donor": "ГАЗИЕВА А. А.",
-    "amount": 500,
-    "doc": null
-  },
-  {
-    "date": "2026-07-03",
     "time": "10:44",
     "type": "income",
     "category": "",
@@ -1720,6 +1710,16 @@
     "doc": null
   },
   {
+    "date": "2026-07-03",
+    "time": "19:24",
+    "type": "income",
+    "category": "",
+    "description": "А;03/07/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 500,
+    "doc": null
+  },
+  {
     "date": "2026-07-01",
     "time": "22:21",
     "type": "income",
@@ -1727,6 +1727,36 @@
     "description": "благодаря;01/07/2026",
     "donor": "ОСМАНОВ М. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
+    "time": "15:00",
+    "type": "income",
+    "category": "",
+    "description": "Помощь малоимущим семьям;26/06/2026",
+    "donor": "МОГОМЕДОВ А. М.",
+    "amount": 400,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
+    "time": "17:27",
+    "type": "income",
+    "category": "",
+    "description": "А;26/06/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-06-26",
+    "time": "17:27",
+    "type": "income",
+    "category": "",
+    "description": "А;26/06/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
     "doc": null
   },
   {
@@ -1741,42 +1771,12 @@
   },
   {
     "date": "2026-06-26",
-    "time": "17:27",
-    "type": "income",
-    "category": "",
-    "description": "А;26/06/2026",
-    "donor": "ГАЗИЕВА А. А.",
-    "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-06-26",
-    "time": "17:27",
-    "type": "income",
-    "category": "",
-    "description": "А;26/06/2026",
-    "donor": "ГАЗИЕВА А. А.",
-    "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-06-26",
     "time": "10:08",
     "type": "income",
     "category": "",
     "description": "Садакьа. НДС не облагается",
     "donor": "АЛИШЕЙХОВА Г. И.",
     "amount": 91.05,
-    "doc": null
-  },
-  {
-    "date": "2026-06-26",
-    "time": "15:00",
-    "type": "income",
-    "category": "",
-    "description": "Помощь малоимущим семьям;26/06/2026",
-    "donor": "МОГОМЕДОВ А. М.",
-    "amount": 400,
     "doc": null
   },
   {
@@ -1951,12 +1951,12 @@
   },
   {
     "date": "2026-05-29",
-    "time": "13:54",
+    "time": "10:29",
     "type": "income",
     "category": "",
-    "description": "Помощь малоимущим;29/05/2026",
-    "donor": "АЛИКАДИЕВА Ш. М.",
-    "amount": 500,
+    "description": "садакьа;29/05/2026",
+    "donor": "МАГОМЕДОВ Э. М.",
+    "amount": 100,
     "doc": null
   },
   {
@@ -1971,12 +1971,12 @@
   },
   {
     "date": "2026-05-29",
-    "time": "10:29",
+    "time": "13:54",
     "type": "income",
     "category": "",
-    "description": "садакьа;29/05/2026",
-    "donor": "МАГОМЕДОВ Э. М.",
-    "amount": 100,
+    "description": "Помощь малоимущим;29/05/2026",
+    "donor": "АЛИКАДИЕВА Ш. М.",
+    "amount": 500,
     "doc": null
   },
   {
@@ -2001,32 +2001,32 @@
   },
   {
     "date": "2026-05-22",
-    "time": "18:37",
-    "type": "income",
-    "category": "",
-    "description": "А;22/05/2026",
-    "donor": "ГАЗИЕВА А. А.",
-    "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-05-22",
-    "time": "18:37",
-    "type": "income",
-    "category": "",
-    "description": "А;22/05/2026",
-    "donor": "ГАЗИЕВА А. А.",
-    "amount": 50,
-    "doc": null
-  },
-  {
-    "date": "2026-05-22",
     "time": "12:45",
     "type": "income",
     "category": "",
     "description": "садакьа;22/05/2026",
     "donor": "БАГОМЕДОВ З. М.",
     "amount": 200,
+    "doc": null
+  },
+  {
+    "date": "2026-05-22",
+    "time": "18:37",
+    "type": "income",
+    "category": "",
+    "description": "А;22/05/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
+    "doc": null
+  },
+  {
+    "date": "2026-05-22",
+    "time": "18:37",
+    "type": "income",
+    "category": "",
+    "description": "А;22/05/2026",
+    "donor": "ГАЗИЕВА А. А.",
+    "amount": 50,
     "doc": null
   },
   {
