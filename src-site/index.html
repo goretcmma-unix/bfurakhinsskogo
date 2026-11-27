@@ -3274,7 +3274,11 @@ requestAnimationFrame(() => {
           if (formBody) formBody.style.display = '';
           if (modal) modal.classList.remove('qr-mode');
         });
-        if (sbpBtn) sbpBtn.addEventListener('click', () => beginPayment('sbp'));
+        if (sbpBtn) sbpBtn.addEventListener('click', () => {
+          const state = syncDonateState();
+          if (!state.ok || !requireConsent()) return;
+          setError('СБП для фонда пока не подключён. Воспользуйтесь QR-кодом для оплаты или кнопкой «Оплатить картой».');
+        });
         if (qrToggle && modal) qrToggle.addEventListener('click', () => {
           const state = syncDonateState();
           if (!state.ok || !requireConsent()) return;
