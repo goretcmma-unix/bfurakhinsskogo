@@ -18,6 +18,7 @@
     "sber:auto-sync": "node scripts/sber-auto-sync.mjs",
     "sber:sync-once": "node scripts/sber-auto-sync.mjs --once",
     "sber:reauth": "node scripts/sber-reauth.mjs",
+    "sber:set-tokens": "node scripts/sber-set-tokens.mjs",
     "sber:prepare-secret": "node scripts/prepare-sber-bundle.mjs",
     "build:site": "node scripts/build-protected-site.mjs"
   },
