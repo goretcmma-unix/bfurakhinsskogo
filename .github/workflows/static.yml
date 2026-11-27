@@ -3,6 +3,9 @@ name: Deploy static content to Pages
 on:
   push:
     branches: ["master"]
+    # Sber sync heartbeats touch only .sber-data; no need to redeploy the site.
+    paths-ignore:
+      - '.sber-data/**'
   workflow_dispatch:
 
 permissions:

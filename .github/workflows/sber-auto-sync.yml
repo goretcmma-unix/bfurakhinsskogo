@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  # Shared with sync-data.yml: both workflows push to master every 5 minutes.
+  # Shared with sync-data.yml: only one of these workflows pushes at a time.
   group: repository-data-sync
   cancel-in-progress: false
 
@@ -76,11 +76,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Heartbeat timestamps alone must not cause a commit (and a Pages
+          # rebuild). Keep the cursor only when it really moved or tokens rotated.
+          node scripts/sync-state-guard.mjs
           git add -A
           # Encrypted token pair and sync cursor must survive GitHub runners.
           git add -f .sber-data/sber-secrets/tokens.json .sber-data/sber-sync/state.json || true
           if git diff --cached --quiet; then
-            echo "No changes"
+            echo "No meaningful changes"
             exit 0
           fi
           git commit -m "chore: sber auto-sync"
