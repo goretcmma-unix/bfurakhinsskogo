@@ -2931,49 +2931,54 @@
       let finChartDataReady = false;
       let finChartHasAnimated = false;
 
-      function filterAndRender(period) {
-        if (period) currentPeriod = period;
-        const scrollEl = document.getElementById('finChartScroll');
-        if (scrollEl) delete scrollEl.dataset.scrolledInit;
-        try { updateChartData(currentPeriod); } catch (e) { console.warn('[public-site] updateChartData error:', e); }
-        finChartDataReady = true;
-        if (!finSectionRevealed) {
-          animProgress = 0;
-        }
-        try { if (typeof renderChart === 'function') renderChart(); } catch (e) { console.warn('[public-site] renderChart error:', e); }
-        if (finSectionRevealed && !finChartHasAnimated) {
-          finChartHasAnimated = true;
-          animProgress = 0;
-          try { startChartAnim(); } catch (e) { console.warn('[public-site] startChartAnim error:', e); }
-        }
-        try { renderTable(); } catch (e) { console.warn('[public-site] renderTable error:', e); }
-      }
+// Смотрим именно на график, а не на весь блок #finances: блок начинается
+// заголовком и блоком «Размер вкладов», из-за чего анимация успевала закончиться
+// раньше, чем сам график попадал в зону видимости.
+function finChartIsInView() {
+  const el = document.getElementById('finChartScroll') || document.getElementById('finChart');
+  if (!el) return false;
+  const r = el.getBoundingClientRect();
+  const vh = window.innerHeight || document.documentElement.clientHeight;
+  return r.top < vh * 0.9 && r.bottom > vh * 0.05;
+}
+function tryStartFinanceAnimation() {
+  if (finChartHasAnimated || !finChartDataReady) return;
+  if (!finChartIsInView()) return;
+  finSectionRevealed = true;
+  finChartHasAnimated = true;
+  animProgress = 0;
+  try { startChartAnim(); } catch (e) { console.warn('[public-site] startChartAnim error:', e); }
+}
+function filterAndRender(period) {
+  if (period) currentPeriod = period;
+  const scrollEl = document.getElementById('finChartScroll');
+  if (scrollEl) delete scrollEl.dataset.scrolledInit;
+  try { updateChartData(currentPeriod); } catch (e) { console.warn('[public-site] updateChartData error:', e); }
+  finChartDataReady = true;
+  if (!finSectionRevealed) {
+    if (finChartIsInView()) finSectionRevealed = true;
+    else animProgress = 0;
+  }
+  try { if (typeof renderChart === 'function') renderChart(); } catch (e) { console.warn('[public-site] renderChart error:', e); }
+  try { renderTable(); } catch (e) { console.warn('[public-site] renderTable error:', e); }
+  tryStartFinanceAnimation();
+}
 
-      // Анимация при появлении блока финансов в зоне видимости (навигация по меню/скролл)
-      const finObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !finSectionRevealed) {
-            finSectionRevealed = true;
-            if (finChartDataReady && !finChartHasAnimated) {
-              finChartHasAnimated = true;
-              animProgress = 0;
-              startChartAnim();
-            }
-          }
-        });
-      }, { threshold: 0.15 });
-      const finSectionEl = document.getElementById('finances');
-      if (finSectionEl) finObserver.observe(finSectionEl);
-      requestAnimationFrame(() => {
-        if (finSectionEl && !finSectionRevealed) {
-          const r = finSectionEl.getBoundingClientRect();
-          if (r.top < window.innerHeight && r.bottom > 0) {
-            finSectionRevealed = true;
-            if (finChartDataReady && !finChartHasAnimated) {
-              finChartHasAnimated = true;
-              animProgress = 0;
-              startChartAnim();
-            }
+      // Анимация при появлении графика в зоне видимости (навигация по меню/скролл)
+const finSectionEl = document.getElementById('finances');
+const finChartEl = document.getElementById('finChartScroll') || document.getElementById('finChart');
+const finObserver = new IntersectionObserver((entries) => {
+  if (entries.some(e => e.isIntersecting)) tryStartFinanceAnimation();
+}, { threshold: 0.15 });
+if (finChartEl) finObserver.observe(finChartEl);
+window.addEventListener('scroll', tryStartFinanceAnimation, { passive: true });
+requestAnimationFrame(() => {
+        if (!finSectionRevealed && finChartIsInView()) {
+          finSectionRevealed = true;
+          if (finChartDataReady && !finChartHasAnimated) {
+            finChartHasAnimated = true;
+            animProgress = 0;
+            startChartAnim();
           }
         }
       });
@@ -3363,11 +3368,12 @@
           });
         }
 
-        function getScrollTargetY(href) {
-          const section = sectionMap[href];
-          if (!section) return null;
-          return section.offsetTop;
-        }
+         function getScrollTargetY(href) {
+           const section = sectionMap[href];
+           if (!section) return null;
+           if (href === '#about') return 0;
+           return section.offsetTop;
+         }
 
         function onScrollEnd() {
           navState.isNavigating = false;
@@ -3506,7 +3512,7 @@
               const target = document.querySelector(id);
               if (target) {
                 e.preventDefault();
-                animateScrollTo(target.getBoundingClientRect().top + window.scrollY);
+                animateScrollTo(id === '#about' ? 0 : target.getBoundingClientRect().top + window.scrollY);
               }
             });
           });
@@ -3519,7 +3525,7 @@
               const target = document.querySelector(id);
               if (target) {
                 e.preventDefault();
-                animateScrollTo(target.getBoundingClientRect().top + window.scrollY);
+                animateScrollTo(id === '#about' ? 0 : target.getBoundingClientRect().top + window.scrollY);
               }
               // «Годовой отчёт 2025» — переключить период отчёта на 2025
               if (link.textContent && link.textContent.includes('2025')) {
