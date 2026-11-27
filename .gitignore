@@ -22,3 +22,4 @@ resources/*.pfx
 resources/*.key
 supabase/
 sber-github-secret.base64.txt
+.local/
