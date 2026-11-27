@@ -79,6 +79,6 @@ console.log(JSON.stringify({
   event: 'tokens_imported',
   hasAccess: status.hasAccessToken,
   hasRefresh: status.hasRefreshToken,
-  expiresAt: status.expiresAt ? new Date(Number(status.expiresAt)).toISOString() : null,
+  accessExpiresAt: status.accessExpiresAt || null,
   refreshExpiresAt: status.refreshExpiresAt || null
 }, null, 2))
