@@ -39,8 +39,8 @@ if (!Array.isArray(data)) {
 }
 
 // Реестровые платежи по ссылке Сбера не несут комментария плательщика:
-// в описании только служебный текст и ссылка на ЭЛ.РЕЕСТР EPS. Сайт иначе
-//сам определяет для них категорию "Прочее" — явно задаём верный заголовок.
+// в описании только служебный текст и имя файла ЭЛ.РЕЕСТР EPS. Оставляем
+// чистый заголовок категории и убираем этот текст из публичной таблицы.
 const REGISTRY_MARKERS = [
   'ПО ПРИНЯТЫМ ПЛАТЕЖАМ', 'ЭЛ.РЕЕСТР', 'EPS', 'В Т.Ч.УСЛ.БАНКА',
 ];
@@ -51,15 +51,16 @@ function isRegistryPayment(description) {
 }
 
 const normalized = data.map((row) => {
-  const description = row?.description ?? '';
+  const sourceDescription = row?.description ?? '';
+  const registryPayment = isRegistryPayment(sourceDescription);
   return {
     date: row?.date ?? '',
     time: row?.time ?? '',
     type: row?.type ?? '',
-    category: isRegistryPayment(description)
+    category: registryPayment
       ? 'Благотворительное пожертвование'
       : (row?.category ?? ''),
-    description,
+    description: registryPayment ? '' : sourceDescription,
     donor: row?.donor ?? '',
     amount: Number(row?.amount ?? 0),
     doc: row?.doc ?? null,
