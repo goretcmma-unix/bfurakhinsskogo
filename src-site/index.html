@@ -2483,6 +2483,8 @@
         renderChart();
       }
       function startChartAnim() {
+        // Ручной запуск (фильтр) отменяет отложенный автозапуск при скролле.
+        clearTimeout(finAnimDelayTimer); finAnimDelayTimer = 0;
         if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { animProgress = 1; renderChart(); return; }
         cancelAnimationFrame(animRaf); clearInterval(animFallback);
         const t0 = performance.now();
@@ -2930,6 +2932,8 @@
       let finSectionRevealed = false;
       let finChartDataReady = false;
       let finChartHasAnimated = false;
+      let finAnimDelayTimer = 0;
+      const FIN_ANIM_DELAY_MS = 2000;
 
 // Смотрим именно на график, а не на весь блок #finances: блок начинается
 // заголовком и блоком «Размер вкладов», из-за чего анимация успевала закончиться
@@ -2941,13 +2945,21 @@ function finChartIsInView() {
   const vh = window.innerHeight || document.documentElement.clientHeight;
   return r.top < vh * 0.9 && r.bottom > vh * 0.05;
 }
+function scheduleFinanceAnimation() {
+  if (finChartHasAnimated) return;
+  finChartHasAnimated = true;
+  clearTimeout(finAnimDelayTimer);
+  animProgress = 0;
+  finAnimDelayTimer = setTimeout(() => {
+    finAnimDelayTimer = 0;
+    try { startChartAnim(); } catch (e) { console.warn('[public-site] startChartAnim error:', e); }
+  }, FIN_ANIM_DELAY_MS);
+}
 function tryStartFinanceAnimation() {
   if (finChartHasAnimated || !finChartDataReady) return;
   if (!finChartIsInView()) return;
   finSectionRevealed = true;
-  finChartHasAnimated = true;
-  animProgress = 0;
-  try { startChartAnim(); } catch (e) { console.warn('[public-site] startChartAnim error:', e); }
+  scheduleFinanceAnimation();
 }
 function filterAndRender(period) {
   if (period) currentPeriod = period;
@@ -2975,11 +2987,7 @@ window.addEventListener('scroll', tryStartFinanceAnimation, { passive: true });
 requestAnimationFrame(() => {
         if (!finSectionRevealed && finChartIsInView()) {
           finSectionRevealed = true;
-          if (finChartDataReady && !finChartHasAnimated) {
-            finChartHasAnimated = true;
-            animProgress = 0;
-            startChartAnim();
-          }
+          if (finChartDataReady && !finChartHasAnimated) scheduleFinanceAnimation();
         }
       });
 
