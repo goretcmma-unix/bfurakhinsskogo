@@ -1,0 +1,8 @@
+name = "sber-dispatch"
+main = "index.js"
+compatibility_date = "2026-11-27"
+
+# GitHub's own schedule is delayed for hours, so an external cron is required
+# for near-real-time Sber → Supabase → data.json updates.
+[triggers]
+crons = ["*/1 * * * *"]
