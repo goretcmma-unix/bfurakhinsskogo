@@ -197,6 +197,19 @@ const ORG_MARKERS = [
   'ПАО', 'АО', 'ООО', 'ЦБ РФ', 'РОССЕЛЬХОЗБАНК', 'ГАЗПРОМБАНК', 'СОВКОМБАНК'
 ]
 
+// Сводные платежи СБП/EPS: в выписке приходит не ФИО плательщика, а обрывок
+// назначения ("ПО ПРИНЯТЫМ ПЛАТЕЖАМ..."). Настоящие имена есть только в файле
+// реестра, который выписка не передаёт.
+const SBP_MARKERS = [
+  'СБП', 'SBP', 'НСПК', 'ЕПС', 'EPS',
+  'ПО ПРИНЯТЫМ ПЛАТЕЖАМ', 'ЭЛ.РЕЕСТР', 'В Т.Ч.УСЛ.БАНКА'
+]
+
+function isSbpPayment(rawName: string | null, purpose: string | null): boolean {
+  const text = `${String(rawName ?? '')} ${String(purpose ?? '')}`.toUpperCase()
+  return SBP_MARKERS.some((marker) => text.includes(marker))
+}
+
 const DONOR_STOPWORDS = new Set([
   'ЧАСТНОЕ','ЛИЦО','ФИЗ','ПЕРЕВОД','СРЕДСТВ','ОПЛАТА','ПОЖЕРТВОВАНИЕ',
   'САДАКА','САДАКЪА','ДОНАТ','ПЛАТЕЖ','ПЛАТЁЖ','БЕЗНАЛИЧНЫЙ','КАРТА',
@@ -204,7 +217,8 @@ const DONOR_STOPWORDS = new Set([
   'ДЛЯ','ОТ','ЗА','НА','ПО','БЕЗ','ПРИ','ВО','ДО','ИЗ','ОБ','ПОД','НАД','ЧЕРЕЗ',
   'ПОМОЩЬ','ФОНД','СБОР','ЦЕЛЕВОЙ','НУЖДЫ','БЛАГО','МИЛОСТЫНЯ','ЗАКЯТ','ФИТР','ПОЖЕРТВ','ХАДИЯ',
   'НДС','БЛАГОТВОРИТЕЛЬНОСТЬ','БЛАГОТВОРИТЕЛЬНЫЙ','ВЗНОС','ДАР','ЦЕЛЕВОЕ','НАЗНАЧЕНИЕ',
-  'НЕ','НЕТ','ДА','ПОЖЕРТВОВАНИЯ','ПОЖЕРТВОВАНИЙ','ПОЖЕРТВОВАНИЮ','ПОЖЕРТВОВАНИЕМ'
+  'НЕ','НЕТ','ДА','ПОЖЕРТВОВАНИЯ','ПОЖЕРТВОВАНИЙ','ПОЖЕРТВОВАНИЮ','ПОЖЕРТВОВАНИЕМ',
+  'ПРИНЯТЫМ','ПРИНЯТЫЕ','ПЛАТЕЖАМ','РЕЕСТР','РЕЕСТРУ','УСЛ'
 ])
 
 const ADDRESS_TOKENS = new Set([
@@ -238,15 +252,24 @@ function extractFioFromPurpose(purpose: string | null | undefined): string | nul
   const raw = String(purpose ?? '').trim()
   if (!raw) return null
 
-  // сегменты между // часто содержат ФИО
-  const segments = raw.split('//').map((s) => s.trim()).filter(Boolean)
   const candidates: string[] = []
 
-  for (const re of [/\bот\s+([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i, /\bплательщик\s*[:\-]\s*([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i, /\bФИО\s*[:\-]\s*([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i]) {
+  // \b не работает с кириллицей в JS-регекспах — используем явные разделители.
+  for (const re of [
+    /(^|[\s(])от\s+([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i,
+    /(^|[\s(])плательщик\s*[:\-]\s*([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i,
+    /(^|[\s(])ФИО\s*[:\-]\s*([А-ЯЁа-яё-]+(?:\s+[А-ЯЁа-яё-]+){1,3})/i
+  ]) {
     const m = raw.match(re)
-    if (m?.[1]) candidates.push(m[1])
+    if (m?.[2]) candidates.push(m[2])
   }
-  candidates.push(...segments)
+
+  // Сегменты между // часто содержат ФИО. Без разделителя нельзя скармливать
+  // sanitize всё назначение целиком — из служебного текста получается мусорное
+  // "ФИО" вроде "С О. С." из "ПО ПРИНЯТЫМ ПЛАТЕЖАМ...".
+  if (raw.includes('//')) {
+    candidates.push(...raw.split('//').map((s) => s.trim()).filter(Boolean))
+  }
 
   for (const c of candidates) {
     const cleaned = sanitizeFioCandidate(c)
@@ -298,14 +321,20 @@ function resolveDonorName(rawName: string | null, purpose: string | null, direct
   if (direction !== 'incoming') return null
   const name = String(rawName ?? '').trim()
   const purposeText = String(purpose ?? '').trim()
+  const sbpPayment = isSbpPayment(name, purposeText)
 
   if (name && !hasOrgMarker(name)) {
     const fromName = sanitizeFioCandidate(name)
+    // Для СБП bank сам отдаёт "ПРИНЯТЫМ П. С." — это не фамилия, а начало
+    // назначения. Стоп-слова выше не дают ему превратиться в ФИО.
     if (fromName) return fromName
   }
 
   const fromPurpose = extractFioFromPurpose(purposeText)
   if (fromPurpose) return fromPurpose
+
+  // ФИО плательщика есть только в прикреплённом реестре, а не в выписке.
+  if (sbpPayment) return 'СБП'
 
   // В назначении нет ФИО — возвращаем нейтральную метку
   if (purposeText) return 'Частное лицо'
