@@ -38,16 +38,33 @@ if (!Array.isArray(data)) {
   throw new Error('Unexpected Supabase response: expected array');
 }
 
-const normalized = data.map((row) => ({
-  date: row?.date ?? '',
-  time: row?.time ?? '',
-  type: row?.type ?? '',
-  category: row?.category ?? '',
-  description: row?.description ?? '',
-  donor: row?.donor ?? '',
-  amount: Number(row?.amount ?? 0),
-  doc: row?.doc ?? null,
-}));
+// Реестровые платежи по ссылке Сбера не несут комментария плательщика:
+// в описании только служебный текст и ссылка на ЭЛ.РЕЕСТР EPS. Сайт иначе
+//сам определяет для них категорию "Прочее" — явно задаём верный заголовок.
+const REGISTRY_MARKERS = [
+  'ПО ПРИНЯТЫМ ПЛАТЕЖАМ', 'ЭЛ.РЕЕСТР', 'EPS', 'В Т.Ч.УСЛ.БАНКА',
+];
+
+function isRegistryPayment(description) {
+  const text = String(description ?? '').toUpperCase();
+  return REGISTRY_MARKERS.some((marker) => text.includes(marker));
+}
+
+const normalized = data.map((row) => {
+  const description = row?.description ?? '';
+  return {
+    date: row?.date ?? '',
+    time: row?.time ?? '',
+    type: row?.type ?? '',
+    category: isRegistryPayment(description)
+      ? 'Благотворительное пожертвование'
+      : (row?.category ?? ''),
+    description,
+    donor: row?.donor ?? '',
+    amount: Number(row?.amount ?? 0),
+    doc: row?.doc ?? null,
+  };
+});
 
 await fs.mkdir(path.dirname(OUT_FILE), { recursive: true });
 await fs.writeFile(OUT_FILE, JSON.stringify(normalized, null, 2) + '\n', 'utf8');
